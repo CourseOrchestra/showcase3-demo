@@ -1,0 +1,12 @@
+{
+  "name": "showcase3-demo",
+  "author": "CourseIT",
+  "version": "1.0.1",
+  "description": "showcase3-demo",
+  "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CourseOrchestra/showcase3-demo"
+  },
+  "homepage": "https://CourseOrchestra.github.io/showcase3-demo"
+}
