@@ -1,12 +1,64 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
     "type": "git",
     "url": "https://github.com/CourseOrchestra/showcase3-demo"
   },
-  "homepage": "https://CourseOrchestra.github.io/showcase3-demo"
+  "homepage": "https://CourseOrchestra.github.io/showcase3-demo",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@mdi/font": "^6.7.96",
+    "core-js": "^3.23.2",
+    "roboto-fontface": "*",
+    "vue": "^3.2.37",
+    "vue-class-component": "^8.0.0-rc.1",
+    "vue-router": "^4.0.16",
+    "vuetify": "^3.0.0-beta.4",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.2",
+    "@types/webfontloader": "^1.6.34",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "@vue/cli-plugin-babel": "^5.0.6",
+    "@vue/cli-plugin-e2e-cypress": "^5.0.6",
+    "@vue/cli-plugin-eslint": "^5.0.6",
+    "@vue/cli-plugin-router": "^5.0.6",
+    "@vue/cli-plugin-typescript": "^5.0.6",
+    "@vue/cli-plugin-unit-jest": "^5.0.6",
+    "@vue/cli-service": "^5.0.6",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "@vue/test-utils": "^2.0.0",
+    "@vue/vue3-jest": "^28.0.0",
+    "babel-jest": "^28.1.1",
+    "cypress": "^10.1.0",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "jest": "^28.1.1",
+    "lint-staged": "^13.0.2",
+    "prettier": "^2.7.1",
+    "sass": "^1.52.3",
+    "sass-loader": "^13.0.0",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4",
+    "vue-cli-plugin-vuetify": "^2.5.1",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.11",
+    "webpack": "^5.73.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  }
 }
