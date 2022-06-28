@@ -22,14 +22,14 @@
 </template>
 
 <script>
-//import LogoPlatform from "showcase2/src/components/LogoPlatform";
+import LogoPlatform from "showcase2/src/components/LogoPlatform";
 import { setTitle } from "@/utils/common";
 
 export default {
   name: "LogoPlatformPage",
 
   components: {
-    //      LogoPlatform,
+    LogoPlatform,
     //LogoPlatform: () => import("showcase2/src/components/LogoPlatform"),
   },
 

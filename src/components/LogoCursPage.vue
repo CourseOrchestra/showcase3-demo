@@ -14,15 +14,15 @@
 </template>
 
 <script>
-//import LogoCurs from "showcase2/src/components/LogoCurs";
-import { setTitle } from "@/utils/common";
+import LogoCurs from "showcase2/src/components/LogoCurs";
+import { setTitle } from "../utils/common";
 
 export default {
   name: "LogoCursPage",
 
   components: {
-    //      LogoCurs,
-    //LogoCurs: () => import("showcase2/src/components/LogoCurs"),
+    LogoCurs,
+    //  LogoCurs: () => import("showcase2/src/components/LogoCurs"),
   },
 
   data: () => ({}),

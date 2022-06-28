@@ -6,16 +6,12 @@
       <v-col class="font-weight-bold">
         <h2>Версии</h2>
         <br />
-
-        <!--
         <v-text-field
           readonly
           outlined
           v-model="libVersion"
           label="showcase3"
         ></v-text-field>
--->
-
         <v-text-field
           readonly
           outlined
@@ -33,7 +29,7 @@
 
 <script>
 import appPackageInfo from "@/../package";
-//import libPackageInfo from "showcase2/package";
+import libPackageInfo from "showcase2/package";
 import { setTitle } from "@/utils/common";
 
 export default {
@@ -41,7 +37,7 @@ export default {
 
   data: () => ({
     appVersion: appPackageInfo.version,
-    //    libVersion: libPackageInfo.version,
+    libVersion: libPackageInfo.version,
   }),
 
   created() {
