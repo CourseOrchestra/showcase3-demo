@@ -10,14 +10,17 @@
   </v-container>
 </template>
 
-<script>
-import { setTitle } from "@/utils/common";
+<script lang="ts">
+import { defineComponent } from "vue";
+//import { setTitle } from "@/utils/common";
 
-export default {
+export default defineComponent({
   name: "UrlStatePage",
 
+  /*
   created() {
     setTitle("Состояние в url");
   },
-};
+*/
+});
 </script>

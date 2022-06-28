@@ -21,11 +21,13 @@
   </v-container>
 </template>
 
+<!--<script lang="ts">-->
 <script>
+import { defineComponent } from "vue";
 import LogoPlatform from "showcase2/src/components/LogoPlatform";
 import { setTitle } from "@/utils/common";
 
-export default {
+export default defineComponent({
   name: "LogoPlatformPage",
 
   components: {
@@ -38,5 +40,5 @@ export default {
   created() {
     setTitle("Логотип Платформы");
   },
-};
+});
 </script>

@@ -13,11 +13,13 @@
   </v-container>
 </template>
 
+<!--<script lang="ts">-->
 <script>
+import { defineComponent } from "vue";
 import LogoCurs from "showcase2/src/components/LogoCurs";
 import { setTitle } from "../utils/common";
 
-export default {
+export default defineComponent({
   name: "LogoCursPage",
 
   components: {
@@ -30,5 +32,5 @@ export default {
   created() {
     setTitle("Логотип КУРСа");
   },
-};
+});
 </script>

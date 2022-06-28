@@ -27,6 +27,7 @@
   </v-container>
 </template>
 
+<!--<script lang="ts">-->
 <script>
 import appPackageInfo from "@/../package";
 import libPackageInfo from "showcase2/package";
