@@ -1,7 +1,6 @@
 import vuetify from "../../src/plugins/vuetify";
 import { shallowMount } from "@vue/test-utils";
 import UrlStatePage from "@/components/UrlStatePage.vue";
-import { VApp } from "vuetify/components";
 
 describe("UrlStatePage.vue", () => {
   it("Навигатор", () => {

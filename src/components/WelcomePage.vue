@@ -2,6 +2,14 @@
   <v-container>
     <br />
     <br />
+    <h1>
+      Vue {{ vueVersion }} + Vuetify {{ vuetifyVersion }} + TypeScript
+      {{ typescriptVersion }}
+    </h1>
+    <br />
+    <br />
+    <br />
+    <br />
     <v-row>
       <v-col class="font-weight-bold">
         <h2>Версии</h2>
@@ -30,6 +38,9 @@
 <script lang="ts">
 import appPackageInfo from "@/../package.json";
 import libPackageInfo from "showcase3/package.json";
+import vuePackageInfo from "vue/package.json";
+import vuetifyPackageInfo from "vuetify/package.json";
+import typescriptPackageInfo from "typescript/package.json";
 import { setTitle } from "@/utils/common";
 
 export default {
@@ -38,6 +49,10 @@ export default {
   data: () => ({
     appVersion: appPackageInfo.version,
     libVersion: libPackageInfo.version,
+
+    vueVersion: vuePackageInfo.version,
+    vuetifyVersion: vuetifyPackageInfo.version,
+    typescriptVersion: typescriptPackageInfo.version,
   }),
 
   created() {
