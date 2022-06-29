@@ -1,13 +1,20 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col cols="6">
+      <v-col cols="4">
         <logo-curs id="lcurs1"></logo-curs>
         <logo-curs id="lcurs2"></logo-curs>
-      </v-col>
-      <v-col cols="6">
         <logo-curs id="lcurs3"></logo-curs>
+      </v-col>
+      <v-col cols="4">
         <logo-curs id="lcurs4"></logo-curs>
+        <logo-curs id="lcurs5"></logo-curs>
+        <logo-curs id="lcurs6"></logo-curs>
+      </v-col>
+      <v-col cols="4">
+        <logo-curs id="lcurs7"></logo-curs>
+        <logo-curs id="lcurs8"></logo-curs>
+        <logo-curs id="lcurs9"></logo-curs>
       </v-col>
     </v-row>
   </v-container>
