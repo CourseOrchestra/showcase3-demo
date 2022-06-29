@@ -21,10 +21,9 @@
   </v-container>
 </template>
 
-<!--<script lang="ts">-->
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
-import LogoPlatform from "showcase3/src/components/LogoPlatform";
+import LogoPlatform from "showcase3/src/components/LogoPlatform.vue";
 import { setTitle } from "@/utils/common";
 
 export default defineComponent({

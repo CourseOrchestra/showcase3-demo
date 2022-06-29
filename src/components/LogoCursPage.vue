@@ -13,11 +13,10 @@
   </v-container>
 </template>
 
-<!--<script lang="ts">-->
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
-import LogoCurs from "showcase3/src/components/LogoCurs";
-import { setTitle } from "../utils/common";
+import LogoCurs from "showcase3/src/components/LogoCurs.vue";
+import { setTitle } from "@/utils/common";
 
 export default defineComponent({
   name: "LogoCursPage",
