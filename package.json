@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -17,7 +17,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@mdi/font": "^6.7.96",
+    "@mdi/font": "^6.8.96",
     "core-js": "^3.23.3",
     "roboto-fontface": "*",
     "vue": "^3.2.37",
