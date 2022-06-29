@@ -27,10 +27,9 @@
   </v-container>
 </template>
 
-<!--<script lang="ts">-->
-<script>
-import appPackageInfo from "@/../package";
-import libPackageInfo from "showcase3/package";
+<script lang="ts">
+import appPackageInfo from "@/../package.json";
+import libPackageInfo from "showcase3/package.json";
 import { setTitle } from "@/utils/common";
 
 export default {
