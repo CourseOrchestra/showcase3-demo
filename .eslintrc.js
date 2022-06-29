@@ -16,7 +16,7 @@ module.exports = {
     "no-console": "error",
     "no-alert": "error",
     "no-debugger": "error",
-    "@typescript-eslint/no-unused-vars": "error",
+    "no-unused-vars": "error",
   },
   overrides: [
     {
