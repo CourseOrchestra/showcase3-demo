@@ -30,7 +30,7 @@
 <!--<script lang="ts">-->
 <script>
 import appPackageInfo from "@/../package";
-import libPackageInfo from "showcase2/package";
+import libPackageInfo from "showcase3/package";
 import { setTitle } from "@/utils/common";
 
 export default {

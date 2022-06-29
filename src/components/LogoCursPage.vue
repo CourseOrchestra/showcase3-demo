@@ -16,7 +16,7 @@
 <!--<script lang="ts">-->
 <script>
 import { defineComponent } from "vue";
-import LogoCurs from "showcase2/src/components/LogoCurs";
+import LogoCurs from "showcase3/src/components/LogoCurs";
 import { setTitle } from "../utils/common";
 
 export default defineComponent({

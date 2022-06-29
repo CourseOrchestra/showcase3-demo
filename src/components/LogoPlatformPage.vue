@@ -24,7 +24,7 @@
 <!--<script lang="ts">-->
 <script>
 import { defineComponent } from "vue";
-import LogoPlatform from "showcase2/src/components/LogoPlatform";
+import LogoPlatform from "showcase3/src/components/LogoPlatform";
 import { setTitle } from "@/utils/common";
 
 export default defineComponent({
