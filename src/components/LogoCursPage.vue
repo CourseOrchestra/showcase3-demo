@@ -14,16 +14,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import LogoCurs from "showcase3/src/components/LogoCurs.vue";
+import { defineAsyncComponent, defineComponent } from "vue";
+//import LogoCurs from "showcase3/src/components/LogoCurs.vue";
 import { setTitle } from "@/utils/common";
 
 export default defineComponent({
   name: "LogoCursPage",
 
   components: {
-    LogoCurs,
-    //  LogoCurs: () => import("showcase2/src/components/LogoCurs"),
+    //  LogoCurs,
+    LogoCurs: defineAsyncComponent(
+      () => import("showcase3/src/components/LogoCurs.vue")
+    ),
   },
 
   data: () => ({}),

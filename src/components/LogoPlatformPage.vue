@@ -22,16 +22,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import LogoPlatform from "showcase3/src/components/LogoPlatform.vue";
+import { defineAsyncComponent, defineComponent } from "vue";
+//import LogoPlatform from "showcase3/src/components/LogoPlatform.vue";
 import { setTitle } from "@/utils/common";
 
 export default defineComponent({
   name: "LogoPlatformPage",
 
   components: {
-    LogoPlatform,
-    //LogoPlatform: () => import("showcase2/src/components/LogoPlatform"),
+    //    LogoPlatform,
+    LogoPlatform: defineAsyncComponent(
+      () => import("showcase3/src/components/LogoPlatform.vue")
+    ),
   },
 
   data: () => ({}),
