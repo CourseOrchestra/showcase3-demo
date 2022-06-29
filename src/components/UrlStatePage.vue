@@ -12,15 +12,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-//import { setTitle } from "@/utils/common";
+import { setTitle } from "@/utils/common";
 
 export default defineComponent({
   name: "UrlStatePage",
 
-  /*
   created() {
     setTitle("Состояние в url");
   },
-*/
 });
 </script>

@@ -10,15 +10,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-//import { setTitle } from "@/utils/common";
+import { setTitle } from "@/utils/common";
 
 export default defineComponent({
   name: "GridPage",
 
-  /*
   created() {
-    setTitle("Навигатор");
+    setTitle("Грид");
   },
-*/
 });
 </script>
