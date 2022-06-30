@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "cypress"
     ],
     "paths": {
       "@/*": [
@@ -36,9 +37,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "node_modules/cypress/types/cypress-global-vars.d.ts"
   ],
   "exclude": [
-    "\"/node_modules/(?!(cypress)/)\""
+    "node_modules"
   ]
 }
