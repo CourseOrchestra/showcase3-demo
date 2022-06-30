@@ -4,6 +4,7 @@ export default defineConfig({
   fixturesFolder: "tests/e2e/fixtures",
   screenshotsFolder: "tests/e2e/screenshots",
   videosFolder: "tests/e2e/videos",
+
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
@@ -13,5 +14,12 @@ export default defineConfig({
     },
     specPattern: "tests/e2e/specs/**/*.cy.{js,jsx,ts,tsx}",
     supportFile: "tests/e2e/support/index.js",
+  },
+
+  component: {
+    devServer: {
+      framework: "vue-cli",
+      bundler: "webpack",
+    },
   },
 });
