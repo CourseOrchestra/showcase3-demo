@@ -1,0 +1,37 @@
+name: ci-showcase3-demo-pr
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 18 ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node env
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run e2e tests
+        run: npm run test:e2e:ci
+
