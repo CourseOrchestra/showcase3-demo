@@ -1,12 +1,12 @@
 describe("e2e тесты", () => {
   it("Welcome", () => {
     cy.visit("/");
-    cy.contains("span", "Welcome");
-    cy.contains("span", "Логотип КУРСа");
-    cy.contains("span", "Логотип Платформы");
-    cy.contains("span", "Навигатор");
-    cy.contains("span", "Грид");
-    cy.contains("span", "Состояние");
+    cy.contains("div", "Welcome");
+    cy.contains("div", "Логотип КУРСа");
+    cy.contains("div", "Логотип Платформы");
+    cy.contains("div", "Навигатор");
+    cy.contains("div", "Грид");
+    cy.contains("div", "Состояние");
   });
   it("Логотип КУРСа", () => {
     cy.visit("/logocurs");
