@@ -14,7 +14,11 @@ export default defineConfig({
       autoImport: true,
     }),
   ],
-  define: { "process.env": {} },
+  define: {
+    "process.env": {
+      VUE_APP_TITLE: "Демо showcase3",
+    },
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
