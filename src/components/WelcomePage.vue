@@ -29,7 +29,7 @@
       </v-col>
       <br />
       <v-col>
-        <v-img :src="require('../assets/welcome.png')" contain />
+        <v-img :src="getImageUrl()" contain />
       </v-col>
     </v-row>
   </v-container>
@@ -45,6 +45,13 @@ import { setTitle } from "@/utils/common";
 
 export default {
   name: "WelcomePage",
+
+  setup() {
+    const getImageUrl = () => {
+      return new URL(`../assets/welcome.png`, import.meta.url).href;
+    };
+    return { getImageUrl };
+  },
 
   data: () => ({
     appVersion: appPackageInfo.version,
