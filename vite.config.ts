@@ -14,12 +14,12 @@ export default defineConfig({
       autoImport: true,
     }),
   ],
-  //base: process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/",
-  base: "/showcase3-demo/",
+  base: process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/",
   define: {
     "process.env": {
       VUE_APP_TITLE: "Демо showcase3",
-      BASE_URL: "/showcase3-demo/",
+      BASE_URL:
+        process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/",
     },
   },
   resolve: {
