@@ -5,6 +5,9 @@ import vuetify from "vite-plugin-vuetify";
 /* eslint @typescript-eslint/no-var-requires: "off" */
 const path = require("path");
 
+const publicPath =
+  process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/";
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -14,12 +17,11 @@ export default defineConfig({
       autoImport: true,
     }),
   ],
-  base: process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/",
+  base: publicPath,
   define: {
     "process.env": {
       VUE_APP_TITLE: "Демо showcase3",
-      BASE_URL:
-        process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/",
+      BASE_URL: publicPath,
     },
   },
   resolve: {
