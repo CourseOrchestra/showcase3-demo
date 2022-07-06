@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.1.61",
+  "version": "1.1.62",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -16,7 +16,7 @@
     "test:e2e": "vue-cli-service test:e2e",
     "test:e2e:ci": "vue-cli-service test:e2e --headless --browser chrome",
     "lint": "vue-cli-service lint",
-    "vite:serve": "vite preview",
+    "vite:preview": "vite preview",
     "vite:build": "vite build",
     "vite:dev": "vite"
   },
