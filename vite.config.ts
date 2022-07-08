@@ -11,6 +11,13 @@ const publicPath =
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    {
+      name: "vitest-plugin-beforeall",
+      config: () => ({
+        test: { setupFiles: ["./tests/unit/beforeall.ts"] },
+      }),
+    },
+
     vue(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
@@ -29,6 +36,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+
+  test: {
+    globals: true,
+    environment: "happy-dom",
+    deps: {
+      inline: ["vuetify"],
+    },
+  },
+
   /* remove the need to specify .vue files https://vitejs.dev/config/#resolve-extensions
   resolve: {
     extensions: [
