@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { createVuetify } from "vuetify";
 import { mount } from "@vue/test-utils";
 import UrlStatePage from "@/components/UrlStatePage.vue";
