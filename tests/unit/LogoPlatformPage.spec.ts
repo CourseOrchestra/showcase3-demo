@@ -12,7 +12,6 @@ describe("LogoPlatformPage.vue", () => {
         plugins: [vuetify],
       },
     });
-    //expect(wrapper.html()).toContain("logo-curs");
-    expect(wrapper.html()).toContain("v-col");
+    expect(wrapper.html()).toContain("corchestra.ru");
   });
 });

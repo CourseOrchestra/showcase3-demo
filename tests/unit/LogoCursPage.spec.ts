@@ -12,7 +12,6 @@ describe("LogoCursPage.vue", () => {
         plugins: [vuetify],
       },
     });
-    //expect(wrapper.html()).toContain("logo-curs");
-    expect(wrapper.html()).toContain("v-col");
+    expect(wrapper.html()).toContain("curs.ru");
   });
 });
