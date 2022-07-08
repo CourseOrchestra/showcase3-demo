@@ -31,6 +31,6 @@ export default defineComponent({
 
 <style>
 .v-btn {
-  text-transform: none;
+  text-transform: none !important;
 }
 </style>
