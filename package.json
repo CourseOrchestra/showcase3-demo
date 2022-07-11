@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -10,17 +10,19 @@
   },
   "homepage": "https://CourseOrchestra.github.io/showcase3-demo",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
-    "test:e2e:ci": "vue-cli-service test:e2e --headless --browser chrome",
-    "lint": "vue-cli-service lint",
-    "vite:preview": "vite preview",
-    "vite:build": "vite build",
-    "vite:dev": "vite",
-    "vitest": "vitest",
-    "vitest:ci": "vitest run"
+    "serve": "vite",
+    "build": "vite build",
+    "build:preview": "vite preview",
+    "test:unit": "vitest",
+    "test:unit:ci": "vitest run",
+
+
+    "test:e2e": "cypress open",
+    "test:e2e:ci": "cypress run --headless --browser chrome",
+
+
+
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "@mdi/font": "^6.9.96",
@@ -38,18 +40,13 @@
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "@vitejs/plugin-vue": "^2.3.3",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-e2e-cypress": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-plugin-router": "^5.0.8",
-    "@vue/cli-plugin-typescript": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.0.2",
     "cypress": "^10.3.0",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-cypress":"^2.12.1",
     "eslint-plugin-vue": "^9.2.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
@@ -59,10 +56,9 @@
     "vite": "^2.9.14",
     "vite-plugin-vuetify": "^1.0.0-alpha.12",
     "vue-cli-plugin-vuetify": "^2.5.1",
-    "webpack-plugin-vuetify": "^2.0.0-alpha.11",
-    "webpack": "^5.73.0",
     "vitest":"^0.17.1",
-    "happy-dom":"^6.0.2"
+    "happy-dom":"^6.0.2",
+    "yorkie": "^2.0.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

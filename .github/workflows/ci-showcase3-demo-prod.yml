@@ -30,15 +30,13 @@ jobs:
         run: npm run lint
 
       - name: Run unit tests
-        #run: npm run test:unit
-        run: npm run vitest:ci
+        run: npm run test:unit:ci
 
-      - name: Run e2e tests
-        run: npm run test:e2e:ci
+#      - name: Run e2e tests
+#        run: npm run test:e2e:ci
 
       - name: Run build1
-        #run: npm run build
-        run: npm run vite:build
+        run: npm run build
 
       - name: Run build2
         uses: canastro/copy-file-action@master
