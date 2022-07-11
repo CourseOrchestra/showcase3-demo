@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.2.7",
+  "version": "1.2.10",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -15,13 +15,8 @@
     "build:preview": "vite preview",
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
-
-
     "test:e2e": "cypress open",
     "test:e2e:ci": "cypress run --headless --browser chrome",
-
-
-
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
