@@ -15,8 +15,6 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      //"webpack-env",
-      //"jest",
       "cypress",
       "vitest/globals"
     ],
