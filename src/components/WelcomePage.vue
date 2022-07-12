@@ -9,7 +9,6 @@
     <br />
     <br />
     <br />
-    <br />
     <v-row>
       <v-col class="font-weight-bold">
         <h2>Версии</h2>
@@ -32,7 +31,6 @@
         <v-img :src="getImageUrl()" contain />
       </v-col>
     </v-row>
-    <br />
     <br />
     <br />
     <br />
