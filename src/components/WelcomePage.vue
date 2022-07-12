@@ -32,6 +32,14 @@
         <v-img :src="getImageUrl()" contain />
       </v-col>
     </v-row>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1>
+      Vite {{ viteVersion }} + Vitest {{ vitestVersion }} + Cypress
+      {{ cypressVersion }}
+    </h1>
   </v-container>
 </template>
 
@@ -42,6 +50,9 @@ import vuePackageInfo from "vue/package.json";
 import vuetifyPackageInfo from "vuetify/package.json";
 import typescriptPackageInfo from "typescript/package.json";
 import { setTitle } from "@/utils/common";
+import vitePackageInfo from "vite/package.json";
+import vitestPackageInfo from "vitest/package.json";
+import cypressPackageInfo from "cypress/package.json";
 
 export default {
   name: "WelcomePage",
@@ -60,6 +71,10 @@ export default {
     vueVersion: vuePackageInfo.version,
     vuetifyVersion: vuetifyPackageInfo.version,
     typescriptVersion: typescriptPackageInfo.version,
+
+    viteVersion: vitePackageInfo.version,
+    vitestVersion: vitestPackageInfo.version,
+    cypressVersion: cypressPackageInfo.version,
   }),
 
   created() {
