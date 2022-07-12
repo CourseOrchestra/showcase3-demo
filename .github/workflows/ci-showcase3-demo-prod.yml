@@ -32,14 +32,11 @@ jobs:
       - name: Run unit tests
         run: npm run test:unit:ci
 
-      - name: Run server
-        run: npm run serve
+      - name: Run build1
+        run: npm run build
 
       - name: Run e2e tests
         run: npm run test:e2e:ci
-
-      - name: Run build1
-        run: npm run build
 
       - name: Run build2
         uses: canastro/copy-file-action@master

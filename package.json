@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.2.10",
+  "version": "1.2.22",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -10,13 +10,14 @@
   },
   "homepage": "https://CourseOrchestra.github.io/showcase3-demo",
   "scripts": {
-    "serve": "vite",
+    "dev": "vite --port 3000 --host localhost",
     "build": "vite build",
-    "build:preview": "vite preview",
+    "preview": "vite preview --port 8080 --host localhost",
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
-    "test:e2e": "cypress open",
-    "test:e2e:ci": "cypress run --headless --browser chrome",
+    "cypress:dev": "start-server-and-test dev http-get://localhost:3000 'cypress open --config baseUrl=http://localhost:3000'",
+    "cypress:preview": "start-server-and-test preview http-get://localhost:8080/showcase3-demo 'cypress open --config baseUrl=http://localhost:8080/showcase3-demo'",
+    "test:e2e:ci": "start-server-and-test preview http-get://localhost:8080/showcase3-demo 'cypress run --headless --browser chrome --config baseUrl=http://localhost:8080/showcase3-demo'",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -47,6 +48,7 @@
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
+    "start-server-and-test": "^1.14.0",
     "typescript": "^4.7.4",
     "vite": "^2.9.14",
     "vite-plugin-vuetify": "^1.0.0-alpha.12",
