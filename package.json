@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.2.23",
+  "version": "1.2.25",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -33,8 +33,8 @@
   },
   "devDependencies": {
     "@types/webfontloader": "^1.6.34",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.0.2",
