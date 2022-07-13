@@ -18,8 +18,8 @@ export default defineConfig({
 
   component: {
     devServer: {
-      framework: "vue-cli",
-      bundler: "webpack",
+      framework: "vue",
+      bundler: "vite",
     },
   },
 });
