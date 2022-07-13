@@ -32,6 +32,9 @@ jobs:
       - name: Run unit tests
         run: npm run test:unit:ci
 
+      - name: Run component tests
+        run: npm run test:component:ci
+
       - name: Run build1
         run: npm run build
 
