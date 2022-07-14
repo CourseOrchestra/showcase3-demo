@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.2.43",
+  "version": "1.2.52",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -37,7 +37,7 @@
     "@types/webfontloader": "^1.6.34",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
-    "@vitejs/plugin-vue": "^2.3.3",
+    "@vitejs/plugin-vue": "^3.0.0",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.0.2",
     "cypress": "^10.3.0",
@@ -52,7 +52,7 @@
     "sass-loader": "^13.0.2",
     "start-server-and-test": "^1.14.0",
     "typescript": "^4.7.4",
-    "vite": "^2.9.14",
+    "vite": "^3.0.0",
     "vite-plugin-vuetify": "^1.0.0-alpha.12",
     "vitest": "^0.18.0",
     "happy-dom": "^6.0.3",
