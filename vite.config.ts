@@ -5,9 +5,6 @@ import path from "path";
 import { visualizer } from "rollup-plugin-visualizer";
 import { createHtmlPlugin } from "vite-plugin-html";
 
-const publicPath =
-  process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/";
-
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   return {
@@ -39,12 +36,7 @@ export default defineConfig(({ mode }) => {
         autoImport: true,
       }),
     ],
-    base: publicPath,
-    define: {
-      "process.env": {
-        BASE_URL: publicPath,
-      },
-    },
+    base: process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/",
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
