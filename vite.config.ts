@@ -1,11 +1,9 @@
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
+import path from "path";
 import { visualizer } from "rollup-plugin-visualizer";
 import { createHtmlPlugin } from "vite-plugin-html";
-
-/* eslint @typescript-eslint/no-var-requires: "off" */
-const path = require("path");
 
 const publicPath =
   process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/";
