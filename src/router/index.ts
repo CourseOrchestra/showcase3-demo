@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import WelcomePage from "../components/WelcomePage.vue";
-import LogoCursPage from "../components/LogoCursPage.vue";
-import LogoPlatformPage from "../components/LogoPlatformPage.vue";
-//import NavigatorPage from "../components/NavigatorPage.vue";
+import WelcomePage from "@/components/WelcomePage.vue";
+import LogoCursPage from "@/components/LogoCursPage.vue";
+import LogoPlatformPage from "@/components/LogoPlatformPage.vue";
+//import NavigatorPage from "@/components/NavigatorPage.vue";
 import GridPage from "../components/GridPage.vue";
 import UrlStatePage from "../components/UrlStatePage.vue";
 
