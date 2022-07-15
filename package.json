@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.2.77",
+  "version": "1.2.81",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -58,7 +58,8 @@
     "happy-dom": "^6.0.3",
     "yorkie": "^2.0.0",
     "vue-tsc": "^0.38.5",
-    "rollup-plugin-visualizer": "^5.7.0"
+    "rollup-plugin-visualizer": "^5.7.0",
+    "vite-plugin-html": "^3.2.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
