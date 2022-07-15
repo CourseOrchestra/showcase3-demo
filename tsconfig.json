@@ -17,6 +17,7 @@
     "types": [
       "cypress",
       "vitest/globals",
+      "vite/client"
 //      "node"
     ],
     "paths": {

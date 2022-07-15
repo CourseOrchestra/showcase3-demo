@@ -32,7 +32,6 @@ export default defineConfig({
   base: publicPath,
   define: {
     "process.env": {
-      VUE_APP_TITLE: "Демо showcase3",
       BASE_URL: publicPath,
     },
   },
