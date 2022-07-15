@@ -25,6 +25,9 @@
           v-model="appVersion"
           label="showcase3-demo"
         ></v-text-field>
+        <v-btn href="stats.html" target="_blank" app color="secondary">
+          Визуализация сборки
+        </v-btn>
       </v-col>
       <br />
       <v-col>
