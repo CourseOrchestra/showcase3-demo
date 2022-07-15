@@ -39,9 +39,7 @@
     "tests/**/*.tsx",
     "cypress/**/*.ts",
     "cypress/**/*.tsx",
-
-//    "vite.config.ts"
-
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules"
