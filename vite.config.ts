@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => {
         autoImport: true,
       }),
     ],
-    base: process.env.NODE_ENV === "production" ? "/showcase3-demo/" : "/",
+    base: mode === "production" ? "/showcase3-demo/" : "/",
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
