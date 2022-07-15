@@ -10,7 +10,6 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       createHtmlPlugin({
-        minify: true,
         template: "public/index.html",
         inject: {
           data: {
