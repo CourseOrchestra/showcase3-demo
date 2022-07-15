@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
+import { visualizer } from "rollup-plugin-visualizer";
 
 /* eslint @typescript-eslint/no-var-requires: "off" */
 const path = require("path");
@@ -11,6 +12,8 @@ const publicPath =
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    visualizer(),
+
     {
       name: "vitest-plugin-beforeall",
       config: () => ({
