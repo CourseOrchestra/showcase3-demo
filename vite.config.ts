@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       createHtmlPlugin({
         minify: true,
+        template: "public/index.html",
         inject: {
           data: {
             title: env.VITE_APP_TITLE,
