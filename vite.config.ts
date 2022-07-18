@@ -36,7 +36,8 @@ export default defineConfig(({ mode }) => {
       vue(),
       vuetify(),
     ],
-    base: mode === "production" ? "/showcase3-demo/" : "/",
+    base:
+      mode === "production" ? env.VITE_PROD_BASE_URL : env.VITE_DEV_BASE_URL,
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),
