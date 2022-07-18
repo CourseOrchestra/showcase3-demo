@@ -2,8 +2,8 @@
 node_modules
 /dist
 
-/cypress/videos/
-/cypress/screenshots/
+/tests/cypress/videos/
+/tests/cypress/screenshots/
 
 stats.html
 

@@ -36,10 +36,10 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "cypress/**/*.ts",
-    "cypress/**/*.tsx",
+    "tests/unit/*.ts",
+    "tests/unit/*.tsx",
+    "tests/cypress/**/*.ts",
+    "tests/cypress/**/*.tsx",
     "vite.config.ts"
   ],
   "exclude": [
