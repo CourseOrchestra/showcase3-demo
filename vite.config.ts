@@ -34,10 +34,7 @@ export default defineConfig(({ mode }) => {
       },
 
       vue(),
-      // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
-      vuetify({
-        autoImport: true,
-      }),
+      vuetify(),
     ],
     base: mode === "production" ? "/showcase3-demo/" : "/",
     resolve: {
