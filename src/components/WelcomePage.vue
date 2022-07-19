@@ -14,15 +14,15 @@
         <h2>Версии</h2>
         <br />
         <v-text-field
+          v-model="libVersion"
           readonly
           outlined
-          v-model="libVersion"
           label="showcase3"
         ></v-text-field>
         <v-text-field
+          v-model="appVersion"
           readonly
           outlined
-          v-model="appVersion"
           label="showcase3-demo"
         ></v-text-field>
         <v-btn href="stats.html" target="_blank" app color="secondary">
