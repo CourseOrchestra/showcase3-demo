@@ -22,6 +22,10 @@ declare global {
 }
 
 Cypress.Commands.add("mount", (component, options = {}) => {
+  options.global = options.global || {};
+  options.global.stubs = options.global.stubs || {};
+  options.global.stubs["transition"] = false;
+  options.global.components = options.global.components || {};
   options.global.plugins = options.global.plugins || [vuetify];
   return mount(component, options);
 });
