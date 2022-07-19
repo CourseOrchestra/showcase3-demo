@@ -18,12 +18,4 @@ module.exports = {
     "no-debugger": "error",
     "@typescript-eslint/no-unused-vars": "error",
   },
-  overrides: [
-    {
-      files: [
-        "**/tests/unit/**/*.spec.{j,t}s?(x)",
-        "**/tests/cypress/**/*.spec.{j,t}s?(x)",
-      ],
-    },
-  ],
 };
