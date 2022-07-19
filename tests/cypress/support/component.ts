@@ -2,11 +2,11 @@ import "./commands";
 import { mount } from "cypress/vue";
 import vuetify from "@/plugins/vuetify";
 
-/* eslint @typescript-eslint/no-namespace: "off" */
-/* eslint @typescript-eslint/no-explicit-any: "off" */
-
 type MountParams = Parameters<typeof mount>;
 type OptionsParam = MountParams[1];
+
+/* eslint @typescript-eslint/no-namespace: "off" */
+/* eslint @typescript-eslint/no-explicit-any: "off" */
 
 declare global {
   namespace Cypress {
