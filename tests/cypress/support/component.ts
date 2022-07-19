@@ -1,40 +1,27 @@
-// ***********************************************************
-// This example support/component.ts is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
-// Import commands.js using ES2015 syntax:
 import "./commands";
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
-
 import { mount } from "cypress/vue";
+import vuetify from "@/plugins/vuetify";
 
-// Augment the Cypress namespace to include type definitions for
-// your custom command.
-// Alternatively, can be defined in cypress/support/component.d.ts
-// with a <reference path="./component" /> at the top of your spec.
 /* eslint @typescript-eslint/no-namespace: "off" */
+/* eslint @typescript-eslint/no-explicit-any: "off" */
+
+type MountParams = Parameters<typeof mount>;
+type OptionsParam = MountParams[1];
+
 declare global {
   namespace Cypress {
     interface Chainable {
-      mount: typeof mount;
+      /**
+       * Helper mount function for Vue Components
+       * @param component Vue Component or JSX Element to mount
+       * @param options Options passed to Vue Test Utils
+       */
+      mount(component: any, options?: OptionsParam): Chainable<any>;
     }
   }
 }
 
-Cypress.Commands.add("mount", mount);
-
-// Example use:
-// cy.mount(MyComponent)
+Cypress.Commands.add("mount", (component, options = {}) => {
+  options.global.plugins = options.global.plugins || [vuetify];
+  return mount(component, options);
+});
