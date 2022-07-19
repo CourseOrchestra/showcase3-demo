@@ -13,8 +13,6 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-/* eslint @typescript-eslint/no-namespace: "off" */
-
 // Import commands.js using ES2015 syntax:
 import "./commands";
 
@@ -27,6 +25,7 @@ import { mount } from "cypress/vue";
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts
 // with a <reference path="./component" /> at the top of your spec.
+/* eslint @typescript-eslint/no-namespace: "off" */
 declare global {
   namespace Cypress {
     interface Chainable {
