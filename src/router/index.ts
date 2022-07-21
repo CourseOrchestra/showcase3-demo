@@ -2,7 +2,6 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import WelcomePage from "@/components/WelcomePage.vue";
 import LogoCursPage from "@/components/LogoCursPage.vue";
 import LogoPlatformPage from "@/components/LogoPlatformPage.vue";
-//import NavigatorPage from "@/components/NavigatorPage.vue";
 import GridPage from "../components/GridPage.vue";
 import UrlStatePage from "../components/UrlStatePage.vue";
 
@@ -25,11 +24,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/navigator",
     name: "navigator",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../components/NavigatorPage.vue"),
+    component: () => import("@/components/NavigatorPage.vue"),
   },
   {
     path: "/grid",
