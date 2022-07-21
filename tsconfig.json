@@ -18,19 +18,12 @@
       "cypress",
       "vitest/globals",
       "vite/client"
-//      "node"
     ],
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
   },
   "include": [
     "src/**/*.ts",

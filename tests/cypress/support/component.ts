@@ -1,4 +1,3 @@
-import "./commands";
 import { mount } from "cypress/vue";
 import vuetify from "@/plugins/vuetify";
 
