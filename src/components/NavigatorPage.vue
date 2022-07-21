@@ -9,14 +9,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { Vue } from "vue-class-component";
 import { setTitle } from "@/utils/common";
 
-export default defineComponent({
-  name: "NavigatorPage",
-
+export default class NavigatorPage extends Vue {
   created() {
     setTitle("Навигатор");
-  },
-});
+  }
+}
 </script>
