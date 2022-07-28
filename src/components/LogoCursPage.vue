@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { /*defineAsyncComponent,*/ defineComponent } from "vue";
-import LogoCurs from "showcase3/src/components/LogoCurs.vue";
+import { LogoCurs } from "showcase3";
 import { setTitle } from "@/utils/common";
 
 export default defineComponent({

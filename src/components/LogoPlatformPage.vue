@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import { /*defineAsyncComponent,*/ defineComponent } from "vue";
-import LogoPlatform from "showcase3/src/components/LogoPlatform.vue";
+import { LogoPlatform } from "showcase3";
 import { setTitle } from "@/utils/common";
 
 export default defineComponent({
