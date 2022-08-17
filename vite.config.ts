@@ -8,10 +8,6 @@ import { createHtmlPlugin } from "vite-plugin-html";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   return {
-    server: {
-      host: "127.0.0.1",
-    },
-
     plugins: [
       createHtmlPlugin({
         template: "public/index.html",
