@@ -13,15 +13,8 @@
 import { defineComponent } from "vue";
 import { setTitle } from "@/utils/common";
 
-import EasyDataTable from "vue3-easy-data-table";
-import "vue3-easy-data-table/dist/style.css";
-
 export default defineComponent({
   name: "GridPage",
-
-  components: {
-    EasyDataTable,
-  },
 
   data: () => ({
     headers: [
