@@ -12,6 +12,6 @@ describe("GridPage.vue", () => {
         plugins: [vuetify],
       },
     });
-    expect(wrapper.text()).toContain("Демонстрация грида");
+    expect(wrapper.text()).toContain("http");
   });
 });
