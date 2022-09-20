@@ -11,6 +11,7 @@
       buttons-pagination
       show-index
       theme-color="#6200EE"
+      table-height="400"
     />
 
     <!--
