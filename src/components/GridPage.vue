@@ -12,7 +12,7 @@
       :rows-items="rowsItems"
       show-index
       theme-color="#6200EE"
-      table-height="400"
+      table-height="450"
     />
 
     <!--
@@ -62,12 +62,12 @@ export default defineComponent({
     ];
     const items = ref<Item[]>([]);
 
-    const rowsItems = [15, 25, 50];
+    const rowsItems = [10, 15, 25, 50];
 
     const serverItemsLength = ref(0);
     const serverOptions = ref<ServerOptions>({
       page: 1,
-      rowsPerPage: 15,
+      rowsPerPage: 10,
     });
 
     const restApiUrl = computed(() => {
