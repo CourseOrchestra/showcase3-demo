@@ -1,77 +1,111 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <br />
     <br />
-    <h1 class="text-center">Демонстрация грида</h1>
+    <EasyDataTable
+      v-model:server-options="serverOptions"
+      :headers="headers"
+      :items="items"
+      :server-items-length="serverItemsLength"
+      :loading="loading"
+      buttons-pagination
+      show-index
+      theme-color="#6200EE"
+    />
+
+    <!--
+    secondary:
+    theme-color="#03DAC6"
+-->
+
     <br />
-    <br />
-    <easy-data-table :headers="headers" :items="items" />
+    <h2>{{ restApiUrl }}</h2>
   </v-container>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, computed, watch } from "vue";
+import { mockServerItems } from "@/utils/mock";
+import { Header, ServerOptions, Item } from "vue3-easy-data-table";
 import { setTitle } from "@/utils/common";
 
 export default defineComponent({
   name: "GridPage",
 
-  data: () => ({
-    headers: [
-      { text: "PLAYER", value: "player", sortable: true },
-      { text: "TEAM", value: "team", sortable: true },
-      { text: "NUMBER", value: "number", sortable: true },
-      { text: "POSITION", value: "position", sortable: true },
-      { text: "HEIGHT", value: "indicator.height", sortable: true },
-      { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true },
+  setup() {
+    const headers: Header[] = [
+      { text: "Name", value: "name", sortable: true, width: 200, fixed: true },
       {
-        text: "LAST ATTENDED",
-        value: "lastAttended",
-        width: 200,
+        text: "Address",
+        value: "address",
         sortable: true,
+        width: 200,
+        fixed: true,
       },
-      { text: "COUNTRY", value: "country", sortable: true },
-    ],
+      { text: "Height", value: "height", sortable: true, width: 400 },
+      { text: "Weight", value: "weight", sortable: true, width: 400 },
+      { text: "Age", value: "age", sortable: true, width: 400 },
+      {
+        text: "Favourite sport",
+        value: "favouriteSport",
+        sortable: true,
+        width: 400,
+      },
+      {
+        text: "Favourite fruits",
+        value: "favouriteFruits",
+        sortable: true,
+        width: 400,
+      },
+    ];
+    const items = ref<Item[]>([]);
 
-    items: [
-      {
-        player: "Stephen Curry",
-        team: "GSW",
-        number: 30,
-        position: "G",
-        indicator: { height: "6-2", weight: 185 },
-        lastAttended: "Davidson",
-        country: "USA",
+    const serverItemsLength = ref(0);
+    const serverOptions = ref<ServerOptions>({
+      page: 1,
+      rowsPerPage: 15,
+    });
+
+    const restApiUrl = computed(() => {
+      const { page, rowsPerPage, sortBy, sortType } = serverOptions.value;
+      if (sortBy && sortType) {
+        return `http://localhost:8080/api?page=${page}&limit=${rowsPerPage}&sortBy=${sortBy}&sortType=${sortType}`;
+      } else {
+        return `http://localhost:8080/api?page=${page}&limit=${rowsPerPage}`;
+      }
+    });
+
+    const loading = ref(false);
+
+    const loadFromServer = async () => {
+      loading.value = true;
+      const { serverCurrentPageItems, serverTotalItemsLength } =
+        await mockServerItems(serverOptions.value);
+      items.value = serverCurrentPageItems;
+      serverItemsLength.value = serverTotalItemsLength;
+      loading.value = false;
+    };
+
+    // first load when created
+    loadFromServer();
+
+    watch(
+      serverOptions,
+      (/*value*/) => {
+        loadFromServer();
       },
-      {
-        player: "Lebron James",
-        team: "LAL",
-        number: 6,
-        position: "F",
-        indicator: { height: "6-9", weight: 250 },
-        lastAttended: "St. Vincent-St. Mary HS (OH)",
-        country: "USA",
-      },
-      {
-        player: "Kevin Durant",
-        team: "BKN",
-        number: 7,
-        position: "F",
-        indicator: { height: "6-10", weight: 240 },
-        lastAttended: "Texas-Austin",
-        country: "USA",
-      },
-      {
-        player: "Giannis Antetokounmpo",
-        team: "MIL",
-        number: 34,
-        position: "F",
-        indicator: { height: "6-11", weight: 242 },
-        lastAttended: "Filathlitikos",
-        country: "Greece",
-      },
-    ],
-  }),
+      { deep: true }
+    );
+
+    return {
+      headers,
+      items,
+      serverOptions,
+      serverItemsLength,
+      restApiUrl,
+      loading,
+    };
+  },
 
   created() {
     setTitle("Грид");
