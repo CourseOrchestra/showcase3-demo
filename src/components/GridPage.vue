@@ -9,6 +9,7 @@
       :server-items-length="serverItemsLength"
       :loading="loading"
       buttons-pagination
+      :rows-items="rowsItems"
       show-index
       theme-color="#6200EE"
       table-height="400"
@@ -61,6 +62,8 @@ export default defineComponent({
     ];
     const items = ref<Item[]>([]);
 
+    const rowsItems = [15, 25, 50];
+
     const serverItemsLength = ref(0);
     const serverOptions = ref<ServerOptions>({
       page: 1,
@@ -101,6 +104,7 @@ export default defineComponent({
     return {
       headers,
       items,
+      rowsItems,
       serverOptions,
       serverItemsLength,
       restApiUrl,
