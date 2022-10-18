@@ -8,15 +8,8 @@
   </v-container>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import { setTitle } from "@/utils/common";
 
-export default defineComponent({
-  name: "UrlStatePage",
-
-  created() {
-    setTitle("Состояние в url");
-  },
-});
+setTitle("Состояние в url");
 </script>
