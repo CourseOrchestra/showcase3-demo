@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.9.5",
+  "version": "1.9.6",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -26,7 +26,7 @@
     "@mdi/font": "^7.0.96",
     "core-js": "^3.25.5",
     "roboto-fontface": "^0.10.0",
-    "showcase3": "^1.6.2",
+    "showcase3": "^1.8.6",
     "vue": "^3.2.41",
     "vue-class-component": "^8.0.0-rc.1",
     "vue-router": "^4.1.5",
