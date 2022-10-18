@@ -4,61 +4,43 @@
       <v-col cols="4">
         <br />
         <br />
-        <logo-platform id="lplatform1"></logo-platform>
+        <LogoPlatform id="lplatform1"></LogoPlatform>
         <br />
         <br />
-        <logo-platform id="lplatform2"></logo-platform>
+        <LogoPlatform id="lplatform2"></LogoPlatform>
         <br />
         <br />
-        <logo-platform id="lplatform3"></logo-platform>
+        <LogoPlatform id="lplatform3"></LogoPlatform>
       </v-col>
       <v-col cols="4">
         <br />
         <br />
-        <logo-platform id="lplatform4"></logo-platform>
+        <LogoPlatform id="lplatform4"></LogoPlatform>
         <br />
         <br />
-        <logo-platform id="lplatform5"></logo-platform>
+        <LogoPlatform id="lplatform5"></LogoPlatform>
         <br />
         <br />
-        <logo-platform id="lplatform6"></logo-platform>
+        <LogoPlatform id="lplatform6"></LogoPlatform>
       </v-col>
       <v-col cols="4">
         <br />
         <br />
-        <logo-platform id="lplatform7"></logo-platform>
+        <LogoPlatform id="lplatform7"></LogoPlatform>
         <br />
         <br />
-        <logo-platform id="lplatform8"></logo-platform>
+        <LogoPlatform id="lplatform8"></LogoPlatform>
         <br />
         <br />
-        <logo-platform id="lplatform9"></logo-platform>
+        <LogoPlatform id="lplatform9"></LogoPlatform>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script lang="ts">
-import { /*defineAsyncComponent,*/ defineComponent } from "vue";
+<script setup lang="ts">
 import { LogoPlatform } from "showcase3";
 import { setTitle } from "@/utils/common";
 
-export default defineComponent({
-  name: "LogoPlatformPage",
-
-  components: {
-    LogoPlatform,
-    /*
-    LogoPlatform: defineAsyncComponent(
-      () => import("showcase3/src/components/LogoPlatform.vue")
-    ),
-*/
-  },
-
-  data: () => ({}),
-
-  created() {
-    setTitle("Логотип Платформы");
-  },
-});
+setTitle("Логотип Платформы");
 </script>

@@ -2,45 +2,27 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="4">
-        <logo-curs id="lcurs1"></logo-curs>
-        <logo-curs id="lcurs2"></logo-curs>
-        <logo-curs id="lcurs3"></logo-curs>
+        <LogoCurs id="lcurs1"></LogoCurs>
+        <LogoCurs id="lcurs2"></LogoCurs>
+        <LogoCurs id="lcurs3"></LogoCurs>
       </v-col>
       <v-col cols="4">
-        <logo-curs id="lcurs4"></logo-curs>
-        <logo-curs id="lcurs5"></logo-curs>
-        <logo-curs id="lcurs6"></logo-curs>
+        <LogoCurs id="lcurs4"></LogoCurs>
+        <LogoCurs id="lcurs5"></LogoCurs>
+        <LogoCurs id="lcurs6"></LogoCurs>
       </v-col>
       <v-col cols="4">
-        <logo-curs id="lcurs7"></logo-curs>
-        <logo-curs id="lcurs8"></logo-curs>
-        <logo-curs id="lcurs9"></logo-curs>
+        <LogoCurs id="lcurs7"></LogoCurs>
+        <LogoCurs id="lcurs8"></LogoCurs>
+        <LogoCurs id="lcurs9"></LogoCurs>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script lang="ts">
-import { /*defineAsyncComponent,*/ defineComponent } from "vue";
+<script setup lang="ts">
 import { LogoCurs } from "showcase3";
 import { setTitle } from "@/utils/common";
 
-export default defineComponent({
-  name: "LogoCursPage",
-
-  components: {
-    LogoCurs,
-    /*
-    LogoCurs: defineAsyncComponent(
-      () => import("showcase3/src/components/LogoCurs.vue")
-    ),
-*/
-  },
-
-  data: () => ({}),
-
-  created() {
-    setTitle("Логотип КУРСа");
-  },
-});
+setTitle("Логотип КУРСа");
 </script>
