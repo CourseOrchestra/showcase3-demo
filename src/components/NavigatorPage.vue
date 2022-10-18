@@ -8,13 +8,8 @@
   </v-container>
 </template>
 
-<script lang="ts">
-import { Vue } from "vue-class-component";
+<script setup lang="ts">
 import { setTitle } from "@/utils/common";
 
-export default class NavigatorPage extends Vue {
-  created() {
-    setTitle("Навигатор");
-  }
-}
+setTitle("Навигатор");
 </script>
