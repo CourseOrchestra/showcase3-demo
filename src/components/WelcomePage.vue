@@ -44,7 +44,7 @@
   </v-container>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import appPackageInfo from "@/../package.json";
 import libPackageInfo from "showcase3/package.json";
 import vuePackageInfo from "vue/package.json";
@@ -55,39 +55,20 @@ import vitePackageInfo from "vite/package.json";
 import vitestPackageInfo from "vitest/package.json";
 import cypressPackageInfo from "cypress/package.json";
 
-export default {
-  name: "WelcomePage",
+setTitle("Welcome");
 
-  setup() {
-    const getImageUrl = () => {
-      return new URL(`../assets/welcome.png`, import.meta.url).href;
-    };
-    return { getImageUrl };
-  },
-
-  data: () => ({
-    appVersion: appPackageInfo.version,
-    libVersion: libPackageInfo.version,
-
-    vueVersion: vuePackageInfo.version,
-    vuetifyVersion: vuetifyPackageInfo.version,
-    typescriptVersion: typescriptPackageInfo.version,
-
-    viteVersion: vitePackageInfo.version,
-    vitestVersion: vitestPackageInfo.version,
-    cypressVersion: cypressPackageInfo.version,
-  }),
-
-  created() {
-    setTitle("Welcome");
-  },
+const getImageUrl = () => {
+  return new URL(`../assets/welcome.png`, import.meta.url).href;
 };
-</script>
 
-<!--
-<style lang="scss" scoped>
-.v-text-field ::v-deep label {
-  font-size: 1.4em;
-}
-</style>
--->
+const appVersion = appPackageInfo.version;
+const libVersion = libPackageInfo.version;
+
+const vueVersion = vuePackageInfo.version;
+const vuetifyVersion = vuetifyPackageInfo.version;
+const typescriptVersion = typescriptPackageInfo.version;
+
+const viteVersion = vitePackageInfo.version;
+const vitestVersion = vitestPackageInfo.version;
+const cypressVersion = cypressPackageInfo.version;
+</script>
