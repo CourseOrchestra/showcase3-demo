@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.10.11",
+  "version": "1.11.1",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -28,12 +28,14 @@
     "roboto-fontface": "^0.10.0",
     "showcase3": "^1.9.11",
     "vue": "^3.2.41",
+    "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.5",
     "vue3-easy-data-table": "1.5.1",
     "vuetify": "^3.0.0-beta.14",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@intlify/vite-plugin-vue-i18n": "^7.0.0-beta.4",
     "@types/webfontloader": "^1.6.35",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
