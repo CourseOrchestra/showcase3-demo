@@ -2,8 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
-import { fileURLToPath } from "url";
-import { resolve, dirname } from "path";
+import { resolve } from "path";
 import { visualizer } from "rollup-plugin-visualizer";
 import { createHtmlPlugin } from "vite-plugin-html";
 
@@ -34,10 +33,7 @@ export default defineConfig(({ mode }) => {
       vue(),
       vuetify(),
       vueI18n({
-        include: resolve(
-          dirname(fileURLToPath(import.meta.url)),
-          "./src/locales/**"
-        ),
+        include: resolve(__dirname, "./src/locales/**"),
       }),
     ],
     base:
@@ -45,6 +41,13 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": resolve(__dirname, "src"),
+      },
+    },
+    test: {
+      globals: true,
+      environment: "happy-dom",
+      deps: {
+        inline: ["vuetify"],
       },
     },
   };
