@@ -7,6 +7,8 @@
       <v-btn href="navigator"> Навигатор </v-btn>
       <v-btn href="grid"> Грид </v-btn>
       <v-btn href="urlstate"> Состояние в url </v-btn>
+
+      <p>{{ $t("hello") }}</p>
     </v-app-bar>
 
     <v-main>

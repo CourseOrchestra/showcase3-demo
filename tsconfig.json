@@ -17,7 +17,8 @@
     "types": [
       "cypress",
       "vitest/globals",
-      "vite/client"
+      "vite/client",
+      "@intlify/vite-plugin-vue-i18n/client"
     ],
     "paths": {
       "@/*": [
