@@ -1,20 +1,20 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <v-btn href="."> Welcome </v-btn>
-      <v-btn href="logocurs"> Логотип КУРСа </v-btn>
-      <v-btn href="logoplatform"> Логотип Платформы </v-btn>
-      <v-btn href="navigator"> Навигатор </v-btn>
-      <v-btn href="grid"> Грид </v-btn>
-      <v-btn href="urlstate"> Состояние в url </v-btn>
+  <vApp>
+    <vAppBar app color="primary" dark>
+      <vBtn href="."> Welcome </vBtn>
+      <vBtn href="logocurs"> Логотип КУРСа </vBtn>
+      <vBtn href="logoplatform"> Логотип Платформы </vBtn>
+      <vBtn href="navigator"> Навигатор </vBtn>
+      <vBtn href="grid"> Грид </vBtn>
+      <vBtn href="urlstate"> Состояние в url </vBtn>
 
       <p>{{ $t("hello") }}</p>
-    </v-app-bar>
+    </vAppBar>
 
-    <v-main>
-      <router-view />
-    </v-main>
-  </v-app>
+    <vMain>
+      <routerView />
+    </vMain>
+  </vApp>
 </template>
 
 <script setup lang="ts"></script>

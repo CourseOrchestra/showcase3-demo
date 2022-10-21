@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <vContainer>
     <br />
     <br />
     <h1>
@@ -9,31 +9,31 @@
     <br />
     <br />
     <br />
-    <v-row>
-      <v-col class="font-weight-bold">
+    <vRow>
+      <vCol class="font-weight-bold">
         <h2>Версии</h2>
         <br />
-        <v-text-field
+        <vTextField
           v-model="libVersion"
           readonly
           outlined
           label="showcase3"
-        ></v-text-field>
-        <v-text-field
+        ></vTextField>
+        <vTextField
           v-model="appVersion"
           readonly
           outlined
           label="showcase3-demo"
-        ></v-text-field>
-        <v-btn href="stats.html" target="_blank" app color="secondary">
+        ></vTextField>
+        <vBtn href="stats.html" target="_blank" app color="secondary">
           Визуализация сборки
-        </v-btn>
-      </v-col>
+        </vBtn>
+      </vCol>
       <br />
-      <v-col>
-        <v-img :src="getImageUrl()" contain />
-      </v-col>
-    </v-row>
+      <vCol>
+        <vImg :src="getImageUrl()" contain />
+      </vCol>
+    </vRow>
     <br />
     <br />
     <br />
@@ -41,7 +41,7 @@
       Vite {{ viteVersion }} + Vitest {{ vitestVersion }} + Cypress
       {{ cypressVersion }}
     </h1>
-  </v-container>
+  </vContainer>
 </template>
 
 <script setup lang="ts">

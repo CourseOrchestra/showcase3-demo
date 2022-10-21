@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="4">
+  <vContainer>
+    <vRow justify="center">
+      <vCol cols="4">
         <br />
         <br />
         <LogoPlatform id="lplatform1"></LogoPlatform>
@@ -11,8 +11,8 @@
         <br />
         <br />
         <LogoPlatform id="lplatform3"></LogoPlatform>
-      </v-col>
-      <v-col cols="4">
+      </vCol>
+      <vCol cols="4">
         <br />
         <br />
         <LogoPlatform id="lplatform4"></LogoPlatform>
@@ -22,8 +22,8 @@
         <br />
         <br />
         <LogoPlatform id="lplatform6"></LogoPlatform>
-      </v-col>
-      <v-col cols="4">
+      </vCol>
+      <vCol cols="4">
         <br />
         <br />
         <LogoPlatform id="lplatform7"></LogoPlatform>
@@ -33,9 +33,9 @@
         <br />
         <br />
         <LogoPlatform id="lplatform9"></LogoPlatform>
-      </v-col>
-    </v-row>
-  </v-container>
+      </vCol>
+    </vRow>
+  </vContainer>
 </template>
 
 <script setup lang="ts">

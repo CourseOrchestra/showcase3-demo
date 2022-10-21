@@ -1,23 +1,23 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="4">
+  <vContainer>
+    <vRow justify="center">
+      <vCol cols="4">
         <LogoCurs id="lcurs1"></LogoCurs>
         <LogoCurs id="lcurs2"></LogoCurs>
         <LogoCurs id="lcurs3"></LogoCurs>
-      </v-col>
-      <v-col cols="4">
+      </vCol>
+      <vCol cols="4">
         <LogoCurs id="lcurs4"></LogoCurs>
         <LogoCurs id="lcurs5"></LogoCurs>
         <LogoCurs id="lcurs6"></LogoCurs>
-      </v-col>
-      <v-col cols="4">
+      </vCol>
+      <vCol cols="4">
         <LogoCurs id="lcurs7"></LogoCurs>
         <LogoCurs id="lcurs8"></LogoCurs>
         <LogoCurs id="lcurs9"></LogoCurs>
-      </v-col>
-    </v-row>
-  </v-container>
+      </vCol>
+    </vRow>
+  </vContainer>
 </template>
 
 <script setup lang="ts">

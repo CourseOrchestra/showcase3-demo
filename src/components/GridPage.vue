@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <vContainer fluid>
     <br />
     <br />
     <EasyDataTable
@@ -22,7 +22,7 @@
 
     <br />
     <h2>{{ restApiUrl }}</h2>
-  </v-container>
+  </vContainer>
 </template>
 
 <script setup lang="ts">

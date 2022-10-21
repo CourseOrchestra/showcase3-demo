@@ -1,11 +1,11 @@
 <template>
-  <v-container>
+  <vContainer>
     <br />
     <br />
     <br />
     <br />
     <h1 class="text-center">Демонстрация состояния в url</h1>
-  </v-container>
+  </vContainer>
 </template>
 
 <script setup lang="ts">
