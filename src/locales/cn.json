@@ -1,0 +1,22 @@
+{
+  "App": {
+    "menu": {
+      "welcome": "歡迎",
+      "logocurs": "徽標 Curs",
+      "logoplatform": "標誌平台",
+      "navigator": "航海家",
+      "grid": "網格",
+      "urlstate": "網址狀態"
+    }
+  },
+  "WelcomePage": {
+    "versions": "版本",
+    "visualization": "可視化"
+  },
+  "NavigatorPage": {
+    "title": "導航器演示"
+  },
+  "UrlStatePage": {
+    "title": "網址狀態演示"
+  }
+}

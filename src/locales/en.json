@@ -1,5 +1,22 @@
 {
-  "language": "Language",
-  "hello": "hello, world!"
+  "App": {
+    "menu": {
+      "welcome": "Welcome",
+      "logocurs": "Logo Curs",
+      "logoplatform": "Logo Platform",
+      "navigator": "Navigator",
+      "grid": "Grid",
+      "urlstate": "Url-state"
+    }
+  },
+  "WelcomePage": {
+    "versions": "Versions",
+    "visualization": "Visualization"
+  },
+  "NavigatorPage": {
+    "title": "Navigator demo"
+  },
+  "UrlStatePage": {
+    "title": "Url-state demo"
+  }
 }
-

@@ -4,7 +4,7 @@
     <br />
     <br />
     <br />
-    <h1 class="text-center">Демонстрация состояния в url</h1>
+    <h1 class="text-center">{{ $t("UrlStatePage.title") }}</h1>
   </vContainer>
 </template>
 

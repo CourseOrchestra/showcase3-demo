@@ -1,5 +1,22 @@
 {
-  "language": "言語",
-  "hello": "こんにちは、世界！"
-
+  "App": {
+    "menu": {
+      "welcome": "Welcome",
+      "logocurs": "Логотип КУРС",
+      "logoplatform": "Логотип Платформы",
+      "navigator": "Навигатор",
+      "grid": "Грид",
+      "urlstate": "Состояние в url"
+    }
+  },
+  "WelcomePage": {
+    "versions": "Версии",
+    "visualization": "Визуализация сборки"
+  },
+  "NavigatorPage": {
+    "title": "Демонстрация навигатора"
+  },
+  "UrlStatePage": {
+    "title": "Демонстрация состояния в url"
+  }
 }

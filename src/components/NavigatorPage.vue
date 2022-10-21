@@ -4,7 +4,7 @@
     <br />
     <br />
     <br />
-    <h1 class="text-center">Демонстрация навигатора</h1>
+    <h1 class="text-center">{{ $t("NavigatorPage.title") }}</h1>
   </vContainer>
 </template>
 

@@ -11,7 +11,7 @@
     <br />
     <vRow>
       <vCol class="font-weight-bold">
-        <h2>Версии</h2>
+        <h2>{{ $t("WelcomePage.versions") }}</h2>
         <br />
         <vTextField
           v-model="libVersion"
@@ -26,7 +26,7 @@
           label="showcase3-demo"
         ></vTextField>
         <vBtn href="stats.html" target="_blank" app color="secondary">
-          Визуализация сборки
+          {{ $t("WelcomePage.visualization") }}
         </vBtn>
       </vCol>
       <br />

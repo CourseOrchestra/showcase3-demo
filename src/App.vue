@@ -1,14 +1,20 @@
 <template>
   <vApp>
     <vAppBar app color="primary" dark>
-      <vBtn href="."> Welcome </vBtn>
-      <vBtn href="logocurs"> Логотип КУРСа </vBtn>
-      <vBtn href="logoplatform"> Логотип Платформы </vBtn>
-      <vBtn href="navigator"> Навигатор </vBtn>
-      <vBtn href="grid"> Грид </vBtn>
-      <vBtn href="urlstate"> Состояние в url </vBtn>
+      <vBtn href="."> {{ $t("App.menu.welcome") }} </vBtn>
+      <vBtn href="logocurs"> {{ $t("App.menu.logocurs") }} </vBtn>
+      <vBtn href="logoplatform"> {{ $t("App.menu.logoplatform") }} </vBtn>
+      <vBtn href="navigator"> {{ $t("App.menu.navigator") }} </vBtn>
+      <vBtn href="grid"> {{ $t("App.menu.grid") }} </vBtn>
+      <vBtn href="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
 
-      <p>{{ $t("hello") }}</p>
+      <vSpacer></vSpacer>
+
+      <vSelect
+        v-model="locale"
+        :items="['ru', 'cn', 'en']"
+        style="display: inline-flex"
+      ></vSelect>
     </vAppBar>
 
     <vMain>
@@ -17,7 +23,11 @@
   </vApp>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { locale } = useI18n();
+</script>
 
 <style>
 .v-btn {
