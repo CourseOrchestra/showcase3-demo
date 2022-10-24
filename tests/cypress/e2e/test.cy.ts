@@ -1,12 +1,12 @@
 describe("e2e тесты", () => {
   it("Welcome", () => {
     cy.visit("/");
-    cy.contains("div", "welcome");
-    cy.contains("div", "logocurs");
-    cy.contains("div", "logoplatform");
-    cy.contains("div", "navigator");
-    cy.contains("div", "grid");
-    cy.contains("div", "urlstate");
+    cy.contains("div", "Welcome");
+    cy.contains("div", "Логотип КУРСа");
+    cy.contains("div", "Логотип Платформы");
+    cy.contains("div", "Навигатор");
+    cy.contains("div", "Грид");
+    cy.contains("div", "Состояние");
   });
   it("Логотип КУРСа", () => {
     cy.visit("/logocurs");
@@ -20,13 +20,13 @@ describe("e2e тесты", () => {
   });
   it("Навигатор", () => {
     cy.visit("/navigator");
-    cy.contains("h1", "title");
+    cy.contains("h1", "Демонстрация навигатора");
   });
   it("Грид", () => {
     cy.visit("/grid");
   });
   it("Состояние в url", () => {
     cy.visit("/urlstate");
-    cy.contains("h1", "title");
+    cy.contains("h1", "Демонстрация состояния в url");
   });
 });
