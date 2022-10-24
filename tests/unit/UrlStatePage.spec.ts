@@ -12,6 +12,6 @@ describe("UrlStatePage.vue", () => {
         plugins: [vuetify],
       },
     });
-    expect(wrapper.text()).toContain("Демонстрация состояния в url");
+    expect(wrapper.text()).toContain("title");
   });
 });

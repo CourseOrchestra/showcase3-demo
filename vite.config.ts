@@ -23,13 +23,6 @@ export default defineConfig(({ mode }) => {
         filename: "dist/stats.html",
       }),
 
-      {
-        name: "vitest-plugin-beforeall",
-        config: () => ({
-          test: { setupFiles: ["./tests/unit/beforeall.ts"] },
-        }),
-      },
-
       vue(),
       vuetify(),
       vueI18n({
@@ -44,6 +37,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     test: {
+      setupFiles: ["./tests/unit/beforeall.ts"],
       globals: true,
       environment: "happy-dom",
       deps: {

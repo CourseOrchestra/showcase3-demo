@@ -12,6 +12,6 @@ describe("NavigatorPage.vue", () => {
         plugins: [vuetify],
       },
     });
-    expect(wrapper.text()).toContain("Демонстрация навигатора");
+    expect(wrapper.text()).toContain("title");
   });
 });
