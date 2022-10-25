@@ -25,8 +25,16 @@
 
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
+import { useInternationalizationStore } from "@/stores/internationalization";
+import { watch } from "vue";
 
 const { locale } = useI18n();
+
+const internationalization = useInternationalizationStore();
+
+watch(locale, (value) => {
+  internationalization.setLocale(value);
+});
 </script>
 
 <style>
