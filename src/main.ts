@@ -26,4 +26,6 @@ import { useInternationalizationStore } from "@/stores/internationalization";
 const internationalization = useInternationalizationStore();
 i18n.global.locale.value = internationalization.locale;
 
+vuetify.locale;
+
 app.mount("#app");
