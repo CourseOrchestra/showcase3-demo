@@ -11,5 +11,5 @@
 <script setup lang="ts">
 import { setTitle } from "@/utils/common";
 
-setTitle("Навигатор");
+setTitle("navigator");
 </script>

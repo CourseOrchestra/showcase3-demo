@@ -42,5 +42,5 @@
 import { LogoPlatform } from "showcase3";
 import { setTitle } from "@/utils/common";
 
-setTitle("Логотип Платформы");
+setTitle("logoplatform");
 </script>

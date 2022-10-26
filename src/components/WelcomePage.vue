@@ -55,7 +55,7 @@ import vitePackageInfo from "vite/package.json";
 import vitestPackageInfo from "vitest/package.json";
 import cypressPackageInfo from "cypress/package.json";
 
-setTitle("Welcome");
+setTitle("welcome");
 
 const getImageUrl = () => {
   return new URL(`../assets/welcome.png`, import.meta.url).href;

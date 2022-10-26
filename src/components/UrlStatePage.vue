@@ -11,5 +11,5 @@
 <script setup lang="ts">
 import { setTitle } from "@/utils/common";
 
-setTitle("Состояние в url");
+setTitle("urlstate");
 </script>

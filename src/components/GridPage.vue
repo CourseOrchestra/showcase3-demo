@@ -34,7 +34,7 @@ import { setTitle } from "@/utils/common";
 import { useI18n } from "vue-i18n";
 import { $tt } from "@/plugins/i18n";
 
-setTitle("Грид");
+setTitle("grid");
 
 const headers: Header[] = [
   {

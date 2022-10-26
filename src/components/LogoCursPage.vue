@@ -24,5 +24,5 @@
 import { LogoCurs } from "showcase3";
 import { setTitle } from "@/utils/common";
 
-setTitle("Логотип КУРСа");
+setTitle("logocurs");
 </script>
