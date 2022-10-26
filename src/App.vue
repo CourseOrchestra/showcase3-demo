@@ -28,12 +28,14 @@
 import { useI18n } from "vue-i18n";
 import { useInternationalizationStore } from "@/stores/internationalization";
 import { watch } from "vue";
+import { setTitle } from "@/utils/common";
 
 const { locale } = useI18n();
 
 const internationalization = useInternationalizationStore();
 
 watch(locale, (value) => {
+  setTitle("");
   internationalization.setLocale(value);
 });
 </script>
