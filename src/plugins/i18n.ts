@@ -8,8 +8,6 @@ const i18n = createI18n({
   messages,
 });
 
-//const $tt = i18n.global.t;
-
 /* eslint @typescript-eslint/ban-ts-comment: "off" */
 // @ts-ignore
 const $tt = i18n.global.t;
