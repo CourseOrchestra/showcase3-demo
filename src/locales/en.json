@@ -6,7 +6,8 @@
       "logoplatform": "Logo Platform",
       "navigator": "Navigator",
       "grid": "Grid",
-      "urlstate": "Url-state"
+      "urlstate": "Url-state",
+      "language": "Language"
     }
   },
   "WelcomePage": {

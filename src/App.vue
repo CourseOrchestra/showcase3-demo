@@ -10,6 +10,7 @@
 
       <vSpacer></vSpacer>
 
+      <span>{{ $t("App.menu.language") }}</span>
       <vSelect
         v-model="locale"
         :items="['ru', 'cn', 'en']"

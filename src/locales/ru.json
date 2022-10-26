@@ -6,7 +6,8 @@
       "logoplatform": "Логотип Платформы",
       "navigator": "Навигатор",
       "grid": "Грид",
-      "urlstate": "Состояние в url"
+      "urlstate": "Состояние в url",
+      "language": "Выбор языка"
     }
   },
   "WelcomePage": {
