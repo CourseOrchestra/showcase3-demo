@@ -1,5 +1,6 @@
 {
   "App": {
+    "platform": "平台 Curs",
     "menu": {
       "welcome": "歡迎",
       "logocurs": "徽標 Curs",
