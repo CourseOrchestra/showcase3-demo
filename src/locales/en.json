@@ -18,5 +18,33 @@
   },
   "UrlStatePage": {
     "title": "Url-state demo"
+  },
+  "GridPage": {
+    "rowsPerPageMessage": "rows per page:",
+    "columns": {
+      "name": "Name",
+      "address": "Address",
+      "height": "Height",
+      "weight": "Weight",
+      "age": "Age",
+      "favouriteSport": "Favourite sport",
+      "favouriteFruits": "Favourite fruits"
+    },
+    "data": {
+      "sports": {
+        "basketball": "basketball",
+        "football": "football",
+        "running": "running",
+        "swimming": "swimming"
+      },
+      "fruits": {
+        "banana": "banana",
+        "apple": "apple",
+        "orange": "orange",
+        "peach": "peach"
+      },
+      "name": "name",
+      "address": "address"
+    }
   }
 }

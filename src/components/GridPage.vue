@@ -10,9 +10,10 @@
       :loading="loading"
       buttons-pagination
       :rows-items="[10, 15, 25, 50]"
+      :rows-per-page-message="$t('GridPage.rowsPerPageMessage')"
       show-index
       theme-color="#6200EE"
-      table-height="450"
+      :table-height="450"
     />
 
     <!--
@@ -30,34 +31,55 @@ import { ref, computed, watch } from "vue";
 import { mockServerItems } from "@/utils/mock";
 import { Header, ServerOptions, Item } from "vue3-easy-data-table";
 import { setTitle } from "@/utils/common";
+import { useI18n } from "vue-i18n";
+import { $tt } from "@/plugins/i18n";
 
 setTitle("Грид");
 
 const headers: Header[] = [
-  { text: "Name", value: "name", sortable: true, width: 200, fixed: true },
   {
-    text: "Address",
+    text: useI18n().t("GridPage.columns.name"),
+    value: "name",
+    sortable: true,
+    width: 200,
+    fixed: true,
+  },
+  {
+    text: useI18n().t("GridPage.columns.address"),
     value: "address",
     sortable: true,
     width: 200,
     fixed: true,
   },
-  { text: "Height", value: "height", sortable: true, width: 400 },
-  { text: "Weight", value: "weight", sortable: true, width: 400 },
-  { text: "Age", value: "age", sortable: true, width: 400 },
   {
-    text: "Favourite sport",
+    text: useI18n().t("GridPage.columns.height"),
+    value: "height",
+    sortable: true,
+  },
+  {
+    text: useI18n().t("GridPage.columns.weight"),
+    value: "weight",
+    sortable: true,
+  },
+  {
+    text: useI18n().t("GridPage.columns.age"),
+    value: "age",
+    sortable: true,
+  },
+  {
+    text: useI18n().t("GridPage.columns.favouriteSport"),
     value: "favouriteSport",
     sortable: true,
     width: 400,
   },
   {
-    text: "Favourite fruits",
+    text: useI18n().t("GridPage.columns.favouriteFruits"),
     value: "favouriteFruits",
     sortable: true,
-    width: 400,
+    width: 500,
   },
 ];
+
 const items = ref<Item[]>([]);
 
 const serverItemsLength = ref(0);
@@ -96,4 +118,11 @@ watch(
   },
   { deep: true }
 );
+
+watch(useI18n().locale, (/*value*/) => {
+  for (const header of headers) {
+    header.text = $tt("GridPage.columns." + header.value);
+  }
+  loadFromServer();
+});
 </script>

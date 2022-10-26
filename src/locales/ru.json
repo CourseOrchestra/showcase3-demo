@@ -18,5 +18,33 @@
   },
   "UrlStatePage": {
     "title": "Демонстрация состояния в url"
+  },
+  "GridPage": {
+    "rowsPerPageMessage": "записей на странице:",
+    "columns": {
+      "name": "Название",
+      "address": "Адрес",
+      "height": "Высота",
+      "weight": "Ширина",
+      "age": "Возраст",
+      "favouriteSport": "Любимый спорт",
+      "favouriteFruits": "Любимый фрукт"
+    },
+    "data": {
+      "sports": {
+        "basketball": "баскетбол",
+        "football": "футбол",
+        "running": "бег",
+        "swimming": "плавание"
+      },
+      "fruits": {
+        "banana": "бананы",
+        "apple": "яблоки",
+        "orange": "апельсин",
+        "peach": "персик"
+      },
+      "name": "название",
+      "address": "адрес"
+    }
   }
 }

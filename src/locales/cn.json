@@ -18,5 +18,33 @@
   },
   "UrlStatePage": {
     "title": "網址狀態演示"
+  },
+  "GridPage": {
+    "rowsPerPageMessage": "每頁行數：",
+    "columns": {
+      "name": "姓名",
+      "address": "地址",
+      "height": "高度",
+      "weight": "重量",
+      "age": "年齡",
+      "favouriteSport": "最愛的運動",
+      "favouriteFruits": "最喜歡的水果"
+    },
+    "data": {
+      "sports": {
+        "basketball": "籃球",
+        "football": "足球",
+        "running": "跑步",
+        "swimming": "游泳"
+      },
+      "fruits": {
+        "banana": "香蕉",
+        "apple": "蘋果",
+        "orange": "橙",
+        "peach": "桃"
+      },
+      "name": "姓名",
+      "address": "地址"
+    }
   }
 }
