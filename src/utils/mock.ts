@@ -41,8 +41,11 @@ export const mockServerItems = async (
   const serverTotalItems = mockClientItems(serverItemsLength);
   if (sortBy && sortType) {
     serverTotalItems.sort((a, b) => {
-      if (a[sortBy] < b[sortBy]) return sortType === "desc" ? 1 : -1;
-      if (a[sortBy] > b[sortBy]) return sortType === "desc" ? -1 : 1;
+      const stringSortBy: string = sortBy as string;
+      if (a[stringSortBy] < b[stringSortBy])
+        return sortType === "desc" ? 1 : -1;
+      if (a[stringSortBy] > b[stringSortBy])
+        return sortType === "desc" ? -1 : 1;
       return 0;
     });
   }
