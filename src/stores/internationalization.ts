@@ -15,5 +15,7 @@ export const useInternationalizationStore = defineStore({
     },
   },
 
+  // tag::persist[]
   persist: true,
+  // end::persist[]
 });

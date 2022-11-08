@@ -1,0 +1,56 @@
+= Сохраниение состояния
+
+== Общие принципы
+* Для управления состоянием страницы в проекте используется библиотека https://github.com/vuejs/pinia[Pinia].
+* Для сохранения состояния в persistent-режиме используется библиотека https://github.com/prazdevs/pinia-plugin-persistedstate[Persist Pinia]
+
+== Подключение
+[source, js, indent=0]
+.main.ts
+----
+include::../../src/main.ts[tag=pinia]
+----
+[source, js, indent=0]
+----
+include::../../src/main.ts[tag=def_pinia]
+----
+[source, js, indent=0]
+----
+include::../../src/main.ts[tag=def2_pinia]
+----
+== Пример использования для сохранеиня выбранного языка
+[source, js, indent=0]
+.App.vue. Пример подключения хранишища (файл stores/internationalizations.ts для сохранения выбранного языка)
+----
+include::../../src/App.vue[tag=import_store]
+----
+[source, js, indent=0]
+----
+include::../../src/App.vue[tag=create_store]
+----
+[source, js, indent=0]
+.App.vue. Сохранение
+----
+include::../../src/App.vue[tag=save_store]
+----
+[source, js, indent=0]
+.main.ts. Считывание
+----
+include::../../src/main.ts[tag=read_store]
+----
+== Подключение persistent режима сохранения состояния
+[source, js, indent=0]
+.Включить режим persist в store
+----
+include::../../src/stores/internationalization.ts[tag=persist]
+----
+[source, js, indent=0]
+.Подключение сохранения в main.ts
+----
+include::../../src/main.ts[tag=persist]
+----
+[source, js, indent=0]
+----
+include::../../src/main.ts[tag=use_persist]
+----
+
