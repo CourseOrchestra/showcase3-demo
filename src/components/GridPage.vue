@@ -31,14 +31,20 @@ import { ref, computed, watch } from "vue";
 import { mockServerItems } from "@/utils/mock";
 import { Header, ServerOptions, Item } from "vue3-easy-data-table";
 import { setTitle } from "@/utils/common";
+// tag::import_vuei18n[]
 import { useI18n } from "vue-i18n";
+// end::import_vuei18n[]
+// tag::import_plugins_vuei18n[]
 import { $tt } from "@/plugins/i18n";
+// end::import_plugins_vuei18n[]
 
 setTitle("grid");
 
 const headers: Header[] = [
   {
+    // tag::vuei18n[]
     text: useI18n().t("GridPage.columns.name"),
+    // end::vuei18n[]
     value: "name",
     sortable: true,
     width: 200,
@@ -120,9 +126,11 @@ watch(
 );
 
 watch(useI18n().locale, (/*value*/) => {
+  // tag::plugins_vuei18n[]
   for (const header of headers) {
     header.text = $tt("GridPage.columns." + header.value);
   }
+  // end::plugins_vuei18n[]
   loadFromServer();
 });
 </script>

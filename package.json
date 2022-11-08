@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.13.2",
+  "version": "1.13.3",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -25,19 +25,27 @@
   "dependencies": {
     "@mdi/font": "^7.0.96",
     "core-js": "^3.26.0",
+    // tag::version_pinia[]
     "pinia": "^2.0.23",
+    // end::version_pinia[]
     "roboto-fontface": "^0.10.0",
     "showcase3": "^1.12.0",
     "vue": "^3.2.41",
+    // tag::version_i18n[]
     "vue-i18n": "^9.2.2",
+    // end::version_i18n[]
     "vue-router": "^4.1.6",
     "vue3-easy-data-table": "^1.5.12",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    // tag::version_dev_i18n[]
     "@intlify/vite-plugin-vue-i18n": "^6.0.3",
+    // end::version_dev_i18n[]
+    // tag::version_dev_pinia[]
     "@pinia/testing": "^0.0.14",
+    // end::version_dev_pinia[]
     "@types/webfontloader": "^1.6.35",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
@@ -52,7 +60,9 @@
     "eslint-plugin-vue": "^9.7.0",
     "happy-dom": "^7.6.6",
     "lint-staged": "^13.0.3",
+    // tag::version_pinia_persist[]
     "pinia-plugin-persistedstate": "^2.3.0",
+    // end::version_pinia_persist[]
     "prettier": "^2.7.1",
     "rollup-plugin-visualizer": "^5.8.3",
     "sass": "^1.56.0",

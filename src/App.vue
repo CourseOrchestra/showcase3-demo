@@ -26,18 +26,24 @@
 
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
+// tag::import_store[]
 import { useInternationalizationStore } from "@/stores/internationalization";
+// end::import_store[]
 import { watch } from "vue";
 import { setTitle } from "@/utils/common";
 
 const { locale } = useI18n();
 
+// tag::create_store[]
 const internationalization = useInternationalizationStore();
+// end::create_store[]
 
+// tag::save_store[]
 watch(locale, (value) => {
   setTitle("");
   internationalization.setLocale(value);
 });
+// end::save_store[]
 </script>
 
 <style>
