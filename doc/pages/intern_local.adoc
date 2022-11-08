@@ -10,15 +10,6 @@
 ** Нижний уроваень - вид константы для элемента управления (заголовок, всплывающая подсказка)
 
 == Подключение плагина интернационализации
-[source, json, indent=0]
-.package.json
-----
-include::../../package.json[tag=version_i18n]
-----
-[source, json, indent=0]
-----
-include::../../package.json[tag=version_dev_i18n]
-----
 [source, js, indent=0]
 .vite.config.ts
 ----

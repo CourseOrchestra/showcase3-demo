@@ -4,9 +4,9 @@
     <br />
     <br />
     <br />
-<!--    tag::template_i18n[] -->
+    <!--    tag::template_i18n[] -->
     <h1 class="text-center">{{ $t("UrlStatePage.title") }}</h1>
-<!--    end::template_i18n[] -->
+    <!--    end::template_i18n[] -->
   </vContainer>
 </template>
 

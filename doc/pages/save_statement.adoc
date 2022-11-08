@@ -5,15 +5,6 @@
 * Для сохранения состояния в persistent-режиме используется библиотека https://github.com/prazdevs/pinia-plugin-persistedstate[Persist Pinia]
 
 == Подключение
-[source, json, indent=0]
-.package.json
-----
-include::../../package.json[tag=version_pinia]
-----
-[source, json, indent=0]
-----
-include::../../package.json[tag=version_dev_pinia]
-----
 [source, js, indent=0]
 .main.ts
 ----
@@ -48,11 +39,6 @@ include::../../src/App.vue[tag=save_store]
 include::../../src/main.ts[tag=read_store]
 ----
 == Подключение persistent режима сохранения состояния
-[source, json, indent=0]
-.package.json
-----
-include::../../package.json[tag=version_pinia_persist]
-----
 [source, js, indent=0]
 .Включить режим persist в store
 ----

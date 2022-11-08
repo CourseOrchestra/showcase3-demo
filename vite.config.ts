@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => {
       vueI18n({
         include: resolve(__dirname, "./src/locales/**"),
       }),
-    //    end::vuei18n[]
+      //    end::vuei18n[]
     ],
     base:
       mode === "production" ? env.VITE_PROD_BASE_URL : env.VITE_DEV_BASE_URL,

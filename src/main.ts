@@ -26,7 +26,7 @@ pinia.use(piniaPluginPersistedstate);
 // tag::def2_pinia[]
 const app = createApp(App)
   .use(pinia)
-    // end::def2_pinia[]
+  // end::def2_pinia[]
   .use(i18n)
   .use(router)
   .use(vuetify) /*.use(showcase3)*/
