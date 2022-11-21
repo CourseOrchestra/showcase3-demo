@@ -37,6 +37,8 @@ import { useI18n } from "vue-i18n";
 // tag::import_plugins_vuei18n[]
 import { $tt } from "@/plugins/i18n";
 // end::import_plugins_vuei18n[]
+import { useRouter, useRoute } from "vue-router";
+import { TIMER_INTERVAL } from "@/utils/constants";
 
 setTitle("grid");
 
@@ -86,6 +88,9 @@ const headers: Header[] = [
   },
 ];
 
+const router = useRouter();
+const route = useRoute();
+
 const items = ref<Item[]>([]);
 
 const serverItemsLength = ref(0);
@@ -114,13 +119,73 @@ const loadFromServer = async () => {
   loading.value = false;
 };
 
+const mapModelToUrl = () => {
+  const parameters: { [k: string]: any } = {};
+  const { page, rowsPerPage, sortBy, sortType } = serverOptions.value;
+  parameters["page"] = page;
+  if (rowsPerPage) {
+    parameters["limit"] = rowsPerPage;
+  }
+  if (sortBy && sortType) {
+    parameters["sort-by"] = sortBy;
+    parameters["sort-type"] = sortType;
+  }
+  return parameters;
+};
+
+const mapUrlToModel = (parameters: { [x: string]: any }) => {
+  if (parameters["limit"] && parameters["page"]) {
+    serverOptions.value.rowsPerPage = Number(parameters["limit"]);
+    serverOptions.value.page = Number(parameters["page"]);
+  } else {
+    serverOptions.value.rowsPerPage = 10;
+    serverOptions.value.page = 1;
+  }
+
+  if (parameters["sort-by"]) {
+    serverOptions.value.sortBy = [parameters["sort-by"]];
+    serverOptions.value.sortType = [parameters["sort-type"]];
+  } else {
+    serverOptions.value.sortBy = "";
+    serverOptions.value.sortType = ["asc"];
+  }
+};
+
+const setUrlByModelFilter = () => {
+  router.replace({
+    path: route.path,
+    query: {
+      ...mapModelToUrl(),
+    },
+  });
+};
+
+const setUrlByModelFilterWithTimeout = () => {
+  // eslint-disable-next-line prefer-const
+  let last_timeout;
+  window.clearTimeout(last_timeout);
+  last_timeout = window.setTimeout(() => {
+    setUrlByModelFilter();
+  }, TIMER_INTERVAL);
+};
+
 // first load when created
+mapUrlToModel(route.query);
 loadFromServer();
 
 watch(
   serverOptions,
   (/*value*/) => {
+    setUrlByModelFilterWithTimeout();
     loadFromServer();
+  },
+  { deep: true }
+);
+
+watch(
+  () => route.query,
+  (/*value*/) => {
+    mapUrlToModel(route.query);
   },
   { deep: true }
 );
