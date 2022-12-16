@@ -7,7 +7,7 @@ import NavigatorPage from "@/components/NavigatorPage.vue";
 const vuetify = createVuetify();
 
 describe("NavigatorPage.vue", () => {
-  it.skip("Навигатор", () => {
+  it("Навигатор", () => {
     const wrapper = mount(NavigatorPage, {
       global: {
         plugins: [vuetify, createTestingPinia()],
