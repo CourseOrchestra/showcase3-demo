@@ -4,6 +4,7 @@ import LogoCursPage from "@/components/LogoCursPage.vue";
 import LogoPlatformPage from "@/components/LogoPlatformPage.vue";
 import GridPage from "../components/GridPage.vue";
 import UrlStatePage from "../components/UrlStatePage.vue";
+import PageOutPage from "../components/PageOutPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -35,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/urlstate",
     name: "urlstate",
     component: UrlStatePage,
+  },
+  {
+    path: "/pageout",
+    name: "pageout",
+    component: PageOutPage,
   },
 ];
 

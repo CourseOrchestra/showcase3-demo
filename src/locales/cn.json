@@ -8,7 +8,8 @@
       "navigator": "航海家",
       "grid": "網格",
       "urlstate": "網址狀態",
-      "language": "語"
+      "language": "語",
+      "pageout": "離開頁面"
     }
   },
   "WelcomePage": {
@@ -48,5 +49,8 @@
       "name": "姓名",
       "address": "地址"
     }
+  },
+  "PageOutPage": {
+    "changes": "頁面有變化"
   }
 }

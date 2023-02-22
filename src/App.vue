@@ -7,6 +7,7 @@
       <vBtn href="navigator"> {{ $t("App.menu.navigator") }} </vBtn>
       <vBtn href="grid"> {{ $t("App.menu.grid") }} </vBtn>
       <vBtn href="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
+      <vBtn href="pageout"> {{ $t("App.menu.pageout") }} </vBtn>
 
       <vSpacer></vSpacer>
 

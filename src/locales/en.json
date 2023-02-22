@@ -8,7 +8,8 @@
       "navigator": "Navigator",
       "grid": "Grid",
       "urlstate": "Url-state",
-      "language": "Language"
+      "language": "Language",
+      "pageout": "Leaving the page"
     }
   },
   "WelcomePage": {
@@ -48,5 +49,8 @@
       "name": "name",
       "address": "address"
     }
+  },
+  "PageOutPage": {
+    "changes": "There are changes on the page"
   }
 }

@@ -8,7 +8,8 @@
       "navigator": "Навигатор",
       "grid": "Грид",
       "urlstate": "Состояние в url",
-      "language": "Выбор языка"
+      "language": "Выбор языка",
+      "pageout": "Уход со страницы"
     }
   },
   "WelcomePage": {
@@ -48,5 +49,8 @@
       "name": "название",
       "address": "адрес"
     }
+  },
+  "PageOutPage": {
+    "changes": "На странице есть изменения"
   }
 }
