@@ -51,6 +51,7 @@
     }
   },
   "PageOutPage": {
-    "changes": "There are changes on the page"
+    "changes": "There are changes on the page",
+    "confirmAlert": "Do you really want to leave? you have unsaved changes!"
   }
 }

@@ -14,16 +14,23 @@
 <script setup lang="ts">
 import { setTitle } from "@/utils/common";
 import { ref } from "vue";
+import { onBeforeRouteLeave } from "vue-router";
+import { $tt } from "@/plugins/i18n";
 
 setTitle("pageout");
 
 const changes = ref(false);
 
+onBeforeRouteLeave(() => {
+  if (changes.value) {
+    const answer = window.confirm($tt("PageOutPage.confirmAlert"));
+    if (!answer) return false;
+  }
+});
+
 window.addEventListener("beforeunload", function (e) {
   if (changes.value) {
-    // Cancel the event
-    e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
-    // Chrome requires returnValue to be set
+    e.preventDefault();
     e.returnValue = "";
   }
 });

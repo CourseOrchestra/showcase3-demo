@@ -51,6 +51,7 @@
     }
   },
   "PageOutPage": {
-    "changes": "頁面有變化"
+    "changes": "頁面有變化",
+    "confirmAlert": "你真的要離開嗎？ 您有未保存的更改！"
   }
 }

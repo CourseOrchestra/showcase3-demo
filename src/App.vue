@@ -1,13 +1,13 @@
 <template>
   <vApp>
     <vAppBar app color="primary" dark>
-      <vBtn href="."> {{ $t("App.menu.welcome") }} </vBtn>
-      <vBtn href="logocurs"> {{ $t("App.menu.logocurs") }} </vBtn>
-      <vBtn href="logoplatform"> {{ $t("App.menu.logoplatform") }} </vBtn>
-      <vBtn href="navigator"> {{ $t("App.menu.navigator") }} </vBtn>
-      <vBtn href="grid"> {{ $t("App.menu.grid") }} </vBtn>
-      <vBtn href="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
-      <vBtn href="pageout"> {{ $t("App.menu.pageout") }} </vBtn>
+      <vBtn to="/"> {{ $t("App.menu.welcome") }} </vBtn>
+      <vBtn to="logocurs"> {{ $t("App.menu.logocurs") }} </vBtn>
+      <vBtn to="logoplatform"> {{ $t("App.menu.logoplatform") }} </vBtn>
+      <vBtn to="navigator"> {{ $t("App.menu.navigator") }} </vBtn>
+      <vBtn to="grid"> {{ $t("App.menu.grid") }} </vBtn>
+      <vBtn to="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
+      <vBtn to="pageout"> {{ $t("App.menu.pageout") }} </vBtn>
 
       <vSpacer></vSpacer>
 
