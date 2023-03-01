@@ -2,9 +2,10 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import WelcomePage from "@/components/WelcomePage.vue";
 import LogoCursPage from "@/components/LogoCursPage.vue";
 import LogoPlatformPage from "@/components/LogoPlatformPage.vue";
-import GridPage from "../components/GridPage.vue";
-import UrlStatePage from "../components/UrlStatePage.vue";
-import PageOutPage from "../components/PageOutPage.vue";
+import GridPage from "@/components/GridPage.vue";
+import UrlStatePage from "@/components/UrlStatePage.vue";
+import PageOutPage from "@/components/PageOutPage.vue";
+import GridVuetifyPage from "@/components/GridVuetifyPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -31,6 +32,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/grid",
     name: "grid",
     component: GridPage,
+  },
+  {
+    path: "/gridvuetify",
+    name: "gridvuetify",
+    component: GridVuetifyPage,
   },
   {
     path: "/urlstate",

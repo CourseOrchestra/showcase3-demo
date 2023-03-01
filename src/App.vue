@@ -6,6 +6,7 @@
       <vBtn to="logoplatform"> {{ $t("App.menu.logoplatform") }} </vBtn>
       <vBtn to="navigator"> {{ $t("App.menu.navigator") }} </vBtn>
       <vBtn to="grid"> {{ $t("App.menu.grid") }} </vBtn>
+      <vBtn to="gridvuetify"> {{ $t("App.menu.gridvuetify") }} </vBtn>
       <vBtn to="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
       <vBtn to="pageout"> {{ $t("App.menu.pageout") }} </vBtn>
 

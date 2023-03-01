@@ -7,6 +7,7 @@
       "logoplatform": "Логотип Платформы",
       "navigator": "Навигатор",
       "grid": "Грид",
+      "gridvuetify": "Vuetify Грид",
       "urlstate": "Состояние в url",
       "language": "Выбор языка",
       "pageout": "Уход со страницы"
