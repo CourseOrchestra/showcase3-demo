@@ -1,7 +1,7 @@
 <template>
   <vContainer>
     <vRow justify="center">
-      <vCol cols="4">
+      <vCol>
         <br />
         <br />
         <LogoPlatform id="lplatform1"></LogoPlatform>
@@ -12,7 +12,7 @@
         <br />
         <LogoPlatform id="lplatform3"></LogoPlatform>
       </vCol>
-      <vCol cols="4">
+      <vCol>
         <br />
         <br />
         <LogoPlatform id="lplatform4"></LogoPlatform>
@@ -23,7 +23,7 @@
         <br />
         <LogoPlatform id="lplatform6"></LogoPlatform>
       </vCol>
-      <vCol cols="4">
+      <vCol>
         <br />
         <br />
         <LogoPlatform id="lplatform7"></LogoPlatform>
