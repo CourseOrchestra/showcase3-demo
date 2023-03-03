@@ -3,6 +3,7 @@ import "vuetify/styles";
 
 import { createVuetify } from "vuetify";
 import { VDataTableServer } from "vuetify/labs/VDataTable";
+import { VVirtualScroll } from "vuetify/labs/VVirtualScroll";
 
 import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
 import { useI18n } from "vue-i18n";
@@ -14,6 +15,7 @@ const vuetify = createVuetify({
   },
   components: {
     VDataTableServer,
+    VVirtualScroll,
   },
 });
 

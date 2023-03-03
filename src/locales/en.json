@@ -8,6 +8,7 @@
       "navigator": "Navigator",
       "grid": "Grid",
       "gridvuetify": "Vuetify Grid",
+      "infinitelist": "Infinite list",
       "urlstate": "Url-state",
       "language": "Language",
       "pageout": "Leaving the page"
