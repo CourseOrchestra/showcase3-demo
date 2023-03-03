@@ -93,7 +93,7 @@ export default {
             items,
             total,
           });
-        }, 1000);
+        }, 2000);
       });
     },
     getDesserts() {
