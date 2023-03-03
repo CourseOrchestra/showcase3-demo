@@ -1,4 +1,19 @@
 {
+  "10": "10",
+  "25": "25",
+  "50": "50",
+  "100": "100",
+  "$vuetify": {
+    "dataFooter": {
+      "itemsPerPageText": "Записей на странице",
+      "itemsPerPageAll": "Все",
+      "pageText": "",
+      "firstPage": "Первая страница",
+      "lastPage": "Последняя страница",
+      "prevPage": "Предыдущая страница",
+      "nextPage": "Следующая страница"
+    }
+  },
   "App": {
     "platform": "Платформа КУРС",
     "menu": {
