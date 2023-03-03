@@ -23,8 +23,12 @@
 </template>
 
 <script>
+import { setTitle } from "@/utils/common";
+
 export default {
   data() {
+    setTitle("gridvuetify");
+
     return {
       totalDesserts: 0,
       desserts: [],
