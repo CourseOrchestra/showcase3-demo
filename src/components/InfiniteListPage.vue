@@ -45,11 +45,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    items: Array.from({ length: 7000 }, (k, v) => v + 1),
-    visibleItems: 30,
-  }),
-};
+<script setup lang="ts">
+import { setTitle } from "@/utils/common";
+import { ref } from "vue";
+
+setTitle("infinitelist");
+
+const items = Array.from({ length: 7000 }, (k, v) => v + 1);
+
+const visibleItems = ref(30);
 </script>
