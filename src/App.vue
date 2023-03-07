@@ -11,7 +11,7 @@
         {{ $t("App.menu.gridvuetifyvirtual") }}
       </vBtn>
       <vBtn to="infinitelist"> {{ $t("App.menu.infinitelist") }} </vBtn>
-      <vBtn to="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
+      <!--      <vBtn to="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>-->
       <vBtn to="pageout"> {{ $t("App.menu.pageout") }} </vBtn>
 
       <vSpacer></vSpacer>

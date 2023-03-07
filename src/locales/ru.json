@@ -22,9 +22,9 @@
       "logoplatform": "Логотип Платформы",
       "navigator": "Навигатор",
       "grid": "Грид",
-      "gridvuetify": "Vuetify грид",
+      "gridvuetify": "Vuetify Page грид",
       "gridvuetifyvirtual": "Vuetify Виртуальный грид",
-      "infinitelist": "Бесконечный список",
+      "infinitelist": "Виртуальный список",
       "urlstate": "Состояние в url",
       "language": "Выбор языка",
       "pageout": "Уход со страницы"

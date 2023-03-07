@@ -22,9 +22,9 @@
       "logoplatform": "Logo Platform",
       "navigator": "Navigator",
       "grid": "Grid",
-      "gridvuetify": "Vuetify grid",
-      "gridvuetifyvirtual": "Vuetify virtual grid",
-      "infinitelist": "Infinite list",
+      "gridvuetify": "Vuetify Page grid",
+      "gridvuetifyvirtual": "Vuetify Virtual grid",
+      "infinitelist": "Virtual list",
       "urlstate": "Url-state",
       "language": "Language",
       "pageout": "Leaving the page"
