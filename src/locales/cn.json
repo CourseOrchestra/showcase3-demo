@@ -24,7 +24,7 @@
       "grid": "網格",
       "gridvuetify": "Vuetify 頁面網格",
       "gridvuetifyvirtual": "Vuetify 虛擬網格",
-      "infinitelist": "虛擬清單",
+      "virtuallist": "虛擬清單",
       "urlstate": "網址狀態",
       "language": "語",
       "pageout": "離開頁面"

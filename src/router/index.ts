@@ -6,7 +6,7 @@ import GridPage from "@/components/GridPage.vue";
 import UrlStatePage from "@/components/UrlStatePage.vue";
 import PageOutPage from "@/components/PageOutPage.vue";
 import GridVuetifyPage from "@/components/GridVuetifyPage.vue";
-import InfiniteListPage from "@/components/InfiniteListPage.vue";
+import VirtualListPage from "@/components/VirtualListPage.vue";
 import GridVuetifyVirtualPage from "@/components/GridVuetifyVirtualPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -46,9 +46,9 @@ const routes: Array<RouteRecordRaw> = [
     component: GridVuetifyVirtualPage,
   },
   {
-    path: "/infinitelist",
-    name: "infinitelist",
-    component: InfiniteListPage,
+    path: "/virtuallist",
+    name: "virtuallist",
+    component: VirtualListPage,
   },
   {
     path: "/urlstate",

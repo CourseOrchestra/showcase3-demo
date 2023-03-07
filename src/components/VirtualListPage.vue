@@ -49,7 +49,7 @@
 import { setTitle } from "@/utils/common";
 import { ref } from "vue";
 
-setTitle("infinitelist");
+setTitle("virtuallist");
 
 const items = Array.from({ length: 7000 }, (k, v) => v + 1);
 

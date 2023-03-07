@@ -24,7 +24,7 @@
       "grid": "Grid",
       "gridvuetify": "Vuetify Page grid",
       "gridvuetifyvirtual": "Vuetify Virtual grid",
-      "infinitelist": "Virtual list",
+      "virtuallist": "Virtual list",
       "urlstate": "Url-state",
       "language": "Language",
       "pageout": "Leaving the page"
