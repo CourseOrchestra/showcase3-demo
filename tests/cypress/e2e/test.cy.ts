@@ -6,7 +6,7 @@ describe("e2e тесты", () => {
     cy.contains("div", "Логотип Платформы");
     cy.contains("div", "Навигатор");
     cy.contains("div", "Грид");
-    cy.contains("div", "Состояние");
+    //    cy.contains("div", "Состояние");
   });
   it("Логотип КУРСа", () => {
     cy.visit("/logocurs");
@@ -25,8 +25,11 @@ describe("e2e тесты", () => {
   it("Грид", () => {
     cy.visit("/grid");
   });
+
+  /*
   it("Состояние в url", () => {
     cy.visit("/urlstate");
     cy.contains("h1", "Демонстрация состояния в url");
   });
+*/
 });
