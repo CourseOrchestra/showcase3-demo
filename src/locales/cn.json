@@ -23,6 +23,7 @@
       "navigator": "航海家",
       "grid": "網格",
       "gridvuetify": "Vuetify 網格",
+      "gridvuetifyvirtual": "Vuetify 虛擬網格",
       "infinitelist": "無限列表",
       "urlstate": "網址狀態",
       "language": "語",
