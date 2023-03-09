@@ -7,7 +7,7 @@
     "dataFooter": {
       "itemsPerPageText": "每頁項目",
       "itemsPerPageAll": "全部",
-      "pageText": "",
+      "pageText": "{0}-{1}，共 {2}",
       "firstPage": "第一頁",
       "lastPage": "最後一頁",
       "prevPage": "上一頁",

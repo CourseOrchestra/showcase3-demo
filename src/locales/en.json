@@ -7,7 +7,7 @@
     "dataFooter": {
       "itemsPerPageText": "Items per page",
       "itemsPerPageAll": "All",
-      "pageText": "",
+      "pageText": "{0}-{1} of {2}",
       "firstPage": "First page",
       "lastPage": "Last page",
       "prevPage": "Prev page",

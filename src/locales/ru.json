@@ -7,7 +7,7 @@
     "dataFooter": {
       "itemsPerPageText": "Записей на странице",
       "itemsPerPageAll": "Все",
-      "pageText": "",
+      "pageText": "{0}-{1} из {2}",
       "firstPage": "Первая страница",
       "lastPage": "Последняя страница",
       "prevPage": "Предыдущая страница",
