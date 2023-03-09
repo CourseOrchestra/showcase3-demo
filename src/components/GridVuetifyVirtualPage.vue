@@ -5,12 +5,25 @@
     <br />
     <br />
 
+    <v-responsive class="mx-auto mb-4" max-width="400">
+      <v-text-field
+        v-model="visibleItems"
+        label="Visible items"
+        max="30"
+        min="10"
+        type="number"
+      ></v-text-field>
+    </v-responsive>
+
     <v-data-table-virtual
       :headers="headers"
       :items="virtualDesserts"
       class="elevation-1"
       height="400"
       item-value="name"
+      fixed-footer
+      fixed-header
+      :visible-items="visibleItems"
     ></v-data-table-virtual>
   </div>
 </template>
@@ -23,6 +36,7 @@ export default {
     setTitle("gridvuetifyvirtual");
 
     return {
+      visibleItems: 30,
       headers: [
         {
           title: "Dessert (100g serving)",
