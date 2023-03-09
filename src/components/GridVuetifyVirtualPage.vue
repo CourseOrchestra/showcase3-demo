@@ -21,9 +21,9 @@
       class="elevation-1"
       height="400"
       item-value="name"
+      :visible-items="visibleItems"
       fixed-footer
       fixed-header
-      :visible-items="visibleItems"
     ></v-data-table-virtual>
   </div>
 </template>

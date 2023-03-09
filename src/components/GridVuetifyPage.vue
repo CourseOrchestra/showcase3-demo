@@ -15,6 +15,8 @@
       show-select
       show-expand
       class="elevation-1"
+      fixed-footer
+      fixed-header
       @update:options="options = $event"
     >
       <template #expanded-row> This is an expanded row </template>
