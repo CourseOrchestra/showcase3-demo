@@ -4,8 +4,8 @@
       <vBtn to="/"> {{ $t("App.menu.welcome") }} </vBtn>
       <vBtn to="logocurs"> {{ $t("App.menu.logocurs") }} </vBtn>
       <vBtn to="logoplatform"> {{ $t("App.menu.logoplatform") }} </vBtn>
-        <vBtn to="navigator"> {{ $t("App.menu.navigator") }} </vBtn>
-        <vBtn to="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
+      <vBtn to="navigator"> {{ $t("App.menu.navigator") }} </vBtn>
+      <vBtn to="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
       <vBtn to="pageout"> {{ $t("App.menu.pageout") }} </vBtn>
 
       <vSpacer></vSpacer>
@@ -18,21 +18,23 @@
       ></vSelect>
     </vAppBar>
 
-      <vAppBar app color="primary" dark>
-          <vBtn to="grid"> {{ $t("App.menu.grid") }} </vBtn>
-          <vBtn to="gridvuetify"> {{ $t("App.menu.gridvuetify") }} </vBtn>
-          <vBtn to="gridvuetifyvirtual">
-              {{ $t("App.menu.gridvuetifyvirtual") }}
-          </vBtn>
-          <vBtn to="virtuallist"> {{ $t("App.menu.virtuallist") }} </vBtn>
-      </vAppBar>
+    <vAppBar app color="primary" dark>
+      <vBtn to="grid"> {{ $t("App.menu.grid") }} </vBtn>
+      <vBtn to="gridvuetify"> {{ $t("App.menu.gridvuetify") }} </vBtn>
+      <vBtn to="gridvuetifyvirtual">
+        {{ $t("App.menu.gridvuetifyvirtual") }}
+      </vBtn>
+      <vBtn to="virtuallist"> {{ $t("App.menu.virtuallist") }} </vBtn>
+    </vAppBar>
 
-
-      <vAppBar app color="primary" dark>
-          <vBtn to="primevuedatatable"> {{ $t("App.menu.primevuedatatable") }} </vBtn>
-          <vBtn to="primevuetreetable"> {{ $t("App.menu.primevuetreetable") }} </vBtn>
-      </vAppBar>
-
+    <vAppBar app color="primary" dark>
+      <vBtn to="primevuedatatable">
+        {{ $t("App.menu.primevuedatatable") }}
+      </vBtn>
+      <vBtn to="primevuetreetable">
+        {{ $t("App.menu.primevuetreetable") }}
+      </vBtn>
+    </vAppBar>
 
     <vMain>
       <routerView />

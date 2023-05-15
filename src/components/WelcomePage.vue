@@ -3,7 +3,8 @@
     <br />
     <br />
     <h1>
-      Vue {{ vueVersion }} + Vuetify {{ vuetifyVersion }} + PrimeVue {{ primevueVersion }} + TypeScript
+      Vue {{ vueVersion }} + Vuetify {{ vuetifyVersion }} + PrimeVue
+      {{ primevueVersion }} + TypeScript
       {{ typescriptVersion }}
     </h1>
     <br />

@@ -1,53 +1,121 @@
 <template>
-    <div class="card p-fluid">
-        <DataTable :value="customers" lazy paginator :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
-                   :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
-                   :globalFilterFields="['name','country.name', 'company', 'representative.name']"
-                   v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect" tableStyle="min-width: 75rem">
-            <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
-            <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
-                <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
-                </template>
-            </Column>
-            <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
-                <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
-                </template>
-            </Column>
-            <Column field="company" header="Company" filterMatchMode="contains" sortable>
-                <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
-                </template>
-            </Column>
-            <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
-                <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
-                </template>
-            </Column>
-        </DataTable>
-    </div>
+  <div class="card p-fluid">
+    <DataTable
+      ref="dt"
+      v-model:filters="filters"
+      :value="customers"
+      lazy
+      paginator
+      :rows="10"
+      data-key="id"
+      v-model:selection="selectedCustomers"
+      :total-records="totalRecords"
+      :loading="loading"
+      filter-display="row"
+      :global-filter-fields="[
+        'name',
+        'country.name',
+        'company',
+        'representative.name',
+      ]"
+      :select-all="selectAll"
+      table-style="min-width: 75rem"
+      @page="onPage($event)"
+      @sort="onSort($event)"
+      @filter="onFilter($event)"
+      @select-all-change="onSelectAllChange"
+      @row-select="onRowSelect"
+      @row-unselect="onRowUnselect"
+    >
+      <Column selection-mode="multiple" header-style="width: 3rem"></Column>
+      <Column
+        field="name"
+        header="Name"
+        filter-match-mode="startsWith"
+        sortable
+      >
+        <template #filter="{ filterModel, filterCallback }">
+          <InputText
+            v-model="filterModel.value"
+            type="text"
+            class="p-column-filter"
+            placeholder="Search"
+            @keydown.enter="filterCallback()"
+          />
+        </template>
+      </Column>
+      <Column
+        field="country.name"
+        header="Country"
+        filter-field="country.name"
+        filter-match-mode="contains"
+        sortable
+      >
+        <template #filter="{ filterModel, filterCallback }">
+          <InputText
+            v-model="filterModel.value"
+            type="text"
+            class="p-column-filter"
+            placeholder="Search"
+            @keydown.enter="filterCallback()"
+          />
+        </template>
+      </Column>
+      <Column
+        field="company"
+        header="Company"
+        filter-match-mode="contains"
+        sortable
+      >
+        <template #filter="{ filterModel, filterCallback }">
+          <InputText
+            v-model="filterModel.value"
+            type="text"
+            class="p-column-filter"
+            placeholder="Search"
+            @keydown.enter="filterCallback()"
+          />
+        </template>
+      </Column>
+      <Column
+        field="representative.name"
+        header="Representative"
+        filter-field="representative.name"
+        sortable
+      >
+        <template #filter="{ filterModel, filterCallback }">
+          <InputText
+            v-model="filterModel.value"
+            type="text"
+            class="p-column-filter"
+            placeholder="Search"
+            @keydown.enter="filterCallback()"
+          />
+        </template>
+      </Column>
+    </DataTable>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { CustomerService } from '@/service/CustomerService';
-import {setTitle} from "@/utils/common";
+import { ref, onMounted } from "vue";
+import { CustomerService } from "@/service/CustomerService";
+import { setTitle } from "@/utils/common";
 
 setTitle("primevuedatatable");
 
 onMounted(() => {
-    loading.value = true;
+  loading.value = true;
 
-    lazyParams.value = {
-        first: 0,
-        rows: dt.value.rows,
-        sortField: null,
-        sortOrder: null,
-        filters: filters.value
-    };
+  lazyParams.value = {
+    first: 0,
+    rows: dt.value.rows,
+    sortField: null,
+    sortOrder: null,
+    filters: filters.value,
+  };
 
-    loadLazyData();
+  loadLazyData();
 });
 
 const dt = ref();
@@ -57,10 +125,10 @@ const customers = ref();
 const selectedCustomers = ref();
 const selectAll = ref(false);
 const filters = ref({
-    'name': {value: '', matchMode: 'contains'},
-    'country.name': {value: '', matchMode: 'contains'},
-    'company': {value: '', matchMode: 'contains'},
-    'representative.name': {value: '', matchMode: 'contains'},
+  name: { value: "", matchMode: "contains" },
+  "country.name": { value: "", matchMode: "contains" },
+  company: { value: "", matchMode: "contains" },
+  "representative.name": { value: "", matchMode: "contains" },
 });
 const lazyParams = ref({});
 /*
@@ -73,47 +141,47 @@ const columns = ref([
 */
 
 const loadLazyData = () => {
-    loading.value = true;
+  loading.value = true;
 
-    setTimeout(() => {
-        CustomerService.getCustomers({ lazyEvent: JSON.stringify(lazyParams.value) }).then((data) => {
-            customers.value = data.customers;
-            totalRecords.value = data.totalRecords;
-            loading.value = false;
-        });
-    }, Math.random() * 1000 + 250);
+  setTimeout(() => {
+    CustomerService.getCustomers({
+      lazyEvent: JSON.stringify(lazyParams.value),
+    }).then((data) => {
+      customers.value = data.customers;
+      totalRecords.value = data.totalRecords;
+      loading.value = false;
+    });
+  }, Math.random() * 1000 + 250);
 };
 const onPage = (event) => {
-    lazyParams.value = event;
-    loadLazyData();
+  lazyParams.value = event;
+  loadLazyData();
 };
 const onSort = (event) => {
-    lazyParams.value = event;
-    loadLazyData();
+  lazyParams.value = event;
+  loadLazyData();
 };
 const onFilter = () => {
-    lazyParams.value.filters = filters.value ;
-    loadLazyData();
+  lazyParams.value.filters = filters.value;
+  loadLazyData();
 };
 const onSelectAllChange = (event) => {
-    selectAll.value = event.checked;
+  selectAll.value = event.checked;
 
-    if (selectAll) {
-        CustomerService.getCustomers().then(data => {
-            selectAll.value = true;
-            selectedCustomers.value = data.customers;
-        });
-    }
-    else {
-        selectAll.value = false;
-        selectedCustomers.value = [];
-    }
+  if (selectAll.value) {
+    CustomerService.getCustomers().then((data) => {
+      selectAll.value = true;
+      selectedCustomers.value = data.customers;
+    });
+  } else {
+    selectAll.value = false;
+    selectedCustomers.value = [];
+  }
 };
 const onRowSelect = () => {
-    selectAll.value = selectedCustomers.value.length === totalRecords.value;
+  selectAll.value = selectedCustomers.value.length === totalRecords.value;
 };
 const onRowUnselect = () => {
-    selectAll.value = false;
+  selectAll.value = false;
 };
-
 </script>
