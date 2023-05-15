@@ -3,7 +3,7 @@
     <br />
     <br />
     <h1>
-      Vue {{ vueVersion }} + Vuetify {{ vuetifyVersion }} + TypeScript
+      Vue {{ vueVersion }} + Vuetify {{ vuetifyVersion }} + PrimeVue {{ primevueVersion }} + TypeScript
       {{ typescriptVersion }}
     </h1>
     <br />
@@ -49,6 +49,7 @@ import appPackageInfo from "@/../package.json";
 import libPackageInfo from "showcase3/package.json";
 import vuePackageInfo from "vue/package.json";
 import vuetifyPackageInfo from "vuetify/package.json";
+import primevuePackageInfo from "primevue/package.json";
 import typescriptPackageInfo from "typescript/package.json";
 import { setTitle } from "@/utils/common";
 import vitePackageInfo from "vite/package.json";
@@ -66,6 +67,7 @@ const libVersion = libPackageInfo.version;
 
 const vueVersion = vuePackageInfo.version;
 const vuetifyVersion = vuetifyPackageInfo.version;
+const primevueVersion = primevuePackageInfo.version;
 const typescriptVersion = typescriptPackageInfo.version;
 
 const viteVersion = vitePackageInfo.version;
