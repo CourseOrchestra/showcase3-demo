@@ -27,7 +27,9 @@
       "virtuallist": "Virtual list",
       "urlstate": "Url-state",
       "language": "Language",
-      "pageout": "Leaving the page"
+      "pageout": "Leaving the page",
+      "primevuedatatable": "PrimeVue DataTable",
+      "primevuetreetable": "PrimeVue TreeTable"
     }
   },
   "WelcomePage": {

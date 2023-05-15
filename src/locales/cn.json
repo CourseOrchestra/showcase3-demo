@@ -27,7 +27,9 @@
       "virtuallist": "虛擬清單",
       "urlstate": "網址狀態",
       "language": "語",
-      "pageout": "離開頁面"
+      "pageout": "離開頁面",
+      "primevuedatatable": "PrimeVue DataTable",
+      "primevuetreetable": "PrimeVue TreeTable"
     }
   },
   "WelcomePage": {

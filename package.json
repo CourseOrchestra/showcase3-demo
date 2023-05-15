@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.17.28",
+  "version": "1.18.1",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -54,6 +54,7 @@
     "lint-staged": "^13.2.2",
     "pinia-plugin-persistedstate": "^3.1.0",
     "prettier": "^2.8.8",
+    "primevue": "^3.29.0",
     "rollup-plugin-visualizer": "^5.9.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
@@ -65,8 +66,5 @@
     "vitest": "^0.31.0",
     "vue-tsc": "^1.6.4",
     "yorkie": "^2.0.0"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
   }
 }

@@ -27,7 +27,9 @@
       "virtuallist": "Виртуальный список",
       "urlstate": "Состояние в url",
       "language": "Выбор языка",
-      "pageout": "Уход со страницы"
+      "pageout": "Уход со страницы",
+      "primevuedatatable": "PrimeVue DataTable",
+      "primevuetreetable": "PrimeVue TreeTable"
     }
   },
   "WelcomePage": {

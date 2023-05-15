@@ -8,6 +8,8 @@ import PageOutPage from "@/components/PageOutPage.vue";
 import GridVuetifyPage from "@/components/GridVuetifyPage.vue";
 import VirtualListPage from "@/components/VirtualListPage.vue";
 import GridVuetifyVirtualPage from "@/components/GridVuetifyVirtualPage.vue";
+import PrimeVueDataTablePage from "@/components/PrimeVueDataTablePage.vue";
+import PrimeVueTreeTablePage from "@/components/PrimeVueTreeTablePage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -59,6 +61,16 @@ const routes: Array<RouteRecordRaw> = [
     path: "/pageout",
     name: "pageout",
     component: PageOutPage,
+  },
+  {
+    path: "/primevuedatatable",
+    name: "primevuedatatable",
+    component: PrimeVueDataTablePage,
+  },
+  {
+    path: "/primevuetreetable",
+    name: "primevuetreetable",
+    component: PrimeVueTreeTablePage,
   },
 ];
 
