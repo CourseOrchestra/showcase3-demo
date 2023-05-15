@@ -32,6 +32,9 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { CustomerService } from '@/service/CustomerService';
+import {setTitle} from "@/utils/common";
+
+setTitle("primevuedatatable");
 
 onMounted(() => {
     loading.value = true;
@@ -60,12 +63,14 @@ const filters = ref({
     'representative.name': {value: '', matchMode: 'contains'},
 });
 const lazyParams = ref({});
+/*
 const columns = ref([
     {field: 'name', header: 'Name'},
     {field: 'country.name', header: 'Country'},
     {field: 'company', header: 'Company'},
     {field: 'representative.name', header: 'Representative'}
 ]);
+*/
 
 const loadLazyData = () => {
     loading.value = true;

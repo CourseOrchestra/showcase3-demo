@@ -13,6 +13,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+setTitle("primevuetreetable");
+
 onMounted(() => {
     loading.value = true;
 
