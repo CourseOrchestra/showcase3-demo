@@ -12,6 +12,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import {setTitle} from "@/utils/common";
 
 setTitle("primevuetreetable");
 
