@@ -3,12 +3,12 @@
     <DataTable
       ref="dt"
       v-model:filters="filters"
+      v-model:selection="selectedCustomers"
       :value="customers"
       lazy
       paginator
       :rows="10"
       data-key="id"
-      v-model:selection="selectedCustomers"
       :total-records="totalRecords"
       :loading="loading"
       filter-display="row"
