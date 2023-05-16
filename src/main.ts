@@ -15,12 +15,14 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import { i18n } from "./plugins/i18n";
 
 import PrimeVue from "primevue/config";
+/*
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import InputText from "primevue/inputtext";
+import TreeTable from "primevue/treetable";
+*/
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
-import TreeTable from "primevue/treetable";
 
 loadFonts();
 
@@ -39,10 +41,12 @@ const app = createApp(App)
   .use(router)
 
   .use(PrimeVue)
+  /*
   .component("DataTable", DataTable)
   .component("Column", Column)
   .component("InputText", InputText)
   .component("TreeTable", TreeTable)
+*/
 
   .use(vuetify) /*.use(showcase3)*/
   .component("EasyDataTable", Vue3EasyDataTable);
