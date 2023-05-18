@@ -7,7 +7,7 @@
       :rows="rows"
       :loading="loading"
       :total-records="totalRecords"
-      @nodeExpand="onExpand"
+      @node-expand="onExpand"
       @page="onPage"
     >
       <Column field="name" header="Name" :expander="true"></Column>
