@@ -29,6 +29,7 @@
       "language": "語",
       "pageout": "離開頁面",
       "primevuedatatable": "PrimeVue DataTable",
+      "primevuedatatablevirtual": "PrimeVue DataTable 虛擬的",
       "primevuetreetable": "PrimeVue TreeTable"
     }
   },

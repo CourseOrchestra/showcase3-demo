@@ -18,6 +18,7 @@ import PrimeVue from "primevue/config";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import InputText from "primevue/inputtext";
+import Skeleton from "primevue/skeleton";
 import TreeTable from "primevue/treetable";
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
@@ -42,6 +43,7 @@ const app = createApp(App)
   .component("DataTable", DataTable)
   .component("Column", Column)
   .component("InputText", InputText)
+  .component("Skeleton", Skeleton)
   .component("TreeTable", TreeTable)
 
   .use(vuetify) /*.use(showcase3)*/

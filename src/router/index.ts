@@ -10,6 +10,7 @@ import VirtualListPage from "@/components/VirtualListPage.vue";
 import GridVuetifyVirtualPage from "@/components/GridVuetifyVirtualPage.vue";
 import PrimeVueDataTablePage from "@/components/PrimeVueDataTablePage.vue";
 import PrimeVueTreeTablePage from "@/components/PrimeVueTreeTablePage.vue";
+import PrimeVueDataTableVirtualPage from "@/components/PrimeVueDataTableVirtualPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -66,6 +67,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/primevuedatatable",
     name: "primevuedatatable",
     component: PrimeVueDataTablePage,
+  },
+  {
+    path: "/primevuedatatablevirtual",
+    name: "primevuedatatablevirtual",
+    component: PrimeVueDataTableVirtualPage,
   },
   {
     path: "/primevuetreetable",

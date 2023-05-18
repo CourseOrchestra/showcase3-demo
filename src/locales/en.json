@@ -29,6 +29,7 @@
       "language": "Language",
       "pageout": "Leaving the page",
       "primevuedatatable": "PrimeVue DataTable",
+      "primevuedatatablevirtual": "PrimeVue DataTable Virtual",
       "primevuetreetable": "PrimeVue TreeTable"
     }
   },
