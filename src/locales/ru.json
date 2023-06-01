@@ -29,6 +29,7 @@
       "language": "Выбор языка",
       "pageout": "Уход со страницы",
       "primevuedatatable": "PrimeVue DataTable",
+      "primevuelyragrid": "Лира-грид",
       "primevuedatatablevirtual": "PrimeVue DataTable Виртуальный",
       "primevuetreetable": "PrimeVue TreeTable"
     }

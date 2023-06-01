@@ -102,7 +102,7 @@ import { ref, onMounted } from "vue";
 import { CustomerService } from "@/service/CustomerService";
 import { setTitle } from "@/utils/common";
 
-setTitle("primevuedatatable");
+setTitle("primevuelyragrid");
 
 onMounted(() => {
   loading.value = true;
@@ -151,7 +151,7 @@ const loadLazyData = () => {
       totalRecords.value = data.totalRecords;
       loading.value = false;
     });
-  }, Math.random() * 1000 + 3250);
+  }, 0);
 };
 const onPage = (event) => {
   lazyParams.value = event;

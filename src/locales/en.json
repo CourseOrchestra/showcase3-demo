@@ -29,6 +29,7 @@
       "language": "Language",
       "pageout": "Leaving the page",
       "primevuedatatable": "PrimeVue DataTable",
+      "primevuelyragrid": "Lyra-grid",
       "primevuedatatablevirtual": "PrimeVue DataTable Virtual",
       "primevuetreetable": "PrimeVue TreeTable"
     }

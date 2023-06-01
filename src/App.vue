@@ -31,6 +31,9 @@
       <vBtn to="primevuedatatable">
         {{ $t("App.menu.primevuedatatable") }}
       </vBtn>
+      <vBtn to="primevuelyragrid">
+        {{ $t("App.menu.primevuelyragrid") }}
+      </vBtn>
       <vBtn to="primevuedatatablevirtual">
         {{ $t("App.menu.primevuedatatablevirtual") }}
       </vBtn>
