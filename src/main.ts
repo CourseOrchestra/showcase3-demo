@@ -20,6 +20,7 @@ import Column from "primevue/column";
 import InputText from "primevue/inputtext";
 import Skeleton from "primevue/skeleton";
 import Tag from "primevue/tag";
+import Button from "primevue/button";
 import TreeTable from "primevue/treetable";
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
@@ -46,6 +47,7 @@ const app = createApp(App)
   .component("InputText", InputText)
   .component("Skeleton", Skeleton)
   .component("Tag", Tag)
+  .component("Button", Button)
   .component("TreeTable", TreeTable)
 
   .use(vuetify) /*.use(showcase3)*/

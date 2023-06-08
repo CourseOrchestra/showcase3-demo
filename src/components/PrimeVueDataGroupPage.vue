@@ -8,7 +8,7 @@
       sort-field="representative.name"
       :sort-order="1"
       scrollable
-      scroll-height="700px"
+      scroll-height="850px"
       table-style="min-width: 50rem"
     >
       <Column field="representative.name" header="Representative"></Column>
@@ -40,6 +40,19 @@
         </template>
       </Column>
       <Column field="date" header="Date" style="min-width: 200px"></Column>
+      <Column header-style="width: 10rem">
+        <template #body>
+          <div class="flex flex-wrap gap-2">
+            <Button type="button" icon="pi pi-search" rounded @click="dddd()" />
+            <Button
+              type="button"
+              icon="pi pi-pencil"
+              rounded
+              severity="success"
+            />
+          </div>
+        </template>
+      </Column>
       <template #groupheader="slotProps">
         <div class="flex align-items-center gap-2">
           <img
@@ -63,13 +76,13 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { CustomerService } from "@/service/CustomerService";
+import { ViolationService } from "@/service/ViolationService";
 import { setTitle } from "@/utils/common";
 
 setTitle("primevuedatagroup");
 
 onMounted(() => {
-  CustomerService.getCustomersMedium().then((data) => (customers.value = data));
+  ViolationService.getViolations().then((data) => (customers.value = data));
 });
 
 const customers = ref();
@@ -103,5 +116,13 @@ const getSeverity = (status) => {
     case "renewal":
       return null;
   }
+};
+
+const dddd = () => {
+  //  customers.value[1].representative.name ="Anna Fali";
+
+  customers.value[1].representative.name = "ggggggggggggg";
+
+  //alert(customers.value[1].representative.name);
 };
 </script>
