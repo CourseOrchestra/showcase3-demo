@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <DataTable
+      v-model:selection="selectedProduct"
       :value="customers"
       row-group-mode="subheader"
       group-rows-by="group"
@@ -12,6 +13,7 @@
       table-style="min-width: 50rem"
     >
       <Column field="group" header="Группа"></Column>
+      <Column selection-mode="multiple" header-style="width: 3rem"></Column>
       <Column field="name" header="Название" style="min-width: 200px"></Column>
       <Column field="status" header="Статус" style="min-width: 200px">
         <template #body="slotProps">
@@ -61,6 +63,7 @@ onMounted(() => {
 });
 
 const customers = ref();
+const selectedProduct = ref();
 const calculateCustomerTotal = (name) => {
   let total = 0;
 
