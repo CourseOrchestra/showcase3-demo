@@ -12,6 +12,8 @@ import PrimeVueDataTablePage from "@/components/PrimeVueDataTablePage.vue";
 import PrimeVueTreeTablePage from "@/components/PrimeVueTreeTablePage.vue";
 import PrimeVueDataTableVirtualPage from "@/components/PrimeVueDataTableVirtualPage.vue";
 import PrimeVueLyraGridPage from "@/components/PrimeVueLyraGridPage.vue";
+import PrimeVueTreeGroupPage from "@/components/PrimeVueTreeGroupPage.vue";
+import PrimeVueDataGroupPage from "@/components/PrimeVueDataGroupPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -83,6 +85,16 @@ const routes: Array<RouteRecordRaw> = [
     path: "/primevuetreetable",
     name: "primevuetreetable",
     component: PrimeVueTreeTablePage,
+  },
+  {
+    path: "/primevuetreegroup",
+    name: "primevuetreegroup",
+    component: PrimeVueTreeGroupPage,
+  },
+  {
+    path: "/primevuedatagroup",
+    name: "primevuedatagroup",
+    component: PrimeVueDataGroupPage,
   },
 ];
 

@@ -40,6 +40,12 @@
       <vBtn to="primevuetreetable">
         {{ $t("App.menu.primevuetreetable") }}
       </vBtn>
+      <vBtn to="primevuetreegroup">
+        {{ $t("App.menu.primevuetreegroup") }}
+      </vBtn>
+      <vBtn to="primevuedatagroup">
+        {{ $t("App.menu.primevuedatagroup") }}
+      </vBtn>
     </vAppBar>
 
     <vMain>
