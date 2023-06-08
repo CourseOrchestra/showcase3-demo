@@ -3,15 +3,15 @@
     <DataTable
       :value="customers"
       row-group-mode="subheader"
-      group-rows-by="representative.name"
+      group-rows-by="group"
       sort-mode="single"
-      sort-field="representative.name"
+      sort-field="group"
       :sort-order="1"
       scrollable
       scroll-height="850px"
       table-style="min-width: 50rem"
     >
-      <Column field="representative.name" header="Representative"></Column>
+      <Column field="group" header="Группа"></Column>
       <Column field="name" header="Название" style="min-width: 200px"></Column>
       <Column field="status" header="Статус" style="min-width: 200px">
         <template #body="slotProps">
@@ -25,27 +25,24 @@
       <Column header-style="width: 10rem">
         <template #body>
           <div class="flex flex-wrap gap-2">
-            <Button type="button" icon="pi pi-search" rounded @click="dddd()" />
+            <Button
+              type="button"
+              icon="pi pi-search"
+              rounded
+              @click="editViolation()"
+            />
           </div>
         </template>
       </Column>
       <template #groupheader="slotProps">
         <div class="flex align-items-center gap-2 font-bold">
-          <!--
-          <img
-            :alt="slotProps.data.representative.name"
-            :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.data.representative.image}`"
-            width="32"
-            style="vertical-align: middle"
-          />
--->
-          <span>{{ slotProps.data.representative.name }}</span>
+          <span>{{ slotProps.data.group }}</span>
         </div>
       </template>
       <template #groupfooter="slotProps">
         <div class="flex justify-content-end font-bold w-full">
           Общее количество нарушений:
-          {{ calculateCustomerTotal(slotProps.data.representative.name) }}
+          {{ calculateCustomerTotal(slotProps.data.group) }}
         </div>
       </template>
     </DataTable>
@@ -69,7 +66,7 @@ const calculateCustomerTotal = (name) => {
 
   if (customers.value) {
     for (const customer of customers.value) {
-      if (customer.representative.name === name) {
+      if (customer.group === name) {
         total++;
       }
     }
@@ -96,8 +93,8 @@ const getSeverity = (status) => {
   }
 };
 
-const dddd = () => {
-  customers.value[1].representative.name = "Группа нарушений 2";
+const editViolation = () => {
+  customers.value[1].group = "Группа нарушений 2";
 
   // customers.value[1].representative.name = "ggggggggggggg";
 
