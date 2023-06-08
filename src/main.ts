@@ -22,8 +22,10 @@ import Skeleton from "primevue/skeleton";
 import Tag from "primevue/tag";
 import Button from "primevue/button";
 import TreeTable from "primevue/treetable";
+import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
 
 loadFonts();
 

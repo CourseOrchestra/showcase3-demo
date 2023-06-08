@@ -3,16 +3,9 @@ export const ViolationService = {
     return [
       {
         id: 1000,
-        name: "James Butt",
-        country: {
-          name: "Algeria",
-          code: "dz",
-        },
-        company: "Benton, John B Jr",
+        name: "Нарушение 1",
         date: "2015-09-13",
         status: "unqualified",
-        verified: true,
-        activity: 17,
         representative: {
           name: "Группа нарушений 1",
           image: "ionibowcher.png",
@@ -21,16 +14,9 @@ export const ViolationService = {
       },
       {
         id: 1001,
-        name: "Josephine Darakjy22",
-        country: {
-          name: "Egypt",
-          code: "eg",
-        },
-        company: "Chanay, Jeffrey A Esq",
+        name: "Нарушение 2",
         date: "2019-02-09",
         status: "proposal",
-        verified: true,
-        activity: 0,
         representative: {
           name: "Группа нарушений 1",
           image: "amyelsner.png",
@@ -39,16 +25,9 @@ export const ViolationService = {
       },
       {
         id: 1002,
-        name: "Art Venere",
-        country: {
-          name: "Panama",
-          code: "pa",
-        },
-        company: "Chemel, James L Cpa",
+        name: "Нарушение 3",
         date: "2017-05-13",
         status: "qualified",
-        verified: false,
-        activity: 63,
         representative: {
           name: "Группа нарушений 1",
           image: "asiyajavayant.png",
@@ -57,16 +36,9 @@ export const ViolationService = {
       },
       {
         id: 1003,
-        name: "Lenna Paprocki",
-        country: {
-          name: "Slovenia",
-          code: "si",
-        },
-        company: "Feltz Printing Service",
+        name: "Нарушение 4",
         date: "2020-09-15",
         status: "new",
-        verified: false,
-        activity: 37,
         representative: {
           name: "Группа нарушений 2",
           image: "xuxuefeng.png",
@@ -75,16 +47,9 @@ export const ViolationService = {
       },
       {
         id: 1004,
-        name: "Donette Foller",
-        country: {
-          name: "South Africa",
-          code: "za",
-        },
-        company: "Printing Dimensions",
+        name: "Нарушение 5",
         date: "2016-05-20",
         status: "proposal",
-        verified: true,
-        activity: 33,
         representative: {
           name: "Группа нарушений 2",
           image: "asiyajavayant.png",
@@ -93,16 +58,9 @@ export const ViolationService = {
       },
       {
         id: 1005,
-        name: "Simona Morasca",
-        country: {
-          name: "Egypt",
-          code: "eg",
-        },
-        company: "Chapman, Ross E Esq",
+        name: "Нарушение 6",
         date: "2018-02-16",
         status: "qualified",
-        verified: false,
-        activity: 68,
         representative: {
           name: "Группа нарушений 2",
           image: "ivanmagalhaes.png",
@@ -111,16 +69,9 @@ export const ViolationService = {
       },
       {
         id: 1006,
-        name: "Mitsue Tollner",
-        country: {
-          name: "Paraguay",
-          code: "py",
-        },
-        company: "Morlong Associates",
+        name: "Нарушение 7",
         date: "2018-02-19",
         status: "renewal",
-        verified: true,
-        activity: 54,
         representative: {
           name: "Группа нарушений 3",
           image: "ivanmagalhaes.png",
@@ -129,16 +80,9 @@ export const ViolationService = {
       },
       {
         id: 1007,
-        name: "Leota Dilliard",
-        country: {
-          name: "Serbia",
-          code: "rs",
-        },
-        company: "Commercial Press",
+        name: "Нарушение 8",
         date: "2019-08-13",
         status: "renewal",
-        verified: true,
-        activity: 69,
         representative: {
           name: "Группа нарушений 3",
           image: "onyamalimba.png",
@@ -147,16 +91,9 @@ export const ViolationService = {
       },
       {
         id: 1008,
-        name: "Sage Wieser",
-        country: {
-          name: "Egypt",
-          code: "eg",
-        },
-        company: "Truhlar And Truhlar Attys",
+        name: "Нарушение 9",
         date: "2018-11-21",
         status: "unqualified",
-        verified: true,
-        activity: 76,
         representative: {
           name: "Группа нарушений 3",
           image: "ivanmagalhaes.png",
@@ -165,16 +102,9 @@ export const ViolationService = {
       },
       {
         id: 1009,
-        name: "Kris Marrier",
-        country: {
-          name: "Mexico",
-          code: "mx",
-        },
-        company: "King, Christopher A Esq",
+        name: "Нарушение 10",
         date: "2015-07-07",
         status: "proposal",
-        verified: false,
-        activity: 3,
         representative: {
           name: "Группа нарушений 3",
           image: "onyamalimba.png",

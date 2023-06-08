@@ -12,26 +12,8 @@
       table-style="min-width: 50rem"
     >
       <Column field="representative.name" header="Representative"></Column>
-      <Column field="name" header="Name" style="min-width: 200px"></Column>
-      <Column field="country" header="Country" style="min-width: 200px">
-        <template #body="slotProps">
-          <div class="flex align-items-center gap-2">
-            <img
-              alt="flag"
-              src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
-              :class="`flag flag-${slotProps.data.country.code}`"
-              style="width: 24px"
-            />
-            <span>{{ slotProps.data.country.name }}</span>
-          </div>
-        </template>
-      </Column>
-      <Column
-        field="company"
-        header="Company"
-        style="min-width: 200px"
-      ></Column>
-      <Column field="status" header="Status" style="min-width: 200px">
+      <Column field="name" header="Название" style="min-width: 200px"></Column>
+      <Column field="status" header="Статус" style="min-width: 200px">
         <template #body="slotProps">
           <Tag
             :value="slotProps.data.status"
@@ -39,34 +21,30 @@
           />
         </template>
       </Column>
-      <Column field="date" header="Date" style="min-width: 200px"></Column>
+      <Column field="date" header="Дата" style="min-width: 200px"></Column>
       <Column header-style="width: 10rem">
         <template #body>
           <div class="flex flex-wrap gap-2">
             <Button type="button" icon="pi pi-search" rounded @click="dddd()" />
-            <Button
-              type="button"
-              icon="pi pi-pencil"
-              rounded
-              severity="success"
-            />
           </div>
         </template>
       </Column>
       <template #groupheader="slotProps">
-        <div class="flex align-items-center gap-2">
+        <div class="flex align-items-center gap-2 font-bold">
+          <!--
           <img
             :alt="slotProps.data.representative.name"
             :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.data.representative.image}`"
             width="32"
             style="vertical-align: middle"
           />
+-->
           <span>{{ slotProps.data.representative.name }}</span>
         </div>
       </template>
       <template #groupfooter="slotProps">
         <div class="flex justify-content-end font-bold w-full">
-          Total Customers:
+          Общее количество нарушений:
           {{ calculateCustomerTotal(slotProps.data.representative.name) }}
         </div>
       </template>
@@ -119,9 +97,9 @@ const getSeverity = (status) => {
 };
 
 const dddd = () => {
-  //  customers.value[1].representative.name ="Anna Fali";
+  customers.value[1].representative.name = "Группа нарушений 2";
 
-  customers.value[1].representative.name = "ggggggggggggg";
+  // customers.value[1].representative.name = "ggggggggggggg";
 
   //alert(customers.value[1].representative.name);
 };
