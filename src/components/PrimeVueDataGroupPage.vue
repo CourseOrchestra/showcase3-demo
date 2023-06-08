@@ -27,7 +27,7 @@
           <div class="flex flex-wrap gap-2">
             <Button
               type="button"
-              icon="pi pi-search"
+              icon="pi pi-pencil"
               rounded
               @click="editViolation()"
             />
