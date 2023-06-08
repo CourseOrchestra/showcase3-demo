@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.18.31",
+  "version": "1.18.32",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -65,7 +65,7 @@
     "vite": "^4.3.9",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-vuetify": "^1.0.2",
-    "vitest": "0.32.0",
+    "vitest": "0.31.4",
     "vue-tsc": "^1.6.5",
     "yorkie": "^2.0.0"
   },
