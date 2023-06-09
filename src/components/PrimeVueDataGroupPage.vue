@@ -39,6 +39,7 @@
         </template>
       </Column>
       <Column field="date" header="Дата" style="min-width: 200px"></Column>
+      <!--
       <Column header-style="width: 10rem">
         <template #body>
           <div class="flex flex-wrap gap-2">
@@ -51,6 +52,7 @@
           </div>
         </template>
       </Column>
+-->
       <template #groupheader="slotProps">
         <div class="flex align-items-center gap-2 font-bold">
           <span>{{ slotProps.data.group }}</span>
@@ -75,8 +77,8 @@
           <v-row>
             <v-col>
               <v-combobox
-                label="Группа нарушений"
-                :items="violations"
+                v-model="selectedGroup"
+                :items="violationsGroup"
               ></v-combobox>
             </v-col>
           </v-row>
@@ -87,7 +89,7 @@
         <v-btn color="blue-darken-1" variant="text" @click="dialog = false">
           Закрыть
         </v-btn>
-        <v-btn color="blue-darken-1" variant="text" @click="dialog = false">
+        <v-btn color="blue-darken-1" variant="text" @click="dialogSave">
           Сохранить
         </v-btn>
       </v-card-actions>
@@ -112,6 +114,26 @@ const selectedViolation = ref();
 const dialog = ref(false);
 const disabled = computed(
   () => !selectedViolation.value || selectedViolation.value.length === 0
+);
+
+const selectedGroup = ref();
+
+const dialogSave = () => {
+  selectedViolation.value.forEach(
+    (violation) => (violation["group"] = selectedGroup.value)
+  );
+  dialog.value = false;
+  selectedViolation.value = null;
+};
+
+const violationsGroup = computed(() =>
+  Array.from(
+    new Set(
+      violations.value.map(function (violation) {
+        return violation["group"];
+      })
+    )
+  )
 );
 
 const calculateViolationTotal = (name) => {
@@ -144,15 +166,5 @@ const getSeverity = (status) => {
     case "renewal":
       return null;
   }
-};
-
-const editViolation = () => {
-  violations.value[1].group = "Группа нарушений 2";
-
-  // customers.value[1].representative.name = "ggggggggggggg";
-
-  //alert(customers.value[1].representative.name);
-
-  //  selectedViolation.value.length
 };
 </script>
