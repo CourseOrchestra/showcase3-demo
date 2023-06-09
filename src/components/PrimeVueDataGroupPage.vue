@@ -27,10 +27,15 @@
       scroll-height="850px"
       table-style="min-width: 50rem"
     >
-      <Column field="group" header="Группа"></Column>
+      <Column field="group" header="Группа" sortable></Column>
       <Column selection-mode="multiple" header-style="width: 3rem"></Column>
-      <Column field="name" header="Название" style="min-width: 200px"></Column>
-      <Column field="status" header="Статус" style="min-width: 200px">
+      <Column
+        field="name"
+        header="Название"
+        sortable
+        style="min-width: 200px"
+      ></Column>
+      <Column field="status" header="Статус" sortable style="min-width: 200px">
         <template #body="slotProps">
           <Tag
             :value="slotProps.data.status"
@@ -38,7 +43,12 @@
           />
         </template>
       </Column>
-      <Column field="date" header="Дата" style="min-width: 200px"></Column>
+      <Column
+        field="date"
+        header="Дата"
+        sortable
+        style="min-width: 200px"
+      ></Column>
       <template #groupheader="slotProps">
         <div class="flex align-items-center gap-2 font-bold">
           <span>{{ slotProps.data.group }}</span>
