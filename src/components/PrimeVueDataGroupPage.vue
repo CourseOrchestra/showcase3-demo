@@ -1,8 +1,8 @@
 <template>
   <div class="card">
     <DataTable
-      v-model:selection="selectedProduct"
-      :value="customers"
+      v-model:selection="selectedViolation"
+      :value="violations"
       row-group-mode="subheader"
       group-rows-by="group"
       sort-mode="single"
@@ -44,7 +44,7 @@
       <template #groupfooter="slotProps">
         <div class="flex justify-content-end font-bold w-full">
           Общее количество нарушений:
-          {{ calculateCustomerTotal(slotProps.data.group) }}
+          {{ calculateViolationTotal(slotProps.data.group) }}
         </div>
       </template>
     </DataTable>
@@ -59,17 +59,17 @@ import { setTitle } from "@/utils/common";
 setTitle("primevuedatagroup");
 
 onMounted(() => {
-  ViolationService.getViolations().then((data) => (customers.value = data));
+  ViolationService.getViolations().then((data) => (violations.value = data));
 });
 
-const customers = ref();
-const selectedProduct = ref();
-const calculateCustomerTotal = (name) => {
+const violations = ref();
+const selectedViolation = ref();
+const calculateViolationTotal = (name) => {
   let total = 0;
 
-  if (customers.value) {
-    for (const customer of customers.value) {
-      if (customer.group === name) {
+  if (violations.value) {
+    for (const violation of violations.value) {
+      if (violation.group === name) {
         total++;
       }
     }
@@ -97,7 +97,7 @@ const getSeverity = (status) => {
 };
 
 const editViolation = () => {
-  customers.value[1].group = "Группа нарушений 2";
+  violations.value[1].group = "Группа нарушений 2";
 
   // customers.value[1].representative.name = "ggggggggggggg";
 
