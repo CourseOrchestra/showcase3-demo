@@ -53,7 +53,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { ViolationService } from "@/service/ViolationService";
+import { ViolationService } from "@/service/ViolationService2";
 import { setTitle } from "@/utils/common";
 
 setTitle("primevuedatagroup");
