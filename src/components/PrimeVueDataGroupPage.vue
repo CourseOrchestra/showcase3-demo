@@ -18,6 +18,8 @@
     <DataTable
       v-model:selection="selectedViolation"
       :value="violations"
+      resizable-columns
+      column-resize-mode="fit"
       row-group-mode="subheader"
       group-rows-by="group"
       sort-mode="single"
