@@ -39,20 +39,6 @@
         </template>
       </Column>
       <Column field="date" header="Дата" style="min-width: 200px"></Column>
-      <!--
-      <Column header-style="width: 10rem">
-        <template #body>
-          <div class="flex flex-wrap gap-2">
-            <Button
-              type="button"
-              icon="pi pi-pencil"
-              rounded
-              @click="editViolation()"
-            />
-          </div>
-        </template>
-      </Column>
--->
       <template #groupheader="slotProps">
         <div class="flex align-items-center gap-2 font-bold">
           <span>{{ slotProps.data.group }}</span>
