@@ -3,17 +3,17 @@ export const ViolationService = {
     return [
       {
         id: 1000,
-        name: "Нарушение 1",
+        name: "Нарушение 2",
         date: "2015-09-13",
         status: "unqualified",
-        group: "Группа нарушений 1",
+        group: "Группа нарушений 4",
       },
       {
         id: 1001,
-        name: "Нарушение 2",
+        name: "Нарушение 1",
         date: "2019-02-09",
         status: "proposal",
-        group: "Группа нарушений 1",
+        group: "Группа нарушений 4",
       },
       {
         id: 1002,

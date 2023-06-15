@@ -32,8 +32,8 @@
       "primevuelyragrid": "Lyra-grid",
       "primevuedatatablevirtual": "PrimeVue DataTable Virtual",
       "primevuetreetable": "PrimeVue TreeTable",
-      "primevuetreegroup": "Violations Tree",
-      "primevuedatagroup": "Violations"
+      "primevuetreegroup": "Group Tree",
+      "primevuedatagroup": "Group"
     }
   },
   "WelcomePage": {

@@ -32,8 +32,8 @@
       "primevuelyragrid": "Лира-грид",
       "primevuedatatablevirtual": "PrimeVue DataTable Виртуальный",
       "primevuetreetable": "PrimeVue TreeTable",
-      "primevuetreegroup": "Нарушения Tree",
-      "primevuedatagroup": "Нарушения"
+      "primevuetreegroup": "Группировка c деревом",
+      "primevuedatagroup": "Группировка"
     }
   },
   "WelcomePage": {
