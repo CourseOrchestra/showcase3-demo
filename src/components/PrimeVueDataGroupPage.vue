@@ -33,7 +33,19 @@
       <Column selection-mode="multiple" header-style="width: 3rem"></Column>
       <Column
         field="name"
-        header="Название"
+        header="Наименование нарушения"
+        sortable
+        style="min-width: 200px"
+      ></Column>
+      <Column
+        field="act"
+        header="Ссылка на нормативный акт"
+        sortable
+        style="min-width: 200px"
+      ></Column>
+      <Column
+        field="inspector"
+        header="Инспектор"
         sortable
         style="min-width: 200px"
       ></Column>
@@ -45,12 +57,6 @@
           />
         </template>
       </Column>
-      <Column
-        field="date"
-        header="Дата"
-        sortable
-        style="min-width: 200px"
-      ></Column>
       <template #groupheader="slotProps">
         <div class="flex align-items-center gap-2 font-bold">
           <span>{{ slotProps.data.group }}</span>
@@ -147,22 +153,15 @@ const calculateViolationTotal = (name) => {
 
   return total;
 };
+
 const getSeverity = (status) => {
   switch (status) {
-    case "unqualified":
-      return "danger";
-
-    case "qualified":
-      return "success";
-
-    case "new":
+    case "черновик":
       return "info";
-
-    case "negotiation":
+    case "подтверждено":
       return "warning";
-
-    case "renewal":
-      return null;
+    case "в акте":
+      return "success";
   }
 };
 </script>
