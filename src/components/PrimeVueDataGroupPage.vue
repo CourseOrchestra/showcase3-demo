@@ -16,7 +16,9 @@
 
   <div class="card">
     <DataTable
+      v-model:filters="filters"
       v-model:selection="selectedViolation"
+      filter-display="menu"
       :value="violations"
       resizable-columns
       column-resize-mode="fit"
@@ -36,7 +38,16 @@
         header="Наименование нарушения"
         sortable
         style="min-width: 200px"
-      ></Column>
+      >
+        <template #filter="{ filterModel }">
+          <InputText
+            v-model="filterModel.value"
+            type="text"
+            class="p-column-filter"
+            placeholder="Поиск по Наименование нарушения"
+          />
+        </template>
+      </Column>
       <Column
         field="act"
         header="Ссылка на нормативный акт"
@@ -48,7 +59,16 @@
         header="Инспектор"
         sortable
         style="min-width: 200px"
-      ></Column>
+      >
+        <template #filter="{ filterModel }">
+          <InputText
+            v-model="filterModel.value"
+            type="text"
+            class="p-column-filter"
+            placeholder="Поиск по Инспектор"
+          />
+        </template>
+      </Column>
       <Column field="status" header="Статус" sortable style="min-width: 200px">
         <template #body="slotProps">
           <Tag
@@ -104,6 +124,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { ViolationService } from "@/service/ViolationService";
+import { FilterMatchMode, FilterOperator } from "primevue/api";
 import { setTitle } from "@/utils/common";
 
 setTitle("primevuedatagroup");
@@ -111,6 +132,23 @@ setTitle("primevuedatagroup");
 onMounted(() => {
   ViolationService.getViolations().then((data) => (violations.value = data));
 });
+
+const filters = ref();
+const initFilters = () => {
+  filters.value = {
+    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    name: {
+      operator: FilterOperator.AND,
+      constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }],
+    },
+    inspector: {
+      operator: FilterOperator.AND,
+      constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }],
+    },
+  };
+};
+
+initFilters();
 
 const violations = ref();
 const selectedViolation = ref();
