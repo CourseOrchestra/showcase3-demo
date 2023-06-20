@@ -91,14 +91,14 @@
             outlined
             rounded
             class="mr-2"
-            @click="editProduct(slotProps.data)"
+            @click="editViolation(slotProps.data)"
           />
           <Button
             icon="pi pi-trash"
             outlined
             rounded
             severity="danger"
-            @click="confirmDeleteProduct(slotProps.data)"
+            @click="confirmDeleteViolation(slotProps.data)"
           />
         </template>
       </Column>
@@ -117,7 +117,7 @@
   </div>
 
   <Dialog
-    v-model:visible="productDialog"
+    v-model:visible="violationDialog"
     :style="{ width: '450px' }"
     header="Нарушение"
     :modal="true"
@@ -127,24 +127,24 @@
       <label for="name">Наименование нарушения</label>
       <InputText
         id="name"
-        v-model.trim="product.name"
+        v-model.trim="violation.name"
         required="true"
         autofocus
-        :class="{ 'p-invalid': submitted && !product.name }"
+        :class="{ 'p-invalid': submitted && !violation.name }"
       />
-      <small v-if="submitted && !product.name" class="p-error"
+      <small v-if="submitted && !violation.name" class="p-error"
         >Необходимо задать Наименование нарушения</small
       >
     </div>
 
     <div class="field">
       <label for="act">Ссылка на нормативный акт</label>
-      <InputText id="name" v-model.trim="product.act" />
+      <InputText id="name" v-model.trim="violation.act" />
     </div>
 
     <div class="field">
       <label for="inspector">Инспектор</label>
-      <InputText id="name" v-model.trim="product.inspector" />
+      <InputText id="name" v-model.trim="violation.inspector" />
     </div>
 
     <div class="field">
@@ -152,7 +152,7 @@
 
       <Dropdown
         id="status"
-        v-model="product.status"
+        v-model="violation.status"
         :options="statuses"
         placeholder="Выберите Статус"
       >
@@ -178,20 +178,25 @@
 
     <template #footer>
       <Button label="Закрыть" icon="pi pi-times" text @click="hideDialog" />
-      <Button label="Сохранить" icon="pi pi-check" text @click="saveProduct" />
+      <Button
+        label="Сохранить"
+        icon="pi pi-check"
+        text
+        @click="saveViolation"
+      />
     </template>
   </Dialog>
 
   <Dialog
-    v-model:visible="deleteProductDialog"
+    v-model:visible="deleteViolationDialog"
     :style="{ width: '450px' }"
     header="Подтверждение удаления"
     :modal="true"
   >
     <div class="confirmation-content">
       <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
-      <span v-if="product"
-        >Вы уверены, что хотите удалить <b>{{ product.name }}</b
+      <span v-if="violation"
+        >Вы уверены, что хотите удалить <b>{{ violation.name }}</b
         >?</span
       >
     </div>
@@ -200,9 +205,9 @@
         label="Нет"
         icon="pi pi-times"
         text
-        @click="deleteProductDialog = false"
+        @click="deleteViolationDialog = false"
       />
-      <Button label="Да" icon="pi pi-check" text @click="deleteProduct" />
+      <Button label="Да" icon="pi pi-check" text @click="deleteViolation" />
     </template>
   </Dialog>
 
@@ -250,70 +255,70 @@ onMounted(() => {
 });
 
 const toast = useToast();
-const product = ref({});
+const violation = ref({});
 const submitted = ref(false);
 const statuses = ref(["черновик", "подтверждено", "в акте"]);
 
-const productDialog = ref(false);
-const deleteProductDialog = ref(false);
+const violationDialog = ref(false);
+const deleteViolationDialog = ref(false);
 
 const openNew = () => {
-  product.value = { status: statuses.value[0] };
+  violation.value = { status: statuses.value[0] };
   submitted.value = false;
-  productDialog.value = true;
+  violationDialog.value = true;
 };
 
 const hideDialog = () => {
-  productDialog.value = false;
+  violationDialog.value = false;
   submitted.value = false;
 };
-const saveProduct = () => {
+const saveViolation = () => {
   submitted.value = true;
 
-  if (product.value.name && product.value.name.trim()) {
-    if (product.value.id) {
-      violations.value[findIndexById(product.value.id)] = product.value;
+  if (violation.value.name && violation.value.name.trim()) {
+    if (violation.value.id) {
+      violations.value[findIndexById(violation.value.id)] = violation.value;
       toast.add({
         severity: "success",
         summary: "Successful",
-        detail: "Product Updated",
+        detail: "Violation Updated",
         life: 3000,
       });
     } else {
-      product.value.id = createId();
-      violations.value.push(product.value);
+      violation.value.id = createId();
+      violations.value.push(violation.value);
 
       toast.add({
         severity: "success",
         summary: "Successful",
-        detail: "Product Created",
+        detail: "Violation Created",
         life: 3000,
       });
     }
 
-    productDialog.value = false;
-    product.value = {};
+    violationDialog.value = false;
+    violation.value = {};
   }
 };
-const editProduct = (prod) => {
-  product.value = { ...prod };
-  productDialog.value = true;
+const editViolation = (viol) => {
+  violation.value = { ...viol };
+  violationDialog.value = true;
 };
-const confirmDeleteProduct = (prod) => {
-  product.value = prod;
-  deleteProductDialog.value = true;
+const confirmDeleteViolation = (viol) => {
+  violation.value = viol;
+  deleteViolationDialog.value = true;
 };
 
-const deleteProduct = () => {
+const deleteViolation = () => {
   violations.value = violations.value.filter(
-    (val) => val.id !== product.value.id
+    (val) => val.id !== violation.value.id
   );
-  deleteProductDialog.value = false;
-  product.value = {};
+  deleteViolationDialog.value = false;
+  violation.value = {};
   toast.add({
     severity: "success",
     summary: "Successful",
-    detail: "Product Deleted",
+    detail: "Violation Deleted",
     life: 3000,
   });
 };
@@ -339,8 +344,6 @@ const createId = () => {
   }
   return id;
 };
-
-//---------------------------------------------------------------------------------------------
 
 const filters = ref();
 const initFilters = () => {
