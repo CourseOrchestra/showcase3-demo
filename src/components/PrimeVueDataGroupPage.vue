@@ -154,8 +154,7 @@
         id="status"
         v-model="product.status"
         :options="statuses"
-        option-label="label"
-        placeholder="Select a Status"
+        placeholder="Выберите Статус"
       >
         <template #value="slotProps">
           <div v-if="slotProps.value && slotProps.value.value">
@@ -178,36 +177,36 @@
     </div>
 
     <template #footer>
-      <Button label="Cancel" icon="pi pi-times" text @click="hideDialog" />
-      <Button label="Save" icon="pi pi-check" text @click="saveProduct" />
+      <Button label="Закрыть" icon="pi pi-times" text @click="hideDialog" />
+      <Button label="Сохранить" icon="pi pi-check" text @click="saveProduct" />
     </template>
   </Dialog>
 
   <Dialog
     v-model:visible="deleteProductDialog"
     :style="{ width: '450px' }"
-    header="Confirm"
+    header="Подтверждение удаления"
     :modal="true"
   >
     <div class="confirmation-content">
       <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
       <span v-if="product"
-        >Are you sure you want to delete <b>{{ product.name }}</b
+        >Вы уверены, что хотите удалить <b>{{ product.name }}</b
         >?</span
       >
     </div>
     <template #footer>
       <Button
-        label="No"
+        label="Нет"
         icon="pi pi-times"
         text
         @click="deleteProductDialog = false"
       />
-      <Button label="Yes" icon="pi pi-check" text @click="deleteProduct" />
+      <Button label="Да" icon="pi pi-check" text @click="deleteProduct" />
     </template>
   </Dialog>
 
-  <v-dialog v-model="dialog" persistent width="1024">
+  <v-dialog v-model="dialog" persistent width="450">
     <v-card>
       <v-card-title>
         <span class="text-h5">Задание группы нарушений</span>
@@ -253,17 +252,13 @@ onMounted(() => {
 const toast = useToast();
 const product = ref({});
 const submitted = ref(false);
-const statuses = ref([
-  { label: "черновик", value: "черновик" },
-  { label: "подтверждено", value: "подтверждено" },
-  { label: "в акте", value: "в акте" },
-]);
+const statuses = ref(["черновик", "подтверждено", "в акте"]);
 
 const productDialog = ref(false);
 const deleteProductDialog = ref(false);
 
 const openNew = () => {
-  product.value = {};
+  product.value = { status: statuses.value[0] };
   submitted.value = false;
   productDialog.value = true;
 };
@@ -275,9 +270,8 @@ const hideDialog = () => {
 const saveProduct = () => {
   submitted.value = true;
 
-  if (product.value.name.trim()) {
+  if (product.value.name && product.value.name.trim()) {
     if (product.value.id) {
-      //      product.value.inventoryStatus = product.value.inventoryStatus.value ? product.value.inventoryStatus.value : product.value.inventoryStatus;
       violations.value[findIndexById(product.value.id)] = product.value;
       toast.add({
         severity: "success",
@@ -286,14 +280,9 @@ const saveProduct = () => {
         life: 3000,
       });
     } else {
-      /*
-
       product.value.id = createId();
-      product.value.code = createId();
-      product.value.image = 'product-placeholder.svg';
-      product.value.inventoryStatus = product.value.inventoryStatus ? product.value.inventoryStatus.value : 'INSTOCK';
-      products.value.push(product.value);
-*/
+      violations.value.push(product.value);
+
       toast.add({
         severity: "success",
         summary: "Successful",
@@ -316,13 +305,17 @@ const confirmDeleteProduct = (prod) => {
 };
 
 const deleteProduct = () => {
-  /*
-
-  products.value = products.value.filter(val => val.id !== product.value.id);
+  violations.value = violations.value.filter(
+    (val) => val.id !== product.value.id
+  );
   deleteProductDialog.value = false;
   product.value = {};
-  toast.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
-*/
+  toast.add({
+    severity: "success",
+    summary: "Successful",
+    detail: "Product Deleted",
+    life: 3000,
+  });
 };
 
 const findIndexById = (id) => {
@@ -337,16 +330,15 @@ const findIndexById = (id) => {
   return index;
 };
 
-/*
 const createId = () => {
-  let id = '';
-  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  for ( var i = 0; i < 5; i++ ) {
+  let id = "";
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  for (let i = 0; i < 5; i++) {
     id += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   return id;
-}
-*/
+};
 
 //---------------------------------------------------------------------------------------------
 
