@@ -136,7 +136,6 @@ onMounted(() => {
 const filters = ref();
 const initFilters = () => {
   filters.value = {
-    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     name: {
       operator: FilterOperator.AND,
       constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }],

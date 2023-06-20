@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.18.39",
+  "version": "1.18.40",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -42,8 +42,8 @@
     "@intlify/vite-plugin-vue-i18n": "^6.0.3",
     "@pinia/testing": "^0.1.2",
     "@types/webfontloader": "^1.6.35",
-    "@typescript-eslint/eslint-plugin": "^5.59.11",
-    "@typescript-eslint/parser": "^5.59.11",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/test-utils": "^2.3.2",
