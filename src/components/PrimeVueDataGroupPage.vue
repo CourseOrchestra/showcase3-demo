@@ -6,10 +6,17 @@
       ></v-img>
     </template>
 
+    <v-btn icon @click="openNew">
+      <v-icon>mdi-plus-circle-outline</v-icon>
+      <v-tooltip activator="parent" location="top"
+        >Добавить нарушение
+      </v-tooltip>
+    </v-btn>
+
     <v-btn icon :disabled="disabled" @click="dialog = true">
       <v-icon>mdi-folder-outline</v-icon>
       <v-tooltip activator="parent" location="top"
-        >Задание группы нарушений
+        >Задать группу нарушений
       </v-tooltip>
     </v-btn>
   </v-app-bar>
@@ -73,7 +80,25 @@
         <template #body="slotProps">
           <Tag
             :value="slotProps.data.status"
-            :severity="getSeverity(slotProps.data.status)"
+            :severity="getStatusLabel(slotProps.data.status)"
+          />
+        </template>
+      </Column>
+      <Column style="min-width: 8rem">
+        <template #body="slotProps">
+          <Button
+            icon="pi pi-pencil"
+            outlined
+            rounded
+            class="mr-2"
+            @click="editProduct(slotProps.data)"
+          />
+          <Button
+            icon="pi pi-trash"
+            outlined
+            rounded
+            severity="danger"
+            @click="confirmDeleteProduct(slotProps.data)"
           />
         </template>
       </Column>
@@ -90,6 +115,97 @@
       </template>
     </DataTable>
   </div>
+
+  <Dialog
+    v-model:visible="productDialog"
+    :style="{ width: '450px' }"
+    header="Нарушение"
+    :modal="true"
+    class="p-fluid"
+  >
+    <div class="field">
+      <label for="name">Наименование нарушения</label>
+      <InputText
+        id="name"
+        v-model.trim="product.name"
+        required="true"
+        autofocus
+        :class="{ 'p-invalid': submitted && !product.name }"
+      />
+      <small v-if="submitted && !product.name" class="p-error"
+        >Необходимо задать Наименование нарушения</small
+      >
+    </div>
+
+    <div class="field">
+      <label for="act">Ссылка на нормативный акт</label>
+      <InputText id="name" v-model.trim="product.act" />
+    </div>
+
+    <div class="field">
+      <label for="inspector">Инспектор</label>
+      <InputText id="name" v-model.trim="product.inspector" />
+    </div>
+
+    <div class="field">
+      <label for="status" class="mb-3">Статус</label>
+
+      <Dropdown
+        id="status"
+        v-model="product.status"
+        :options="statuses"
+        option-label="label"
+        placeholder="Select a Status"
+      >
+        <template #value="slotProps">
+          <div v-if="slotProps.value && slotProps.value.value">
+            <Tag
+              :value="slotProps.value.value"
+              :severity="getStatusLabel(slotProps.value.label)"
+            />
+          </div>
+          <div v-else-if="slotProps.value && !slotProps.value.value">
+            <Tag
+              :value="slotProps.value"
+              :severity="getStatusLabel(slotProps.value)"
+            />
+          </div>
+          <span v-else>
+            {{ slotProps.placeholder }}
+          </span>
+        </template>
+      </Dropdown>
+    </div>
+
+    <template #footer>
+      <Button label="Cancel" icon="pi pi-times" text @click="hideDialog" />
+      <Button label="Save" icon="pi pi-check" text @click="saveProduct" />
+    </template>
+  </Dialog>
+
+  <Dialog
+    v-model:visible="deleteProductDialog"
+    :style="{ width: '450px' }"
+    header="Confirm"
+    :modal="true"
+  >
+    <div class="confirmation-content">
+      <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+      <span v-if="product"
+        >Are you sure you want to delete <b>{{ product.name }}</b
+        >?</span
+      >
+    </div>
+    <template #footer>
+      <Button
+        label="No"
+        icon="pi pi-times"
+        text
+        @click="deleteProductDialog = false"
+      />
+      <Button label="Yes" icon="pi pi-check" text @click="deleteProduct" />
+    </template>
+  </Dialog>
 
   <v-dialog v-model="dialog" persistent width="1024">
     <v-card>
@@ -123,6 +239,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import { useToast } from "primevue/usetoast";
 import { ViolationService } from "@/service/ViolationService";
 import { FilterMatchMode, FilterOperator } from "primevue/api";
 import { setTitle } from "@/utils/common";
@@ -132,6 +249,106 @@ setTitle("primevuedatagroup");
 onMounted(() => {
   ViolationService.getViolations().then((data) => (violations.value = data));
 });
+
+const toast = useToast();
+const product = ref({});
+const submitted = ref(false);
+const statuses = ref([
+  { label: "черновик", value: "черновик" },
+  { label: "подтверждено", value: "подтверждено" },
+  { label: "в акте", value: "в акте" },
+]);
+
+const productDialog = ref(false);
+const deleteProductDialog = ref(false);
+
+const openNew = () => {
+  product.value = {};
+  submitted.value = false;
+  productDialog.value = true;
+};
+
+const hideDialog = () => {
+  productDialog.value = false;
+  submitted.value = false;
+};
+const saveProduct = () => {
+  submitted.value = true;
+
+  if (product.value.name.trim()) {
+    if (product.value.id) {
+      //      product.value.inventoryStatus = product.value.inventoryStatus.value ? product.value.inventoryStatus.value : product.value.inventoryStatus;
+      violations.value[findIndexById(product.value.id)] = product.value;
+      toast.add({
+        severity: "success",
+        summary: "Successful",
+        detail: "Product Updated",
+        life: 3000,
+      });
+    } else {
+      /*
+
+      product.value.id = createId();
+      product.value.code = createId();
+      product.value.image = 'product-placeholder.svg';
+      product.value.inventoryStatus = product.value.inventoryStatus ? product.value.inventoryStatus.value : 'INSTOCK';
+      products.value.push(product.value);
+*/
+      toast.add({
+        severity: "success",
+        summary: "Successful",
+        detail: "Product Created",
+        life: 3000,
+      });
+    }
+
+    productDialog.value = false;
+    product.value = {};
+  }
+};
+const editProduct = (prod) => {
+  product.value = { ...prod };
+  productDialog.value = true;
+};
+const confirmDeleteProduct = (prod) => {
+  product.value = prod;
+  deleteProductDialog.value = true;
+};
+
+const deleteProduct = () => {
+  /*
+
+  products.value = products.value.filter(val => val.id !== product.value.id);
+  deleteProductDialog.value = false;
+  product.value = {};
+  toast.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+*/
+};
+
+const findIndexById = (id) => {
+  let index = -1;
+  for (let i = 0; i < violations.value.length; i++) {
+    if (violations.value[i].id === id) {
+      index = i;
+      break;
+    }
+  }
+
+  return index;
+};
+
+/*
+const createId = () => {
+  let id = '';
+  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for ( var i = 0; i < 5; i++ ) {
+    id += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return id;
+}
+*/
+
+//---------------------------------------------------------------------------------------------
 
 const filters = ref();
 const initFilters = () => {
@@ -191,7 +408,7 @@ const calculateViolationTotal = (name) => {
   return total;
 };
 
-const getSeverity = (status) => {
+const getStatusLabel = (status) => {
   switch (status) {
     case "черновик":
       return "info";

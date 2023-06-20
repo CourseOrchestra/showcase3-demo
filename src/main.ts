@@ -21,6 +21,10 @@ import InputText from "primevue/inputtext";
 import Skeleton from "primevue/skeleton";
 import Tag from "primevue/tag";
 import Button from "primevue/button";
+import Dialog from "primevue/dialog";
+import Toast from "primevue/toast";
+import Dropdown from "primevue/dropdown";
+import ToastService from "primevue/toastservice";
 import TreeTable from "primevue/treetable";
 import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
@@ -50,9 +54,14 @@ const app = createApp(App)
   .component("Skeleton", Skeleton)
   .component("Tag", Tag)
   .component("Button", Button)
+  .component("Dialog", Dialog)
+  .component("Dropdown", Dropdown)
+  .component("Toast", Toast)
   .component("TreeTable", TreeTable)
 
   .use(vuetify) /*.use(showcase3)*/
+  .use(ToastService)
+
   .component("EasyDataTable", Vue3EasyDataTable);
 
 // tag::read_store[]
