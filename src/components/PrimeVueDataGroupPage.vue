@@ -30,7 +30,7 @@
     <v-btn icon @click="exportCSV">
       <v-icon> mdi-file-excel</v-icon>
       <v-tooltip activator="parent" location="top"
-        >Экспорт таблицы в CSV"
+        >Экспортировать таблицу в CSV"
       </v-tooltip>
     </v-btn>
   </v-app-bar>
@@ -455,6 +455,12 @@ const dialogSave = () => {
   );
   dialog.value = false;
   selectedViolation.value = null;
+  toast.add({
+    severity: "success",
+    summary: "Успешно",
+    detail: "Группа нарушений задана",
+    life: 3000,
+  });
 };
 
 const violationsGroup = computed(() =>
