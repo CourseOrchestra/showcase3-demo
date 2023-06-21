@@ -23,8 +23,8 @@ import Tag from "primevue/tag";
 import Button from "primevue/button";
 import Dialog from "primevue/dialog";
 import Toast from "primevue/toast";
-import Dropdown from "primevue/dropdown";
 import ToastService from "primevue/toastservice";
+import Dropdown from "primevue/dropdown";
 import TreeTable from "primevue/treetable";
 import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
@@ -48,6 +48,8 @@ const app = createApp(App)
   .use(router)
 
   .use(PrimeVue)
+  .use(ToastService)
+  .component("Toast", Toast)
   .component("DataTable", DataTable)
   .component("Column", Column)
   .component("InputText", InputText)
@@ -56,11 +58,9 @@ const app = createApp(App)
   .component("Button", Button)
   .component("Dialog", Dialog)
   .component("Dropdown", Dropdown)
-  .component("Toast", Toast)
   .component("TreeTable", TreeTable)
 
   .use(vuetify) /*.use(showcase3)*/
-  .use(ToastService)
 
   .component("EasyDataTable", Vue3EasyDataTable);
 
