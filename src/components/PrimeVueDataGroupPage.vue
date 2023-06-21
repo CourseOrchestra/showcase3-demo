@@ -26,10 +26,18 @@
         >Задать группу для выделенных нарушений
       </v-tooltip>
     </v-btn>
+
+    <v-btn icon @click="exportCSV">
+      <v-icon> mdi-file-excel</v-icon>
+      <v-tooltip activator="parent" location="top"
+        >Экспорт таблицы в CSV"
+      </v-tooltip>
+    </v-btn>
   </v-app-bar>
 
   <div class="card">
     <DataTable
+      ref="dt"
       v-model:filters="filters"
       v-model:selection="selectedViolation"
       data-key="id"
@@ -298,6 +306,7 @@ onMounted(() => {
 });
 
 const toast = useToast();
+const dt = ref();
 const violation = ref({});
 const submitted = ref(false);
 const statuses = ref(["черновик", "подтверждено", "в акте"]);
@@ -405,6 +414,10 @@ const deleteSelectedViolations = () => {
     detail: "Violations Deleted",
     life: 3000,
   });
+};
+
+const exportCSV = () => {
+  dt.value.exportCSV();
 };
 
 const filters = ref();
