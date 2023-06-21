@@ -13,10 +13,17 @@
       </v-tooltip>
     </v-btn>
 
+    <v-btn icon :disabled="disabled" @click="confirmDeleteSelected">
+      <v-icon> mdi-delete</v-icon>
+      <v-tooltip activator="parent" location="top"
+        >Удалить выделенные нарушения
+      </v-tooltip>
+    </v-btn>
+
     <v-btn icon :disabled="disabled" @click="dialog = true">
       <v-icon>mdi-folder-outline</v-icon>
       <v-tooltip activator="parent" location="top"
-        >Задать группу нарушений
+        >Задать группу для выделенных нарушений
       </v-tooltip>
     </v-btn>
   </v-app-bar>
@@ -25,6 +32,7 @@
     <DataTable
       v-model:filters="filters"
       v-model:selection="selectedViolation"
+      data-key="id"
       filter-display="menu"
       :value="violations"
       resizable-columns
@@ -224,6 +232,34 @@
   </Dialog>
 
   <Dialog
+    v-model:visible="deleteViolationsDialog"
+    :style="{ width: '450px' }"
+    header="Подтверждение удаления"
+    :modal="true"
+  >
+    <div class="confirmation-content">
+      <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+      <span v-if="violation"
+        >Вы уверены, что хотите удалить выделенные нарушения?</span
+      >
+    </div>
+    <template #footer>
+      <Button
+        label="Нет"
+        icon="pi pi-times"
+        text
+        @click="deleteViolationsDialog = false"
+      />
+      <Button
+        label="Да"
+        icon="pi pi-check"
+        text
+        @click="deleteSelectedViolations"
+      />
+    </template>
+  </Dialog>
+
+  <Dialog
     v-model:visible="dialog"
     :style="{ width: '450px' }"
     header="Задание группы нарушений"
@@ -268,6 +304,7 @@ const statuses = ref(["черновик", "подтверждено", "в акт
 
 const violationDialog = ref(false);
 const deleteViolationDialog = ref(false);
+const deleteViolationsDialog = ref(false);
 
 const openNew = () => {
   violation.value = { status: statuses.value[0] };
@@ -350,6 +387,24 @@ const createId = () => {
     id += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   return id;
+};
+
+const confirmDeleteSelected = () => {
+  deleteViolationsDialog.value = true;
+};
+
+const deleteSelectedViolations = () => {
+  violations.value = violations.value.filter(
+    (val) => !selectedViolation.value.includes(val)
+  );
+  deleteViolationsDialog.value = false;
+  selectedViolation.value = null;
+  toast.add({
+    severity: "success",
+    summary: "Successful",
+    detail: "Violations Deleted",
+    life: 3000,
+  });
 };
 
 const filters = ref();
