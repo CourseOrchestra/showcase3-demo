@@ -176,6 +176,18 @@
       </Dropdown>
     </div>
 
+    <div class="field">
+      <label for="group" class="mb-3">Группа</label>
+      <Dropdown
+        id="group"
+        v-model="violation.group"
+        :options="violationsGroup"
+        editable
+        show-clear
+      >
+      </Dropdown>
+    </div>
+
     <template #footer>
       <Button label="Закрыть" icon="pi pi-times" text @click="hideDialog" />
       <Button
@@ -211,34 +223,29 @@
     </template>
   </Dialog>
 
-  <v-dialog v-model="dialog" persistent width="450">
-    <v-card>
-      <v-card-title>
-        <span class="text-h5">Задание группы нарушений</span>
-      </v-card-title>
-      <v-card-text>
-        <v-container>
-          <v-row>
-            <v-col>
-              <v-combobox
-                v-model="selectedGroup"
-                :items="violationsGroup"
-              ></v-combobox>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="blue-darken-1" variant="text" @click="dialog = false">
-          Закрыть
-        </v-btn>
-        <v-btn color="blue-darken-1" variant="text" @click="dialogSave">
-          Сохранить
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+  <Dialog
+    v-model:visible="dialog"
+    :style="{ width: '450px' }"
+    header="Задание группы нарушений"
+    :modal="true"
+    class="p-fluid"
+  >
+    <div class="field">
+      <Dropdown
+        id="group"
+        v-model="selectedGroup"
+        :options="violationsGroup"
+        editable
+        show-clear
+      >
+      </Dropdown>
+    </div>
+
+    <template #footer>
+      <Button label="Закрыть" icon="pi pi-times" text @click="dialog = false" />
+      <Button label="Сохранить" icon="pi pi-check" text @click="dialogSave" />
+    </template>
+  </Dialog>
 </template>
 
 <script setup>
