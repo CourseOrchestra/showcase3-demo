@@ -35,6 +35,8 @@
     </v-btn>
   </v-app-bar>
 
+  <Toast />
+
   <div class="card">
     <DataTable
       ref="dt"
@@ -51,6 +53,7 @@
       :sort-order="1"
       removable-sort
       scrollable
+      striped-rows
       scroll-height="850px"
       table-style="min-width: 50rem"
     >
@@ -292,7 +295,7 @@
   </Dialog>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted, computed } from "vue";
 import { useToast } from "primevue/usetoast";
 import { ViolationService } from "@/service/ViolationService";
@@ -333,8 +336,8 @@ const saveViolation = () => {
       violations.value[findIndexById(violation.value.id)] = violation.value;
       toast.add({
         severity: "success",
-        summary: "Successful",
-        detail: "Violation Updated",
+        summary: "Успешно",
+        detail: "Нарушение обновлено",
         life: 3000,
       });
     } else {
@@ -343,8 +346,8 @@ const saveViolation = () => {
 
       toast.add({
         severity: "success",
-        summary: "Successful",
-        detail: "Violation Created",
+        summary: "Успешно",
+        detail: "Нарушение создано",
         life: 3000,
       });
     }
@@ -370,8 +373,8 @@ const deleteViolation = () => {
   violation.value = {};
   toast.add({
     severity: "success",
-    summary: "Successful",
-    detail: "Violation Deleted",
+    summary: "Успешно",
+    detail: "Нарушение удалено",
     life: 3000,
   });
 };
@@ -410,8 +413,8 @@ const deleteSelectedViolations = () => {
   selectedViolation.value = null;
   toast.add({
     severity: "success",
-    summary: "Successful",
-    detail: "Violations Deleted",
+    summary: "Успешно",
+    detail: "Выделенные нарушения удалены",
     life: 3000,
   });
 };
