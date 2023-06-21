@@ -292,7 +292,7 @@
   </Dialog>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
 import { useToast } from "primevue/usetoast";
 import { ViolationService } from "@/service/ViolationService";
