@@ -45,7 +45,7 @@
       v-model:filters="filters"
       v-model:selection="selectedViolation"
       data-key="id"
-      filter-display="menu"
+      filter-display="row"
       :value="violations"
       row-group-mode="subheader"
       group-rows-by="group"
@@ -65,12 +65,13 @@
         sortable
         style="min-width: 200px"
       >
-        <template #filter="{ filterModel }">
+        <template #filter="{ filterModel, filterCallback }">
           <InputText
             v-model="filterModel.value"
             type="text"
             class="p-column-filter"
-            placeholder="Поиск по Наименование нарушения"
+            placeholder="Поиск"
+            @input="filterCallback()"
           />
         </template>
       </Column>
@@ -86,12 +87,13 @@
         sortable
         style="min-width: 200px"
       >
-        <template #filter="{ filterModel }">
+        <template #filter="{ filterModel, filterCallback }">
           <InputText
             v-model="filterModel.value"
             type="text"
             class="p-column-filter"
-            placeholder="Поиск по Инспектор"
+            placeholder="Поиск"
+            @input="filterCallback()"
           />
         </template>
       </Column>
@@ -299,7 +301,7 @@
 import { ref, onMounted, computed } from "vue";
 import { useToast } from "primevue/usetoast";
 import { ViolationService } from "@/service/ViolationService";
-import { FilterMatchMode, FilterOperator } from "primevue/api";
+import { FilterMatchMode } from "primevue/api";
 import { setTitle } from "@/utils/common";
 
 setTitle("primevuedatagroup");
@@ -427,12 +429,12 @@ const filters = ref();
 const initFilters = () => {
   filters.value = {
     name: {
-      operator: FilterOperator.AND,
-      constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }],
+      value: null,
+      matchMode: FilterMatchMode.CONTAINS,
     },
     inspector: {
-      operator: FilterOperator.AND,
-      constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }],
+      value: null,
+      matchMode: FilterMatchMode.CONTAINS,
     },
   };
 };
