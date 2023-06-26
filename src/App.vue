@@ -8,12 +8,13 @@
 
       <v-spacer></v-spacer>
 
-      <span>{{ $t("App.menu.language") }}</span>
-      <vSelect
-        v-model="locale"
-        :items="['ru', 'cn', 'en']"
-        style="display: inline-flex"
-      ></vSelect>
+      <v-toolbar-items>
+        <vSelect
+          v-model="locale"
+          :items="['ru', 'cn', 'en']"
+          style="display: inline-flex"
+        ></vSelect>
+      </v-toolbar-items>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" fixed :temporary="true">
