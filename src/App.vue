@@ -16,25 +16,23 @@
       ></vSelect>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" fixed temporary>
-      <v-list nav>
-        <div v-for="(link, i) in links" :key="i">
-          <v-list-group :key="$t(link.text)">
-            <template #activator="{ props }">
-              <v-list-item v-bind="props">
-                <v-list-item-title>{{ $t(link.text) }}</v-list-item-title>
-              </v-list-item>
-            </template>
-
-            <v-list-item
-              v-for="sublink in link.subLinks"
-              :key="$t(sublink.text)"
-              :to="sublink.to"
-            >
-              <v-list-item-title>{{ $t(sublink.text) }}</v-list-item-title>
+    <v-navigation-drawer v-model="drawer" fixed :temporary="true">
+      <v-list :nav="true">
+        <v-list-group v-for="link in links" :key="link.text">
+          <template #activator="{ props }">
+            <v-list-item v-bind="props">
+              <v-list-item-title>{{ $t(link.text) }}</v-list-item-title>
             </v-list-item>
-          </v-list-group>
-        </div>
+          </template>
+
+          <v-list-item
+            v-for="sublink in link.subLinks"
+            :key="sublink.text"
+            :to="sublink.to"
+          >
+            <v-list-item-title>{{ $t(sublink.text) }}</v-list-item-title>
+          </v-list-item>
+        </v-list-group>
       </v-list>
     </v-navigation-drawer>
 
@@ -67,7 +65,7 @@ watch(locale, (value) => {
 
 const links = [
   {
-    text: "ddddddd",
+    text: "App.menu.group1",
     subLinks: [
       {
         text: "App.menu.welcome",
@@ -96,7 +94,7 @@ const links = [
     ],
   },
   {
-    text: "fffffffffffff",
+    text: "App.menu.group2",
     subLinks: [
       {
         text: "App.menu.grid",
@@ -118,7 +116,7 @@ const links = [
   },
 
   {
-    text: "ggggggggggggg",
+    text: "App.menu.group3",
     subLinks: [
       {
         text: "App.menu.primevuedatatable",
@@ -154,9 +152,3 @@ const links = [
 
 const drawer = ref(false);
 </script>
-
-<style>
-.v-btn {
-  text-transform: none !important;
-}
-</style>
