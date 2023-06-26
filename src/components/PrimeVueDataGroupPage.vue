@@ -47,15 +47,13 @@
       data-key="id"
       filter-display="menu"
       :value="violations"
-      resizable-columns
-      column-resize-mode="fit"
       row-group-mode="subheader"
       group-rows-by="group"
       sort-mode="multiple"
       :sort-order="1"
       removable-sort
-      scrollable
       striped-rows
+      scrollable
       scroll-height="850px"
       table-style="min-width: 50rem"
     >
