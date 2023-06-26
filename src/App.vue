@@ -1,14 +1,12 @@
 <template>
   <vApp>
-    <vAppBar app color="primary" dark>
-      <vBtn to="/"> {{ $t("App.menu.welcome") }} </vBtn>
-      <vBtn to="logocurs"> {{ $t("App.menu.logocurs") }} </vBtn>
-      <vBtn to="logoplatform"> {{ $t("App.menu.logoplatform") }} </vBtn>
-      <vBtn to="navigator"> {{ $t("App.menu.navigator") }} </vBtn>
-      <vBtn to="urlstate"> {{ $t("App.menu.urlstate") }} </vBtn>
-      <vBtn to="pageout"> {{ $t("App.menu.pageout") }} </vBtn>
+    <v-app-bar color="primary" prominent>
+      <v-app-bar-nav-icon
+        variant="text"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
 
-      <vSpacer></vSpacer>
+      <v-spacer></v-spacer>
 
       <span>{{ $t("App.menu.language") }}</span>
       <vSelect
@@ -16,37 +14,29 @@
         :items="['ru', 'cn', 'en']"
         style="display: inline-flex"
       ></vSelect>
-    </vAppBar>
+    </v-app-bar>
 
-    <vAppBar app color="primary" dark>
-      <vBtn to="grid"> {{ $t("App.menu.grid") }} </vBtn>
-      <vBtn to="gridvuetify"> {{ $t("App.menu.gridvuetify") }} </vBtn>
-      <vBtn to="gridvuetifyvirtual">
-        {{ $t("App.menu.gridvuetifyvirtual") }}
-      </vBtn>
-      <vBtn to="virtuallist"> {{ $t("App.menu.virtuallist") }} </vBtn>
-    </vAppBar>
+    <v-navigation-drawer v-model="drawer" fixed temporary>
+      <v-list nav>
+        <div v-for="(link, i) in links" :key="i">
+          <v-list-group :key="$t(link.text)">
+            <template #activator="{ props }">
+              <v-list-item v-bind="props">
+                <v-list-item-title>{{ $t(link.text) }}</v-list-item-title>
+              </v-list-item>
+            </template>
 
-    <vAppBar app color="primary" dark>
-      <vBtn to="primevuedatatable">
-        {{ $t("App.menu.primevuedatatable") }}
-      </vBtn>
-      <vBtn to="primevuelyragrid">
-        {{ $t("App.menu.primevuelyragrid") }}
-      </vBtn>
-      <vBtn to="primevuedatatablevirtual">
-        {{ $t("App.menu.primevuedatatablevirtual") }}
-      </vBtn>
-      <vBtn to="primevuetreetable">
-        {{ $t("App.menu.primevuetreetable") }}
-      </vBtn>
-      <vBtn to="primevuetreegroup">
-        {{ $t("App.menu.primevuetreegroup") }}
-      </vBtn>
-      <vBtn to="primevuedatagroup">
-        {{ $t("App.menu.primevuedatagroup") }}
-      </vBtn>
-    </vAppBar>
+            <v-list-item
+              v-for="sublink in link.subLinks"
+              :key="$t(sublink.text)"
+              :to="sublink.to"
+            >
+              <v-list-item-title>{{ $t(sublink.text) }}</v-list-item-title>
+            </v-list-item>
+          </v-list-group>
+        </div>
+      </v-list>
+    </v-navigation-drawer>
 
     <vMain>
       <routerView />
@@ -59,7 +49,7 @@ import { useI18n } from "vue-i18n";
 // tag::import_store[]
 import { useInternationalizationStore } from "@/stores/internationalization";
 // end::import_store[]
-import { watch } from "vue";
+import { ref, watch } from "vue";
 import { setTitle } from "@/utils/common";
 
 const { locale } = useI18n();
@@ -74,6 +64,95 @@ watch(locale, (value) => {
   internationalization.setLocale(value);
 });
 // end::save_store[]
+
+const links = [
+  {
+    text: "ddddddd",
+    subLinks: [
+      {
+        text: "App.menu.welcome",
+        to: "/",
+      },
+      {
+        text: "App.menu.logocurs",
+        to: "/logocurs",
+      },
+      {
+        text: "App.menu.logoplatform",
+        to: "/logoplatform",
+      },
+      {
+        text: "App.menu.navigator",
+        to: "/navigator",
+      },
+      {
+        text: "App.menu.urlstate",
+        to: "/urlstate",
+      },
+      {
+        text: "App.menu.pageout",
+        to: "/pageout",
+      },
+    ],
+  },
+  {
+    text: "fffffffffffff",
+    subLinks: [
+      {
+        text: "App.menu.grid",
+        to: "/grid",
+      },
+      {
+        text: "App.menu.gridvuetify",
+        to: "/gridvuetify",
+      },
+      {
+        text: "App.menu.gridvuetifyvirtual",
+        to: "/gridvuetifyvirtual",
+      },
+      {
+        text: "App.menu.virtuallist",
+        to: "/virtuallist",
+      },
+    ],
+  },
+
+  {
+    text: "ggggggggggggg",
+    subLinks: [
+      {
+        text: "App.menu.primevuedatatable",
+        to: "/primevuedatatable",
+      },
+      {
+        text: "App.menu.primevuelyragrid",
+        to: "/primevuelyragrid",
+      },
+
+      {
+        text: "App.menu.primevuedatatablevirtual",
+        to: "/primevuedatatablevirtual",
+      },
+
+      {
+        text: "App.menu.primevuetreetable",
+        to: "/primevuetreetable",
+      },
+
+      {
+        text: "App.menu.primevuetreegroup",
+        to: "/primevuetreegroup",
+      },
+
+      {
+        text: "App.menu.primevuedatagroup",
+        to: "/primevuedatagroup",
+      },
+    ],
+  },
+];
+
+const drawer = ref(false);
 </script>
 
 <style>
