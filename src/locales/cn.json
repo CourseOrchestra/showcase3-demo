@@ -16,6 +16,7 @@
   },
   "App": {
     "platform": "平台 Curs",
+    "title": "KURS平台示範項目",
     "menu": {
       "group1": "主要的",
       "group2": "網格 + Vuetify",
@@ -82,5 +83,8 @@
   "PageOutPage": {
     "changes": "頁面有變化",
     "confirmAlert": "你真的要離開嗎？ 您有未保存的更改！"
+  },
+  "PrimeVueDataGroupPage": {
+    "title": "團體"
   }
 }

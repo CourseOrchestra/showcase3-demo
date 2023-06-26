@@ -16,6 +16,7 @@
   },
   "App": {
     "platform": "Platform Curs",
+    "title": "Demonstration project of the KURS Platform",
     "menu": {
       "group1": "Main",
       "group2": "Grid + Vuetify",
@@ -81,5 +82,8 @@
   "PageOutPage": {
     "changes": "There are changes on the page",
     "confirmAlert": "Do you really want to leave? you have unsaved changes!"
+  },
+  "PrimeVueDataGroupPage": {
+    "title": "Group"
   }
 }

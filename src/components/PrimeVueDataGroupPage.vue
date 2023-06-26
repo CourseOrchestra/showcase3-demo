@@ -33,6 +33,8 @@
         >Экспортировать таблицу в CSV"
       </v-tooltip>
     </v-btn>
+
+    <v-app-bar-title>{{ $t("PrimeVueDataGroupPage.title") }} </v-app-bar-title>
   </v-app-bar>
 
   <Toast />

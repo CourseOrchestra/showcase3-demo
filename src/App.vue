@@ -8,6 +8,10 @@
 
       <v-spacer></v-spacer>
 
+      <v-app-bar-title>{{ $t("App.title") }} </v-app-bar-title>
+
+      <v-spacer></v-spacer>
+
       <v-toolbar-items>
         <vSelect
           v-model="locale"
