@@ -17,6 +17,10 @@
   "App": {
     "platform": "Platform Curs",
     "menu": {
+      "group1": "Main",
+      "group2": "Grid + Vuetify",
+      "group3": "PrimeVue",
+
       "welcome": "Welcome",
       "logocurs": "Logo Curs",
       "logoplatform": "Logo Platform",

@@ -17,6 +17,10 @@
   "App": {
     "platform": "平台 Curs",
     "menu": {
+      "group1": "主要的",
+      "group2": "網格 + Vuetify",
+      "group3": "PrimeVue",
+
       "welcome": "歡迎",
       "logocurs": "徽標 Curs",
       "logoplatform": "標誌平台",
