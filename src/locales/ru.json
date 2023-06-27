@@ -18,9 +18,10 @@
     "platform": "Платформа КУРС",
     "title": "Демонстрационный проект Платформы КУРС",
     "menu": {
-      "group1": "Основное",
+      "group1": "Showcase 2",
       "group2": "Грид + Vuetify",
-      "group3": "PrimeVue",
+      "group3": "Грид + PrimeVue",
+      "group4": "Группировка",
 
       "welcome": "Welcome",
       "logocurs": "Логотип КУРСа",

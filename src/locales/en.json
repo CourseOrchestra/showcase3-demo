@@ -18,9 +18,10 @@
     "platform": "Platform Curs",
     "title": "Demonstration project of the KURS Platform",
     "menu": {
-      "group1": "Main",
+      "group1": "Showcase 2",
       "group2": "Grid + Vuetify",
-      "group3": "PrimeVue",
+      "group3": "Grid + PrimeVue",
+      "group4": "Group",
 
       "welcome": "Welcome",
       "logocurs": "Logo Curs",

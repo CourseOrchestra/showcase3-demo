@@ -18,9 +18,10 @@
     "platform": "平台 Curs",
     "title": "KURS平台示範項目",
     "menu": {
-      "group1": "主要的",
+      "group1": "Showcase 2",
       "group2": "網格 + Vuetify",
-      "group3": "PrimeVue",
+      "group3": "網格 + PrimeVue",
+      "group4": "團體",
 
       "welcome": "歡迎",
       "logocurs": "徽標 Curs",

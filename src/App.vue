@@ -141,7 +141,12 @@ const links = [
         text: "App.menu.primevuetreetable",
         to: "/primevuetreetable",
       },
+    ],
+  },
 
+  {
+    text: "App.menu.group4",
+    subLinks: [
       {
         text: "App.menu.primevuetreegroup",
         to: "/primevuetreegroup",
