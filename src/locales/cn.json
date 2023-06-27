@@ -16,7 +16,7 @@
   },
   "App": {
     "platform": "平台 Curs",
-    "title": "KURS平台示範項目",
+    "title": "CURS 平台的演示應用程序",
     "menu": {
       "group1": "Showcase 2",
       "group2": "網格 + Vuetify",

@@ -16,7 +16,7 @@
   },
   "App": {
     "platform": "Platform Curs",
-    "title": "Demonstration project of the KURS Platform",
+    "title": "Demo app for the CURS Platform",
     "menu": {
       "group1": "Showcase 2",
       "group2": "Grid + Vuetify",
