@@ -58,7 +58,8 @@
       :value="violations"
       row-group-mode="subheader"
       group-rows-by="group"
-      sort-mode="multiple"
+      sort-mode="single"
+      sort-field="order"
       :sort-order="1"
       removable-sort
       striped-rows
@@ -68,6 +69,10 @@
     >
       <Column field="group" header="Группа" sortable></Column>
       <Column selection-mode="multiple" header-style="width: 3rem"></Column>
+
+      <Column field="id" header="id"></Column>
+      <Column field="order" header="order"></Column>
+
       <Column
         field="name"
         header="Наименование нарушения"
