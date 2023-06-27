@@ -27,10 +27,19 @@
       </v-tooltip>
     </v-btn>
 
+    <v-btn icon :disabled="disabled" @click="moveUp">
+      <v-icon> mdi-arrow-up</v-icon>
+      <v-tooltip activator="parent" location="top">Вверх </v-tooltip>
+    </v-btn>
+    <v-btn icon :disabled="disabled" @click="moveDown">
+      <v-icon> mdi-arrow-down</v-icon>
+      <v-tooltip activator="parent" location="top">Вниз </v-tooltip>
+    </v-btn>
+
     <v-btn icon @click="exportCSV">
       <v-icon> mdi-file-excel</v-icon>
       <v-tooltip activator="parent" location="top"
-        >Экспортировать таблицу в CSV"
+        >Экспортировать таблицу в CSV
       </v-tooltip>
     </v-btn>
 
@@ -507,5 +516,23 @@ const getStatusLabel = (status) => {
     case "в акте":
       return "success";
   }
+};
+
+const moveUp = () => {
+  toast.add({
+    severity: "success",
+    summary: "Успешно",
+    detail: "Сдвинуто вверх",
+    life: 3000,
+  });
+};
+
+const moveDown = () => {
+  toast.add({
+    severity: "success",
+    summary: "Успешно",
+    detail: "Сдвинуто вниз",
+    life: 3000,
+  });
 };
 </script>
