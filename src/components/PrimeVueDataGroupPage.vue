@@ -199,6 +199,7 @@
 
     <div class="field">
       <label for="group" class="mb-3">Группа</label>
+      <!--
       <Dropdown
         id="group"
         v-model="violation.group"
@@ -207,6 +208,12 @@
         show-clear
       >
       </Dropdown>
+-->
+      <v-combobox
+        id="group"
+        v-model="violation.group"
+        :items="violationsGroup"
+      ></v-combobox>
     </div>
 
     <template #footer>
@@ -280,14 +287,16 @@
     class="p-fluid"
   >
     <div class="field">
+      <!--
       <Dropdown
-        id="group"
         v-model="selectedGroup"
         :options="violationsGroup"
         editable
         show-clear
       >
       </Dropdown>
+-->
+      <v-combobox v-model="selectedGroup" :items="violationsGroup"></v-combobox>
     </div>
 
     <template #footer>
