@@ -35,7 +35,7 @@ export const ViolationService = {
         inspector: "Инспектор 1",
         status: "черновик",
         group: "Группа нарушений 2",
-        order: 3001,
+        order: 3002,
       },
       {
         id: 1004,
@@ -44,7 +44,7 @@ export const ViolationService = {
         inspector: "Инспектор 2",
         status: "подтверждено",
         group: "Группа нарушений 2",
-        order: 3002,
+        order: 3001,
       },
       {
         id: 1005,

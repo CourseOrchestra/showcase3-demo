@@ -358,7 +358,12 @@ const saveViolation = () => {
 
   if (violation.value.name && violation.value.name.trim()) {
     if (violation.value.id) {
-      violations.value[findIndexById(violation.value.id)] = violation.value;
+      const index = findIndexById(violation.value.id);
+      if (violations.value[index].group !== violation.value.group) {
+        violation.value.order =
+          getInitialOrderByGroup(violation.value.group) + 1;
+      }
+      violations.value[index] = violation.value;
       toast.add({
         severity: "success",
         summary: "Успешно",
@@ -367,6 +372,7 @@ const saveViolation = () => {
       });
     } else {
       violation.value.id = createId();
+      violation.value.order = getInitialOrderByGroup(violation.value.group) + 1;
       violations.value.push(violation.value);
 
       toast.add({
@@ -475,8 +481,11 @@ const disabled = computed(
 const selectedGroup = ref();
 
 const dialogSave = () => {
+  let i = getInitialOrderByGroup(selectedGroup.value);
   selectedViolation.value.forEach(
-    (violation) => (violation["group"] = selectedGroup.value)
+    (violation) => (
+      (violation["group"] = selectedGroup.value), i++, (violation["order"] = i)
+    )
   );
   dialog.value = false;
   selectedViolation.value = null;
@@ -539,5 +548,31 @@ const moveDown = () => {
     detail: "Сдвинуто вниз",
     life: 3000,
   });
+};
+
+const baseGroupOrder = 1000;
+
+const getInitialOrderByGroup = (group) => {
+  const arr = violations.value.filter((violation) => violation.group === group);
+  if (arr.length === 0) {
+    if (violations.value.length === 0) {
+      return baseGroupOrder;
+    } else {
+      violations.value.sort((a, b) => a.order - b.order);
+
+      let groupOrder = violations.value[violations.value.length - 1].order;
+
+      groupOrder = Math.floor(groupOrder / baseGroupOrder);
+
+      groupOrder++;
+
+      groupOrder = groupOrder * baseGroupOrder;
+
+      return groupOrder;
+    }
+  } else {
+    arr.sort((a, b) => a.order - b.order);
+    return arr[arr.length - 1].order;
+  }
 };
 </script>
