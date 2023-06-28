@@ -15,16 +15,16 @@
     }
   },
   "App": {
-    "platform": "Platform Curs",
+    "platform": "Platform CURS",
     "title": "Demo app for the CURS Platform",
     "menu": {
-      "group1": "Showcase 2",
+      "group1": "Showcase 3",
       "group2": "Grid + Vuetify",
       "group3": "Grid + PrimeVue",
       "group4": "Group",
 
       "welcome": "Welcome",
-      "logocurs": "Logo Curs",
+      "logocurs": "Logo CURS",
       "logoplatform": "Logo Platform",
       "navigator": "Navigator",
       "grid": "Grid",

@@ -15,16 +15,16 @@
     }
   },
   "App": {
-    "platform": "平台 Curs",
+    "platform": "平台 CURS",
     "title": "CURS 平台的演示應用程序",
     "menu": {
-      "group1": "Showcase 2",
+      "group1": "Showcase 3",
       "group2": "網格 + Vuetify",
       "group3": "網格 + PrimeVue",
       "group4": "團體",
 
       "welcome": "歡迎",
-      "logocurs": "徽標 Curs",
+      "logocurs": "徽標 CURS",
       "logoplatform": "標誌平台",
       "navigator": "航海家",
       "grid": "網格",
