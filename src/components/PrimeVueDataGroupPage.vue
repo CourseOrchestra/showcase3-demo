@@ -27,13 +27,13 @@
       </v-tooltip>
     </v-btn>
 
-    <v-btn icon :disabled="disabled" @click="moveUp">
+    <v-btn icon :disabled="!enabledMove" @click="moveUp">
       <v-icon> mdi-arrow-up</v-icon>
       <v-tooltip activator="parent" location="top"
         >Переместить вверх
       </v-tooltip>
     </v-btn>
-    <v-btn icon :disabled="disabled" @click="moveDown">
+    <v-btn icon :disabled="!enabledMove" @click="moveDown">
       <v-icon> mdi-arrow-down</v-icon>
       <v-tooltip activator="parent" location="top">Переместить вниз </v-tooltip>
     </v-btn>
@@ -141,6 +141,7 @@
       </Column>
       <template #groupheader="slotProps">
         <div class="flex align-items-center gap-2 font-bold">
+          <Checkbox v-model="selectedGroups" :value="slotProps.data.group" />
           <span>{{ slotProps.data.group }}</span>
         </div>
       </template>
@@ -473,12 +474,10 @@ const initFilters = () => {
 initFilters();
 
 const violations = ref();
-const selectedViolation = ref();
+const selectedViolation = ref([]);
 
 const dialog = ref(false);
-const disabled = computed(
-  () => !selectedViolation.value || selectedViolation.value.length === 0
-);
+const disabled = computed(() => selectedViolation.value.length === 0);
 
 const selectedGroup = ref();
 
@@ -534,41 +533,23 @@ const getStatusLabel = (status) => {
   }
 };
 
-const moveUp = () => {
-  toast.add({
-    severity: "success",
-    summary: "Успешно",
-    detail: "Перемещено вверх",
-    life: 3000,
-  });
-};
-
-const moveDown = () => {
-  toast.add({
-    severity: "success",
-    summary: "Успешно",
-    detail: "Перемещено вниз",
-    life: 3000,
-  });
-};
-
-const baseGroupOrder = 1000;
+const groupMultiplier = 1000;
 
 const getInitialOrderByGroup = (group) => {
   const arr = violations.value.filter((violation) => violation.group === group);
   if (arr.length === 0) {
     if (violations.value.length === 0) {
-      return baseGroupOrder;
+      return groupMultiplier;
     } else {
       violations.value.sort((a, b) => a.order - b.order);
 
       let groupOrder = violations.value[violations.value.length - 1].order;
 
-      groupOrder = Math.floor(groupOrder / baseGroupOrder);
+      groupOrder = Math.floor(groupOrder / groupMultiplier);
 
       groupOrder++;
 
-      groupOrder = groupOrder * baseGroupOrder;
+      groupOrder = groupOrder * groupMultiplier;
 
       return groupOrder;
     }
@@ -576,5 +557,37 @@ const getInitialOrderByGroup = (group) => {
     arr.sort((a, b) => a.order - b.order);
     return arr[arr.length - 1].order;
   }
+};
+
+const enabledMove = computed(
+  () =>
+    (selectedViolation.value.length === 1 &&
+      selectedGroups.value.length === 0) ||
+    (selectedViolation.value.length === 0 && selectedGroups.value.length === 1)
+);
+const moveUp = () => {
+  move(-1);
+};
+
+const moveDown = () => {
+  move(1);
+};
+
+const selectedGroups = ref([]);
+const move = (/*dir*/) => {
+  //  console.log(selectedGroups);
+  /*
+  selectedViolation.value.push(violations.value[0]);
+  console.log(selectedViolation.value);
+*/
+  /*
+  toast.add({
+    severity: "success",
+    summary: "Успешно",
+    detail: "Перемещено вверх",
+    //detail: "Перемещено вниз",
+    life: 3000,
+  });
+*/
 };
 </script>

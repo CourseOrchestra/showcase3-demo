@@ -25,6 +25,7 @@ import Dialog from "primevue/dialog";
 import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
 import Dropdown from "primevue/dropdown";
+import Checkbox from "primevue/checkbox";
 import TreeTable from "primevue/treetable";
 import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
@@ -212,6 +213,7 @@ const app = createApp(App)
   .component("Button", Button)
   .component("Dialog", Dialog)
   .component("Dropdown", Dropdown)
+  .component("Checkbox", Checkbox)
   .component("TreeTable", TreeTable)
 
   .use(vuetify) /*.use(showcase3)*/
