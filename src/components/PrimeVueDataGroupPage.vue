@@ -477,7 +477,9 @@ const violations = ref();
 const selectedViolation = ref([]);
 
 const dialog = ref(false);
-const disabled = computed(() => selectedViolation.value.length === 0);
+const disabled = computed(
+  () => !selectedViolation.value || selectedViolation.value.length === 0
+);
 
 const selectedGroup = ref();
 
@@ -561,9 +563,14 @@ const getInitialOrderByGroup = (group) => {
 
 const enabledMove = computed(
   () =>
-    (selectedViolation.value.length === 1 &&
+    (selectedViolation.value &&
+      selectedGroups &&
+      selectedViolation.value.length === 1 &&
       selectedGroups.value.length === 0) ||
-    (selectedViolation.value.length === 0 && selectedGroups.value.length === 1)
+    (selectedViolation.value &&
+      selectedGroups &&
+      selectedViolation.value.length === 0 &&
+      selectedGroups.value.length === 1)
 );
 const moveUp = () => {
   move(-1);
@@ -613,6 +620,7 @@ const move = (dir) => {
   }
 
   if (selectedGroups.value.length === 1) {
+    //console.log(selectedGroups.value[0]);
     /*
   const violNew = arr[indexNew];
 
