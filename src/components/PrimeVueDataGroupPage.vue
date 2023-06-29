@@ -29,11 +29,13 @@
 
     <v-btn icon :disabled="disabled" @click="moveUp">
       <v-icon> mdi-arrow-up</v-icon>
-      <v-tooltip activator="parent" location="top">Вверх </v-tooltip>
+      <v-tooltip activator="parent" location="top"
+        >Переместить вверх
+      </v-tooltip>
     </v-btn>
     <v-btn icon :disabled="disabled" @click="moveDown">
       <v-icon> mdi-arrow-down</v-icon>
-      <v-tooltip activator="parent" location="top">Вниз </v-tooltip>
+      <v-tooltip activator="parent" location="top">Переместить вниз </v-tooltip>
     </v-btn>
 
     <v-btn icon @click="exportCSV">
@@ -536,7 +538,7 @@ const moveUp = () => {
   toast.add({
     severity: "success",
     summary: "Успешно",
-    detail: "Сдвинуто вверх",
+    detail: "Перемещено вверх",
     life: 3000,
   });
 };
@@ -545,7 +547,7 @@ const moveDown = () => {
   toast.add({
     severity: "success",
     summary: "Успешно",
-    detail: "Сдвинуто вниз",
+    detail: "Перемещено вниз",
     life: 3000,
   });
 };
