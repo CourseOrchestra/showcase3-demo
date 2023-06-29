@@ -612,22 +612,19 @@ const move = (dir) => {
     });
   }
 
-  /*
-    const violNew = arr[indexNew];
+  if (selectedGroups.value.length === 1) {
+    /*
+  const violNew = arr[indexNew];
 
-    arr[indexNew].name = "ffffffffffffff";
+  arr[indexNew].name = "ffffffffffffff";
 
-    console.log(arr, index, indexNew, arr[indexNew]);
+  console.log(arr, index, indexNew, arr[indexNew]);
 */
-
-  //  console.log(selectedGroups);
-
-  /*
-  selectedViolation.value.push(violations.value[0]);
-  console.log(selectedViolation.value);
-*/
-
-  /*
-   */
+    //  console.log(selectedGroups);
+    /*
+    selectedViolation.value.push(violations.value[0]);
+    console.log(selectedViolation.value);
+  */
+  }
 };
 </script>
