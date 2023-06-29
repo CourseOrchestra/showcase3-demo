@@ -361,7 +361,7 @@ const saveViolation = () => {
 
   if (violation.value.name && violation.value.name.trim()) {
     if (violation.value.id) {
-      const index = findIndexById(violation.value.id);
+      const index = findIndexById(violations.value, violation.value.id);
       if (violations.value[index].group !== violation.value.group) {
         violation.value.order =
           getInitialOrderByGroup(violation.value.group) + 1;
@@ -413,10 +413,10 @@ const deleteViolation = () => {
   });
 };
 
-const findIndexById = (id) => {
+const findIndexById = (arr, id) => {
   let index = -1;
-  for (let i = 0; i < violations.value.length; i++) {
-    if (violations.value[i].id === id) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].id === id) {
       index = i;
       break;
     }
@@ -574,20 +574,60 @@ const moveDown = () => {
 };
 
 const selectedGroups = ref([]);
-const move = (/*dir*/) => {
+const move = (dir) => {
+  if (selectedViolation.value.length === 1) {
+    const viol = selectedViolation.value[0];
+
+    const arr = violations.value
+      .filter((violation) => violation.group === viol.group)
+      .sort((a, b) => a.order - b.order);
+
+    const index = findIndexById(arr, viol.id);
+
+    const indexNew = index + dir;
+
+    if (
+      (dir === -1 && indexNew < 0) ||
+      (dir === 1 && indexNew > arr.length - 1)
+    ) {
+      toast.add({
+        severity: "warn",
+        summary: "Предупреждение",
+        detail: "Нельзя переместить нарушение за пределы группы",
+        life: 3000,
+      });
+      return;
+    }
+
+    const order = viol.order;
+
+    viol.order = arr[indexNew].order;
+    arr[indexNew].order = order;
+
+    toast.add({
+      severity: "success",
+      summary: "Успешно",
+      detail: "Нарушение перемещено",
+      life: 3000,
+    });
+  }
+
+  /*
+    const violNew = arr[indexNew];
+
+    arr[indexNew].name = "ffffffffffffff";
+
+    console.log(arr, index, indexNew, arr[indexNew]);
+*/
+
   //  console.log(selectedGroups);
+
   /*
   selectedViolation.value.push(violations.value[0]);
   console.log(selectedViolation.value);
 */
+
   /*
-  toast.add({
-    severity: "success",
-    summary: "Успешно",
-    detail: "Перемещено вверх",
-    //detail: "Перемещено вниз",
-    life: 3000,
-  });
-*/
+   */
 };
 </script>
