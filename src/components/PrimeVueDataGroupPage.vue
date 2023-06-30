@@ -69,7 +69,7 @@
       scroll-height="850px"
       table-style="min-width: 50rem"
     >
-      <Column field="group" header="Группа" sortable></Column>
+      <Column field="group" header="Группа"></Column>
       <Column selection-mode="multiple" header-style="width: 3rem"></Column>
 
       <Column field="id" header="id"></Column>
@@ -78,7 +78,6 @@
       <Column
         field="name"
         header="Наименование нарушения"
-        sortable
         style="min-width: 200px"
       >
         <template #filter="{ filterModel, filterCallback }">
@@ -94,15 +93,9 @@
       <Column
         field="act"
         header="Ссылка на нормативный акт"
-        sortable
         style="min-width: 200px"
       ></Column>
-      <Column
-        field="inspector"
-        header="Инспектор"
-        sortable
-        style="min-width: 200px"
-      >
+      <Column field="inspector" header="Инспектор" style="min-width: 200px">
         <template #filter="{ filterModel, filterCallback }">
           <InputText
             v-model="filterModel.value"
@@ -113,7 +106,7 @@
           />
         </template>
       </Column>
-      <Column field="status" header="Статус" sortable style="min-width: 200px">
+      <Column field="status" header="Статус" style="min-width: 200px">
         <template #body="slotProps">
           <Tag
             :value="slotProps.data.status"
@@ -620,16 +613,16 @@ const move = (dir) => {
   }
 
   if (selectedGroups.value.length === 1) {
-    //console.log(selectedGroups.value[0]);
+    //    console.log(selectedGroups.value[0]);
     /*
   const violNew = arr[indexNew];
 
   arr[indexNew].name = "ffffffffffffff";
 
   console.log(arr, index, indexNew, arr[indexNew]);
-*/
-    //  console.log(selectedGroups);
-    /*
+
+   console.log(selectedGroups);
+
     selectedViolation.value.push(violations.value[0]);
     console.log(selectedViolation.value);
   */
