@@ -72,8 +72,10 @@
       <Column field="group" header="Группа"></Column>
       <Column selection-mode="multiple" header-style="width: 3rem"></Column>
 
+      <!--
       <Column field="id" header="id"></Column>
       <Column field="order" header="order"></Column>
+-->
 
       <Column
         field="name"
@@ -613,19 +615,61 @@ const move = (dir) => {
   }
 
   if (selectedGroups.value.length === 1) {
-    //    console.log(selectedGroups.value[0]);
-    /*
-  const violNew = arr[indexNew];
+    const arr = violations.value
+      .filter((violation) => violation.group === selectedGroups.value[0])
+      .sort((a, b) => a.order - b.order);
 
-  arr[indexNew].name = "ffffffffffffff";
+    violations.value.sort((a, b) => a.order - b.order);
 
-  console.log(arr, index, indexNew, arr[indexNew]);
+    let index;
+    if (dir === -1) {
+      index = findIndexById(violations.value, arr[0].id);
+    } else {
+      index = findIndexById(violations.value, arr[arr.length - 1].id);
+    }
 
-   console.log(selectedGroups);
+    const indexNew = index + dir;
 
-    selectedViolation.value.push(violations.value[0]);
-    console.log(selectedViolation.value);
-  */
+    if (
+      (dir === -1 && indexNew < 0) ||
+      (dir === 1 && indexNew > violations.value.length - 1)
+    ) {
+      toast.add({
+        severity: "warn",
+        summary: "Предупреждение",
+        detail: "Нельзя переместить группу нарушений за пределы таблицы",
+        life: 3000,
+      });
+      return;
+    }
+
+    const groupOrder = Math.floor(
+      violations.value[index].order / groupMultiplier
+    );
+    const groupOrderNew = Math.floor(
+      violations.value[indexNew].order / groupMultiplier
+    );
+
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].order = groupOrderNew * groupMultiplier + 1 + i;
+    }
+
+    const arrNew = violations.value
+      .filter(
+        (violation) => violation.group === violations.value[indexNew].group
+      )
+      .sort((a, b) => a.order - b.order);
+
+    for (let i = 0; i < arrNew.length; i++) {
+      arrNew[i].order = groupOrder * groupMultiplier + 1 + i;
+    }
+
+    toast.add({
+      severity: "success",
+      summary: "Успешно",
+      detail: "Группа нарушений перемещена",
+      life: 3000,
+    });
   }
 };
 </script>
