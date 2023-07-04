@@ -44,6 +44,18 @@
         >Экспортировать таблицу в CSV
       </v-tooltip>
     </v-btn>
+    <v-btn icon @click="exportJSON">
+      <v-icon> mdi-clipboard-arrow-down</v-icon>
+      <v-tooltip activator="parent" location="top"
+        >Экспортировать таблицу в JSON
+      </v-tooltip>
+    </v-btn>
+    <v-btn icon @click="importJSON">
+      <v-icon> mdi-clipboard-arrow-left</v-icon>
+      <v-tooltip activator="parent" location="top"
+        >Импортировать таблицу из JSON
+      </v-tooltip>
+    </v-btn>
 
     <v-app-bar-title>{{ $t("PrimeVueDataGroupPage.title") }} </v-app-bar-title>
   </v-app-bar>
@@ -671,5 +683,13 @@ const move = (dir) => {
       life: 3000,
     });
   }
+};
+
+const exportJSON = () => {
+  //
+};
+
+const importJSON = () => {
+  //
 };
 </script>
