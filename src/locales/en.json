@@ -12,6 +12,10 @@
       "lastPage": "Last page",
       "prevPage": "Prev page",
       "nextPage": "Next page"
+    },
+    "input": {
+      "prependAction": "Prepend Action",
+      "clear": "Clear"
     }
   },
   "App": {

@@ -12,6 +12,10 @@
       "lastPage": "最後一頁",
       "prevPage": "上一頁",
       "nextPage": "下一頁"
+    },
+    "input": {
+      "prependAction": "前置動作",
+      "clear": "清除"
     }
   },
   "App": {

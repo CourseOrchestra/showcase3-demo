@@ -50,7 +50,7 @@
         >Экспортировать таблицу в JSON
       </v-tooltip>
     </v-btn>
-    <v-btn icon @click="importJSON">
+    <v-btn icon @click="dialogImportJSON = true">
       <v-icon> mdi-clipboard-arrow-left</v-icon>
       <v-tooltip activator="parent" location="top"
         >Импортировать таблицу из JSON
@@ -328,6 +328,34 @@
       <Button label="Сохранить" icon="pi pi-check" text @click="dialogSave" />
     </template>
   </Dialog>
+
+  <Dialog
+    v-model:visible="dialogImportJSON"
+    :style="{ width: '450px' }"
+    header="Выбрать json-файл нарушений"
+    :modal="true"
+    class="p-fluid"
+  >
+    <div class="field">
+      <v-file-input
+        v-model="fileImportJSON"
+        accept=".json"
+        label="Файл*"
+        required
+        show-size
+      ></v-file-input>
+    </div>
+
+    <template #footer>
+      <Button
+        label="Закрыть"
+        icon="pi pi-times"
+        text
+        @click="dialogImportJSON = false"
+      />
+      <Button label="Сохранить" icon="pi pi-check" text @click="importJSON" />
+    </template>
+  </Dialog>
 </template>
 
 <script setup>
@@ -488,6 +516,9 @@ const dialog = ref(false);
 const disabled = computed(
   () => !selectedViolation.value || selectedViolation.value.length === 0
 );
+
+const dialogImportJSON = ref(false);
+const fileImportJSON = ref([]);
 
 const selectedGroup = ref();
 
@@ -691,12 +722,23 @@ const exportJSON = () => {
 };
 
 const importJSON = () => {
-  //
-  //  alert(  JSON.stringify(violations.value)   );
-  //  str = JSON.stringify(violations.value) ;
-  //  alert(str);
-  //violations.value   = JSON.parse(str);
-  //let str;
-  //violations.value   = JSON.parse(str);
+  dialogImportJSON.value = false;
+
+  const reader = new FileReader();
+  reader.readAsText(fileImportJSON.value[0]);
+  fileImportJSON.value = null;
+
+  //  reader.onload = (e) => (violations.value = JSON.parse(e.target.result));
+
+  reader.onload = onload = (e) => {
+    violations.value = JSON.parse(e.target.result);
+
+    toast.add({
+      severity: "success",
+      summary: "Успешно",
+      detail: "Нарушения импортированы",
+      life: 3000,
+    });
+  };
 };
 </script>
