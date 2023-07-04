@@ -524,11 +524,11 @@ const selectedGroup = ref();
 
 const dialogSave = () => {
   let i = getInitialOrderByGroup(selectedGroup.value);
-  selectedViolation.value.forEach(
-    (violation) => (
-      (violation["group"] = selectedGroup.value), i++, (violation["order"] = i)
-    )
-  );
+  selectedViolation.value.forEach((violation) => {
+    violation["group"] = selectedGroup.value;
+    i++;
+    violation["order"] = i;
+  });
   dialog.value = false;
   selectedViolation.value = null;
   toast.add({
@@ -723,13 +723,9 @@ const exportJSON = () => {
 
 const importJSON = () => {
   dialogImportJSON.value = false;
-
   const reader = new FileReader();
   reader.readAsText(fileImportJSON.value[0]);
   fileImportJSON.value = null;
-
-  //  reader.onload = (e) => (violations.value = JSON.parse(e.target.result));
-
   reader.onload = onload = (e) => {
     violations.value = JSON.parse(e.target.result);
 
