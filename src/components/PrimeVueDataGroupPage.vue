@@ -333,6 +333,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { useToast } from "primevue/usetoast";
+import FileDownload from "js-file-download";
 import { ViolationService } from "@/service/ViolationService";
 import { FilterMatchMode } from "primevue/api";
 import { setTitle } from "@/utils/common";
@@ -686,10 +687,16 @@ const move = (dir) => {
 };
 
 const exportJSON = () => {
-  //
+  FileDownload(JSON.stringify(violations.value), "Нарушения.json");
 };
 
 const importJSON = () => {
   //
+  //  alert(  JSON.stringify(violations.value)   );
+  //  str = JSON.stringify(violations.value) ;
+  //  alert(str);
+  //violations.value   = JSON.parse(str);
+  //let str;
+  //violations.value   = JSON.parse(str);
 };
 </script>
