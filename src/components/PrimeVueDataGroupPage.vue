@@ -80,6 +80,7 @@
       scrollable
       scroll-height="850px"
       table-style="min-width: 50rem"
+      @filter="onFilter"
     >
       <Column field="group" header="Группа"></Column>
       <Column selection-mode="multiple" header-style="width: 3rem"></Column>
@@ -155,6 +156,7 @@
       <template #groupfooter="slotProps">
         <div class="flex justify-content-end font-bold w-full">
           Общее количество нарушений:
+          {{ calculateViolationFiltered(slotProps.data.group) }} /
           {{ calculateViolationTotal(slotProps.data.group) }}
         </div>
       </template>
@@ -511,6 +513,7 @@ initFilters();
 
 const violations = ref();
 const selectedViolation = ref([]);
+let filteredViolation = [];
 
 const dialog = ref(false);
 const disabled = computed(
@@ -561,6 +564,23 @@ const calculateViolationTotal = (name) => {
   }
 
   return total;
+};
+
+const calculateViolationFiltered = (name) => {
+  let filtered = 0;
+
+  if (filteredViolation) {
+    for (const violation of filteredViolation) {
+      if (violation.group === name) {
+        filtered++;
+      }
+    }
+  }
+
+  return filtered;
+};
+const onFilter = (event) => {
+  filteredViolation = event.filteredValue;
 };
 
 const getStatusLabel = (status) => {
