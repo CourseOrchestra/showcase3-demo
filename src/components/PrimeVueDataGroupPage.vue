@@ -602,14 +602,9 @@ const getInitialOrderByGroup = (group) => {
 
 const enabledMove = computed(
   () =>
-    (selectedViolation.value &&
-      selectedGroups &&
-      selectedViolation.value.length === 1 &&
-      selectedGroups.value.length === 0) ||
-    (selectedViolation.value &&
-      selectedGroups &&
-      selectedViolation.value.length === 0 &&
-      selectedGroups.value.length === 1)
+    selectedViolation.value &&
+    selectedGroups.value &&
+    selectedViolation.value.length + selectedGroups.value.length === 1
 );
 const moveUp = () => {
   move(-1);
@@ -665,12 +660,10 @@ const move = (dir) => {
 
     violations.value.sort((a, b) => a.order - b.order);
 
-    let index;
-    if (dir === -1) {
-      index = findIndexById(violations.value, arr[0].id);
-    } else {
-      index = findIndexById(violations.value, arr[arr.length - 1].id);
-    }
+    const index =
+      dir === -1
+        ? findIndexById(violations.value, arr[0].id)
+        : findIndexById(violations.value, arr[arr.length - 1].id);
 
     const indexNew = index + dir;
 
