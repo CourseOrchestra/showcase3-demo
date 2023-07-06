@@ -14,7 +14,7 @@ export const CarService = {
 
   colors: ["Black", "White", "Red", "Blue", "Silver", "Green", "Yellow"],
 
-  generateCar(id) {
+  generateCar(id: any) {
     return {
       id,
       vin: this.generateVin(),
