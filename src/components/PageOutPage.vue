@@ -23,6 +23,7 @@ const changes = ref(false);
 
 onBeforeRouteLeave(() => {
   if (changes.value) {
+    // eslint-disable-next-line no-alert
     const answer = window.confirm($tt("PageOutPage.confirmAlert"));
     if (!answer) return false;
   }

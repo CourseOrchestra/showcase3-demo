@@ -14,6 +14,7 @@ export const CarService = {
 
   colors: ["Black", "White", "Red", "Blue", "Silver", "Green", "Yellow"],
 
+  /* eslint @typescript-eslint/no-explicit-any: "off" */
   generateCar(id: any) {
     return {
       id,
