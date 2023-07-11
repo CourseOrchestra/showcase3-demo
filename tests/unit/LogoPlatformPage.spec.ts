@@ -7,7 +7,7 @@ import LogoPlatformPage from "@/components/LogoPlatformPage.vue";
 const vuetify = createVuetify();
 
 describe("LogoPlatformPage.vue", () => {
-  it.skip("Логотип Платформы", () => {
+  it("Логотип Платформы", () => {
     const wrapper = mount(LogoPlatformPage, {
       global: {
         plugins: [vuetify, createTestingPinia()],
