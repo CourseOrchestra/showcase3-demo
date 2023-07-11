@@ -7,7 +7,7 @@ export type Internationalization = {
 export const useInternationalizationStore = defineStore({
   id: "internationalization",
   state: () =>
-    ({ locale: import.meta.env.VITE_APP_I18N_LOCALE } as Internationalization),
+    ({ locale: import.meta.env.VITE_APP_I18N_LOCALE }) as Internationalization,
 
   actions: {
     setLocale(locale: string) {

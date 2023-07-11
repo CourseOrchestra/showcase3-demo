@@ -143,15 +143,18 @@ const columns = ref([
 const loadLazyData = () => {
   loading.value = true;
 
-  setTimeout(() => {
-    CustomerService.getCustomers({
-      lazyEvent: JSON.stringify(lazyParams.value),
-    }).then((data) => {
-      customers.value = data.customers;
-      totalRecords.value = data.totalRecords;
-      loading.value = false;
-    });
-  }, Math.random() * 1000 + 3250);
+  setTimeout(
+    () => {
+      CustomerService.getCustomers({
+        lazyEvent: JSON.stringify(lazyParams.value),
+      }).then((data) => {
+        customers.value = data.customers;
+        totalRecords.value = data.totalRecords;
+        loading.value = false;
+      });
+    },
+    Math.random() * 1000 + 3250,
+  );
 };
 const onPage = (event) => {
   lazyParams.value = event;

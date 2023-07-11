@@ -31,7 +31,7 @@ export const mockClientItems = (itemsNumber = 100): Item[] => {
 };
 
 export const mockServerItems = async (
-  serverOptions: ServerOptions
+  serverOptions: ServerOptions,
 ): Promise<{
   serverCurrentPageItems: Item[];
   serverTotalItemsLength: number;
@@ -53,7 +53,7 @@ export const mockServerItems = async (
   return {
     serverCurrentPageItems: serverTotalItems.slice(
       (page - 1) * rowsPerPage,
-      page * rowsPerPage
+      page * rowsPerPage,
     ),
     serverTotalItemsLength: serverItemsLength,
   };

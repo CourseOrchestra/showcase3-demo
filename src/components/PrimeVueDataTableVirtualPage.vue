@@ -78,7 +78,7 @@ setTitle("primevuedatatablevirtual");
 
 onMounted(() => {
   cars.value = Array.from({ length: 100000 }).map((_, i) =>
-    CarService.generateCar(i + 1)
+    CarService.generateCar(i + 1),
   );
 });
 
@@ -95,21 +95,24 @@ const loadCarsLazy = (event) => {
   }
 
   //simulate remote connection with a timeout
-  loadLazyTimeout.value = setTimeout(() => {
-    const _virtualCars = [...virtualCars.value];
-    const { first, last } = event;
+  loadLazyTimeout.value = setTimeout(
+    () => {
+      const _virtualCars = [...virtualCars.value];
+      const { first, last } = event;
 
-    //load data of required page
-    const loadedCars = cars.value.slice(first, last);
+      //load data of required page
+      const loadedCars = cars.value.slice(first, last);
 
-    //populate page of virtual cars
-    Array.prototype.splice.apply(_virtualCars, [
-      ...[first, last - first],
-      ...loadedCars,
-    ]);
+      //populate page of virtual cars
+      Array.prototype.splice.apply(_virtualCars, [
+        ...[first, last - first],
+        ...loadedCars,
+      ]);
 
-    virtualCars.value = _virtualCars;
-    lazyLoading.value = false;
-  }, Math.random() * 1000 + 250);
+      virtualCars.value = _virtualCars;
+      lazyLoading.value = false;
+    },
+    Math.random() * 1000 + 250,
+  );
 };
 </script>

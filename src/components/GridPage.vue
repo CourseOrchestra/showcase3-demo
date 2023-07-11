@@ -181,7 +181,7 @@ watch(
     setUrlByModelFilterWithTimeout();
     loadFromServer();
   },
-  { deep: true }
+  { deep: true },
 );
 
 watch(
@@ -189,7 +189,7 @@ watch(
   (/*value*/) => {
     mapUrlToModel(route.query);
   },
-  { deep: true }
+  { deep: true },
 );
 
 watch(useI18n().locale, (/*value*/) => {

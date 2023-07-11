@@ -439,7 +439,7 @@ const confirmDeleteViolation = (viol) => {
 
 const deleteViolation = () => {
   violations.value = violations.value.filter(
-    (val) => val.id !== violation.value.id
+    (val) => val.id !== violation.value.id,
   );
   deleteViolationDialog.value = false;
   violation.value = {};
@@ -479,7 +479,7 @@ const confirmDeleteSelected = () => {
 
 const deleteSelectedViolations = () => {
   violations.value = violations.value.filter(
-    (val) => !selectedViolation.value.includes(val)
+    (val) => !selectedViolation.value.includes(val),
   );
   deleteViolationsDialog.value = false;
   selectedViolation.value = null;
@@ -517,7 +517,7 @@ let filteredViolation = [];
 
 const dialog = ref(false);
 const disabled = computed(
-  () => !selectedViolation.value || selectedViolation.value.length === 0
+  () => !selectedViolation.value || selectedViolation.value.length === 0,
 );
 
 const dialogImportJSON = ref(false);
@@ -547,9 +547,9 @@ const violationsGroup = computed(() =>
     new Set(
       violations.value.map(function (violation) {
         return violation["group"];
-      })
-    )
-  )
+      }),
+    ),
+  ),
 );
 
 const calculateViolationTotal = (name) => {
@@ -624,7 +624,7 @@ const enabledMove = computed(
   () =>
     selectedViolation.value &&
     selectedGroups.value &&
-    selectedViolation.value.length + selectedGroups.value.length === 1
+    selectedViolation.value.length + selectedGroups.value.length === 1,
 );
 const moveUp = () => {
   move(-1);
@@ -701,10 +701,10 @@ const move = (dir) => {
     }
 
     const groupOrder = Math.floor(
-      violations.value[index].order / groupMultiplier
+      violations.value[index].order / groupMultiplier,
     );
     const groupOrderNew = Math.floor(
-      violations.value[indexNew].order / groupMultiplier
+      violations.value[indexNew].order / groupMultiplier,
     );
 
     for (let i = 0; i < arr.length; i++) {
@@ -713,7 +713,7 @@ const move = (dir) => {
 
     const arrNew = violations.value
       .filter(
-        (violation) => violation.group === violations.value[indexNew].group
+        (violation) => violation.group === violations.value[indexNew].group,
       )
       .sort((a, b) => a.order - b.order);
 
