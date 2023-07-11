@@ -7,7 +7,7 @@ import WelcomePage from "@/components/WelcomePage.vue";
 const vuetify = createVuetify();
 
 describe("WelcomePage.vue", () => {
-  it.skip("Welcome", () => {
+  it("Welcome", () => {
     const wrapper = mount(WelcomePage, {
       global: {
         plugins: [vuetify, createTestingPinia()],

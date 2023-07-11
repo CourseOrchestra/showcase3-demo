@@ -56,11 +56,12 @@ import { setTitle } from "@/utils/common";
 import vitePackageInfo from "vite/package.json";
 import vitestPackageInfo from "vitest/package.json";
 import cypressPackageInfo from "cypress/package.json";
+import imgUrl from "../assets/welcome.png";
 
 setTitle("welcome");
 
 const getImageUrl = () => {
-  return new URL(`../assets/welcome.png`, import.meta.url).href;
+  return new URL(imgUrl, import.meta.url).href;
 };
 
 const appVersion = appPackageInfo.version;
