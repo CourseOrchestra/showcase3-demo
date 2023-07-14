@@ -4,16 +4,17 @@ import { mount } from "@vue/test-utils";
 import { createTestingPinia } from "@pinia/testing";
 import GridPage from "@/components/GridPage.vue";
 import Vue3EasyDataTable from "vue3-easy-data-table";
+import router from "@/router";
+import { i18n } from "@/plugins/i18n";
 
 const vuetify = createVuetify();
 
 describe("GridPage.vue", () => {
-  it.skip("Грид", () => {
+  it("Грид", () => {
     const wrapper = mount(GridPage, {
       global: {
-        plugins: [vuetify, createTestingPinia()],
+        plugins: [vuetify, createTestingPinia(), i18n, router],
       },
-
       components: {
         EasyDataTable: Vue3EasyDataTable,
       },
