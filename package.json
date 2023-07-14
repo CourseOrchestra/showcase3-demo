@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.19.4",
+  "version": "1.19.5",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -29,7 +29,7 @@
     "pinia": "^2.1.4",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",
-    "primevue": "^3.29.2",
+    "primevue": "3.29.2",
     "roboto-fontface": "^0.10.0",
     "showcase3": "^1.14.2",
     "vue": "^3.3.4",
