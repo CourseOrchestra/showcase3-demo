@@ -1,5 +1,7 @@
 import { mount } from "cypress/vue";
 import vuetify from "@/plugins/vuetify";
+import { i18n } from "@/plugins/i18n";
+import { createPinia } from "pinia";
 
 type MountParams = Parameters<typeof mount>;
 type OptionsParam = MountParams[1];
@@ -22,6 +24,10 @@ declare global {
 
 Cypress.Commands.add("mount", (component, options = {}) => {
   options.global = options.global || {};
-  options.global.plugins = options.global.plugins || [vuetify];
+  options.global.plugins = options.global.plugins || [
+    vuetify,
+    i18n,
+    createPinia(),
+  ];
   return mount(component, options);
 });
