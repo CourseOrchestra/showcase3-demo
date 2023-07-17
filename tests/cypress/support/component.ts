@@ -1,6 +1,7 @@
 import { mount } from "cypress/vue";
 import vuetify from "@/plugins/vuetify";
 import { i18n } from "@/plugins/i18n";
+import router from "@/router";
 import { createPinia } from "pinia";
 
 type MountParams = Parameters<typeof mount>;
@@ -28,6 +29,7 @@ Cypress.Commands.add("mount", (component, options = {}) => {
     vuetify,
     i18n,
     createPinia(),
+    router,
   ];
   return mount(component, options);
 });
