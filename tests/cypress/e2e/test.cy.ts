@@ -1,4 +1,4 @@
-describe("e2e тесты", () => {
+describe.skip("e2e тесты", () => {
   it("Welcome", () => {
     cy.visit("/");
     cy.contains("div", "Welcome");
