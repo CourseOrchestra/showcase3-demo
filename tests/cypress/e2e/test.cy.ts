@@ -25,11 +25,8 @@ describe("e2e тесты", () => {
   it("Грид", () => {
     cy.visit("/grid");
   });
-
-  /*
   it("Состояние в url", () => {
     cy.visit("/urlstate");
     cy.contains("h1", "Демонстрация состояния в url");
   });
-*/
 });
