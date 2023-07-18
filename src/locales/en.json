@@ -48,7 +48,8 @@
   },
   "WelcomePage": {
     "versions": "Versions",
-    "visualization": "Visualization"
+    "visualization": "Visualization",
+    "sourcecode": "Source code"
   },
   "NavigatorPage": {
     "title": "Navigator demo"

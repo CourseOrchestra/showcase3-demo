@@ -26,9 +26,24 @@
           outlined
           label="showcase3-demo"
         ></vTextField>
-        <vBtn href="stats.html" target="_blank" app color="secondary">
-          {{ $t("WelcomePage.visualization") }}
-        </vBtn>
+
+        <vRow>
+          <vCol>
+            <vBtn href="stats.html" target="_blank" app color="secondary">
+              {{ $t("WelcomePage.visualization") }}
+            </vBtn>
+          </vCol>
+          <vCol>
+            <vBtn
+              href="https://github.com/CourseOrchestra/showcase3-demo"
+              target="_blank"
+              app
+              color="secondary"
+            >
+              {{ $t("WelcomePage.sourcecode") }}
+            </vBtn>
+          </vCol>
+        </vRow>
       </vCol>
       <br />
       <vCol>

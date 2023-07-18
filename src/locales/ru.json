@@ -48,7 +48,8 @@
   },
   "WelcomePage": {
     "versions": "Версии",
-    "visualization": "Визуализация сборки"
+    "visualization": "Визуализация сборки",
+    "sourcecode": "Исходный код"
   },
   "NavigatorPage": {
     "title": "Демонстрация навигатора"

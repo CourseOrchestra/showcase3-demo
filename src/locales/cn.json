@@ -49,7 +49,8 @@
   },
   "WelcomePage": {
     "versions": "版本",
-    "visualization": "可視化"
+    "visualization": "可視化",
+    "sourcecode": "源代碼"
   },
   "NavigatorPage": {
     "title": "導航器演示"
