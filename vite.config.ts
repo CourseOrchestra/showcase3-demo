@@ -42,8 +42,10 @@ export default defineConfig(({ mode }) => {
       setupFiles: ["./tests/unit/beforeall.ts"],
       globals: true,
       environment: "happy-dom",
-      deps: {
-        inline: ["vuetify"],
+      server: {
+        deps: {
+          inline: ["vuetify"],
+        },
       },
     },
   };
