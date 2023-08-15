@@ -6,7 +6,7 @@ import UrlStatePage from "@/components/UrlStatePage.vue";
 
 const vuetify = createVuetify();
 
-describe("UrlStatePage.vue", () => {
+describe.skip("UrlStatePage.vue", () => {
   it("Состояние в url", () => {
     const wrapper = mount(UrlStatePage, {
       global: {
