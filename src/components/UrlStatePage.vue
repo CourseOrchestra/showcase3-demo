@@ -94,7 +94,7 @@
 
 <script setup lang="ts">
 import { setTitle } from "@/utils/common";
-import { /*IntDatatype,*/ CommaArrayDatatype, useQuery } from "@/library";
+import { IntDatatype, CommaArrayDatatype, useQuery } from "@/library";
 import { ref } from "vue";
 
 setTitle("urlstate");
@@ -127,8 +127,6 @@ query.define("dynarr", CommaArrayDatatype, []);
 const tmp = ref("");
 
 function convert() {
-  /*
-  query.define('search2', IntDatatype)
-*/
+  query.define("page", IntDatatype, 0);
 }
 </script>
