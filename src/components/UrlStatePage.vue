@@ -101,6 +101,24 @@ setTitle("urlstate");
 
 const query = useQuery();
 
+/*
+
+UrlMapper.run(myModel, router);
+
+
+UrlMapper.run(router, myModel.fio, myModel.dateFrom);
+
+
+UrlMapper.run(router, {   {myModel.fio.value}, "fio", "string"} );
+
+
+UrlMapper.addParam(router, {   {myModel.fio.value}, "fio", "string"} );
+
+
+query.parentId = myModel.parentId;
+
+*/
+
 //console.log(query);
 
 //    query.parentId = myModel.parentId;
