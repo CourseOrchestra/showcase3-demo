@@ -27,7 +27,7 @@ describe("e2e тесты", () => {
   });
   it("Состояние в url", () => {
     cy.visit("/urlstate");
-    cy.contains("h1", "Демонстрация состояния в url");
+    cy.contains("div", "Демонстрация состояния в url");
   });
   it("Группировка", () => {
     cy.visit("/primevuedatagroup");
