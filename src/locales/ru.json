@@ -4,6 +4,8 @@
   "50": "50",
   "100": "100",
   "$vuetify": {
+    "open": "Открыть",
+    "close": "Закрыть",
     "dataFooter": {
       "itemsPerPageText": "Записей на странице",
       "itemsPerPageAll": "Все",

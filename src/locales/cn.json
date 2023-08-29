@@ -4,6 +4,8 @@
   "50": "50",
   "100": "100",
   "$vuetify": {
+    "open": "打開",
+    "close": "關閉",
     "dataFooter": {
       "itemsPerPageText": "每頁項目",
       "itemsPerPageAll": "全部",
