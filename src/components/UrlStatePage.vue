@@ -102,7 +102,7 @@
   </vContainer>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { setTitle } from "@/utils/common";
 import { IntDatatype, CommaArrayDatatype, useQuery } from "@/library";
 import { ref } from "vue";
