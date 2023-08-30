@@ -102,7 +102,7 @@
   </vContainer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { setTitle } from "@/utils/common";
 import { IntDatatype, CommaArrayDatatype, useQuery } from "@/library";
 import { ref } from "vue";
@@ -111,7 +111,22 @@ setTitle("urlstate");
 
 const query = useQuery();
 
-const violation = ref({});
+type Violation = {
+  group: string | null;
+  name: string | null;
+  act: string | null;
+  inspector: string | null;
+  status: string | null;
+};
+
+const violation = ref<Violation>({
+  group: null,
+  name: null,
+  act: null,
+  inspector: null,
+  status: null,
+});
+
 const str = ref();
 
 //query.define("violation", CommaArrayDatatype, []);
