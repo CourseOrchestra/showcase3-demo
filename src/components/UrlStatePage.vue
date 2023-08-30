@@ -7,7 +7,7 @@
         ></v-img>
       </template>
       <v-btn @click="changeViolationName">change Violation Name</v-btn>
-      <v-btn @click="changeStrName">change Str Name</v-btn>
+      <v-btn @click="changeStrName">change Str Value</v-btn>
       <!--    tag::template_i18n[] -->
       <v-app-bar-title>{{ $t("UrlStatePage.title") }} </v-app-bar-title>
       <!--    end::template_i18n[] -->
@@ -131,8 +131,17 @@ const str = ref();
 
 //query.define("violation", CommaArrayDatatype, []);
 
-query.violation = violation;
+//console.log("--------------");
+//console.log(query);
 
+if (query.violation) {
+  violation.value.name = query.violation.name;
+}
+query.violation = violation.value;
+
+if (query.str) {
+  str.value = query.str;
+}
 query.str = str;
 
 function changeViolationName() {

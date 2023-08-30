@@ -141,6 +141,13 @@ function serializeChangedValue(key: string, value: any) {
 }
 
 function saveValueToRawQuery(key: string, value: string | string[]) {
+  if (key === "violation") {
+    _query.rawQuery[key] = JSON.stringify(value, null);
+    _query.serializedId++;
+
+    return;
+  }
+
   dlog("save value to raw query", key, value);
   if (value === undefined) {
     if (key in _query.rawQuery) {
@@ -200,6 +207,7 @@ function setWatcher(key: string) {
   watchers[key] = watch(
     () => _query.query[key],
     (value) => serializeChangedValue(key, value),
+    { deep: true },
   );
 }
 
@@ -255,6 +263,11 @@ function parseAndStoreQuery(
     }
     _query.query[key] = defVal;
   }
+
+  if (query["violation"]) {
+    _query.query["violation"] = JSON.parse(query["violation"].toString());
+  }
+
   _query.rawQuery = {};
   Object.assign(_query.rawQuery, query);
 
