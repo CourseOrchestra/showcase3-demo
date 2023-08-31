@@ -410,8 +410,53 @@ const proxiedQuery = new Proxy(_query.query, handler);
  * @typeParam T The type of the returned query object. An interface defining query parameters and their types
  * might be passed. If not a generic (untyped) interface is used.
  */
-export function useQuery<T = GenericParsedQuery>(): TypedParsedQuery<T> {
-  return proxiedQuery as TypedParsedQuery<T>;
+export function useQuery<T = GenericParsedQuery>(
+  arrModel: any,
+): TypedParsedQuery<T> {
+  const query = proxiedQuery as TypedParsedQuery<T>;
+
+  arrModel.forEach((element: any) => {
+    if (query[element.param]) {
+      element.props.forEach((prop: any) => {
+        element.obj[prop] = query[element.param][prop];
+      });
+    }
+    query[element.param] = element.obj;
+  });
+
+  /*
+
+
+  const query = useQuery([
+  {
+      param: "viol",
+      obj: violation.value,
+      props: ["name", "num"]
+  },
+    {
+      param: "str22",
+      obj: str.value,
+      props: ["value"]
+    }
+  ]);
+
+
+
+
+    if (query.violation) {
+      violation.value.name = query.violation.name;
+      violation.value.num = query.violation.num;
+    }
+    query.violation = violation.value;
+
+    if (query.str) {
+      str.value = query.str;
+    }
+    query.str = str;
+
+  */
+
+  return query;
 }
 
 /**
@@ -465,7 +510,7 @@ const QuerySynchronizer = {
       });
     }
     setup(router, _datatypes, debug || false, navigationOperation || "push");
-    app.config.globalProperties.$query = useQuery();
+    app.config.globalProperties.$query = useQuery([]);
   },
 };
 

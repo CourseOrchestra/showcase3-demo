@@ -110,7 +110,7 @@ import { ref } from "vue";
 
 setTitle("urlstate");
 
-const query = useQuery();
+const str = ref();
 
 type Violation = {
   group: string | null;
@@ -128,27 +128,23 @@ const violation = ref<Violation>({
   status: null,
 });
 
-const str = ref();
-
-//query.define("violation", CommaArrayDatatype, []);
-
-//console.log("--------------");
-//console.log(query);
-
-if (query.violation) {
-  violation.value.name = query.violation.name;
-  violation.value.num = query.violation.num;
-}
-query.violation = violation.value;
-
-if (query.str) {
-  str.value = query.str;
-}
-query.str = str;
+const query = useQuery([
+  {
+    param: "violation",
+    obj: violation.value,
+    props: ["name", "num"],
+  },
+  /*
+  {
+    param: "str",
+    obj: str.value,
+    props: ["value"]
+  }
+*/
+]);
 
 function changeViolationName() {
   violation.value.name = "ff";
-  //console.log(str);
 }
 function changeStrName() {
   str.value = "gg";
