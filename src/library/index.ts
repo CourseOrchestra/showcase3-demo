@@ -1,5 +1,5 @@
 import { reactive, watch } from "vue";
-import { arraysMatch, queryFingerprint } from "./utils";
+import { /*arraysMatch,*/ queryFingerprint } from "./utils";
 import {
   ArrayDatatype,
   BoolDatatype,
@@ -16,7 +16,7 @@ import {
 import {
   DataType,
   DataTypes,
-  DetailedFingerprint,
+  /*  DetailedFingerprint,*/
   GenericParsedQuery,
   NavigationOperation,
   ParsedQuery,
@@ -82,7 +82,7 @@ let navigationOperation!: (
 let queryDefinition: QueryParameterDefinitions | null = null;
 let querySettings: QuerySettings | null = null;
 let fingerprint: string | null = null;
-let detailedFingerprint: DetailedFingerprint = {};
+//let detailedFingerprint: DetailedFingerprint = {};
 let watchers: { [key: string]: WatchStopHandle } = {};
 
 /* eslint @typescript-eslint/no-explicit-any: "off" */
@@ -129,6 +129,7 @@ function prepareQuery(route: RouteLocationNormalizedLoaded) {
 }
 
 function serializeChangedValue(key: string, value: any) {
+  /*
   dlog("serialize changed value", key, value);
   if (value !== undefined) {
     const def = queryDefinition![key];
@@ -137,83 +138,13 @@ function serializeChangedValue(key: string, value: any) {
     }
   }
 
+*/
   saveValueToRawQuery(key, value);
 }
 
 function saveValueToRawQuery(key: string, value: string | string[]) {
-  arrModel.forEach((element: Model) => {
-    if (key === element.param) {
-      _query.rawQuery[key] = JSON.stringify(value, null);
-      _query.serializedId++;
-
-      return;
-    }
-  });
-
-  //return;
-
-  //console.log(arrModel, key, value);
-
-  ///*
-
-  if (key === "violation") {
-    _query.rawQuery[key] = JSON.stringify(value, null);
-    _query.serializedId++;
-
-    return;
-  }
-
-  //*/
-
-  dlog("save value to raw query", key, value);
-  if (value === undefined) {
-    if (key in _query.rawQuery) {
-      delete _query.rawQuery[key];
-      _query.serializedId++;
-    }
-    return;
-  }
-
-  const isNull = value === null;
-  const isArray = !isNull && Array.isArray(value);
-
-  if (!isNull) {
-    if (isArray) {
-      value = (value as any[]).map((x) => x.toString());
-    } else {
-      value = value.toString();
-    }
-  }
-
-  if (!(key in _query.rawQuery)) {
-    dlog("value not in rawQuery, added");
-    _query.rawQuery[key] = value;
-    _query.serializedId++;
-  } else {
-    let modified = false;
-    const oldValue = _query.rawQuery[key];
-    if (oldValue === null) {
-      modified = !isNull;
-    } else if (Array.isArray(oldValue)) {
-      if (!isArray) {
-        modified = true;
-      } else if (arraysMatch(oldValue, value as any[])) {
-        modified = true;
-      }
-    } else if (isArray) {
-      modified = true;
-    } else if (value !== oldValue) {
-      modified = true;
-    }
-    if (modified) {
-      dlog("value in rawQuery, modified");
-      _query.rawQuery[key] = value;
-      _query.serializedId++;
-    } else {
-      dlog("value in rawQuery, not modified", _query.rawQuery[key]);
-    }
-  }
-  dlog("Set to raw", key, value);
+  _query.rawQuery[key] = JSON.stringify(value, null);
+  _query.serializedId++;
 }
 
 function setWatcher(key: string) {
@@ -221,6 +152,7 @@ function setWatcher(key: string) {
     return;
   }
   dlog("Adding watcher", key);
+
   watchers[key] = watch(
     () => _query.query[key],
     (value) => serializeChangedValue(key, value),
@@ -235,7 +167,7 @@ function clearWatchers() {
 
 function handleRouteChange(to: RouteLocationNormalizedLoaded) {
   fingerprint = null;
-  detailedFingerprint = {};
+  //  detailedFingerprint = {};
   Object.keys(_query.query).forEach(function (key) {
     delete _query.query[key];
   });
@@ -253,36 +185,10 @@ function handleRouteChange(to: RouteLocationNormalizedLoaded) {
 }
 
 function parseAndStoreQuery(
-  query: LocationQuery,
-  actualDetailedFingerprint: DetailedFingerprint,
+  query: LocationQuery /*,  actualDetailedFingerprint: DetailedFingerprint,*/,
 ) {
-  dlog("Parse and store query called with", query, actualDetailedFingerprint);
   for (const key of Object.keys(query)) {
-    if (detailedFingerprint[key] === actualDetailedFingerprint[key]) {
-      continue;
-    }
-    const val = query[key];
-    const def = queryDefinition![key];
-    if (!def) {
-      _query.query[key] = val;
-    } else {
-      _query.query[key] = def.datatype.parse(val, def.defaultValue);
-    }
-  }
-  for (const key of Object.keys(queryDefinition!)) {
-    if (key in _query.query) {
-      continue;
-    }
-    const def = queryDefinition![key];
-    let defVal = def.defaultValue;
-    if (typeof defVal === "function") {
-      defVal = defVal();
-    }
-    _query.query[key] = defVal;
-  }
-
-  if (query["violation"]) {
-    _query.query["violation"] = JSON.parse(query["violation"].toString());
+    _query.query[key] = JSON.parse(query[key].toString());
   }
 
   _query.rawQuery = {};
@@ -325,7 +231,7 @@ function setup(
     dlog("parsing args", actualFingerprint);
 
     // parse and store query params
-    parseAndStoreQuery(to.query, actualFingerprint.detailedFingerprint);
+    parseAndStoreQuery(to.query /*, actualFingerprint.detailedFingerprint*/);
 
     // set up watchers
     for (const key of Object.keys(_query.query)) {
@@ -334,7 +240,7 @@ function setup(
 
     // set fingerprint
     fingerprint = actualFingerprint.fingerprint;
-    detailedFingerprint = actualFingerprint.detailedFingerprint;
+    //detailedFingerprint = actualFingerprint.detailedFingerprint;
   });
 
   watch(
@@ -344,7 +250,7 @@ function setup(
       // so set the fingerprint
       const actualFingerprint = queryFingerprint(_query.rawQuery);
       fingerprint = actualFingerprint.fingerprint;
-      detailedFingerprint = actualFingerprint.detailedFingerprint;
+      //detailedFingerprint = actualFingerprint.detailedFingerprint;
       if (querySettings!.onChange) {
         querySettings!.onChange(_query.rawQuery, _query.query);
       }
@@ -440,18 +346,21 @@ export function useQuery<T = GenericParsedQuery>(
 ): TypedParsedQuery<T> {
   arrModel = _arrModel;
 
-  const query = proxiedQuery as TypedParsedQuery<T>;
-
   arrModel.forEach((element: Model) => {
-    if (query[element.param]) {
+    if (_query.query[element.param]) {
       element.props.forEach((prop: string) => {
-        element.obj[prop] = query[element.param][prop];
+        if (typeof _query.query[element.param] === "object") {
+          element.obj[prop] = _query.query[element.param][prop];
+        } else {
+          element.obj[prop] = _query.query[element.param];
+        }
       });
     }
-    query[element.param] = element.obj;
+    _query.query[element.param] = element.obj;
+    setWatcher(element.param);
   });
 
-  return query;
+  return proxiedQuery as TypedParsedQuery<T>;
 }
 
 /**
