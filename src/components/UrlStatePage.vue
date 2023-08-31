@@ -41,11 +41,11 @@
         ></vTextField>
       </vCol>
       <vCol>
-        <vTextField
+        <v-checkbox
           v-model="violation.inspector"
           outlined
           label="violation.inspector"
-        ></vTextField>
+        ></v-checkbox>
       </vCol>
     </vRow>
     <vRow>
@@ -116,7 +116,7 @@ type Violation = {
   group: string | null;
   name: string | null;
   num: number | null;
-  inspector: string | null;
+  inspector: boolean | null;
   status: string | null;
 };
 
@@ -128,11 +128,13 @@ const violation = ref<Violation>({
   status: null,
 });
 
+//console.log(1, violation.value);
+
 const query = useQuery([
   {
     param: "violation",
     obj: violation.value,
-    props: ["name", "num"],
+    props: ["name", "num", "inspector"],
   },
 
   {
@@ -141,6 +143,8 @@ const query = useQuery([
     props: ["value"],
   },
 ]);
+
+//console.log(2, violation.value);
 
 function changeViolationName() {
   violation.value.name = "ff";

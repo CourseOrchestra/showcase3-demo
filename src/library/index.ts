@@ -141,12 +141,29 @@ function serializeChangedValue(key: string, value: any) {
 }
 
 function saveValueToRawQuery(key: string, value: string | string[]) {
+  arrModel.forEach((element: Model) => {
+    if (key === element.param) {
+      _query.rawQuery[key] = JSON.stringify(value, null);
+      _query.serializedId++;
+
+      return;
+    }
+  });
+
+  //return;
+
+  //console.log(arrModel, key, value);
+
+  ///*
+
   if (key === "violation") {
     _query.rawQuery[key] = JSON.stringify(value, null);
     _query.serializedId++;
 
     return;
   }
+
+  //*/
 
   dlog("save value to raw query", key, value);
   if (value === undefined) {
