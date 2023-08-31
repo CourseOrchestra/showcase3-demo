@@ -410,6 +410,8 @@ export type Model = {
   props: Array<string>;
 };
 
+let arrModel: Array<Model>;
+
 /**
  * The main composition API entrypoint. Returns a reactive Query object with parsed values
  *
@@ -417,8 +419,10 @@ export type Model = {
  * might be passed. If not a generic (untyped) interface is used.
  */
 export function useQuery<T = GenericParsedQuery>(
-  arrModel: Array<Model>,
+  _arrModel: Array<Model>,
 ): TypedParsedQuery<T> {
+  arrModel = _arrModel;
+
   const query = proxiedQuery as TypedParsedQuery<T>;
 
   arrModel.forEach((element: Model) => {
