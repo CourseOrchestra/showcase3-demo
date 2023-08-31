@@ -404,6 +404,12 @@ const handler = {
 
 const proxiedQuery = new Proxy(_query.query, handler);
 
+export type Model = {
+  param: string;
+  obj: object;
+  props: Array<string>;
+};
+
 /**
  * The main composition API entrypoint. Returns a reactive Query object with parsed values
  *
@@ -411,50 +417,18 @@ const proxiedQuery = new Proxy(_query.query, handler);
  * might be passed. If not a generic (untyped) interface is used.
  */
 export function useQuery<T = GenericParsedQuery>(
-  arrModel: any,
+  arrModel: Array<Model>,
 ): TypedParsedQuery<T> {
   const query = proxiedQuery as TypedParsedQuery<T>;
 
-  arrModel.forEach((element: any) => {
+  arrModel.forEach((element: Model) => {
     if (query[element.param]) {
-      element.props.forEach((prop: any) => {
+      element.props.forEach((prop: string) => {
         element.obj[prop] = query[element.param][prop];
       });
     }
     query[element.param] = element.obj;
   });
-
-  /*
-
-
-  const query = useQuery([
-  {
-      param: "viol",
-      obj: violation.value,
-      props: ["name", "num"]
-  },
-    {
-      param: "str22",
-      obj: str.value,
-      props: ["value"]
-    }
-  ]);
-
-
-
-
-    if (query.violation) {
-      violation.value.name = query.violation.name;
-      violation.value.num = query.violation.num;
-    }
-    query.violation = violation.value;
-
-    if (query.str) {
-      str.value = query.str;
-    }
-    query.str = str;
-
-  */
 
   return query;
 }

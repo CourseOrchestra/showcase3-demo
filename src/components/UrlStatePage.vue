@@ -134,13 +134,12 @@ const query = useQuery([
     obj: violation.value,
     props: ["name", "num"],
   },
-  /*
+
   {
     param: "str",
-    obj: str.value,
-    props: ["value"]
-  }
-*/
+    obj: str,
+    props: ["value"],
+  },
 ]);
 
 function changeViolationName() {
