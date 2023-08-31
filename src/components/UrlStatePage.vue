@@ -34,9 +34,10 @@
     <vRow>
       <vCol>
         <vTextField
-          v-model="violation.act"
+          v-model="violation.num"
           outlined
-          label="violation.act"
+          label="violation.num"
+          type="number"
         ></vTextField>
       </vCol>
       <vCol>
@@ -114,7 +115,7 @@ const query = useQuery();
 type Violation = {
   group: string | null;
   name: string | null;
-  act: string | null;
+  num: number | null;
   inspector: string | null;
   status: string | null;
 };
@@ -122,7 +123,7 @@ type Violation = {
 const violation = ref<Violation>({
   group: null,
   name: null,
-  act: null,
+  num: null,
   inspector: null,
   status: null,
 });
@@ -136,6 +137,7 @@ const str = ref();
 
 if (query.violation) {
   violation.value.name = query.violation.name;
+  violation.value.num = query.violation.num;
 }
 query.violation = violation.value;
 
