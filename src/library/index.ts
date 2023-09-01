@@ -187,9 +187,11 @@ function handleRouteChange(to: RouteLocationNormalizedLoaded) {
 function parseAndStoreQuery(
   query: LocationQuery /*,  actualDetailedFingerprint: DetailedFingerprint,*/,
 ) {
+  /*
   for (const key of Object.keys(query)) {
     _query.query[key] = JSON.parse(query[key].toString());
   }
+*/
 
   _query.rawQuery = {};
   Object.assign(_query.rawQuery, query);
@@ -333,7 +335,7 @@ export type Model = {
   props: Array<string>;
 };
 
-let arrModel: Array<Model>;
+//let arrModel: Array<Model>;
 
 /**
  * The main composition API entrypoint. Returns a reactive Query object with parsed values
@@ -344,7 +346,13 @@ let arrModel: Array<Model>;
 export function useQuery<T = GenericParsedQuery>(
   _arrModel: Array<Model>,
 ): TypedParsedQuery<T> {
+  if (_arrModel) {
+    setWatcher("null");
+  }
+
+  /*
   arrModel = _arrModel;
+
 
   arrModel.forEach((element: Model) => {
     if (_query.query[element.param]) {
@@ -359,6 +367,7 @@ export function useQuery<T = GenericParsedQuery>(
     _query.query[element.param] = element.obj;
     setWatcher(element.param);
   });
+*/
 
   return proxiedQuery as TypedParsedQuery<T>;
 }
