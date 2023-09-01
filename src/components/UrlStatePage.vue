@@ -91,19 +91,19 @@ const num = ref();
 const log = ref();
 
 type Violation = {
-  group: string | null;
-  name: string | null;
-  num: number | null;
-  inspector: boolean | null;
-  status: string | null;
+  group: string | undefined;
+  name: string | undefined;
+  num: number | undefined;
+  inspector: boolean | undefined;
+  status: string | undefined;
 };
 
 const violation = ref<Violation>({
-  group: null,
-  name: null,
-  num: null,
-  inspector: null,
-  status: null,
+  group: undefined,
+  name: undefined,
+  num: undefined,
+  inspector: undefined,
+  status: undefined,
 });
 
 //console.log(1, violation.value);
