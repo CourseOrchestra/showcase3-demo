@@ -132,13 +132,13 @@ const violation = ref<Violation>({
 
 const query = useQuery([
   {
-    param: "violation",
+    name: "violation",
     obj: violation.value,
     props: ["name", "num", "inspector"],
   },
 
   {
-    param: "str",
+    name: "str",
     obj: str,
     props: ["value"],
   },

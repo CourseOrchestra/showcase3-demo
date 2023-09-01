@@ -330,12 +330,12 @@ const handler = {
 const proxiedQuery = new Proxy(_query.query, handler);
 
 export type URLObject = {
-  [key: string]: object;
+  [key: string]: any;
 };
 
 export type URLParam = {
   name: string;
-  obj: object;
+  obj: URLObject;
   props: Array<string>;
 };
 
