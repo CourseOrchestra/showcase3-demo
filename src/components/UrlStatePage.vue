@@ -25,13 +25,20 @@
       </vCol>
       <vCol>
         <vTextField
+          v-model="violation.status"
+          outlined
+          label="violation.status"
+        ></vTextField>
+      </vCol>
+    </vRow>
+    <vRow>
+      <vCol>
+        <vTextField
           v-model="violation.name"
           outlined
           label="violation.name"
         ></vTextField>
       </vCol>
-    </vRow>
-    <vRow>
       <vCol>
         <vTextField
           v-model.number="violation.num"
@@ -48,69 +55,40 @@
         ></v-checkbox>
       </vCol>
     </vRow>
+
     <vRow>
-      <vCol>
-        <vTextField
-          v-model="violation.status"
-          outlined
-          label="violation.status"
-        ></vTextField>
-      </vCol>
       <vCol>
         <vTextField v-model="str" outlined label="str"></vTextField>
       </vCol>
-    </vRow>
-
-    <vRow>
       <vCol>
         <vTextField
-          v-model="query.page"
+          v-model.number="num"
           outlined
-          label="query.page"
+          label="num"
+          type="number"
         ></vTextField>
       </vCol>
       <vCol>
-        <vTextField
-          v-model="query.page22"
-          outlined
-          label="query.page22"
-        ></vTextField>
+        <v-checkbox v-model="log" outlined label="log"></v-checkbox>
       </vCol>
     </vRow>
-    <vRow>
-      <vCol>
-        <vTextField v-model="query.num" outlined label="query.num"></vTextField>
-      </vCol>
-      <vCol>
-        Add and remove (the query param is called dynarr):
-        <input v-model="tmp" placeholder="Enter value" />
-        <button @click="query.addValue('dynarr', tmp)">Add</button>&nbsp;
-        <button @click="query.removeValue('dynarr', tmp)">Remove</button>
-      </vCol>
-    </vRow>
-
-    <v-btn @click="convert"
-      >Convert simple text field to numeric model (can be used to, for example,
-      define datatype later)</v-btn
-    >
 
     <br /><br />
-    query equals:
+    query:
     <pre>{{ query }}</pre>
-    <br />
-    definition (not reactive):
-    <pre>{{ query.__definition }}</pre>
   </vContainer>
 </template>
 
 <script setup lang="ts">
 import { setTitle } from "@/utils/common";
-import { IntDatatype, CommaArrayDatatype, useQuery } from "@/library";
+import { useQuery } from "@/library";
 import { ref } from "vue";
 
 setTitle("urlstate");
 
 const str = ref();
+const num = ref();
+const log = ref();
 
 type Violation = {
   group: string | null;
@@ -142,6 +120,18 @@ const query = useQuery([
     obj: str,
     props: ["value"],
   },
+
+  {
+    name: "num",
+    obj: num,
+    props: ["value"],
+  },
+
+  {
+    name: "log",
+    obj: log,
+    props: ["value"],
+  },
 ]);
 
 //console.log(2, violation.value);
@@ -151,12 +141,5 @@ function changeViolationName() {
 }
 function changeStrName() {
   str.value = "gg";
-}
-
-query.define("dynarr", CommaArrayDatatype, []);
-const tmp = ref("");
-
-function convert() {
-  query.define("page", IntDatatype, 10);
 }
 </script>
