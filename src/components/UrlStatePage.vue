@@ -6,8 +6,10 @@
           gradient="to top right, rgba(19,84,122,.8), rgba(128,208,199,.8)"
         ></v-img>
       </template>
-      <v-btn @click="changeViolationName">change Violation Name</v-btn>
-      <v-btn @click="changeStrName">change Str Value</v-btn>
+      <v-btn class="text-none" @click="changeViolationName"
+        >changeViolationName</v-btn
+      >
+      <v-btn class="text-none" @click="changeStrName">changeStrValue</v-btn>
       <!--    tag::template_i18n[] -->
       <v-app-bar-title>{{ $t("UrlStatePage.title") }} </v-app-bar-title>
       <!--    end::template_i18n[] -->
