@@ -75,9 +75,9 @@
       </vRow>
     </v-card>
 
-    <br />
-    query:
-    <pre>{{ query }}</pre>
+    <v-card title="query">
+      <pre>{{ query }}</pre>
+    </v-card>
   </vContainer>
 </template>
 
