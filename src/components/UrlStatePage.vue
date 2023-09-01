@@ -34,7 +34,7 @@
     <vRow>
       <vCol>
         <vTextField
-          v-model="violation.num"
+          v-model.number="violation.num"
           outlined
           label="violation.num"
           type="number"
