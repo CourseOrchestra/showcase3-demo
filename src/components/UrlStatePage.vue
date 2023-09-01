@@ -13,67 +13,69 @@
       <!--    end::template_i18n[] -->
     </v-app-bar>
 
-    <br />
-    <br />
-    <vRow>
-      <vCol>
-        <vTextField
-          v-model="violation.group"
-          outlined
-          label="violation.group"
-        ></vTextField>
-      </vCol>
-      <vCol>
-        <vTextField
-          v-model="violation.status"
-          outlined
-          label="violation.status"
-        ></vTextField>
-      </vCol>
-    </vRow>
-    <vRow>
-      <vCol>
-        <vTextField
-          v-model="violation.name"
-          outlined
-          label="violation.name"
-        ></vTextField>
-      </vCol>
-      <vCol>
-        <vTextField
-          v-model.number="violation.num"
-          outlined
-          label="violation.num"
-          type="number"
-        ></vTextField>
-      </vCol>
-      <vCol>
-        <v-checkbox
-          v-model="violation.inspector"
-          outlined
-          label="violation.inspector"
-        ></v-checkbox>
-      </vCol>
-    </vRow>
+    <v-card title="Объект">
+      <vRow>
+        <vCol>
+          <vTextField
+            v-model="violation.group"
+            outlined
+            label="violation.group"
+          ></vTextField>
+        </vCol>
+        <vCol>
+          <vTextField
+            v-model="violation.status"
+            outlined
+            label="violation.status"
+          ></vTextField>
+        </vCol>
+      </vRow>
+      <vRow>
+        <vCol>
+          <vTextField
+            v-model="violation.name"
+            outlined
+            label="violation.name"
+          ></vTextField>
+        </vCol>
+        <vCol>
+          <vTextField
+            v-model.number="violation.num"
+            outlined
+            label="violation.num"
+            type="number"
+          ></vTextField>
+        </vCol>
+        <vCol>
+          <v-checkbox
+            v-model="violation.inspector"
+            outlined
+            label="violation.inspector"
+          ></v-checkbox>
+        </vCol>
+      </vRow>
+    </v-card>
 
-    <vRow>
-      <vCol>
-        <vTextField v-model="str" outlined label="str"></vTextField>
-      </vCol>
-      <vCol>
-        <vTextField
-          v-model.number="num"
-          outlined
-          label="num"
-          type="number"
-        ></vTextField>
-      </vCol>
-      <vCol>
-        <v-checkbox v-model="log" outlined label="log"></v-checkbox>
-      </vCol>
-    </vRow>
+    <v-card title="Примитивы">
+      <vRow>
+        <vCol>
+          <vTextField v-model="str" outlined label="str"></vTextField>
+        </vCol>
+        <vCol>
+          <vTextField
+            v-model.number="num"
+            outlined
+            label="num"
+            type="number"
+          ></vTextField>
+        </vCol>
+        <vCol>
+          <v-checkbox v-model="log" outlined label="log"></v-checkbox>
+        </vCol>
+      </vRow>
+    </v-card>
 
-    <br /><br />
+    <br />
     query:
     <pre>{{ query }}</pre>
   </vContainer>
