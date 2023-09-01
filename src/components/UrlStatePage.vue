@@ -110,8 +110,6 @@ const violation = ref<Violation>({
   status: undefined,
 });
 
-//console.log(1, violation.value);
-
 const query = useQuery([
   {
     name: "violation",
@@ -137,8 +135,6 @@ const query = useQuery([
     props: ["value"],
   },
 ]);
-
-//console.log(2, violation.value);
 
 function changeViolationName() {
   violation.value.name = "ff";
