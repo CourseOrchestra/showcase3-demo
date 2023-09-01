@@ -187,11 +187,11 @@ function handleRouteChange(to: RouteLocationNormalizedLoaded) {
 function parseAndStoreQuery(
   query: LocationQuery /*,  actualDetailedFingerprint: DetailedFingerprint,*/,
 ) {
-  /*
   for (const key of Object.keys(query)) {
-    _query.query[key] = JSON.parse(query[key].toString());
+    if (query[key]) {
+      _query.query[key] = JSON.parse(query[key]!.toString());
+    }
   }
-*/
 
   _query.rawQuery = {};
   Object.assign(_query.rawQuery, query);
@@ -329,13 +329,17 @@ const handler = {
 
 const proxiedQuery = new Proxy(_query.query, handler);
 
-export type Model = {
-  param: string;
+export type URLObject = {
+  [key: string]: object;
+};
+
+export type URLParam = {
+  name: string;
   obj: object;
   props: Array<string>;
 };
 
-//let arrModel: Array<Model>;
+let arrModel: Array<URLParam>;
 
 /**
  * The main composition API entrypoint. Returns a reactive Query object with parsed values
@@ -344,30 +348,23 @@ export type Model = {
  * might be passed. If not a generic (untyped) interface is used.
  */
 export function useQuery<T = GenericParsedQuery>(
-  _arrModel: Array<Model>,
+  _arrModel: Array<URLParam>,
 ): TypedParsedQuery<T> {
-  if (_arrModel) {
-    setWatcher("null");
-  }
-
-  /*
   arrModel = _arrModel;
 
-
-  arrModel.forEach((element: Model) => {
-    if (_query.query[element.param]) {
+  arrModel.forEach((element: URLParam) => {
+    if (_query.query[element.name]) {
       element.props.forEach((prop: string) => {
-        if (typeof _query.query[element.param] === "object") {
-          element.obj[prop] = _query.query[element.param][prop];
+        if (typeof _query.query[element.name] === "object") {
+          element.obj[prop] = _query.query[element.name][prop];
         } else {
-          element.obj[prop] = _query.query[element.param];
+          element.obj[prop] = _query.query[element.name];
         }
       });
     }
-    _query.query[element.param] = element.obj;
-    setWatcher(element.param);
+    _query.query[element.name] = element.obj;
+    setWatcher(element.name);
   });
-*/
 
   return proxiedQuery as TypedParsedQuery<T>;
 }
