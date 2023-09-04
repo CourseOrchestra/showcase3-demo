@@ -12,7 +12,7 @@ export interface QueryParameterDefinition<T> {
  * @internal
  */
 export type QueryParameterDefinitions = {
-  /* eslint @typescript-eslint/no-explicit-any: "off" */
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   [key: string]: QueryParameterDefinition<any>;
 };
 
@@ -71,7 +71,7 @@ export interface DataType<T> {
  * @internal
  */
 export type DataTypes = {
-  /* eslint @typescript-eslint/no-explicit-any: "off" */
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   [key: string]: DataType<any>;
 };
 
@@ -88,7 +88,7 @@ export type ParsedQueryMixin = {
    * @param datatype          datatype of the parameter
    * @param defaultValue      the default value
    */
-  /* eslint @typescript-eslint/no-explicit-any: "off" */
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   define(key: string, datatype: DataType<any>, defaultValue: any): void;
 
   /**
@@ -98,7 +98,7 @@ export type ParsedQueryMixin = {
    * @param value             the value
    * @param datatype          optional datatype, used only if the parameter's datatype is not yet an array
    */
-  /* eslint @typescript-eslint/no-explicit-any: "off" */
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   addValue(key: string, value: any, datatype?: DataType<any>): void;
 
   /**
@@ -108,8 +108,7 @@ export type ParsedQueryMixin = {
    * @param value             the value
    * @param datatype          optional datatype, used only if the parameter's datatype is not yet an array
    */
-  /* eslint @typescript-eslint/no-explicit-any: "off" */
-  /* eslint @typescript-eslint/no-explicit-any: "off" */
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   removeValue(key: string, value: any, datatype?: DataType<any>): void;
 
   /**
@@ -122,7 +121,7 @@ export type ParsedQueryMixin = {
  * If not defined otherwise, the returned query is of this generic type
  */
 export type GenericParsedQuery = {
-  /* eslint @typescript-eslint/no-explicit-any: "off" */
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   [key: string]: string | number | string[] | number[] | boolean | any;
 };
 
