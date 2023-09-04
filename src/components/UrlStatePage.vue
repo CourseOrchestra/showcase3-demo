@@ -77,7 +77,7 @@
       </vRow>
     </v-card>
 
-    <v-card title="query">
+    <v-card title="UrlMapper">
       <pre>{{ query }}</pre>
     </v-card>
   </vContainer>

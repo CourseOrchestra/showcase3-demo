@@ -1,8 +1,41 @@
 import { reactive, watch } from "vue";
-import { queryFingerprint } from "./utils";
 import { LocationQuery, Router } from "vue-router";
 import { DetailedFingerprint, ParsedQuery } from "./types";
 import { WatchStopHandle } from "vue";
+
+function queryFingerprint(query: LocationQuery): {
+  fingerprint: string;
+  detailedFingerprint: DetailedFingerprint;
+} {
+  let fingerprint = "";
+  const detailedFingerprint: DetailedFingerprint = {};
+  const keys = Object.keys(query).sort();
+  for (const key_index in keys) {
+    let key = keys[key_index];
+    const value = query[key];
+    key = encodeURIComponent(key);
+    if (value == null) {
+      fingerprint += "&" + key;
+      detailedFingerprint[key] = null;
+      continue;
+    }
+    // keep null values
+    const values = Array.isArray(value)
+      ? value.map((v) => v && encodeURIComponent(v))
+      : [value && encodeURIComponent(value)];
+    values.sort();
+    let valueFingerprint = "";
+    for (let i = 0; i < values.length; i++) {
+      valueFingerprint += "&" + key;
+      if (values[i] != null) {
+        valueFingerprint += "=" + values[i];
+      }
+    }
+    fingerprint += valueFingerprint;
+    detailedFingerprint[key] = valueFingerprint;
+  }
+  return { fingerprint, detailedFingerprint };
+}
 
 const _query = reactive({
   query: {} as ParsedQuery,
@@ -15,8 +48,7 @@ let fingerprint: string | null = null;
 let detailedFingerprint: DetailedFingerprint = {};
 let watchers: { [key: string]: WatchStopHandle } = {};
 
-/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-function serializeChangedValue(key: string, value: any) {
+function serializeChangedValue(key: string, value: object) {
   _query.rawQuery[key] = JSON.stringify(value, null);
 
   const actualFingerprint = queryFingerprint(_query.rawQuery);
@@ -126,11 +158,7 @@ const QuerySynchronizer = {
   install(
     /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
     app: any,
-    {
-      router,
-    }: {
-      router: Router;
-    },
+    { router }: { router: Router },
   ) {
     setup(router);
   },
