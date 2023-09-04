@@ -1,17 +1,8 @@
 import { reactive, watch } from "vue";
 import { /*arraysMatch,*/ queryFingerprint } from "./utils";
-import {
-  ArrayDatatype,
-  BoolDatatype,
-  CommaArrayDatatype,
-  IntDatatype,
-  SpaceArrayDatatype,
-  StringDatatype,
-} from "./datatypes";
 import { LocationQuery, Router } from "vue-router";
 import {
   DataType,
-  DataTypes,
   NavigationOperation,
   ParsedQuery,
   QuerySettings,
@@ -119,7 +110,6 @@ function parseAndStoreQuery(
 
 function setup(
   _router: Router,
-  _datatypes: DataTypes,
   _debug: boolean,
   _navigationOperation: NavigationOperation,
 ) {
@@ -214,7 +204,6 @@ const QuerySynchronizer = {
     app: any,
     {
       router,
-      datatypes,
       debug,
       navigationOperation,
     }: {
@@ -224,20 +213,7 @@ const QuerySynchronizer = {
       navigationOperation?: NavigationOperation;
     },
   ) {
-    const _datatypes: DataTypes = {
-      string: StringDatatype,
-      bool: BoolDatatype,
-      int: IntDatatype,
-      array: ArrayDatatype,
-      commaarray: CommaArrayDatatype,
-      spacearray: SpaceArrayDatatype,
-    };
-    if (datatypes) {
-      (datatypes || []).forEach((c) => {
-        _datatypes[c.name] = c;
-      });
-    }
-    setup(router, _datatypes, debug || false, navigationOperation || "push");
+    setup(router, debug || false, navigationOperation || "push");
   },
 };
 
