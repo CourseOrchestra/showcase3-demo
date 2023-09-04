@@ -161,9 +161,8 @@ export function useURLMapper(_arrModel: Array<URLParam>): ParsedQuery {
   return _query.query;
 }
 
-const URLMapper = {
+export default {
   install(app: App, { router }: { router: Router }) {
     setup(router);
   },
 };
-export default URLMapper;
