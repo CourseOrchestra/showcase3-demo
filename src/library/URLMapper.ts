@@ -40,7 +40,8 @@ function queryFingerprint(query: LocationQuery): {
 }
 
 type ParsedQuery = {
-  [key: string]: object;
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
+  [key: string]: any;
 };
 
 const _query = reactive({
