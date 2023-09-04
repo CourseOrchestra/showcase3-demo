@@ -3,8 +3,7 @@ import { LocationQuery, Router } from "vue-router";
 import { WatchStopHandle } from "vue";
 
 type ParsedQuery = {
-  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-  [key: string]: string | number | string[] | number[] | boolean | any;
+  [key: string]: object;
 };
 
 interface DetailedFingerprint {
