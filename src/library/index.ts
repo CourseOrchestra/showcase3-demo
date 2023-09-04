@@ -1,5 +1,5 @@
 import { reactive, watch } from "vue";
-import { /*arraysMatch,*/ queryFingerprint } from "./utils";
+import { queryFingerprint } from "./utils";
 import { LocationQuery, Router } from "vue-router";
 import {
   DataType,
@@ -11,11 +11,6 @@ import { WatchStopHandle } from "vue";
 
 export * from "./types";
 
-/**
- * convert parameter in "meta/query" from string representation to object representation
- *
- * @internal
- */
 const _query = reactive({
   query: {} as ParsedQuery,
   rawQuery: {} as LocationQuery,
@@ -44,24 +39,9 @@ function dlog(...args: any[]) {
 }
 
 function serializeChangedValue(key: string, value: any) {
-  /*
-  dlog("serialize changed value", key, value);
-  if (value !== undefined) {
-    const def = queryDefinition![key];
-    if (def) {
-      value = def.datatype.serialize(value, def.defaultValue);
-    }
-  }
-
-*/
-  saveValueToRawQuery(key, value);
-}
-
-function saveValueToRawQuery(key: string, value: string | string[]) {
   _query.rawQuery[key] = JSON.stringify(value, null);
   _query.serializedId++;
 }
-
 function setWatcher(key: string) {
   if (key in watchers) {
     return;
