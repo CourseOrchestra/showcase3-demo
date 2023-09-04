@@ -1,27 +1,6 @@
 import { LocationQuery } from "vue-router";
 import { DetailedFingerprint } from "./types";
 
-/* eslint @typescript-eslint/no-explicit-any: "off" */
-export function isObject(obj: any) {
-  const type = typeof obj;
-  return type === "function" || (type === "object" && !!obj);
-}
-
-// https://gomakethings.com/how-to-check-if-two-arrays-are-equal-with-vanilla-js/
-/* eslint @typescript-eslint/no-explicit-any: "off" */
-export function arraysMatch(arr1: any[], arr2: any[]) {
-  // Check if the arrays are the same length
-  if (arr1.length !== arr2.length) return false;
-
-  // Check if all items exist and are in the same order
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) return false;
-  }
-
-  // Otherwise, return true
-  return true;
-}
-
 // adapted from vue router to be always
 // the same regardless of order of defined keys
 export function queryFingerprint(query: LocationQuery): {

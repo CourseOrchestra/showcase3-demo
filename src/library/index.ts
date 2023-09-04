@@ -9,7 +9,6 @@ import {
 } from "./types";
 import { WatchStopHandle } from "vue";
 
-export * from "./datatypes";
 export * from "./types";
 
 /**
