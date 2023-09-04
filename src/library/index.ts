@@ -16,14 +16,11 @@ import {
 import {
   DataType,
   DataTypes,
-  /*  DetailedFingerprint,*/
-  GenericParsedQuery,
   NavigationOperation,
   ParsedQuery,
   QueryParameterDefinition,
   QueryParameterDefinitions,
   QuerySettings,
-  TypedParsedQuery,
 } from "./types";
 import { WatchStopHandle } from "vue";
 
@@ -262,73 +259,6 @@ function setup(
   );
 }
 
-function define<T>(key: string, datatype: DataType<T>, defaultValue: T) {
-  queryDefinition![key] = {
-    datatype,
-    defaultValue,
-  };
-  _query.query[key] = datatype.parse(_query.rawQuery[key], defaultValue);
-  setWatcher(key);
-  dlog("Defined new key", key);
-}
-
-function as_array<T>(key: string, datatype: DataType<T[]>) {
-  if (!(key in _query.query)) {
-    define(key, datatype || ArrayDatatype, [] as T[]);
-  }
-  const arr = _query.query[key] || [];
-  if (!Array.isArray(arr)) {
-    return [arr];
-  } else {
-    return [...arr];
-  }
-}
-
-function addValue<T>(key: string, value: T, datatype: DataType<T[]>) {
-  const arr = as_array(key, datatype);
-  const idx = arr.indexOf(value);
-  if (idx < 0) {
-    arr.push(value);
-  }
-  _query.query[key] = arr;
-}
-
-function removeValue<T>(key: string, value: T, datatype: DataType<T[]>) {
-  const arr = as_array(key, datatype);
-  const idx = arr.indexOf(value);
-  if (idx >= 0) {
-    arr.splice(idx, 1);
-  }
-  _query.query[key] = arr;
-}
-
-const handler = {
-  set: function (target: ParsedQuery, prop: string, value: any) {
-    if (!(prop in target)) {
-      define(prop, StringDatatype, "");
-    }
-    target[prop] = value;
-    return true;
-  },
-  get: function (target: ParsedQuery, prop: string) {
-    if (prop === "define") {
-      return define;
-    }
-    if (prop === "addValue") {
-      return addValue;
-    }
-    if (prop === "removeValue") {
-      return removeValue;
-    }
-    if (prop === "__definition") {
-      return queryDefinition;
-    }
-    return target[prop];
-  },
-};
-
-const proxiedQuery = new Proxy(_query.query, handler);
-
 export type URLObject = {
   [key: string]: any;
 };
@@ -341,15 +271,7 @@ export type URLParam = {
 
 let arrModel: Array<URLParam>;
 
-/**
- * The main composition API entrypoint. Returns a reactive Query object with parsed values
- *
- * @typeParam T The type of the returned query object. An interface defining query parameters and their types
- * might be passed. If not a generic (untyped) interface is used.
- */
-export function useQuery<T = GenericParsedQuery>(
-  _arrModel: Array<URLParam>,
-): TypedParsedQuery<T> {
+export function useQuery(_arrModel: Array<URLParam>): ParsedQuery {
   arrModel = _arrModel;
 
   arrModel.forEach((element: URLParam) => {
@@ -366,7 +288,7 @@ export function useQuery<T = GenericParsedQuery>(
     setWatcher(element.name);
   });
 
-  return proxiedQuery as TypedParsedQuery<T>;
+  return _query.query;
 }
 
 export function watchQuery(fn: (...x: any[]) => any) {
