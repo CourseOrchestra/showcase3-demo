@@ -1,8 +1,15 @@
-import { reactive, watch } from "vue";
+import { reactive, watch, App } from "vue";
 import { LocationQuery, Router } from "vue-router";
-import { DetailedFingerprint, ParsedQuery } from "./types";
 import { WatchStopHandle } from "vue";
 
+type ParsedQuery = {
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
+  [key: string]: string | number | string[] | number[] | boolean | any;
+};
+
+interface DetailedFingerprint {
+  [key: string]: string | null;
+}
 function queryFingerprint(query: LocationQuery): {
   fingerprint: string;
   detailedFingerprint: DetailedFingerprint;
@@ -155,11 +162,7 @@ export function useQuery(_arrModel: Array<URLParam>): ParsedQuery {
 }
 
 const QuerySynchronizer = {
-  install(
-    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-    app: any,
-    { router }: { router: Router },
-  ) {
+  install(app: App, { router }: { router: Router }) {
     setup(router);
   },
 };
