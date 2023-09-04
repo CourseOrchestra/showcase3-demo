@@ -291,17 +291,6 @@ export function useQuery(_arrModel: Array<URLParam>): ParsedQuery {
   return _query.query;
 }
 
-export function watchQuery(fn: (...x: any[]) => any) {
-  watch(
-    function () {
-      return _query.serializedId;
-    },
-    function () {
-      return fn;
-    },
-  );
-}
-
 const QuerySynchronizer = {
   install(
     app: any,
