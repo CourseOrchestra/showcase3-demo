@@ -8,18 +8,12 @@ import {
   SpaceArrayDatatype,
   StringDatatype,
 } from "./datatypes";
-import {
-  LocationQuery,
-  RouteLocationNormalizedLoaded,
-  Router,
-} from "vue-router";
+import { LocationQuery, Router } from "vue-router";
 import {
   DataType,
   DataTypes,
   NavigationOperation,
   ParsedQuery,
-  QueryParameterDefinition,
-  QueryParameterDefinitions,
   QuerySettings,
 } from "./types";
 import { WatchStopHandle } from "vue";
@@ -32,35 +26,6 @@ export * from "./types";
  *
  * @internal
  */
-function parseParamDefinition<T>(
-  defOrString: QueryParameterDefinition<T> | string,
-  datatypes: DataTypes,
-): QueryParameterDefinition<T> {
-  let def: QueryParameterDefinition<T>;
-  if (typeof defOrString === "string") {
-    let splitted = defOrString.split(":");
-    if (splitted.length === 1) {
-      splitted = ["string", splitted[0]];
-    }
-    const datatype = datatypes[splitted[0]];
-
-    if (!datatype) {
-      throw new Error(`No query datatype "${splitted[0]}"`);
-    }
-
-    def = {
-      datatype: datatype,
-      defaultValue: datatype.parseDefault(splitted[1]),
-    };
-  } else {
-    def = defOrString;
-  }
-  if (def.datatype === undefined) {
-    def.datatype = datatypes["string"];
-  }
-  return def;
-}
-
 const _query = reactive({
   query: {} as ParsedQuery,
   rawQuery: {} as LocationQuery,
@@ -69,14 +34,12 @@ const _query = reactive({
 });
 
 let router!: Router;
-let datatypes!: DataTypes;
 let debug = false;
 let navigationOperation!: (
   query: ParsedQuery,
   router: Router,
 ) => "push" | "replace";
 
-let queryDefinition: QueryParameterDefinitions | null = null;
 let querySettings: QuerySettings | null = null;
 let fingerprint: string | null = null;
 //let detailedFingerprint: DetailedFingerprint = {};
@@ -88,41 +51,6 @@ function dlog(...args: any[]) {
     // eslint-disable-next-line no-console
     console.log(...args);
   }
-}
-
-function prepareQuery(route: RouteLocationNormalizedLoaded) {
-  const _queryDefinition: QueryParameterDefinitions = {};
-  const _querySettings: QuerySettings = {};
-
-  // merge query definition from all matched segments on path
-  route.matched.forEach((match) => {
-    if (!match.meta) {
-      return;
-    }
-    if (match.meta.query) {
-      Object.assign(_queryDefinition, match.meta.query);
-    }
-    if (match.meta.querySettings) {
-      Object.assign(_querySettings, match.meta.querySettings);
-    }
-  });
-  if (!_queryDefinition) {
-    return false;
-  }
-  // parse param definitions
-  Object.keys(_queryDefinition).forEach((key) => {
-    _queryDefinition[key] = parseParamDefinition(
-      _queryDefinition[key],
-      datatypes,
-    );
-  });
-  if (_querySettings.onInit) {
-    _querySettings.onInit(_queryDefinition);
-  }
-  queryDefinition = _queryDefinition;
-  querySettings = _querySettings;
-  dlog("query definition, query settings", queryDefinition, querySettings);
-  return true;
 }
 
 function serializeChangedValue(key: string, value: any) {
@@ -162,23 +90,14 @@ function clearWatchers() {
   watchers = {};
 }
 
-function handleRouteChange(to: RouteLocationNormalizedLoaded) {
-  fingerprint = null;
-  //  detailedFingerprint = {};
+function handleRouteChange() {
   Object.keys(_query.query).forEach(function (key) {
     delete _query.query[key];
   });
-  queryDefinition = {};
   querySettings = {};
   clearWatchers();
 
-  if (!prepareQuery(to)) {
-    dlog("No query meta on this route");
-    _query.enabled = false;
-  } else {
-    dlog("Got query meta on this route");
-    _query.enabled = true;
-  }
+  _query.enabled = true;
 }
 
 function parseAndStoreQuery(
@@ -205,7 +124,6 @@ function setup(
   _navigationOperation: NavigationOperation,
 ) {
   router = _router;
-  datatypes = _datatypes;
   debug = _debug;
   if (_navigationOperation === "push" || _navigationOperation === "replace") {
     navigationOperation = () => _navigationOperation;
@@ -216,7 +134,7 @@ function setup(
   router.beforeEach((to, from) => {
     dlog("beforeEach called", to.name, from.name);
     if (to.name !== from.name) {
-      handleRouteChange(to);
+      handleRouteChange();
     }
     if (!_query.enabled) {
       return;
