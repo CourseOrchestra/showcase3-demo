@@ -1,4 +1,4 @@
-import { LocationQuery, Router } from "vue-router";
+import { Router } from "vue-router";
 
 /**
  * @internal
@@ -131,25 +131,6 @@ export type GenericParsedQuery = {
  */
 export interface ParsedQuery extends ParsedQueryMixin, GenericParsedQuery {}
 
-/**
- * User can type the result of useQuery with his own type. In this case the return value
- * is TypedParsedQuery<T>
- */
-export type TypedParsedQuery<T> = ParsedQueryMixin & T;
-
-/**
- * Callback methods called when query is initialized, URL parameters parsed or serialized.
- * See readme for details
- */
-export interface QuerySettings {
-  onInit?: (paramList: QueryParameterDefinitions) => void;
-  onLoad?: (query: ParsedQuery) => void;
-  onChange?: (newQuery: LocationQuery, query: ParsedQuery) => void;
-}
-
-/**
- * @internal
- */
 export interface DetailedFingerprint {
   [key: string]: string | null;
 }

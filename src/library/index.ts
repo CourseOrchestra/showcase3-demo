@@ -1,20 +1,12 @@
 import { reactive, watch } from "vue";
 import { queryFingerprint } from "./utils";
 import { LocationQuery, Router } from "vue-router";
-import {
-  DataType,
-  NavigationOperation,
-  ParsedQuery,
-  QuerySettings,
-} from "./types";
+import { DataType, NavigationOperation, ParsedQuery } from "./types";
 import { WatchStopHandle } from "vue";
-
-export * from "./types";
 
 const _query = reactive({
   query: {} as ParsedQuery,
   rawQuery: {} as LocationQuery,
-  enabled: false,
   serializedId: 0,
 });
 
@@ -25,7 +17,6 @@ let navigationOperation!: (
   router: Router,
 ) => "push" | "replace";
 
-let querySettings: QuerySettings | null = null;
 let fingerprint: string | null = null;
 //let detailedFingerprint: DetailedFingerprint = {};
 let watchers: { [key: string]: WatchStopHandle } = {};
@@ -64,10 +55,7 @@ function handleRouteChange() {
   Object.keys(_query.query).forEach(function (key) {
     delete _query.query[key];
   });
-  querySettings = {};
   clearWatchers();
-
-  _query.enabled = true;
 }
 
 function parseAndStoreQuery(
@@ -81,10 +69,6 @@ function parseAndStoreQuery(
 
   _query.rawQuery = {};
   Object.assign(_query.rawQuery, query);
-
-  if (querySettings!.onLoad) {
-    querySettings!.onLoad(_query.query);
-  }
 }
 
 function setup(
@@ -104,9 +88,6 @@ function setup(
     dlog("beforeEach called", to.name, from.name);
     if (to.name !== from.name) {
       handleRouteChange();
-    }
-    if (!_query.enabled) {
-      return;
     }
     // check fingerprint if query modified
     const actualFingerprint = queryFingerprint(to.query);
@@ -137,9 +118,6 @@ function setup(
       const actualFingerprint = queryFingerprint(_query.rawQuery);
       fingerprint = actualFingerprint.fingerprint;
       //detailedFingerprint = actualFingerprint.detailedFingerprint;
-      if (querySettings!.onChange) {
-        querySettings!.onChange(_query.rawQuery, _query.query);
-      }
       const op = navigationOperation(_query.query, router);
       router[op]({ query: _query.rawQuery });
     },
@@ -195,15 +173,4 @@ const QuerySynchronizer = {
     setup(router, debug || false, navigationOperation || "push");
   },
 };
-
-/**
- * Vue plugin. Usage:
- * ```
- * createApp(App).use(router).use(QuerySynchronizer, { router, debug: true })
- * ```
- *
- * @param router application's router
- * @param datatypes an optional array of custom (user-defined) datatypes
- * @param debug if set to true, print library's debug messages
- */
 export default QuerySynchronizer;
