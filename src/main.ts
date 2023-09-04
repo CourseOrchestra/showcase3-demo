@@ -32,7 +32,7 @@ import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 
-import QuerySynchronizer from "@/library";
+import URLMapper from "@/library/URLMapper";
 
 loadFonts();
 
@@ -219,7 +219,7 @@ const app = createApp(App)
   .component("TreeTable", TreeTable)
 
   .use(vuetify) /*.use(showcase3)*/
-  .use(QuerySynchronizer, {
+  .use(URLMapper, {
     router: router,
   })
 

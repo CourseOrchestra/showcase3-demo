@@ -2,10 +2,6 @@ import { reactive, watch, App } from "vue";
 import { LocationQuery, Router } from "vue-router";
 import { WatchStopHandle } from "vue";
 
-type ParsedQuery = {
-  [key: string]: object;
-};
-
 interface DetailedFingerprint {
   [key: string]: string | null;
 }
@@ -42,6 +38,10 @@ function queryFingerprint(query: LocationQuery): {
   }
   return { fingerprint, detailedFingerprint };
 }
+
+type ParsedQuery = {
+  [key: string]: object;
+};
 
 const _query = reactive({
   query: {} as ParsedQuery,
@@ -140,7 +140,7 @@ export type URLParam = {
 
 let arrModel: Array<URLParam>;
 
-export function useQuery(_arrModel: Array<URLParam>): ParsedQuery {
+export function useURLMapper(_arrModel: Array<URLParam>): ParsedQuery {
   arrModel = _arrModel;
 
   arrModel.forEach((element: URLParam) => {
@@ -160,9 +160,9 @@ export function useQuery(_arrModel: Array<URLParam>): ParsedQuery {
   return _query.query;
 }
 
-const QuerySynchronizer = {
+const URLMapper = {
   install(app: App, { router }: { router: Router }) {
     setup(router);
   },
 };
-export default QuerySynchronizer;
+export default URLMapper;
