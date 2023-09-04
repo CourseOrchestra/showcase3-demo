@@ -369,13 +369,6 @@ export function useQuery<T = GenericParsedQuery>(
   return proxiedQuery as TypedParsedQuery<T>;
 }
 
-/**
- * @internal
- */
-export function useRawQuery() {
-  return _query;
-}
-
 export function watchQuery(fn: (...x: any[]) => any) {
   watch(
     function () {
@@ -385,10 +378,6 @@ export function watchQuery(fn: (...x: any[]) => any) {
       return fn;
     },
   );
-}
-
-export function queryWatchSource() {
-  return _query.serializedId;
 }
 
 const QuerySynchronizer = {
@@ -420,7 +409,6 @@ const QuerySynchronizer = {
       });
     }
     setup(router, _datatypes, debug || false, navigationOperation || "push");
-    app.config.globalProperties.$query = useQuery([]);
   },
 };
 
@@ -435,5 +423,3 @@ const QuerySynchronizer = {
  * @param debug if set to true, print library's debug messages
  */
 export default QuerySynchronizer;
-
-export { proxiedQuery as query };
