@@ -15,7 +15,7 @@ let fingerprint: string | null = null;
 let detailedFingerprint: DetailedFingerprint = {};
 let watchers: { [key: string]: WatchStopHandle } = {};
 
-/* eslint @typescript-eslint/no-explicit-any: "off" */
+/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
 function serializeChangedValue(key: string, value: any) {
   _query.rawQuery[key] = JSON.stringify(value, null);
 
@@ -90,6 +90,7 @@ function setup(_router: Router) {
 }
 
 export type URLObject = {
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   [key: string]: any;
 };
 
@@ -123,6 +124,7 @@ export function useQuery(_arrModel: Array<URLParam>): ParsedQuery {
 
 const QuerySynchronizer = {
   install(
+    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
     app: any,
     {
       router,
