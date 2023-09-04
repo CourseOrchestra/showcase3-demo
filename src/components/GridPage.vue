@@ -120,7 +120,7 @@ const loadFromServer = async () => {
 };
 
 const mapModelToUrl = () => {
-  /* eslint @typescript-eslint/no-explicit-any: "off" */
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   const parameters: { [k: string]: any } = {};
   const { page, rowsPerPage, sortBy, sortType } = serverOptions.value;
   parameters["page"] = page;
@@ -134,7 +134,7 @@ const mapModelToUrl = () => {
   return parameters;
 };
 
-/* eslint @typescript-eslint/no-explicit-any: "off" */
+/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
 const mapUrlToModel = (parameters: { [x: string]: any }) => {
   if (parameters["limit"] && parameters["page"]) {
     serverOptions.value.rowsPerPage = Number(parameters["limit"]);
