@@ -149,7 +149,7 @@ export type URLParam = {
 
 let arrModel: Array<URLParam> = [];
 
-export function useURLMapper(_arrModel: Array<URLParam>): ParsedQuery {
+export function useURLMapper(_arrModel: Array<URLParam>) {
   arrModel = _arrModel;
 
   arrModel.forEach((param: URLParam) => {
@@ -165,13 +165,10 @@ export function useURLMapper(_arrModel: Array<URLParam>): ParsedQuery {
     _query.query[param.name] = param.obj;
     setWatcher(param.name);
   });
-
-  return _query.query;
 }
 
-export function addURLMapper(_addModel: Array<URLParam>) {
-  /* eslint-disable-next-line  @typescript-eslint/no-unused-vars */
-  _addModel = [];
+export function debugURLMapper(): ParsedQuery {
+  return _query.query;
 }
 
 export default {

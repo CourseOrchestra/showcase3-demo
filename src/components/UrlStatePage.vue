@@ -144,14 +144,14 @@
     </v-card>
 
     <v-card title="URLMapper">
-      <pre>{{ url }}</pre>
+      <pre>{{ debugURLMapper() }}</pre>
     </v-card>
   </vContainer>
 </template>
 
 <script setup lang="ts">
 import { setTitle } from "@/utils/common";
-import { addURLMapper, useURLMapper } from "@/library/URLMapper";
+import { debugURLMapper, useURLMapper } from "@/library/URLMapper";
 import { ref } from "vue";
 
 setTitle("urlstate");
@@ -176,7 +176,7 @@ const violation = ref<Violation>({
   status: undefined,
 });
 
-const url = useURLMapper([
+useURLMapper([
   {
     name: "violation",
     obj: violation.value,
@@ -222,7 +222,7 @@ const violationAdd = ref<Violation>({
 });
 
 function addMapping() {
-  addURLMapper([
+  useURLMapper([
     {
       name: "violationAdd",
       obj: violationAdd.value,
