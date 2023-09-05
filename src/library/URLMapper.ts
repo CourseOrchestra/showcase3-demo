@@ -148,18 +148,18 @@ let arrModel: Array<URLParam> = [];
 export function useURLMapper(_arrModel: Array<URLParam>): ParsedQuery {
   arrModel = _arrModel;
 
-  arrModel.forEach((element: URLParam) => {
-    if (_query.query[element.name]) {
-      element.props.forEach((prop: string) => {
-        if (typeof _query.query[element.name] === "object") {
-          element.obj[prop] = _query.query[element.name][prop];
+  arrModel.forEach((param: URLParam) => {
+    if (_query.query[param.name]) {
+      param.props.forEach((prop: string) => {
+        if (typeof _query.query[param.name] === "object") {
+          param.obj[prop] = _query.query[param.name][prop];
         } else {
-          element.obj[prop] = _query.query[element.name];
+          param.obj[prop] = _query.query[param.name];
         }
       });
     }
-    _query.query[element.name] = element.obj;
-    setWatcher(element.name);
+    _query.query[param.name] = param.obj;
+    setWatcher(param.name);
   });
 
   return _query.query;
