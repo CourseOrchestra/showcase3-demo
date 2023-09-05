@@ -56,7 +56,10 @@ let detailedFingerprint: DetailedFingerprint = {};
 let watchers: { [key: string]: WatchStopHandle } = {};
 
 function serializeChangedValue(key: string, value: object) {
-  _query.rawQuery[key] = JSON.stringify(value, null);
+  _query.rawQuery[key] = JSON.stringify(
+    value,
+    arrModel.filter((param) => param.name === key)[0].props,
+  );
 
   const actualFingerprint = queryFingerprint(_query.rawQuery);
   fingerprint = actualFingerprint.fingerprint;
