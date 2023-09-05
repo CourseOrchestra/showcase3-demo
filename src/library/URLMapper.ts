@@ -169,6 +169,11 @@ export function useURLMapper(_arrModel: Array<URLParam>): ParsedQuery {
   return _query.query;
 }
 
+export function addURLMapper(_addModel: Array<URLParam>) {
+  /* eslint-disable-next-line  @typescript-eslint/no-unused-vars */
+  _addModel = [];
+}
+
 export default {
   install(app: App, { router }: { router: Router }) {
     setup(router);

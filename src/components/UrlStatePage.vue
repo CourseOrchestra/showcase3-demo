@@ -10,6 +10,10 @@
         >changeViolationName</v-btn
       >
       <v-btn class="text-none" @click="changeStrName">changeStrValue</v-btn>
+      <v-btn class="text-none" @click="addMapping"
+        >Позднее добавление мэппинга</v-btn
+      >
+
       <!--    tag::template_i18n[] -->
       <v-app-bar-title>{{ $t("UrlStatePage.title") }} </v-app-bar-title>
       <!--    end::template_i18n[] -->
@@ -77,6 +81,68 @@
       </vRow>
     </v-card>
 
+    <v-card title="Объект для позднего добавления мэппинга">
+      <vRow>
+        <vCol>
+          <vTextField
+            v-model="violationAdd.group"
+            outlined
+            label="violationAdd.group"
+          ></vTextField>
+        </vCol>
+        <vCol>
+          <vTextField
+            v-model="violationAdd.status"
+            outlined
+            label="violationAdd.status"
+          ></vTextField>
+        </vCol>
+      </vRow>
+      <vRow>
+        <vCol>
+          <vTextField
+            v-model="violationAdd.name"
+            outlined
+            label="violationAdd.name"
+          ></vTextField>
+        </vCol>
+        <vCol>
+          <vTextField
+            v-model.number="violationAdd.num"
+            outlined
+            label="violationAdd.num"
+            type="number"
+          ></vTextField>
+        </vCol>
+        <vCol>
+          <v-checkbox
+            v-model="violationAdd.inspector"
+            outlined
+            label="violationAdd.inspector"
+          ></v-checkbox>
+        </vCol>
+      </vRow>
+    </v-card>
+
+    <v-card title="Примитивы для позднего добавления мэппинга">
+      <vRow>
+        <vCol>
+          <vTextField v-model="strAdd" outlined label="strAdd"></vTextField>
+        </vCol>
+        <vCol>
+          <vTextField
+            v-model.number="numAdd"
+            outlined
+            label="numAdd"
+            type="number"
+          ></vTextField>
+        </vCol>
+        <vCol>
+          <v-checkbox v-model="logAdd" outlined label="logAdd"></v-checkbox>
+        </vCol>
+      </vRow>
+    </v-card>
+
     <v-card title="URLMapper">
       <pre>{{ url }}</pre>
     </v-card>
@@ -85,7 +151,7 @@
 
 <script setup lang="ts">
 import { setTitle } from "@/utils/common";
-import { useURLMapper } from "@/library/URLMapper";
+import { addURLMapper, useURLMapper } from "@/library/URLMapper";
 import { ref } from "vue";
 
 setTitle("urlstate");
@@ -141,5 +207,45 @@ function changeViolationName() {
 }
 function changeStrName() {
   str.value = "gg";
+}
+
+const strAdd = ref();
+const numAdd = ref();
+const logAdd = ref();
+
+const violationAdd = ref<Violation>({
+  group: undefined,
+  name: undefined,
+  num: undefined,
+  inspector: undefined,
+  status: undefined,
+});
+
+function addMapping() {
+  addURLMapper([
+    {
+      name: "violationAdd",
+      obj: violationAdd.value,
+      props: ["name", "num", "inspector"],
+    },
+
+    {
+      name: "strAdd",
+      obj: strAdd,
+      props: ["value"],
+    },
+
+    {
+      name: "numAdd",
+      obj: numAdd,
+      props: ["value"],
+    },
+
+    {
+      name: "logAdd",
+      obj: logAdd,
+      props: ["value"],
+    },
+  ]);
 }
 </script>
