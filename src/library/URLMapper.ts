@@ -165,6 +165,10 @@ export function useURLMapper(useModel: Array<URLParam>) {
   });
 
   arrModel.push(...useModel);
+
+  useModel.forEach((param: URLParam) => {
+    serializeChangedValue(param.name, _query.query[param.name]);
+  });
 }
 
 export function debugURLMapper(): ParsedQuery {
