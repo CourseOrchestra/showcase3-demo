@@ -149,10 +149,8 @@ export type URLParam = {
 
 let arrModel: Array<URLParam> = [];
 
-export function useURLMapper(_arrModel: Array<URLParam>) {
-  arrModel = _arrModel;
-
-  arrModel.forEach((param: URLParam) => {
+export function useURLMapper(useModel: Array<URLParam>) {
+  useModel.forEach((param: URLParam) => {
     if (_query.query[param.name]) {
       param.props.forEach((prop: string) => {
         if (typeof _query.query[param.name] === "object") {
@@ -165,6 +163,8 @@ export function useURLMapper(_arrModel: Array<URLParam>) {
     _query.query[param.name] = param.obj;
     setWatcher(param.name);
   });
+
+  arrModel.push(...useModel);
 }
 
 export function debugURLMapper(): ParsedQuery {
