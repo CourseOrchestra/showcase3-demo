@@ -87,6 +87,7 @@ function handleRouteChange() {
   Object.keys(_query.query).forEach(function (key) {
     delete _query.query[key];
   });
+  arrModel = [];
   clearWatchers();
 }
 
@@ -139,7 +140,7 @@ export type URLParam = {
   props: Array<string>;
 };
 
-let arrModel: Array<URLParam>;
+let arrModel: Array<URLParam> = [];
 
 export function useURLMapper(_arrModel: Array<URLParam>): ParsedQuery {
   arrModel = _arrModel;
