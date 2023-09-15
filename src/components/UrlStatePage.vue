@@ -151,7 +151,7 @@
 
 <script setup lang="ts">
 import { setTitle } from "@/utils/common";
-import { debugURLMapper, useURLMapper } from "@/library/URLMapper";
+import { debugURLMapper, useURLMapper } from "showcase3/src/library/URLMapper";
 import { ref } from "vue";
 
 setTitle("urlstate");
