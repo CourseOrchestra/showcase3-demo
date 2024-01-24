@@ -62,6 +62,29 @@
       @update:options="options = $event"
     >
       <template #expanded-row> This is an expanded row </template>
+
+      <!--
+
+
+      <template #[`header.name`]="{ column }">
+        <c-overflow-text :text="column.title" :line-clamp="3">
+        </c-overflow-text>
+      </template>
+
+      <template #[`header.calories`]="{ column }">
+        <c-overflow-text :text="column.title" :line-clamp="3">
+        </c-overflow-text>
+      </template>
+
+-->
+
+      <!--
+
+      <template v-slot:header="{ props }">
+        v-for="head in props.headers">{{ head.title.toUpperCase() }}
+      </template>
+
+-->
     </v-data-table-server>
   </vContainer>
 </template>
@@ -85,12 +108,24 @@ export default {
       options: {},
       headers: [
         {
-          title: "Dessert (100g serving)",
+          title:
+            "1234 2222 3333 4444 5555 6666 7777 ' +\n" +
+            "          '9999999999999999999999999999999999  00000000000000' +\n" +
+            "          '1111111111 3333333333333 454444444 6666666666 88888 999999 2222222' +\n" +
+            "          'dasda fdgdg fghfghfghfg fghfghgf",
           align: "start",
           sortable: false,
           key: "name",
+          width: 100,
         },
-        { title: "Calories", key: "calories" },
+        {
+          title:
+            "5678 2222 3333 4444 5555 6666 7777 ' +\n" +
+            "          '9999999999999999999999999999999999  00000000000000' +\n" +
+            "          '1111111111 3333333333333 454444444 6666666666 88888 999999 2222222' +\n" +
+            "          'dasda fdgdg fghfghfghfg fghfghgf",
+          key: "calories",
+        },
         { title: "Fat (g)", key: "fat" },
         { title: "Carbs (g)", key: "carbs" },
         { title: "Protein (g)", key: "protein" },
@@ -152,7 +187,7 @@ export default {
     getDesserts() {
       return [
         {
-          name: "Frozen Yogurt",
+          name: "Frozen Yogurt22",
           calories: 159,
           fat: 6.0,
           carbs: 24,
