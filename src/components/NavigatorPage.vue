@@ -21,6 +21,27 @@
     <br />
     <br />
 
+    <v-card width="300" title="Заголовок" variant="outlined">
+      <div
+        style="
+          color: red;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+        "
+      >
+        '1111 2222 3333 4444 5555 6666 7777 ' +
+        '9999999999999999999999999999999999 00000000000000' + '1111111111
+        3333333333333 454444444 6666666666 88888 999999 2222222' + 'dasda fdgdg
+        fghfghfghfg fghfghgf'
+      </div>
+    </v-card>
+
+    <br />
+    <br />
+
     <!--
     <v-table>
       <thead>
@@ -62,6 +83,42 @@
       @update:options="options = $event"
     >
       <template #expanded-row> This is an expanded row </template>
+
+      <!--
+      <template v-for="h in headers" v-slot:[`header.${h.value}`]="{ header }">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <span v-on="on">{{h.text}}</span>
+          </template>
+          <span>{{h.text}}</span>
+        </v-tooltip>
+      </template>
+-->
+
+      <template
+        v-for="h in headers"
+        #[`header.${h.key}`]="{
+          /*column*/
+        }"
+        :key="h.key"
+      >
+        <v-tooltip location="top">
+          <template #activator="{ props }">
+            <span
+              v-bind="props"
+              style="
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+              "
+            >
+              {{ h.title }}
+            </span>
+          </template>
+          <span>{{ h.title }}</span>
+        </v-tooltip>
+      </template>
 
       <!--
 
@@ -109,10 +166,7 @@ export default {
       headers: [
         {
           title:
-            "1234 2222 3333 4444 5555 6666 7777 ' +\n" +
-            "          '9999999999999999999999999999999999  00000000000000' +\n" +
-            "          '1111111111 3333333333333 454444444 6666666666 88888 999999 2222222' +\n" +
-            "          'dasda fdgdg fghfghfghfg fghfghgf",
+            "1234 2222 3333 4444 5555 6666 7777 9999999999999999999999999999999999  00000000000000 1111111111 3333333333333 454444444 6666666666 88888 999999 2222222 dasda fdgdg fghfghfghfg fghfghgf",
           align: "start",
           sortable: false,
           key: "name",
@@ -120,10 +174,7 @@ export default {
         },
         {
           title:
-            "5678 2222 3333 4444 5555 6666 7777 ' +\n" +
-            "          '9999999999999999999999999999999999  00000000000000' +\n" +
-            "          '1111111111 3333333333333 454444444 6666666666 88888 999999 2222222' +\n" +
-            "          'dasda fdgdg fghfghfghfg fghfghgf",
+            "5678 2222 3333 4444 5555 6666 7777 9999999999999999999999999999999999  00000000000000 1111111111 3333333333333 454444444 6666666666 88888 999999 2222222 dasda fdgdg fghfghfghfg fghfghgf",
           key: "calories",
         },
         { title: "Fat (g)", key: "fat" },
