@@ -5,16 +5,24 @@
     <br />
     <br />
 
+    <h2>Собственно, календарь</h2>
+    <div class="card flex">
+      <Calendar v-model="date" date-format="dd/mm/yy" />
+    </div>
+
+    <br />
+    <h2>Дополнительные способы показа календаря</h2>
+    <br />
     <div class="card flex flex-wrap gap-3 p-fluid">
       <div class="flex-auto">
         <label for="buttondisplay" class="font-bold block mb-2">
-          Button Display
+          По кнопке
         </label>
         <Calendar v-model="buttondisplay" show-icon input-id="buttondisplay" />
       </div>
       <div class="flex-auto">
         <label for="icondisplay" class="font-bold block mb-2">
-          Icon Display
+          По картинке
         </label>
         <Calendar
           v-model="icondisplay"
@@ -25,7 +33,7 @@
       </div>
       <div class="flex-auto">
         <label for="templatedisplay" class="font-bold block mb-2">
-          Icon Template
+          По шаблону картинки
         </label>
         <Calendar
           v-model="templatedisplay"
@@ -49,7 +57,13 @@ import { setTitle } from "@/utils/common";
 
 setTitle("datepicker");
 
+const date = ref();
+
 const buttondisplay = ref();
 const icondisplay = ref();
 const templatedisplay = ref();
+
+date.value = new Date();
+buttondisplay.value = new Date();
+icondisplay.value = new Date();
 </script>
