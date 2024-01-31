@@ -27,6 +27,7 @@ import ToastService from "primevue/toastservice";
 import Dropdown from "primevue/dropdown";
 import Checkbox from "primevue/checkbox";
 import TreeTable from "primevue/treetable";
+import Calendar from "primevue/calendar";
 import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
@@ -217,6 +218,7 @@ const app = createApp(App)
   .component("Dropdown", Dropdown)
   .component("Checkbox", Checkbox)
   .component("TreeTable", TreeTable)
+  .component("Calendar", Calendar)
 
   .use(vuetify) /*.use(showcase3)*/
   .use(URLMapper, {
