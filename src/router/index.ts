@@ -14,6 +14,7 @@ import PrimeVueDataTableVirtualPage from "@/components/PrimeVueDataTableVirtualP
 import PrimeVueLyraGridPage from "@/components/PrimeVueLyraGridPage.vue";
 import PrimeVueTreeGroupPage from "@/components/PrimeVueTreeGroupPage.vue";
 import PrimeVueDataGroupPage from "@/components/PrimeVueDataGroupPage.vue";
+import DatePickerPage from "@/components/DatePickerPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -35,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/navigator",
     name: "navigator",
     component: () => import("@/components/NavigatorPage.vue"),
+  },
+  {
+    path: "/datepicker",
+    name: "datepicker",
+    component: DatePickerPage,
   },
   {
     path: "/grid",

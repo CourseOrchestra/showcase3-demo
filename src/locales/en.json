@@ -33,6 +33,7 @@
       "logocurs": "Logo CURS",
       "logoplatform": "Logo Platform",
       "navigator": "Navigator",
+      "datepicker": "DatePicker",
       "grid": "Grid",
       "gridvuetify": "Vuetify Page grid",
       "gridvuetifyvirtual": "Vuetify Virtual grid",

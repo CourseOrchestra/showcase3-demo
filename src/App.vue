@@ -89,6 +89,10 @@ const links = [
         to: "/navigator",
       },
       {
+        text: "App.menu.datepicker",
+        to: "/datepicker",
+      },
+      {
         text: "App.menu.urlstate",
         to: "/urlstate",
       },
