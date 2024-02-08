@@ -5,6 +5,12 @@
     <br />
     <br />
 
+    <c-btn class="outer-app-bar-nav-icon" hint="fffffff">
+      <v-icon>mdi-menu</v-icon>
+    </c-btn>
+    <br />
+    <br />
+
     <v-card width="300" title="Заголовок" variant="outlined">
       <c-overflow-text
         :text="
@@ -162,9 +168,11 @@
 <script>
 import { setTitle } from "@/utils/common";
 import COverflowText from "@/components/common/COverflowText.vue";
+import CBtn from "@/components/common/CBtn.vue";
 
 export default {
   components: {
+    CBtn,
     COverflowText,
   },
 
