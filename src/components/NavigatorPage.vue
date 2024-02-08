@@ -116,9 +116,9 @@
         :key="h.key"
       >
         <v-tooltip location="top">
-          <template #activator="{ prop }">
+          <template #activator="{ props }">
             <span
-              v-bind="prop"
+              v-bind="props"
               :style="`
                 -webkit-line-clamp:  ${lineClamp};
                 overflow: hidden;
