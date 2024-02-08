@@ -96,6 +96,19 @@
 -->
 
       <template
+        v-for="(_, slot) of $slots"
+        #[slot]="//@ts-ignore
+     scope"
+      >
+        <slot v-if="slot === 'top'" name="top"></slot>
+        <slot
+          v-if="slot.toString().substring(0, 5) === 'item.'"
+          :name="slot"
+          v-bind="scope"
+        />
+      </template>
+
+      <template
         v-for="h in headers"
         #[`header.${h.key}`]="{
           /*column*/
@@ -103,15 +116,15 @@
         :key="h.key"
       >
         <v-tooltip location="top">
-          <template #activator="{ props }">
+          <template #activator="{ prop }">
             <span
-              v-bind="props"
-              style="
-                -webkit-line-clamp: 3;
+              v-bind="prop"
+              :style="`
+                -webkit-line-clamp:  ${lineClamp};
                 overflow: hidden;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
-              "
+              `"
             >
               {{ h.title }}
             </span>
@@ -159,6 +172,8 @@ export default {
     setTitle("navigator");
 
     return {
+      lineClamp: 4,
+
       totalDesserts: 0,
       desserts: [],
       loading: true,
