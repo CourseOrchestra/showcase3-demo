@@ -1,10 +1,10 @@
 <template>
   <div
     class="c-overflow-text"
-    :title="props.text"
     :style="`-webkit-line-clamp: ${props.lineClamp}`"
   >
     {{ props.text }}
+    <v-tooltip activator="parent" location="top"> {{ props.text }} </v-tooltip>
   </div>
 </template>
 
