@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.26.6",
+  "version": "1.26.7",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -37,8 +37,11 @@
     "vue-router": "^4.2.5",
     "vue3-easy-data-table": "^1.5.47",
     "vuetify": "^3.5.2",
-    "webfontloader": "^1.6.28"
-   },
+    "webfontloader": "^1.6.28",
+
+    "maska": "^2.1.9",
+    "@vuepic/vue-datepicker": "^5.4.0"
+  },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^6.0.3",
     "@pinia/testing": "^0.1.3",

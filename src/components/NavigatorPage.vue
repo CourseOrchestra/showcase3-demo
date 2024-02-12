@@ -5,7 +5,19 @@
     <br />
     <br />
 
-    <c-btn class="outer-app-bar-nav-icon" hint="fffffff">
+    <c-date-picker v-model="dateField" :label="`Дата`" cols="3" />
+    <br />
+    <br />
+
+    <c-range-date-picker
+      v-model="dateRange"
+      label="range date-picker"
+      cols="6"
+    />
+    <br />
+    <br />
+
+    <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugDate">
       <v-icon>mdi-menu</v-icon>
     </c-btn>
     <br />
@@ -169,17 +181,28 @@
 import { setTitle } from "@/utils/common";
 import COverflowText from "@/components/common/COverflowText.vue";
 import CBtn from "@/components/common/CBtn.vue";
+import CDatePicker from "@/components/common/CDatePicker.vue";
+import CRangeDatePicker from "@/components/common/CRangeDatePicker.vue";
 
 export default {
   components: {
     CBtn,
     COverflowText,
+    CDatePicker,
+    CRangeDatePicker,
   },
 
   data() {
     setTitle("navigator");
 
     return {
+      dateRange: {
+        dateStart: {},
+        dateEnd: {},
+      },
+
+      dateField: null,
+
       lineClamp: 4,
 
       totalDesserts: 0,
@@ -216,6 +239,13 @@ export default {
     },
   },
   methods: {
+    debugDate() {
+      /* eslint-disable-next-line  no-console */
+      console.log(this.dateField);
+      /* eslint-disable-next-line  no-console */
+      console.log(this.dateRange);
+    },
+
     getDataFromApi() {
       this.loading = true;
       this.fakeApiCall().then((data) => {
