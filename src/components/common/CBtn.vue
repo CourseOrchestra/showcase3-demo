@@ -2,7 +2,7 @@
   <c-field-col v-if="cols" :cols="`${cols}`">
     <v-btn v-bind="$attrs" class="c-btn" variant="plain">
       <slot></slot>
-      <v-tooltip activator="parent" location="top">
+      <v-tooltip v-if="props.hint" activator="parent" location="top">
         {{ props.hint }}
       </v-tooltip>
     </v-btn>
@@ -10,7 +10,9 @@
 
   <v-btn v-else v-bind="$attrs" class="c-btn">
     <slot></slot>
-    <v-tooltip activator="parent" location="top"> {{ props.hint }} </v-tooltip>
+    <v-tooltip v-if="props.hint" activator="parent" location="top">
+      {{ props.hint }}
+    </v-tooltip>
   </v-btn>
 </template>
 <script setup lang="ts">
