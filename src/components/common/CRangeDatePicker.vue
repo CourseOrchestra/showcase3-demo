@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed /*PropType*/ } from "vue";
+import { computed, PropType } from "vue";
 //import { SrokDTO } from "@/apidtos";
 import { formatDate, parseDate } from "@/utils/common";
 import { MaskInput } from "maska";
@@ -30,6 +30,7 @@ import CFieldCol from "@/components/common/CFieldCol.vue";
 const props = defineProps({
   modelValue: {
     //type: Object as PropType<SrokDTO>,
+    type: Object as PropType<unknown>,
     required: true,
   },
   label: {
