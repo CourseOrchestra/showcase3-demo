@@ -5,7 +5,15 @@
     <br />
     <br />
 
-    <c-date-picker v-model="dateField" :label="`Дата`" cols="3" />
+    <v-date-picker multiple="2"></v-date-picker>
+
+    <c-date-picker
+      v-model="dateField"
+      label="Дата"
+      :hidden="false"
+      :disabled="false"
+      cols="3"
+    />
     <br />
     <br />
 
