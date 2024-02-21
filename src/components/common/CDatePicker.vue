@@ -16,6 +16,32 @@
       clearable
     />
   </c-field-col>
+
+  <div>
+    <v-menu
+      v-model="menu"
+      :close-on-content-click="false"
+      :nudge-right="40"
+      transition="scale-transition"
+      offset-y
+      min-width="290px"
+    >
+      <template #activator="{ props }">
+        <v-text-field
+          v-bind="props"
+          :model-value="dateFormatted"
+          variant="outlined"
+          append-inner-icon="mdi-calendar"
+        ></v-text-field>
+      </template>
+
+      <v-date-picker
+        color="primary"
+        :model-value="getDate"
+        @update:model-value="updateDate"
+      ></v-date-picker>
+    </v-menu>
+  </div>
 </template>
 
 <script lang="ts">
@@ -58,6 +84,12 @@ export default {
     hidden: {
       type: Boolean,
     },
+
+    ////////////////////////////////////////
+    value: {
+      type: String,
+      default: "2023-10-10",
+    },
   },
   emits: ["update:modelValue"],
   /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
@@ -70,6 +102,44 @@ export default {
       localValue,
     };
   },
+  data() {
+    return {
+      menu: false,
+      input: null,
+    };
+  },
+  computed: {
+    dateFormatted() {
+      const date = this.input ? new Date(this.input) : new Date();
+      let month = 1 + date.getMonth();
+      if (month < 10) {
+        month = `0${month}`;
+      }
+      let day = date.getDate();
+      if (day < 10) {
+        day = `0${day}`;
+      }
+      return `${date.getFullYear()}-${month}-${day}`;
+    },
+    getDate() {
+      /**
+       * Return ISO 8601
+       */
+      const date = this.input ? new Date(this.input) : new Date();
+      return date;
+    },
+  },
+
+  ////////////////////////////////////////
+
+  watch: {
+    value: {
+      handler(val) {
+        this.input = val;
+      },
+      immediate: true,
+    },
+  },
   mounted() {
     new MaskInput(
       document.querySelectorAll(
@@ -78,6 +148,14 @@ export default {
       ) as NodeListOf<HTMLInputElement>,
       { mask: "##.##.####" },
     );
+  },
+  methods: {
+    updateDate(val) {
+      // this.menu = false;
+      this.input = val;
+      /* eslint-disable-next-line  no-console */
+      console.error(val);
+    },
   },
 };
 </script>
