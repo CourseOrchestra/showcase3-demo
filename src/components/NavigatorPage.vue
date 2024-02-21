@@ -94,94 +94,18 @@
     </v-table>
 -->
 
-    <v-data-table-server
+    <c-grid
       :headers="headers"
       :items="desserts"
       :items-length="totalDesserts"
       :loading="loading"
       :items-per-page="10"
       item-value="name"
-      show-select
-      show-expand
-      class="elevation-1"
-      fixed-footer
-      fixed-header
+      class="c-grid"
+      :headers-line-clamp="3"
       @update:options="options = $event"
     >
-      <template #expanded-row> This is an expanded row </template>
-
-      <!--
-      <template v-for="h in headers" v-slot:[`header.${h.value}`]="{ header }">
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on }">
-            <span v-on="on">{{h.text}}</span>
-          </template>
-          <span>{{h.text}}</span>
-        </v-tooltip>
-      </template>
--->
-
-      <template
-        v-for="(_, slot) of $slots"
-        #[slot]="//@ts-ignore
-     scope"
-      >
-        <slot v-if="slot === 'top'" name="top"></slot>
-        <slot
-          v-if="slot.toString().substring(0, 5) === 'item.'"
-          :name="slot"
-          v-bind="scope"
-        />
-      </template>
-
-      <template
-        v-for="h in headers"
-        #[`header.${h.key}`]="{
-          /*column*/
-        }"
-        :key="h.key"
-      >
-        <v-tooltip location="top">
-          <template #activator="{ props }">
-            <span
-              v-bind="props"
-              :style="`
-                -webkit-line-clamp:  ${lineClamp};
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-              `"
-            >
-              {{ h.title }}
-            </span>
-          </template>
-          <span>{{ h.title }}</span>
-        </v-tooltip>
-      </template>
-
-      <!--
-
-
-      <template #[`header.name`]="{ column }">
-        <c-overflow-text :text="column.title" :line-clamp="3">
-        </c-overflow-text>
-      </template>
-
-      <template #[`header.calories`]="{ column }">
-        <c-overflow-text :text="column.title" :line-clamp="3">
-        </c-overflow-text>
-      </template>
-
--->
-
-      <!--
-
-      <template v-slot:header="{ props }">
-        v-for="head in props.headers">{{ head.title.toUpperCase() }}
-      </template>
-
--->
-    </v-data-table-server>
+    </c-grid>
   </vContainer>
 </template>
 
@@ -191,6 +115,7 @@ import COverflowText from "@/components/common/COverflowText.vue";
 import CBtn from "@/components/common/CBtn.vue";
 import CDatePicker from "@/components/common/CDatePicker.vue";
 import CRangeDatePicker from "@/components/common/CRangeDatePicker.vue";
+import CGrid from "@/components/common/CGrid.vue";
 
 export default {
   components: {
@@ -198,6 +123,7 @@ export default {
     COverflowText,
     CDatePicker,
     CRangeDatePicker,
+    CGrid,
   },
 
   data() {
@@ -211,7 +137,7 @@ export default {
 
       dateField: null,
 
-      lineClamp: 4,
+      lineClamp: 2,
 
       totalDesserts: 0,
       desserts: [],
@@ -224,12 +150,13 @@ export default {
           align: "start",
           sortable: false,
           key: "name",
-          width: 100,
+          width: 200,
         },
         {
           title:
             "5678 2222 3333 4444 5555 6666 7777 9999999999999999999999999999999999  00000000000000 1111111111 3333333333333 454444444 6666666666 88888 999999 2222222 dasda fdgdg fghfghfghfg fghfghgf",
           key: "calories",
+          width: 200,
         },
         { title: "Fat (g)", key: "fat" },
         { title: "Carbs (g)", key: "carbs" },
