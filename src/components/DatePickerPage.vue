@@ -5,6 +5,32 @@
     <br />
     <br />
 
+    <v-date-picker multiple="2"></v-date-picker>
+
+    <c-date-picker
+      v-model="dateField"
+      label="Дата"
+      :hidden="false"
+      :disabled="false"
+      cols="3"
+    />
+    <br />
+    <br />
+
+    <c-range-date-picker
+      v-model="dateRange"
+      label="range date-picker"
+      cols="6"
+    />
+    <br />
+    <br />
+
+    <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugDate">
+      <v-icon>mdi-menu</v-icon>
+    </c-btn>
+    <br />
+    <br />
+
     <h2>Собственно, календарь</h2>
     <div class="card flex">
       <Calendar v-model="date" date-format="dd/mm/yy" />
@@ -54,6 +80,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { setTitle } from "@/utils/common";
+import CDatePicker from "@/components/common/CDatePicker.vue";
+import CBtn from "@/components/common/CBtn.vue";
+import CRangeDatePicker from "@/components/common/CRangeDatePicker.vue";
 
 setTitle("datepicker");
 
@@ -66,4 +95,18 @@ const templatedisplay = ref();
 date.value = new Date();
 buttondisplay.value = new Date();
 icondisplay.value = new Date();
+
+const dateField = ref();
+
+const dateRange = ref({
+  dateStart: {},
+  dateEnd: {},
+});
+
+const debugDate = () => {
+  /* eslint-disable-next-line  no-console */
+  console.log(dateField);
+  /* eslint-disable-next-line  no-console */
+  console.log(dateRange);
+};
 </script>

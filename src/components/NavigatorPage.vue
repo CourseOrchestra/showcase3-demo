@@ -5,27 +5,7 @@
     <br />
     <br />
 
-    <v-date-picker multiple="2"></v-date-picker>
-
-    <c-date-picker
-      v-model="dateField"
-      label="Дата"
-      :hidden="false"
-      :disabled="false"
-      cols="3"
-    />
-    <br />
-    <br />
-
-    <c-range-date-picker
-      v-model="dateRange"
-      label="range date-picker"
-      cols="6"
-    />
-    <br />
-    <br />
-
-    <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugDate">
+    <c-btn class="outer-app-bar-nav-icon" hint="fffffff">
       <v-icon>mdi-menu</v-icon>
     </c-btn>
     <br />
@@ -113,16 +93,12 @@
 import { setTitle } from "@/utils/common";
 import COverflowText from "@/components/common/COverflowText.vue";
 import CBtn from "@/components/common/CBtn.vue";
-import CDatePicker from "@/components/common/CDatePicker.vue";
-import CRangeDatePicker from "@/components/common/CRangeDatePicker.vue";
 import CGrid from "@/components/common/CGrid.vue";
 
 export default {
   components: {
     CBtn,
     COverflowText,
-    CDatePicker,
-    CRangeDatePicker,
     CGrid,
   },
 
@@ -130,13 +106,6 @@ export default {
     setTitle("navigator");
 
     return {
-      dateRange: {
-        dateStart: {},
-        dateEnd: {},
-      },
-
-      dateField: null,
-
       lineClamp: 2,
 
       totalDesserts: 0,
