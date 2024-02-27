@@ -15,9 +15,7 @@
       text-input
       clearable
     />
-  </c-field-col>
 
-  <div>
     <v-menu
       v-model="menu"
       :close-on-content-click="false"
@@ -41,7 +39,7 @@
         @update:model-value="updateDate"
       ></v-date-picker>
     </v-menu>
-  </div>
+  </c-field-col>
 </template>
 
 <script lang="ts">
@@ -149,6 +147,7 @@ export default {
       { mask: "##.##.####" },
     );
   },
+
   methods: {
     updateDate(val) {
       // this.menu = false;
