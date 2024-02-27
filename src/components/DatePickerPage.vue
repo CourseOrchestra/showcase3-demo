@@ -5,13 +5,13 @@
     <br />
     <br />
 
-    <v-date-picker multiple="2"></v-date-picker>
+    <!--    <v-date-picker multiple="2"></v-date-picker>-->
 
     <c-date-picker
       v-model="dateField"
       label="Дата"
       :hidden="false"
-      :disabled="false"
+      :readonly="false"
       cols="3"
     />
     <br />
@@ -26,6 +26,12 @@
     <br />
 
     <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugDate">
+      <v-icon>mdi-menu</v-icon>
+    </c-btn>
+    <br />
+    <br />
+
+    <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugDate2">
       <v-icon>mdi-menu</v-icon>
     </c-btn>
     <br />
@@ -98,15 +104,21 @@ icondisplay.value = new Date();
 
 const dateField = ref();
 
+dateField.value = "2024-02-07";
+
 const dateRange = ref({
   dateStart: {},
   dateEnd: {},
 });
 
 const debugDate = () => {
+  dateField.value = "2024-02-23";
+};
+
+const debugDate2 = () => {
   /* eslint-disable-next-line  no-console */
   console.log(dateField);
   /* eslint-disable-next-line  no-console */
-  console.log(dateRange);
+  //console.log(dateRange);
 };
 </script>
