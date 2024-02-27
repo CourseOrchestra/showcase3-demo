@@ -20,7 +20,7 @@
       </template>
       <v-date-picker
         v-model="selectedDate"
-        title
+        title=""
         :disabled="readonly"
         :class="`masked${readonly ? ' readonly' : ''}`"
       >
@@ -29,7 +29,7 @@
   </c-field-col>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, watch, defineProps, defineEmits } from "vue";
 import CFieldCol from "@/components/common/CFieldCol.vue";
 import { vMaska } from "maska";
@@ -80,7 +80,7 @@ watch(selectedDate, (d) => {
   emit("update:modelValue", [year, month, day].join("-"));
 });
 
-const updateSelectedDate = (val) => {
+const updateSelectedDate = (val: string) => {
   const parts = val.split(".");
   if (
     parts.length === 3 &&
@@ -88,8 +88,12 @@ const updateSelectedDate = (val) => {
     parts[1].length === 2 &&
     parts[2].length === 4
   ) {
-    const date = new Date(parts[2], parts[1] - 1, parts[0]);
-    if (!isNaN(date)) {
+    const date = new Date(
+      parseInt(parts[2]),
+      parseInt(parts[1]) - 1,
+      parseInt(parts[0]),
+    );
+    if (isFinite(Number(date))) {
       selectedDate.value = date;
     }
   }
