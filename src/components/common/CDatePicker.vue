@@ -83,6 +83,11 @@ watch(selectedDate, (d) => {
 });
 
 const updateSelectedDate = (val: string) => {
+  if (!val) {
+    selectedDate.value = new Date("");
+    return;
+  }
+
   const parts = val.split(".");
   if (
     parts.length === 3 &&
