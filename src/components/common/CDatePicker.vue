@@ -60,7 +60,11 @@ const selectedDate = ref(new Date(props.modelValue));
 
 const formattedDate = computed(() => {
   return selectedDate.value && isFinite(Number(selectedDate.value))
-    ? selectedDate.value.toLocaleDateString("ru-RU")
+    ? selectedDate.value.toLocaleDateString("ru-RU", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })
     : "";
 });
 
