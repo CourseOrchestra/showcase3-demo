@@ -18,7 +18,13 @@
     "input": {
       "prependAction": "Prepend Action",
       "clear": "Clear"
+    },
+
+    "datePicker": {
+      "title": "Select Date",
+      "header": "Date"
     }
+
   },
   "App": {
     "platform": "Platform CURS",

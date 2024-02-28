@@ -18,7 +18,13 @@
     "input": {
       "prependAction": "Предварительное действие",
       "clear": "Очистить"
+    },
+
+    "datePicker": {
+      "title": "Выберите дату",
+      "header": "Дата"
     }
+
   },
   "App": {
     "platform": "Платформа КУРС",
