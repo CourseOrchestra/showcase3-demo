@@ -21,8 +21,10 @@
       <v-date-picker
         v-model="selectedDate"
         title=""
+        header=""
         :disabled="readonly"
         :class="`masked${readonly ? ' readonly' : ''}`"
+        show-adjacent-months
       >
       </v-date-picker>
     </v-menu>
