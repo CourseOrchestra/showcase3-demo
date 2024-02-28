@@ -59,7 +59,9 @@ const isMenuOpen = ref(false);
 const selectedDate = ref(new Date(props.modelValue));
 
 const formattedDate = computed(() => {
-  return selectedDate.value ? selectedDate.value.toLocaleDateString() : "";
+  return selectedDate.value && isFinite(Number(selectedDate.value))
+    ? selectedDate.value.toLocaleDateString()
+    : "";
 });
 
 watch(
@@ -70,14 +72,20 @@ watch(
 );
 
 watch(selectedDate, (d) => {
-  let month = "" + (d.getMonth() + 1),
-    day = "" + d.getDate();
-  const year = d.getFullYear();
+  let str;
+  if (isFinite(Number(d))) {
+    let month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate();
+    const year = d.getFullYear();
 
-  if (month.length < 2) month = "0" + month;
-  if (day.length < 2) day = "0" + day;
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
 
-  emit("update:modelValue", [year, month, day].join("-"));
+    str = [year, month, day].join("-");
+  } else {
+    str = "";
+  }
+  emit("update:modelValue", str);
 });
 
 const updateSelectedDate = (val: string) => {
