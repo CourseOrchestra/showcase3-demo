@@ -9,7 +9,7 @@
     <v-menu v-model="isMenuOpen" :close-on-content-click="false">
       <template v-if="!props.hidden" #activator="{ props }">
         <v-text-field
-          v-maska:[options]
+          v-maska:[mask]
           :model-value="formattedDate"
           v-bind="props"
           append-inner-icon="mdi-calendar"
@@ -55,7 +55,7 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const options = { mask: "##.##.####" };
+const mask = { mask: "##.##.####" };
 
 const isMenuOpen = ref(false);
 const selectedDate = ref(new Date(props.modelValue));
