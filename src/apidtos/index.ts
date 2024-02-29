@@ -1,4 +1,4 @@
 export type SrokDTO = {
-  dateStart: unknown;
-  dateEnd: unknown;
+  dateStart: {value: string};
+  dateEnd: {value: string};
 };

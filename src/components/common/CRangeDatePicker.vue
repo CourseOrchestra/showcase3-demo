@@ -65,40 +65,66 @@ const selectedDate = ref([
 ]);
 
 const formattedDate = computed(() => {
-  return selectedDate.value && isFinite(Number(selectedDate.value))
-    ? selectedDate.value.toLocaleDateString("ru-RU", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-      })
+  return selectedDate.value
+  && selectedDate.value[0] && isFinite(Number(selectedDate.value[0]))
+  && selectedDate.value[1] && isFinite(Number(selectedDate.value[1]))
+    ? selectedDate.value[0].toLocaleDateString("ru-RU")+"-"+selectedDate.value[1].toLocaleDateString("ru-RU")
     : "";
 });
 
 watch(
   () => props.modelValue,
   (newDate) => {
-    selectedDate.value = new Date(newDate);
-  },
+    selectedDate.value[0] = new Date(newDate.dateStart.value);
+    selectedDate.value[1] = new Date(newDate.dateEnd.value);
+  }, {deep: true}
 );
 
 watch(selectedDate, (d) => {
+
+
+
+
+
   let str;
-  if (isFinite(Number(d))) {
-    let month = "" + (d.getMonth() + 1),
-      day = "" + d.getDate();
-    const year = d.getFullYear();
+  if ( d && isFinite(Number(d[0])) && isFinite(Number(d[1])))  {
+    let month = "" + (d[0].getMonth() + 1),
+        day = "" + d[0].getDate();
+    let year = d[0].getFullYear();
 
     if (month.length < 2) month = "0" + month;
     if (day.length < 2) day = "0" + day;
 
-    str = [year, month, day].join("-");
+    const str1 = [year, month, day].join("-");
+
+
+    month = "" + (d[1].getMonth() + 1),
+    day = "" + d[1].getDate();
+    year = d[1].getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    const str2 = [year, month, day].join("-");
+
+
+    str = str1 + " - " +str2;
+
+
   } else {
     str = "";
   }
   emit("update:modelValue", str);
+
+
+
+
 });
 
 const updateSelectedDate = (val: string) => {
+
+/*
+
   if (!val) {
     selectedDate.value = new Date("");
     return;
@@ -120,5 +146,9 @@ const updateSelectedDate = (val: string) => {
       selectedDate.value = date;
     }
   }
+
+*/
+
+
 };
 </script>

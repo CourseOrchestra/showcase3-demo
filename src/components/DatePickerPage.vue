@@ -39,6 +39,13 @@
     <br />
     <br />
 
+    <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugRange">
+      <v-icon>mdi-menu</v-icon>
+    </c-btn>
+    <br />
+    <br />
+
+
     <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugDate2">
       <v-icon>mdi-menu</v-icon>
     </c-btn>
@@ -84,6 +91,13 @@ const dateRange = ref({
 const debugDate = () => {
   dateField.value = "2024-02-23";
 };
+
+
+const debugRange = () => {
+  dateRange.value.dateStart.value = "2024-02-21";
+  dateRange.value.dateEnd.value = "2024-02-27";
+};
+
 
 const debugDate2 = () => {
   /* eslint-disable-next-line  no-console */
