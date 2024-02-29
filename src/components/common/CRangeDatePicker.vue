@@ -64,6 +64,12 @@ const selectedDate = ref([
   new Date(props.modelValue.dateEnd.value),
 ]);
 
+/*
+const selectedDate = ref([new Date(),new Date() ]);
+selectedDate.value[0] = new Date(props.modelValue.dateStart.value);
+selectedDate.value[1] = new Date(props.modelValue.dateEnd.value);
+*/
+
 const formattedDate = computed(() => {
   return selectedDate.value &&
     selectedDate.value[0] &&
