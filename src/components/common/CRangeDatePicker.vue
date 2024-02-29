@@ -65,10 +65,14 @@ const selectedDate = ref([
 ]);
 
 const formattedDate = computed(() => {
-  return selectedDate.value
-  && selectedDate.value[0] && isFinite(Number(selectedDate.value[0]))
-  && selectedDate.value[1] && isFinite(Number(selectedDate.value[1]))
-    ? selectedDate.value[0].toLocaleDateString("ru-RU")+" - "+selectedDate.value[1].toLocaleDateString("ru-RU")
+  return selectedDate.value &&
+    selectedDate.value[0] &&
+    isFinite(Number(selectedDate.value[0])) &&
+    selectedDate.value[1] &&
+    isFinite(Number(selectedDate.value[1]))
+    ? selectedDate.value[0].toLocaleDateString("ru-RU") +
+        " - " +
+        selectedDate.value[1].toLocaleDateString("ru-RU")
     : "";
 });
 
@@ -77,19 +81,19 @@ watch(
   (newDate) => {
     selectedDate.value[0] = new Date(newDate.dateStart.value);
     selectedDate.value[1] = new Date(newDate.dateEnd.value);
-  }, {deep: true}
+  },
+  { deep: true },
 );
 
 watch(selectedDate, (d) => {
-
   const dateRange = {
     dateStart: { value: "" },
     dateEnd: { value: "" },
   };
 
-  if ( d && isFinite(Number(d[0])) && isFinite(Number(d[1])))  {
+  if (d && isFinite(Number(d[0])) && isFinite(Number(d[1]))) {
     let month = "" + (d[0].getMonth() + 1),
-        day = "" + d[0].getDate();
+      day = "" + d[0].getDate();
     let year = d[0].getFullYear();
 
     if (month.length < 2) month = "0" + month;
@@ -97,9 +101,7 @@ watch(selectedDate, (d) => {
 
     const str1 = [year, month, day].join("-");
 
-
-    month = "" + (d[1].getMonth() + 1),
-    day = "" + d[1].getDate();
+    (month = "" + (d[1].getMonth() + 1)), (day = "" + d[1].getDate());
     year = d[1].getFullYear();
 
     if (month.length < 2) month = "0" + month;
@@ -107,65 +109,54 @@ watch(selectedDate, (d) => {
 
     const str2 = [year, month, day].join("-");
 
-
     dateRange.dateStart.value = str1;
     dateRange.dateEnd.value = str2;
 
     emit("update:modelValue", dateRange);
   }
-
 });
 
 const updateSelectedDate = (val: string) => {
-
   if (!val) {
     selectedDate.value = [];
     return;
   }
 
   const dates = val.split(" - ");
-  if(dates.length === 2){
-
-
+  if (dates.length === 2) {
     let parts = dates[0].split(".");
     let date1;
     let date2;
     if (
-        parts.length === 3 &&
-        parts[0].length === 2 &&
-        parts[1].length === 2 &&
-        parts[2].length === 4
+      parts.length === 3 &&
+      parts[0].length === 2 &&
+      parts[1].length === 2 &&
+      parts[2].length === 4
     ) {
       date1 = new Date(
-          parseInt(parts[2]),
-          parseInt(parts[1]) - 1,
-          parseInt(parts[0]),
+        parseInt(parts[2]),
+        parseInt(parts[1]) - 1,
+        parseInt(parts[0]),
       );
     }
 
-
     parts = dates[1].split(".");
     if (
-        parts.length === 3 &&
-        parts[0].length === 2 &&
-        parts[1].length === 2 &&
-        parts[2].length === 4
+      parts.length === 3 &&
+      parts[0].length === 2 &&
+      parts[1].length === 2 &&
+      parts[2].length === 4
     ) {
       date2 = new Date(
-          parseInt(parts[2]),
-          parseInt(parts[1]) - 1,
-          parseInt(parts[0]),
+        parseInt(parts[2]),
+        parseInt(parts[1]) - 1,
+        parseInt(parts[0]),
       );
       if (isFinite(Number(date1)) && isFinite(Number(date2))) {
         selectedDate.value[0] = date1;
         selectedDate.value[1] = date2;
       }
     }
-
-
   }
-
-
-
 };
 </script>
