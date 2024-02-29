@@ -32,14 +32,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, defineProps, defineEmits } from "vue";
+import { ref, computed, watch, defineProps, defineEmits, PropType } from "vue";
 import CFieldCol from "@/components/common/CFieldCol.vue";
 import { vMaska } from "maska";
+import { SrokDTO } from "@/apidtos";
 
 const props = defineProps({
   modelValue: {
-    type: String,
-    default: "",
+    type: Object as PropType<SrokDTO>,
+    required: true,
   },
   label: {
     type: String,

@@ -5,7 +5,7 @@
     <br />
     <br />
 
-    <v-date-picker multiple="2"></v-date-picker>
+    <v-date-picker v-model="arrdate" multiple="2"></v-date-picker>
 
     <c-range-date-picker
       v-model="dateRange"
@@ -145,4 +145,8 @@ const debugDate2 = () => {
   /* eslint-disable-next-line  no-console */
   console.log(dateRange.value);
 };
+
+const arrdate = ref();
+
+arrdate.value = [new Date("2024-02-07"), new Date("2024-02-09")];
 </script>
