@@ -91,6 +91,13 @@ watch(selectedDate, (d) => {
     dateEnd: { value: "" },
   };
 
+  /*
+  if(d.length===0){
+    emit("update:modelValue", dateRange);
+    return;
+  }
+*/
+
   if (d && isFinite(Number(d[0])) && isFinite(Number(d[1]))) {
     let month = "" + (d[0].getMonth() + 1),
       day = "" + d[0].getDate();

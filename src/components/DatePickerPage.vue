@@ -82,9 +82,16 @@ const dateRange = ref({
 const dateField = ref();
 dateField.value = "2024-02-07";
 
+/*
 const dateRange = ref({
   dateStart: { value: "2024-02-07" },
   dateEnd: { value: "2024-02-09" },
+});
+*/
+
+const dateRange = ref({
+  dateStart: { value: "" },
+  dateEnd: { value: "" },
 });
 
 const debugDate = () => {
