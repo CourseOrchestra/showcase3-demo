@@ -17,7 +17,7 @@
     <br />
     <br />
 
-    <c-range-date-picker
+    <c-range-date-picker-old
       v-model="dateRange"
       label="range date-picker"
       cols="6"
@@ -88,7 +88,7 @@ import { ref } from "vue";
 import { setTitle } from "@/utils/common";
 import CDatePicker from "@/components/common/CDatePicker.vue";
 import CBtn from "@/components/common/CBtn.vue";
-import CRangeDatePicker from "@/components/common/CRangeDatePicker.vue";
+import CRangeDatePickerOld from "@/components/common/CRangeDatePickerOld.vue";
 
 setTitle("datepicker");
 
@@ -106,9 +106,22 @@ const dateField = ref();
 
 dateField.value = "2024-02-07";
 
+//const dateRange =  new SrokDTO();
+
+/*
+const dateStart2 =   ref("2024-02-07");
+const dateEnd2 =   ref("2024-02-07");
+
+
 const dateRange = ref({
-  dateStart: {},
-  dateEnd: {},
+  dateStart: dateStart2,
+  dateEnd:  dateEnd2,
+});
+*/
+
+const dateRange = ref({
+  dateStart: { value: "2024-02-07" },
+  dateEnd: { value: "2024-02-09" },
 });
 
 const debugDate = () => {
@@ -119,6 +132,6 @@ const debugDate2 = () => {
   /* eslint-disable-next-line  no-console */
   console.log(dateField);
   /* eslint-disable-next-line  no-console */
-  //console.log(dateRange);
+  console.log(dateRange.value);
 };
 </script>
