@@ -57,10 +57,6 @@ import CRangeDatePickerOld from "@/components/common/CRangeDatePickerOld.vue";
 
 setTitle("datepicker");
 
-const dateField = ref();
-
-dateField.value = "2024-02-07";
-
 /*
 
 const date = ref();
@@ -76,6 +72,9 @@ const dateRange = ref({
   dateEnd:  dateEnd2,
 });
 */
+
+const dateField = ref();
+dateField.value = "2024-02-07";
 
 const dateRange = ref({
   dateStart: { value: "2024-02-07" },
