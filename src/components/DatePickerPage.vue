@@ -5,7 +5,17 @@
     <br />
     <br />
 
-    <!--    <v-date-picker multiple="2"></v-date-picker>-->
+    <v-date-picker multiple="2"></v-date-picker>
+
+    <c-range-date-picker
+      v-model="dateRange"
+      label="range date-picker"
+      :hidden="false"
+      :readonly="false"
+      cols="3"
+    />
+    <br />
+    <br />
 
     <c-date-picker
       v-model="dateField"
@@ -19,7 +29,7 @@
 
     <c-range-date-picker-old
       v-model="dateRange"
-      label="range date-picker"
+      label="range date-picker old"
       cols="6"
     />
     <br />
@@ -88,6 +98,7 @@ import { ref } from "vue";
 import { setTitle } from "@/utils/common";
 import CDatePicker from "@/components/common/CDatePicker.vue";
 import CBtn from "@/components/common/CBtn.vue";
+import CRangeDatePicker from "@/components/common/CRangeDatePicker.vue";
 import CRangeDatePickerOld from "@/components/common/CRangeDatePickerOld.vue";
 
 setTitle("datepicker");
