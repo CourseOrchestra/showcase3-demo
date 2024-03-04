@@ -6,7 +6,7 @@
     >
       {{ label }}
     </v-label>
-    <v-menu v-model="isMenuOpen" :close-on-content-click="false">
+    <v-menu v-model="menuOpen" :close-on-content-click="false">
       <template v-if="!props.hidden" #activator="{ props }">
         <v-text-field
           v-maska:[mask]
@@ -58,7 +58,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const mask = { mask: "##.##.#### - ##.##.####" };
 
-const isMenuOpen = ref(false);
+const menuOpen = ref(false);
 const selectedDate =
   props.modelValue &&
   props.modelValue.dateStart &&
@@ -129,6 +129,7 @@ watch(selectedDate, (d) => {
     dateRange.dateEnd.value = str2;
 
     emit("update:modelValue", dateRange);
+    menuOpen.value = false;
   }
 });
 
