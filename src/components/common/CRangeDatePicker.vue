@@ -59,16 +59,19 @@ const emit = defineEmits(["update:modelValue"]);
 const mask = { mask: "##.##.#### - ##.##.####" };
 
 const isMenuOpen = ref(false);
-const selectedDate = ref([
-  new Date(props.modelValue.dateStart.value),
-  new Date(props.modelValue.dateEnd.value),
-]);
-
-/*
-const selectedDate = ref([new Date(),new Date() ]);
-selectedDate.value[0] = new Date(props.modelValue.dateStart.value);
-selectedDate.value[1] = new Date(props.modelValue.dateEnd.value);
-*/
+const selectedDate =
+  props.modelValue &&
+  props.modelValue.dateStart &&
+  props.modelValue.dateStart.value &&
+  props.modelValue.dateStart.value.length > 0 &&
+  props.modelValue.dateEnd &&
+  props.modelValue.dateEnd.value &&
+  props.modelValue.dateEnd.value.length > 0
+    ? ref([
+        new Date(props.modelValue.dateStart.value),
+        new Date(props.modelValue.dateEnd.value),
+      ])
+    : ref([]);
 
 const formattedDate = computed(() => {
   return selectedDate.value &&
