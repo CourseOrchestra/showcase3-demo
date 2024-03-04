@@ -88,8 +88,19 @@ const formattedDate = computed(() => {
 watch(
   () => props.modelValue,
   (newDate) => {
-    selectedDate.value[0] = new Date(newDate.dateStart.value);
-    selectedDate.value[1] = new Date(newDate.dateEnd.value);
+    if (
+      newDate.dateStart &&
+      newDate.dateStart.value &&
+      newDate.dateStart.value.length > 0 &&
+      newDate.dateEnd &&
+      newDate.dateEnd.value &&
+      newDate.dateEnd.value.length > 0
+    ) {
+      selectedDate.value[0] = new Date(newDate.dateStart.value);
+      selectedDate.value[1] = new Date(newDate.dateEnd.value);
+    } else {
+      selectedDate.value = [];
+    }
   },
   { deep: true },
 );
@@ -101,11 +112,19 @@ watch(selectedDate, (d) => {
   };
 
   /*
+  console.log("-----------------------");
+  console.log(d);
   if(d.length===0){
-    emit("update:modelValue", dateRange);
-    return;
+    console.log("ffffffffffffffffff");
   }
 */
+
+  /*
+    if(d.length===0){
+      emit("update:modelValue", dateRange);
+      return;
+    }
+  */
 
   if (d && isFinite(Number(d[0])) && isFinite(Number(d[1]))) {
     let month = "" + (d[0].getMonth() + 1),
@@ -134,7 +153,7 @@ watch(selectedDate, (d) => {
 });
 
 const updateSelectedDate = (val: string) => {
-  if (!val) {
+  if (!val || val.length === 0) {
     selectedDate.value = [];
     return;
   }

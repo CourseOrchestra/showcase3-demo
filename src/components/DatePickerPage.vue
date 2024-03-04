@@ -33,23 +33,11 @@
     <br />
     <br />
 
-    <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugDate">
-      <v-icon>mdi-menu</v-icon>
-    </c-btn>
-    <br />
-    <br />
-
-    <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugRange">
-      <v-icon>mdi-menu</v-icon>
-    </c-btn>
-    <br />
-    <br />
-
-    <c-btn class="outer-app-bar-nav-icon" hint="fffffff" @click="debugDate2">
-      <v-icon>mdi-menu</v-icon>
-    </c-btn>
-    <br />
-    <br />
+    <v-toolbar-items>
+      <c-btn @click="debugDate"> Задать дату </c-btn>
+      <c-btn @click="debugRange"> Задать интервал </c-btn>
+      <c-btn @click="debugDate2"> Вывод </c-btn>
+    </v-toolbar-items>
   </vContainer>
 </template>
 
@@ -83,17 +71,17 @@ const dateField = ref();
 dateField.value = "2024-02-07";
 //dateField.value = null;
 
-/*
 const dateRange = ref({
   dateStart: { value: "2024-02-07" },
   dateEnd: { value: "2024-02-09" },
 });
-*/
 
+/*
 const dateRange = ref({
   dateStart: { value: null },
   dateEnd: { value: null },
 });
+*/
 
 const debugDate = () => {
   dateField.value = "2024-02-23";
