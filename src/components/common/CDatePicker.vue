@@ -56,14 +56,13 @@ const emit = defineEmits(["update:modelValue"]);
 const mask = { mask: "##.##.####" };
 
 const selectedDate = ref(new Date(props.modelValue));
+if (!props.modelValue) {
+  selectedDate.value = new Date("");
+}
 
 const formattedDate = computed(() => {
   return selectedDate.value && isFinite(Number(selectedDate.value))
-    ? selectedDate.value.toLocaleDateString("ru-RU", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-      })
+    ? selectedDate.value.toLocaleDateString("ru-RU")
     : "";
 });
 
