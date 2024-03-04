@@ -6,7 +6,7 @@
     >
       {{ label }}
     </v-label>
-    <v-menu v-model="isMenuOpen" :close-on-content-click="false">
+    <v-menu v-model="isMenuOpen">
       <template v-if="!props.hidden" #activator="{ props }">
         <v-text-field
           v-maska:[mask]
