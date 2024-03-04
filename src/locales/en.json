@@ -22,7 +22,8 @@
 
     "datePicker": {
       "title": "Select Date",
-      "header": "Date"
+      "header": "Date",
+      "itemsSelected": "Interval"
     }
 
   },

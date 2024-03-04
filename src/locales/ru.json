@@ -22,7 +22,8 @@
 
     "datePicker": {
       "title": "Выберите дату",
-      "header": "Дата"
+      "header": "Дата",
+      "itemsSelected": "Интервал"
     }
 
   },
