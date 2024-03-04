@@ -55,10 +55,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const mask = { mask: "##.##.####" };
 
-const selectedDate = ref(new Date(props.modelValue));
-if (!props.modelValue) {
-  selectedDate.value = new Date("");
-}
+const selectedDate = ref(new Date(props.modelValue ? props.modelValue : ""));
 
 const formattedDate = computed(() => {
   return selectedDate.value && isFinite(Number(selectedDate.value))
