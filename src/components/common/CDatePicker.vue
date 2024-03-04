@@ -6,7 +6,7 @@
     >
       {{ label }}
     </v-label>
-    <v-menu v-model="isMenuOpen">
+    <v-menu>
       <template v-if="!props.hidden" #activator="{ props }">
         <v-text-field
           v-maska:[mask]
@@ -55,7 +55,6 @@ const emit = defineEmits(["update:modelValue"]);
 
 const mask = { mask: "##.##.####" };
 
-const isMenuOpen = ref(false);
 const selectedDate = ref(new Date(props.modelValue));
 
 const formattedDate = computed(() => {
