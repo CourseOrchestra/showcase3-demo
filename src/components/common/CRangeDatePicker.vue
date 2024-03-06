@@ -36,6 +36,7 @@ import { ref, computed, watch, defineProps, defineEmits, PropType } from "vue";
 import CFieldCol from "@/components/common/CFieldCol.vue";
 import { vMaska } from "maska";
 import { SrokDTO } from "@/apidtos";
+import { dateToStr } from "@/utils/common";
 
 const props = defineProps({
   modelValue: {
@@ -122,25 +123,8 @@ watch(selectedDate, (arr) => {
   }
 
   if (validIntervalByDates(arr)) {
-    let month = "" + (arr[0].getMonth() + 1),
-      day = "" + arr[0].getDate();
-    let year = arr[0].getFullYear();
-
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-
-    const str1 = [year, month, day].join("-");
-
-    (month = "" + (arr[1].getMonth() + 1)), (day = "" + arr[1].getDate());
-    year = arr[1].getFullYear();
-
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-
-    const str2 = [year, month, day].join("-");
-
-    localValue.value.dateStart.value = str1;
-    localValue.value.dateEnd.value = str2;
+    localValue.value.dateStart.value = dateToStr(arr[0]);
+    localValue.value.dateEnd.value = dateToStr(arr[1]);
 
     menuOpen.value = false;
   }

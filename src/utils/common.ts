@@ -43,3 +43,16 @@ export function parseDate(date: string | object | string[] | undefined | null) {
   const [day, month, year] = date.split(".");
   return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 }
+
+export function dateToStr(date: Date) {
+  if (!date) return "";
+
+  let month = "" + date.getMonth() + 1;
+  let day = "" + date.getDate();
+  const year = date.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+}
