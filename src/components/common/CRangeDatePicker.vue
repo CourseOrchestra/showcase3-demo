@@ -99,10 +99,10 @@ const formattedDate = computed(() => {
 
 watch(
   () => props.modelValue,
-  (newDate) => {
-    if (validIntervalByStrings(newDate)) {
-      selectedDate.value[0] = new Date(newDate.dateStart.value);
-      selectedDate.value[1] = new Date(newDate.dateEnd.value);
+  (newModelValue) => {
+    if (validIntervalByStrings(newModelValue)) {
+      selectedDate.value[0] = new Date(newModelValue.dateStart.value);
+      selectedDate.value[1] = new Date(newModelValue.dateEnd.value);
     } else {
       selectedDate.value = [];
     }
