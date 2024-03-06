@@ -81,6 +81,10 @@ const validIntervalByStrings = (obj: SrokDTO) => {
   );
 };
 
+const validIntervalByDates = (arr: Array<Date>) => {
+  return isFinite(Number(arr[0])) && isFinite(Number(arr[1]));
+};
+
 const setSelectedDateByStrings = (obj: SrokDTO) => {
   if (validIntervalByStrings(obj)) {
     selectedDate.value[0] = new Date(obj.dateStart.value);
@@ -94,8 +98,7 @@ const selectedDate = ref([] as Array<Date>);
 setSelectedDateByStrings(localValue.value);
 
 const formattedDate = computed(() => {
-  return isFinite(Number(selectedDate.value[0])) &&
-    isFinite(Number(selectedDate.value[1]))
+  return validIntervalByDates(selectedDate.value)
     ? selectedDate.value[0].toLocaleDateString("ru-RU") +
         " - " +
         selectedDate.value[1].toLocaleDateString("ru-RU")
@@ -118,7 +121,7 @@ watch(selectedDate, (d) => {
     return;
   }
 
-  if (isFinite(Number(d[0])) && isFinite(Number(d[1]))) {
+  if (validIntervalByDates(d)) {
     let month = "" + (d[0].getMonth() + 1),
       day = "" + d[0].getDate();
     let year = d[0].getFullYear();
