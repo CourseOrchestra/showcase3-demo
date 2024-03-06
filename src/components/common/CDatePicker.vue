@@ -82,6 +82,7 @@ const updateSelectedDate = (val: string) => {
     selectedDate.value = new Date("");
     return;
   }
+
   const date = strToDate(val);
   if (date && isFinite(Number(date))) {
     selectedDate.value = date;
