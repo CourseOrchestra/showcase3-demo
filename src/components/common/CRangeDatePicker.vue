@@ -95,6 +95,26 @@ const formattedDate = computed(() => {
     : "";
 });
 
+watch(
+  () => props.modelValue,
+  (newDate) => {
+    if (
+      newDate.dateStart &&
+      newDate.dateStart.value &&
+      newDate.dateStart.value.length > 0 &&
+      newDate.dateEnd &&
+      newDate.dateEnd.value &&
+      newDate.dateEnd.value.length > 0
+    ) {
+      selectedDate.value[0] = new Date(newDate.dateStart.value);
+      selectedDate.value[1] = new Date(newDate.dateEnd.value);
+    } else {
+      selectedDate.value = [];
+    }
+  },
+  { deep: true },
+);
+
 watch(selectedDate, (d) => {
   if (d.length === 0) {
     localValue.value.dateStart.value = "";
