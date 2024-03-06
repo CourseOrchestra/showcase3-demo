@@ -34,6 +34,7 @@
 import { ref, computed, watch, defineProps, defineEmits } from "vue";
 import CFieldCol from "@/components/common/CFieldCol.vue";
 import { vMaska } from "maska";
+import { dateToStr, strToDate } from "@/utils/common";
 
 const props = defineProps({
   modelValue: {
@@ -72,19 +73,7 @@ watch(
 );
 
 watch(selectedDate, (d) => {
-  let str;
-  if (isFinite(Number(d))) {
-    let month = "" + (d.getMonth() + 1),
-      day = "" + d.getDate();
-    const year = d.getFullYear();
-
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-
-    str = [year, month, day].join("-");
-  } else {
-    str = "";
-  }
+  const str = isFinite(Number(d)) ? dateToStr(d) : "";
   emit("update:modelValue", str);
 });
 
@@ -93,22 +82,9 @@ const updateSelectedDate = (val: string) => {
     selectedDate.value = new Date("");
     return;
   }
-
-  const parts = val.split(".");
-  if (
-    parts.length === 3 &&
-    parts[0].length === 2 &&
-    parts[1].length === 2 &&
-    parts[2].length === 4
-  ) {
-    const date = new Date(
-      parseInt(parts[2]),
-      parseInt(parts[1]) - 1,
-      parseInt(parts[0]),
-    );
-    if (isFinite(Number(date))) {
-      selectedDate.value = date;
-    }
+  const date = strToDate(val);
+  if (date && isFinite(Number(date))) {
+    selectedDate.value = date;
   }
 };
 </script>
