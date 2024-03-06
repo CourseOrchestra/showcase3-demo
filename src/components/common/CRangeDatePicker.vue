@@ -59,6 +59,16 @@ const emit = defineEmits(["update:modelValue"]);
 const mask = { mask: "##.##.#### - ##.##.####" };
 
 const menuOpen = ref(false);
+
+const localValue = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(value) {
+    emit("update:modelValue", value);
+  },
+});
+
 const selectedDate =
   props.modelValue &&
   props.modelValue.dateStart &&
@@ -91,46 +101,28 @@ selectedDate.value[0] = new Date(props.modelValue.dateStart.value);
 selectedDate.value[1] = new Date(props.modelValue.dateEnd.value);
 */
 
-watch(
-  () => props.modelValue,
-  (newDate) => {
-    if (
-      newDate.dateStart &&
-      newDate.dateStart.value &&
-      newDate.dateStart.value.length > 0 &&
-      newDate.dateEnd &&
-      newDate.dateEnd.value &&
-      newDate.dateEnd.value.length > 0
-    ) {
-      selectedDate.value[0] = new Date(newDate.dateStart.value);
-      selectedDate.value[1] = new Date(newDate.dateEnd.value);
-    } else {
-      selectedDate.value = [];
-    }
-  },
-  { deep: true },
-);
+/*
+console.log("-----------------------");
+console.log(d);
+if(d.length===0){
+  console.log("ffffffffffffffffff");
+}
+*/
 
-watch(selectedDate, (d) => {
-  const dateRange = {
-    dateStart: { value: "" },
-    dateEnd: { value: "" },
-  };
-
-  /*
-  console.log("-----------------------");
-  console.log(d);
+/*
   if(d.length===0){
-    console.log("ffffffffffffffffff");
+    emit("update:modelValue", dateRange);
+    return;
   }
 */
 
-  /*
-    if(d.length===0){
-      emit("update:modelValue", dateRange);
-      return;
-    }
-  */
+watch(selectedDate, (d) => {
+  if (d.length === 0) {
+    localValue.value.dateStart.value = "";
+    localValue.value.dateEnd.value = "";
+
+    return;
+  }
 
   if (d && isFinite(Number(d[0])) && isFinite(Number(d[1]))) {
     let month = "" + (d[0].getMonth() + 1),
@@ -150,10 +142,9 @@ watch(selectedDate, (d) => {
 
     const str2 = [year, month, day].join("-");
 
-    dateRange.dateStart.value = str1;
-    dateRange.dateEnd.value = str2;
+    localValue.value.dateStart.value = str1;
+    localValue.value.dateEnd.value = str2;
 
-    emit("update:modelValue", dateRange);
     menuOpen.value = false;
   }
 });
