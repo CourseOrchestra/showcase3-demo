@@ -70,16 +70,16 @@ const localValue = computed({
 });
 
 const selectedDate =
-  props.modelValue &&
-  props.modelValue.dateStart &&
-  props.modelValue.dateStart.value &&
-  props.modelValue.dateStart.value.length > 0 &&
-  props.modelValue.dateEnd &&
-  props.modelValue.dateEnd.value &&
-  props.modelValue.dateEnd.value.length > 0
+  localValue.value &&
+  localValue.value.dateStart &&
+  localValue.value.dateStart.value &&
+  localValue.value.dateStart.value.length > 0 &&
+  localValue.value.dateEnd &&
+  localValue.value.dateEnd.value &&
+  localValue.value.dateEnd.value.length > 0
     ? ref([
-        new Date(props.modelValue.dateStart.value),
-        new Date(props.modelValue.dateEnd.value),
+        new Date(localValue.value.dateStart.value),
+        new Date(localValue.value.dateEnd.value),
       ])
     : ref([]);
 
