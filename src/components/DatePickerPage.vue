@@ -72,7 +72,10 @@ dateField.value = "2024-02-07";
 //dateField.value = null;
 
 const dateRange = ref({
-  dateStart: { value: "2024-02-07" },
+  dateStart: {
+    value: "2024-02-07",
+    param: "param",
+  },
   dateEnd: { value: "2024-02-09" },
 });
 
