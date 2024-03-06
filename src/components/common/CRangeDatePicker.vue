@@ -95,27 +95,6 @@ const formattedDate = computed(() => {
     : "";
 });
 
-/*
-const selectedDate = ref([]);
-selectedDate.value[0] = new Date(props.modelValue.dateStart.value);
-selectedDate.value[1] = new Date(props.modelValue.dateEnd.value);
-*/
-
-/*
-console.log("-----------------------");
-console.log(d);
-if(d.length===0){
-  console.log("ffffffffffffffffff");
-}
-*/
-
-/*
-  if(d.length===0){
-    emit("update:modelValue", dateRange);
-    return;
-  }
-*/
-
 watch(selectedDate, (d) => {
   if (d.length === 0) {
     localValue.value.dateStart.value = "";
