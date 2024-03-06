@@ -81,12 +81,17 @@ const validIntervalByStrings = (obj: SrokDTO) => {
   );
 };
 
-const selectedDate = validIntervalByStrings(localValue.value)
-  ? ref([
-      new Date(localValue.value.dateStart.value),
-      new Date(localValue.value.dateEnd.value),
-    ])
-  : ref([]);
+const setSelectedDateByStrings = (obj: SrokDTO) => {
+  if (validIntervalByStrings(obj)) {
+    selectedDate.value[0] = new Date(obj.dateStart.value);
+    selectedDate.value[1] = new Date(obj.dateEnd.value);
+  } else {
+    selectedDate.value = [];
+  }
+};
+
+const selectedDate = ref([] as Array<Date>);
+setSelectedDateByStrings(localValue.value);
 
 const formattedDate = computed(() => {
   return isFinite(Number(selectedDate.value[0])) &&
@@ -100,12 +105,7 @@ const formattedDate = computed(() => {
 watch(
   () => props.modelValue,
   (newModelValue) => {
-    if (validIntervalByStrings(newModelValue)) {
-      selectedDate.value[0] = new Date(newModelValue.dateStart.value);
-      selectedDate.value[1] = new Date(newModelValue.dateEnd.value);
-    } else {
-      selectedDate.value = [];
-    }
+    setSelectedDateByStrings(newModelValue);
   },
   { deep: true },
 );
