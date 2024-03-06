@@ -12,6 +12,7 @@
           v-maska:[mask]
           :model-value="formattedDate"
           v-bind="props"
+          clearable
           append-inner-icon="mdi-calendar"
           :disabled="readonly"
           :class="`masked${readonly ? ' readonly' : ''}`"
