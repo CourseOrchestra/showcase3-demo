@@ -113,26 +113,26 @@ watch(
   { deep: true },
 );
 
-watch(selectedDate, (d) => {
-  if (d.length === 0) {
+watch(selectedDate, (arr) => {
+  if (arr.length === 0) {
     localValue.value.dateStart.value = "";
     localValue.value.dateEnd.value = "";
 
     return;
   }
 
-  if (validIntervalByDates(d)) {
-    let month = "" + (d[0].getMonth() + 1),
-      day = "" + d[0].getDate();
-    let year = d[0].getFullYear();
+  if (validIntervalByDates(arr)) {
+    let month = "" + (arr[0].getMonth() + 1),
+      day = "" + arr[0].getDate();
+    let year = arr[0].getFullYear();
 
     if (month.length < 2) month = "0" + month;
     if (day.length < 2) day = "0" + day;
 
     const str1 = [year, month, day].join("-");
 
-    (month = "" + (d[1].getMonth() + 1)), (day = "" + d[1].getDate());
-    year = d[1].getFullYear();
+    (month = "" + (arr[1].getMonth() + 1)), (day = "" + arr[1].getDate());
+    year = arr[1].getFullYear();
 
     if (month.length < 2) month = "0" + month;
     if (day.length < 2) day = "0" + day;
