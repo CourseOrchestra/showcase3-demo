@@ -5,9 +5,9 @@
     <br />
     <br />
 
-    <c-range-date-picker
-      v-model="dateRange"
-      label="range date-picker"
+    <c-date-picker
+      v-model="dateField"
+      label="Дата"
       :hidden="false"
       :readonly="false"
       cols="3"
@@ -15,9 +15,9 @@
     <br />
     <br />
 
-    <c-date-picker
-      v-model="dateField"
-      label="Дата"
+    <c-range-date-picker
+      v-model="dateRange"
+      label="range date-picker"
       :hidden="false"
       :readonly="false"
       cols="3"
