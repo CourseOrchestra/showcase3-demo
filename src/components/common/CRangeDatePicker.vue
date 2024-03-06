@@ -118,7 +118,7 @@ watch(selectedDate, (d) => {
     return;
   }
 
-  if (d && isFinite(Number(d[0])) && isFinite(Number(d[1]))) {
+  if (isFinite(Number(d[0])) && isFinite(Number(d[1]))) {
     let month = "" + (d[0].getMonth() + 1),
       day = "" + d[0].getDate();
     let year = d[0].getFullYear();
