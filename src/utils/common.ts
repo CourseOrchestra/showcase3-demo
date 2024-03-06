@@ -56,3 +56,23 @@ export function dateToStr(date: Date) {
 
   return [year, month, day].join("-");
 }
+
+export function strToDate(str: string) {
+  if (!str) return null;
+
+  const parts = str.split(".");
+  if (
+    parts.length === 3 &&
+    parts[0].length === 2 &&
+    parts[1].length === 2 &&
+    parts[2].length === 4
+  ) {
+    return new Date(
+      parseInt(parts[2]),
+      parseInt(parts[1]) - 1,
+      parseInt(parts[0]),
+    );
+  } else {
+    return null;
+  }
+}

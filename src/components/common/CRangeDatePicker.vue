@@ -36,7 +36,7 @@ import { ref, computed, watch, defineProps, defineEmits, PropType } from "vue";
 import CFieldCol from "@/components/common/CFieldCol.vue";
 import { vMaska } from "maska";
 import { SrokDTO } from "@/apidtos";
-import { dateToStr } from "@/utils/common";
+import { dateToStr, strToDate } from "@/utils/common";
 
 const props = defineProps({
   modelValue: {
@@ -138,36 +138,11 @@ const updateSelectedDate = (val: string) => {
 
   const dates = val.split(" - ");
   if (dates.length === 2) {
-    let parts = dates[0].split(".");
-    if (
-      parts.length === 3 &&
-      parts[0].length === 2 &&
-      parts[1].length === 2 &&
-      parts[2].length === 4
-    ) {
-      const date1 = new Date(
-        parseInt(parts[2]),
-        parseInt(parts[1]) - 1,
-        parseInt(parts[0]),
-      );
-
-      parts = dates[1].split(".");
-      if (
-        parts.length === 3 &&
-        parts[0].length === 2 &&
-        parts[1].length === 2 &&
-        parts[2].length === 4
-      ) {
-        const date2 = new Date(
-          parseInt(parts[2]),
-          parseInt(parts[1]) - 1,
-          parseInt(parts[0]),
-        );
-        if (isFinite(Number(date1)) && isFinite(Number(date2))) {
-          selectedDate.value[0] = date1;
-          selectedDate.value[1] = date2;
-        }
-      }
+    const date1 = strToDate(dates[0]);
+    const date2 = strToDate(dates[1]);
+    if (date1 && date2 && isFinite(Number(date1)) && isFinite(Number(date2))) {
+      selectedDate.value[0] = date1;
+      selectedDate.value[1] = date2;
     }
   }
 };
