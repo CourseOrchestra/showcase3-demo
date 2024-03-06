@@ -85,6 +85,12 @@ const formattedDate = computed(() => {
     : "";
 });
 
+/*
+const selectedDate = ref([]);
+selectedDate.value[0] = new Date(props.modelValue.dateStart.value);
+selectedDate.value[1] = new Date(props.modelValue.dateEnd.value);
+*/
+
 watch(
   () => props.modelValue,
   (newDate) => {
