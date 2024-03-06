@@ -89,10 +89,7 @@ const selectedDate = validIntervalByStrings(localValue.value)
   : ref([]);
 
 const formattedDate = computed(() => {
-  return selectedDate.value &&
-    selectedDate.value[0] &&
-    isFinite(Number(selectedDate.value[0])) &&
-    selectedDate.value[1] &&
+  return isFinite(Number(selectedDate.value[0])) &&
     isFinite(Number(selectedDate.value[1]))
     ? selectedDate.value[0].toLocaleDateString("ru-RU") +
         " - " +
