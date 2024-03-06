@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.27.2",
+  "version": "1.27.3",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -36,7 +36,7 @@
     "vue-i18n": "^9.10.1",
     "vue-router": "^4.3.0",
     "vue3-easy-data-table": "^1.5.47",
-    "vuetify": "^3.5.7",
+    "vuetify": "^3.5.8",
     "webfontloader": "^1.6.28",
 
     "maska": "^2.1.9",
