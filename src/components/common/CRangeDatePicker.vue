@@ -69,19 +69,24 @@ const localValue = computed({
   },
 });
 
-const selectedDate =
-  localValue.value &&
-  localValue.value.dateStart &&
-  localValue.value.dateStart.value &&
-  localValue.value.dateStart.value.length > 0 &&
-  localValue.value.dateEnd &&
-  localValue.value.dateEnd.value &&
-  localValue.value.dateEnd.value.length > 0
-    ? ref([
-        new Date(localValue.value.dateStart.value),
-        new Date(localValue.value.dateEnd.value),
-      ])
-    : ref([]);
+const validIntervalByStrings = (obj: SrokDTO) => {
+  return (
+    obj &&
+    obj.dateStart &&
+    obj.dateStart.value &&
+    obj.dateStart.value.length > 0 &&
+    obj.dateEnd &&
+    obj.dateEnd.value &&
+    obj.dateEnd.value.length > 0
+  );
+};
+
+const selectedDate = validIntervalByStrings(localValue.value)
+  ? ref([
+      new Date(localValue.value.dateStart.value),
+      new Date(localValue.value.dateEnd.value),
+    ])
+  : ref([]);
 
 const formattedDate = computed(() => {
   return selectedDate.value &&
@@ -98,14 +103,7 @@ const formattedDate = computed(() => {
 watch(
   () => props.modelValue,
   (newDate) => {
-    if (
-      newDate.dateStart &&
-      newDate.dateStart.value &&
-      newDate.dateStart.value.length > 0 &&
-      newDate.dateEnd &&
-      newDate.dateEnd.value &&
-      newDate.dateEnd.value.length > 0
-    ) {
+    if (validIntervalByStrings(newDate)) {
       selectedDate.value[0] = new Date(newDate.dateStart.value);
       selectedDate.value[1] = new Date(newDate.dateEnd.value);
     } else {
