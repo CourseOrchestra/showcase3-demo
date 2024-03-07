@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.27.3",
+  "version": "1.27.4",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -65,7 +65,7 @@
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "start-server-and-test": "^2.0.3",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "vite": "^5.1.4",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-vuetify": "^2.0.1",

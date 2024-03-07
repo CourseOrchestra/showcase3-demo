@@ -124,7 +124,7 @@ watch(selectedDate, (arr) => {
   }
 
   if (validIntervalByDates(arr)) {
-    arr.sort((a, b) => a - b);
+    arr.sort((a, b) => a.getTime() - b.getTime());
 
     localValue.value.dateStart.value = dateToStr(arr[0]);
     localValue.value.dateEnd.value = dateToStr(arr[1]);
