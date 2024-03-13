@@ -1,21 +1,20 @@
 <template>
   <c-field-col v-bind="$attrs">
-    <v-label
-      v-if="!props.hidden"
-      :class="`masked${readonly ? ' readonly' : ''}`"
-    >
-      {{ label }}
-    </v-label>
     <v-menu>
       <template v-if="!props.hidden" #activator="{ props }">
         <v-text-field
           v-maska:[mask]
           :model-value="formattedDate"
           v-bind="props"
-          clearable
           append-inner-icon="mdi-calendar"
-          :disabled="readonly"
-          :class="`masked${readonly ? ' readonly' : ''}`"
+          :readonly="readonly || viewmode"
+          :disabled="disabled"
+          :hidden="hidden"
+          :label="label"
+          :clearable="clearable"
+          :placeholder="placeholder"
+          variant="solo"
+          density="compact"
           @update:model-value="updateSelectedDate"
         ></v-text-field>
       </template>
@@ -50,6 +49,22 @@ const props = defineProps({
   },
   hidden: {
     type: Boolean,
+  },
+  clearable: {
+    type: Boolean,
+    default: true,
+  },
+  placeholder: {
+    type: String,
+    default: null,
+  },
+  viewmode: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
   },
 });
 
