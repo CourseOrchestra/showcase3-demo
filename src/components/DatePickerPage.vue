@@ -88,11 +88,15 @@ const dateRange = ref({
 
 const debugDate = () => {
   dateField.value = "2024-02-23";
+  //dateField.value = null;
 };
 
 const debugRange = () => {
   dateRange.value.dateStart.value = "2024-02-21";
   dateRange.value.dateEnd.value = "2024-02-27";
+
+  //dateRange.value.dateStart.value = null;
+  //dateRange.value.dateEnd.value = null;
 };
 
 const debugDate2 = () => {

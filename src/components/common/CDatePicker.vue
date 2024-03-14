@@ -71,8 +71,11 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const mask = { mask: "##.##.####" };
+const getDateByStr = (str: string) => {
+  return new Date(str ? str : "");
+};
 
-const selectedDate = ref(new Date(props.modelValue ? props.modelValue : ""));
+const selectedDate = ref(getDateByStr(props.modelValue));
 
 const formattedDate = computed(() => {
   return selectedDate.value && isFinite(Number(selectedDate.value))
@@ -83,7 +86,7 @@ const formattedDate = computed(() => {
 watch(
   () => props.modelValue,
   (newDate) => {
-    selectedDate.value = new Date(newDate);
+    selectedDate.value = getDateByStr(newDate);
   },
 );
 
