@@ -16,6 +16,7 @@
           variant="solo"
           density="compact"
           @update:model-value="updateSelectedDate"
+          @click:append-inner="showPicker"
         ></v-text-field>
       </template>
       <v-date-picker
@@ -71,7 +72,11 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const mask = { mask: "##.##.####" };
+
 const menuOpen = ref(false);
+const showPicker = () => {
+  menuOpen.value = true;
+};
 
 const getDateByStr = (str: string) => {
   return new Date(str ? str : "");
