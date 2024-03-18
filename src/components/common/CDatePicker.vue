@@ -1,6 +1,6 @@
 <template>
   <c-field-col v-bind="$attrs">
-    <v-menu>
+    <v-menu v-model="menuOpen" :close-on-content-click="false">
       <template v-if="!props.hidden" #activator="{ props }">
         <v-text-field
           v-maska:[mask]
@@ -71,6 +71,8 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const mask = { mask: "##.##.####" };
+const menuOpen = ref(false);
+
 const getDateByStr = (str: string) => {
   return new Date(str ? str : "");
 };
@@ -93,6 +95,7 @@ watch(
 watch(selectedDate, (d) => {
   const str = isFinite(Number(d)) ? dateToStr(d) : "";
   emit("update:modelValue", str);
+  menuOpen.value = false;
 });
 
 const updateSelectedDate = (val: string) => {
