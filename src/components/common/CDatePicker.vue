@@ -14,7 +14,6 @@
           variant="solo"
           density="compact"
           @update:model-value="updateSelectedDate"
-          @click:append-inner="showPicker"
         >
           <template #append-inner>
             <v-icon icon="mdi-calendar" v-bind="props" />
@@ -76,10 +75,6 @@ const emit = defineEmits(["update:modelValue"]);
 const mask = { mask: "##.##.####" };
 
 const menuOpen = ref(false);
-const showPicker = () => {
-  menuOpen.value = true;
-};
-
 const getDateByStr = (str: string) => {
   return new Date(str ? str : "");
 };

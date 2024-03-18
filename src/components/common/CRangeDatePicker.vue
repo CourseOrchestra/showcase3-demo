@@ -5,8 +5,6 @@
         <v-text-field
           v-maska:[mask]
           :model-value="formattedDate"
-          v-bind="props"
-          append-inner-icon="mdi-calendar"
           :readonly="readonly || viewmode"
           :disabled="disabled"
           :hidden="hidden"
@@ -16,7 +14,11 @@
           variant="solo"
           density="compact"
           @update:model-value="updateSelectedDate"
-        ></v-text-field>
+        >
+          <template #append-inner>
+            <v-icon icon="mdi-calendar" v-bind="props" />
+          </template>
+        </v-text-field>
       </template>
       <v-date-picker
         v-model="selectedDate"
