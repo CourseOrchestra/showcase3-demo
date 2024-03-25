@@ -9,9 +9,9 @@
     <br />
 
     <v-toolbar-items>
-      <c-btn @click="debugDate"> Задать дату </c-btn>
-      <c-btn @click="debugRange"> Задать интервал </c-btn>
-      <c-btn @click="debugDate2"> Вывод </c-btn>
+      <c-btn @click="debug1"> Задать ошибки</c-btn>
+      <c-btn @click="debug2"> Убрать ошибки</c-btn>
+      <c-btn @click="debug3"> Вывод</c-btn>
     </v-toolbar-items>
   </vContainer>
 </template>
@@ -21,7 +21,7 @@ import { ref } from "vue";
 import { setTitle } from "@/utils/common";
 import CFTextarea from "@/components/common/CFTextarea.vue";
 import CBtn from "@/components/common/CBtn.vue";
-import { StringField } from "@/apidtos/basetypes";
+import { ErrorDescrSeverity, StringField } from "@/apidtos/basetypes";
 
 setTitle("spellcheck");
 
@@ -30,28 +30,42 @@ const stringField = ref<StringField>({
     "программа многоязчная программа проверке орфогрфии, стилистики и грамматики",
 
   error: [],
+
   lookup: false,
   label: "Текст",
   readonly: false,
   hidden: false,
-
-  /*
-
-  error: Array<ErrorDescr>,
-  lookup: boolean
-  label: string;
-  readonly: boolean;
-  hidden: boolean;
-
-*/
 });
 
-const debugDate = () => {};
+const debug1 = () => {
+  stringField.value.error = [
+    {
+      severity: ErrorDescrSeverity.error,
+      descr: "dd1",
+      errorType: 0,
+    },
+    {
+      severity: ErrorDescrSeverity.error,
+      descr: "dd2",
+      errorType: 0,
+    },
+  ];
+};
 
-const debugRange = () => {};
+const debug2 = () => {
+  stringField.value.error = [];
+};
 
-const debugDate2 = () => {
+const debug3 = () => {
   /* eslint-disable-next-line  no-console */
-  /* eslint-disable-next-line  no-console */
+  /*
+
+error: Array<ErrorDescr>,
+lookup: boolean
+label: string;
+readonly: boolean;
+hidden: boolean;
+
+*/
 };
 </script>

@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { ErrorDescr, StringField } from "@/apidtos/basetypes";
+import {
+  ErrorDescr,
+  ErrorDescrSeverity,
+  StringField,
+} from "@/apidtos/basetypes";
 import { stringFieldDefaults } from "@/apidtos";
 import type { PropType } from "vue";
 import { computed } from "vue";
@@ -37,7 +41,7 @@ function getError(error: Array<ErrorDescr>) {
   return (
     error
       /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-      .filter((it: any) => it.severity.error === 1)
+      .filter((it: any) => it.severity === ErrorDescrSeverity.error)
       .map((arr) => arr.descr)
       .join("; ")
   );
@@ -46,7 +50,7 @@ function getWarning(error: Array<ErrorDescr>) {
   return (
     error
       /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-      .filter((it: any) => it.severity.warning === 1)
+      .filter((it: any) => it.severity === ErrorDescrSeverity.warning)
       .map((arr) => arr.descr)
       .join("; ")
   );

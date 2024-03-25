@@ -38,7 +38,7 @@ export interface ErrorDescr {
   errorType: FieldErrorType;
 }
 
-enum ErrorDescrSeverity {
+export enum ErrorDescrSeverity {
   error,
   warning,
 }
