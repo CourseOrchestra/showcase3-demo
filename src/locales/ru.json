@@ -41,6 +41,7 @@
       "logoplatform": "Логотип Платформы",
       "navigator": "Навигатор",
       "datepicker": "Календарь",
+      "spellcheck": "Проверка орфографии, стилистики и грамматики",
       "grid": "Грид",
       "gridvuetify": "Vuetify Page грид",
       "gridvuetifyvirtual": "Vuetify Виртуальный грид",

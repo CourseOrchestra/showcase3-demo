@@ -41,6 +41,7 @@
       "logoplatform": "Logo Platform",
       "navigator": "Navigator",
       "datepicker": "DatePicker",
+      "spellcheck": "Checking spelling, style and grammar",
       "grid": "Grid",
       "gridvuetify": "Vuetify Page grid",
       "gridvuetifyvirtual": "Vuetify Virtual grid",

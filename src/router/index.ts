@@ -15,6 +15,7 @@ import PrimeVueLyraGridPage from "@/components/PrimeVueLyraGridPage.vue";
 import PrimeVueTreeGroupPage from "@/components/PrimeVueTreeGroupPage.vue";
 import PrimeVueDataGroupPage from "@/components/PrimeVueDataGroupPage.vue";
 import DatePickerPage from "@/components/DatePickerPage.vue";
+import SpellCheckPage from "@/components/SpellCheckPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -41,6 +42,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/datepicker",
     name: "datepicker",
     component: DatePickerPage,
+  },
+  {
+    path: "/spellcheck",
+    name: "spellcheck",
+    component: SpellCheckPage,
   },
   {
     path: "/grid",

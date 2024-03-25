@@ -93,6 +93,10 @@ const links = [
         to: "/datepicker",
       },
       {
+        text: "App.menu.spellcheck",
+        to: "/spellcheck",
+      },
+      {
         text: "App.menu.urlstate",
         to: "/urlstate",
       },
