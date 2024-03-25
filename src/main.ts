@@ -232,8 +232,26 @@ const app = createApp(App)
 
   .component("EasyDataTable", Vue3EasyDataTable);
 
+const apiAxios = axios.create({
+  baseURL: "http://localhost:1235",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+apiAxios.defaults.headers.common["Authorization"] = "Bearer auth";
+apiAxios.defaults.headers.common["Accept"] = "application/json";
+apiAxios.defaults.headers.post["Content-Type"] = "application/json";
+
+app.use(VueAxios, apiAxios as AxiosStatic);
+
+app.provide("axios", app.config.globalProperties.axios);
+
 // tag::read_store[]
 import { useInternationalizationStore } from "@/stores/internationalization";
+import axios, { AxiosStatic } from "axios";
+import VueAxios from "vue-axios";
+
 const internationalization = useInternationalizationStore();
 i18n.global.locale.value = internationalization.locale;
 // end::read_store[]
