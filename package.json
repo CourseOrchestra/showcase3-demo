@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.27.8",
+  "version": "1.27.9",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "axios": "^1.6.8",
     "core-js": "^3.36.1",
     "js-file-download": "^0.4.12",
     "pinia": "^2.1.7",
