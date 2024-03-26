@@ -60,7 +60,7 @@ function getError(error: Array<ErrorDescr>) {
   return (
     error
       /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-      .filter((it: any) => it.severity === ErrorDescrSeverity.error)
+      .filter((it: object) => it.severity === ErrorDescrSeverity.error)
       .map((arr) => arr.descr)
       .join("; ")
   );
@@ -92,8 +92,7 @@ const spellcheck = (val: string) => {
       .then((response: any) => {
         localValue.value.error = [];
         if (response && response.data) {
-          /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-          response.data.forEach((element: any) =>
+          response.data.forEach((element: string) =>
             localValue.value.error.push({
               severity: ErrorDescrSeverity.error,
               descr: element,
@@ -102,10 +101,7 @@ const spellcheck = (val: string) => {
           );
         }
       })
-      /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-      .catch((error: any) => {
-        /* eslint-disable-next-line  no-console */
-        console.log("---------------------------");
+      .catch((error: object) => {
         /* eslint-disable-next-line  no-console */
         console.log(error);
 

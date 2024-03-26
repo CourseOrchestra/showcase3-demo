@@ -1,3 +1,20 @@
+<template>
+  <c-field-col v-bind="$attrs">
+    <v-textarea
+      v-model="localValue"
+      :readonly="readonly"
+      :hidden="hidden"
+      :label="label"
+      :rows="rows"
+      :messages="messages"
+      :error-messages="errorMessages"
+      clearable
+      variant="solo"
+      density="compact"
+    />
+  </c-field-col>
+</template>
+
 <script setup lang="ts">
 import { computed } from "vue";
 import CFieldCol from "@/components/common/CFieldCol.vue";
@@ -42,20 +59,3 @@ const localValue = computed({
   },
 });
 </script>
-
-<template>
-  <c-field-col v-bind="$attrs">
-    <v-textarea
-      v-model="localValue"
-      :readonly="readonly"
-      :hidden="hidden"
-      :label="label"
-      :rows="rows"
-      :messages="messages"
-      :error-messages="errorMessages"
-      clearable
-      variant="solo"
-      density="compact"
-    />
-  </c-field-col>
-</template>
