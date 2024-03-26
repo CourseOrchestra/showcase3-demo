@@ -60,7 +60,7 @@ function getError(error: Array<ErrorDescr>) {
   return (
     error
       /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-      .filter((it: object) => it.severity === ErrorDescrSeverity.error)
+      .filter((it: any) => it.severity === ErrorDescrSeverity.error)
       .map((arr) => arr.descr)
       .join("; ")
   );
