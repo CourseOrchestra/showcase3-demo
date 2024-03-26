@@ -1,3 +1,17 @@
+<template>
+  <c-field-col v-bind="$attrs">
+    <c-textarea
+      v-model="localValue.value"
+      :label="props.label || localValue.label"
+      :readonly="props.readonly || localValue.readonly"
+      :hidden="localValue.hidden"
+      :messages="getWarning(localValue.error)"
+      :error-messages="getError(localValue.error)"
+      :rows="rows"
+    />
+  </c-field-col>
+</template>
+
 <script setup lang="ts">
 import {
   ErrorDescr,
@@ -56,17 +70,3 @@ function getWarning(error: Array<ErrorDescr>) {
   );
 }
 </script>
-
-<template>
-  <c-field-col v-bind="$attrs">
-    <c-textarea
-      v-model="localValue.value"
-      :label="props.label || localValue.label"
-      :readonly="props.readonly || localValue.readonly"
-      :hidden="localValue.hidden"
-      :messages="getWarning(localValue.error)"
-      :error-messages="getError(localValue.error)"
-      :rows="rows"
-    />
-  </c-field-col>
-</template>
