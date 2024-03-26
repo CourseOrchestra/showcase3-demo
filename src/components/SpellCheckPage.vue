@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref } from "vue";
+import { ref } from "vue";
 import { setTitle } from "@/utils/common";
 import CFTextarea from "@/components/common/CFTextarea.vue";
 import CBtn from "@/components/common/CBtn.vue";
@@ -56,52 +56,8 @@ const debug2 = () => {
   stringField.value.error = [];
 };
 
-/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-const axios: any = inject("axios");
 const debug3 = () => {
   /* eslint-disable-next-line  no-console */
-  //console.log(response);
-
-  axios
-    .post(
-      "/api/1.0/spellcheck",
-      JSON.stringify({ text: stringField.value.value }),
-      {},
-    )
-    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-    .then((response: any) => {
-      if (response && response.data) {
-        stringField.value.error = [];
-        /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-        response.data.forEach((element: any) =>
-          stringField.value.error.push({
-            severity: ErrorDescrSeverity.error,
-            descr: element,
-            errorType: 0,
-          }),
-        );
-      }
-    })
-    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-    .catch((error: any) => {
-      /* eslint-disable-next-line  no-console */
-      console.log("---------------------------");
-      /* eslint-disable-next-line  no-console */
-      console.log(error);
-
-      stringField.value.error = [
-        {
-          severity: ErrorDescrSeverity.error,
-          descr:
-            "dd1sdfsd sdfdsfsdfsdfs sfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdf",
-          errorType: 0,
-        },
-        {
-          severity: ErrorDescrSeverity.error,
-          descr: "dd2 23123123212 234234234234 34534534534 34534534534534",
-          errorType: 0,
-        },
-      ];
-    });
+  console.log(stringField);
 };
 </script>
