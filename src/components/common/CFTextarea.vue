@@ -46,6 +46,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  spellcheckDelay: {
+    type: Number,
+    default: 2000,
+  },
 });
 const emit = defineEmits(["update:modelValue"]);
 const localValue = computed({
@@ -125,6 +129,6 @@ const spellcheck = (val: string) => {
 
 */
       });
-  }, 2000);
+  }, props.spellcheckDelay);
 };
 </script>
