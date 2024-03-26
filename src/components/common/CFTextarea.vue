@@ -90,8 +90,8 @@ const spellcheck = (val: string) => {
       .post("/api/1.0/spellcheck", JSON.stringify({ text: val }), {})
       /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
       .then((response: any) => {
+        localValue.value.error = [];
         if (response && response.data) {
-          localValue.value.error = [];
           /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
           response.data.forEach((element: any) =>
             localValue.value.error.push({
@@ -109,6 +109,8 @@ const spellcheck = (val: string) => {
         /* eslint-disable-next-line  no-console */
         console.log(error);
 
+        /*
+
         localValue.value.error = [
           {
             severity: ErrorDescrSeverity.error,
@@ -122,6 +124,10 @@ const spellcheck = (val: string) => {
             errorType: 0,
           },
         ];
+
+//        localValue.value.error = [];
+
+*/
       });
   }, 2000);
 };
