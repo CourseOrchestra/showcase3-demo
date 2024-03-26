@@ -85,7 +85,23 @@ const debug3 = () => {
     /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
     .catch((error: any) => {
       /* eslint-disable-next-line  no-console */
+      console.log("---------------------------");
+      /* eslint-disable-next-line  no-console */
       console.log(error);
+
+      stringField.value.error = [
+        {
+          severity: ErrorDescrSeverity.error,
+          descr:
+            "dd1sdfsd sdfdsfsdfsdfs sfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdf",
+          errorType: 0,
+        },
+        {
+          severity: ErrorDescrSeverity.error,
+          descr: "dd2 23123123212 234234234234 34534534534 34534534534534",
+          errorType: 0,
+        },
+      ];
     });
 };
 </script>
