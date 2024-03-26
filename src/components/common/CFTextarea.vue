@@ -76,7 +76,8 @@ function getWarning(error: Array<ErrorDescr>) {
 }
 
 let timerId: NodeJS.Timeout;
-const axios: undefined = inject("axios");
+/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
+const axios: any = inject("axios");
 const spellcheck = (val: string) => {
   if (!props.spellcheck) {
     return;
