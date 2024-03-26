@@ -75,6 +75,7 @@ function getWarning(error: Array<ErrorDescr>) {
   );
 }
 
+let timerId: NodeJS.Timeout;
 /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
 const axios: any = inject("axios");
 const spellcheck = (val: string) => {
@@ -82,42 +83,46 @@ const spellcheck = (val: string) => {
     return;
   }
 
-  axios
-    .post("/api/1.0/spellcheck", JSON.stringify({ text: val }), {})
-    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-    .then((response: any) => {
-      if (response && response.data) {
-        localValue.value.error = [];
-        /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-        response.data.forEach((element: any) =>
-          localValue.value.error.push({
-            severity: ErrorDescrSeverity.error,
-            descr: element,
-            errorType: 0,
-          }),
-        );
-      }
-    })
-    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-    .catch((error: any) => {
-      /* eslint-disable-next-line  no-console */
-      console.log("---------------------------");
-      /* eslint-disable-next-line  no-console */
-      console.log(error);
+  clearTimeout(timerId);
 
-      localValue.value.error = [
-        {
-          severity: ErrorDescrSeverity.error,
-          descr:
-            "dd1sdfsd sdfdsfsdfsdfs sfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdf",
-          errorType: 0,
-        },
-        {
-          severity: ErrorDescrSeverity.error,
-          descr: "dd2 23123123212 234234234234 34534534534 34534534534534",
-          errorType: 0,
-        },
-      ];
-    });
+  timerId = setTimeout(() => {
+    axios
+      .post("/api/1.0/spellcheck", JSON.stringify({ text: val }), {})
+      /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
+      .then((response: any) => {
+        if (response && response.data) {
+          localValue.value.error = [];
+          /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
+          response.data.forEach((element: any) =>
+            localValue.value.error.push({
+              severity: ErrorDescrSeverity.error,
+              descr: element,
+              errorType: 0,
+            }),
+          );
+        }
+      })
+      /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
+      .catch((error: any) => {
+        /* eslint-disable-next-line  no-console */
+        console.log("---------------------------");
+        /* eslint-disable-next-line  no-console */
+        console.log(error);
+
+        localValue.value.error = [
+          {
+            severity: ErrorDescrSeverity.error,
+            descr:
+              "dd1sdfsd sdfdsfsdfsdfs sfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdf",
+            errorType: 0,
+          },
+          {
+            severity: ErrorDescrSeverity.error,
+            descr: "dd2 23123123212 234234234234 34534534534 34534534534534",
+            errorType: 0,
+          },
+        ];
+      });
+  }, 2000);
 };
 </script>
