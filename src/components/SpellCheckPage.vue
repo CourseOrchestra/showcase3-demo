@@ -40,12 +40,12 @@ const stringField = ref<StringField>({
 const debug1 = () => {
   stringField.value.error = [
     {
-      severity: ErrorDescrSeverity.error,
+      severity: ErrorDescrSeverity.warning,
       descr: "dd1",
       errorType: 0,
     },
     {
-      severity: ErrorDescrSeverity.error,
+      severity: ErrorDescrSeverity.warning,
       descr: "dd2",
       errorType: 0,
     },
