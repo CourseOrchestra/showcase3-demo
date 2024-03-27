@@ -98,7 +98,7 @@ const spellcheck = (val: string) => {
             localValue.value.error.push({
               severity: ErrorDescrSeverity.warning,
               descr: element,
-              errorType: 0,
+              errorType: "spellcheck",
             }),
           );
         }
@@ -114,12 +114,12 @@ const spellcheck = (val: string) => {
             severity: ErrorDescrSeverity.warning,
             descr:
               "dd1sdfsd sdfdsfsdfsdfs sfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdfsdf sdfsdfsdf",
-            errorType: 0,
+            errorType: "spellcheck",
           },
           {
             severity: ErrorDescrSeverity.warning,
             descr: "dd2 23123123212 234234234234 34534534534 34534534534534",
-            errorType: 0,
+            errorType: "spellcheck",
           },
         ];
 

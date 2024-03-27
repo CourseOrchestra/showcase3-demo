@@ -35,12 +35,10 @@ export interface GeneralField {
 export interface ErrorDescr {
   severity: ErrorDescrSeverity;
   descr: string;
-  errorType: FieldErrorType;
+  errorType: string;
 }
 
 export enum ErrorDescrSeverity {
   error,
   warning,
 }
-
-enum FieldErrorType {}

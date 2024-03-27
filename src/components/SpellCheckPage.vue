@@ -42,12 +42,12 @@ const debug1 = () => {
     {
       severity: ErrorDescrSeverity.warning,
       descr: "dd1",
-      errorType: 0,
+      errorType: "spellcheck",
     },
     {
       severity: ErrorDescrSeverity.warning,
       descr: "dd2",
-      errorType: 0,
+      errorType: "spellcheck",
     },
   ];
 };
