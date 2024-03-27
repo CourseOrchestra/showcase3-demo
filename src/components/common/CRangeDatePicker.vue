@@ -132,7 +132,7 @@ watch(
   { deep: true },
 );
 
-watch(selectedDate, (arr) => {
+watch(selectedDate.value, (arr) => {
   if (arr.length === 0) {
     localValue.value.dateStart.value = "";
     localValue.value.dateEnd.value = "";
