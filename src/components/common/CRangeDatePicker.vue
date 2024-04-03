@@ -132,23 +132,27 @@ watch(
   { deep: true },
 );
 
-watch(selectedDate.value, (arr) => {
-  if (arr.length === 0) {
-    localValue.value.dateStart.value = "";
-    localValue.value.dateEnd.value = "";
+watch(
+  selectedDate,
+  (arr) => {
+    if (arr.length === 0) {
+      localValue.value.dateStart.value = "";
+      localValue.value.dateEnd.value = "";
 
-    return;
-  }
+      return;
+    }
 
-  if (validIntervalByDates(arr)) {
-    arr.sort((a, b) => a.getTime() - b.getTime());
+    if (validIntervalByDates(arr)) {
+      arr.sort((a, b) => a.getTime() - b.getTime());
 
-    localValue.value.dateStart.value = dateToStr(arr[0]);
-    localValue.value.dateEnd.value = dateToStr(arr[1]);
+      localValue.value.dateStart.value = dateToStr(arr[0]);
+      localValue.value.dateEnd.value = dateToStr(arr[1]);
 
-    menuOpen.value = false;
-  }
-});
+      menuOpen.value = false;
+    }
+  },
+  { deep: true },
+);
 
 const updateSelectedDate = (val: string) => {
   if (!val || val.length === 0) {
