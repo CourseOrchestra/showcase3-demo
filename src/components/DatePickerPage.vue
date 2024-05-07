@@ -84,7 +84,7 @@ import CBtn from "@/components/common/CBtn.vue";
 import CRangeDatePicker from "@/components/common/CRangeDatePicker.vue";
 import CRangeDatePickerOld from "@/components/common/CRangeDatePickerOld.vue";
 import CFAutocomplete from "@/components/common/CFAutocomplete.vue";
-import {IntegerField, StringField} from "@/apidtos/basetypes";
+import {IntegerField} from "@/apidtos/basetypes";
 import CFTextField from "@/components/common/CFTextField.vue";
 
 
