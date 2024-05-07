@@ -77,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import {Ref, ref} from "vue";
+import {ref} from "vue";
 import {setTitle, TextFieldType} from "@/utils/common";
 import CDatePicker from "@/components/common/CDatePicker.vue";
 import CBtn from "@/components/common/CBtn.vue";
@@ -108,7 +108,6 @@ const dateRange = ref({
 
 
 
-//let intField : IntegerField;
 
 
 const intField = ref<IntegerField>({
@@ -121,8 +120,6 @@ const intField = ref<IntegerField>({
   readonly: false,
   hidden: false,
 });
-
-
 
 
 const num = ref();
