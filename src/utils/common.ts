@@ -17,6 +17,14 @@ export function setTitle(page: string) {
   common.setPage(page);
 }
 
+
+export enum TextFieldType {
+  number = "number",
+}
+
+
+
+
 export function formatDate(
   date: string | object | string[] | undefined | null,
 ) {
