@@ -7,11 +7,11 @@ export interface LocalDateField extends GeneralField {
 }
 
 export interface DoubleField extends GeneralField {
-  value: number;
+  value: number | undefined;
 }
 
 export interface IntegerField extends GeneralField {
-  value: number;
+  value: number | undefined;
 }
 
 export interface BooleanField extends GeneralField {

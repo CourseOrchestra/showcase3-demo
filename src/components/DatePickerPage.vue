@@ -111,7 +111,7 @@ const dateRange = ref({
 
 
 const intField = ref<IntegerField>({
-  value: null,
+  value: undefined,
 
   error: [],
 
