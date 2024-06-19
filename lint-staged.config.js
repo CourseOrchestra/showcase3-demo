@@ -1,3 +1,4 @@
 export default {
-  "*.{js,jsx,vue,ts,tsx}": "eslint --fix --ignore-path .gitignore",
+  "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}":
+    "eslint --fix --ignore-path .gitignore",
 };

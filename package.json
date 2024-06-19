@@ -21,7 +21,7 @@
     "test:e2e:dev": "start-server-and-test dev http-get://localhost:3000 'cypress open --e2e --browser chrome --config baseUrl=http://localhost:3000'",
     "test:e2e:preview": "start-server-and-test preview http://localhost:8080 'cypress open --e2e --browser chrome --config baseUrl=http://localhost:8080/showcase3-demo'",
     "test:e2e:ci": "start-server-and-test preview http://localhost:8080 'cypress run --headless --browser chrome --config baseUrl=http://localhost:8080/showcase3-demo'",
-    "lint": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
