@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.27.16",
+  "version": "1.27.17",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -9,6 +9,7 @@
     "url": "https://github.com/CourseOrchestra/showcase3-demo"
   },
   "homepage": "https://CourseOrchestra.github.io/showcase3-demo",
+  "type": "module",
   "scripts": {
     "dev": "vite --port 3000 --host localhost",
     "build": "vue-tsc --noEmit && vite build",
