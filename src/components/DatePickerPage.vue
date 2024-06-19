@@ -3,19 +3,15 @@
     <!--    <h1 class="text-center">{{ $t("NavigatorPage.title") }}</h1>-->
     <h1 class="text-center">Новый календарь</h1>
 
-
     <br />
     <br />
-
 
     <c-f-text-field
-        v-model="intField"
-        :type="TextFieldType.number"
+      v-model="intField"
+      :type="TextFieldType.number"
     ></c-f-text-field>
 
-
-
-<!--
+    <!--
     <c-f-text-field
         v-model.number="intField"
         outlined
@@ -23,22 +19,16 @@
     ></c-f-text-field>
 -->
 
-
-
-
     <br />
     <br />
-
 
     <c-f-autocomplete
-        label="Autocomplete"
-        :readonly=readonly
+      label="Autocomplete"
+      :readonly="readonly"
     ></c-f-autocomplete>
 
     <br />
     <br />
-
-
 
     <c-date-picker
       v-model="dateField"
@@ -60,14 +50,6 @@
     <br />
     <br />
 
-    <c-range-date-picker-old
-      v-model="dateRange"
-      label="range date-picker old"
-      cols="6"
-    />
-    <br />
-    <br />
-
     <v-toolbar-items>
       <c-btn @click="debugDate"> Задать дату </c-btn>
       <c-btn @click="debugRange"> Задать интервал </c-btn>
@@ -77,16 +59,14 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
-import {setTitle, TextFieldType} from "@/utils/common";
+import { ref } from "vue";
+import { setTitle, TextFieldType } from "@/utils/common";
 import CDatePicker from "@/components/common/CDatePicker.vue";
 import CBtn from "@/components/common/CBtn.vue";
 import CRangeDatePicker from "@/components/common/CRangeDatePicker.vue";
-import CRangeDatePickerOld from "@/components/common/CRangeDatePickerOld.vue";
 import CFAutocomplete from "@/components/common/CFAutocomplete.vue";
-import {IntegerField} from "@/apidtos/basetypes";
+import { IntegerField } from "@/apidtos/basetypes";
 import CFTextField from "@/components/common/CFTextField.vue";
-
 
 setTitle("datepicker");
 
@@ -106,10 +86,6 @@ const dateRange = ref({
 });
 */
 
-
-
-
-
 const intField = ref<IntegerField>({
   value: undefined,
 
@@ -121,8 +97,7 @@ const intField = ref<IntegerField>({
   hidden: false,
 });
 
-
-const num = ref();
+//const num = ref();
 
 const readonly = ref(false);
 
@@ -159,7 +134,6 @@ const debugRange = () => {
 };
 
 const debugDate2 = () => {
-
   readonly.value = !readonly.value;
 
   /* eslint-disable-next-line  no-console */
@@ -167,8 +141,10 @@ const debugDate2 = () => {
   /* eslint-disable-next-line  no-console */
   console.log(dateRange.value);
 
+  /* eslint-disable-next-line  no-console */
   console.log("-------------");
-//  console.log(num.value);
+  //  console.log(num.value);
+  /* eslint-disable-next-line  no-console */
   console.log(intField);
 };
 </script>

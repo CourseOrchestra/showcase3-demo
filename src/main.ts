@@ -35,9 +35,6 @@ import "primeicons/primeicons.css";
 
 import URLMapper from "showcase3/src/library/URLMapper";
 
-import Datepicker from "@vuepic/vue-datepicker";
-import "@vuepic/vue-datepicker/dist/main.css";
-
 loadFonts();
 
 // tag::def_pinia[]
@@ -222,8 +219,6 @@ const app = createApp(App)
   .component("Checkbox", Checkbox)
   .component("TreeTable", TreeTable)
   .component("Calendar", Calendar)
-
-  .component("DatePicker", Datepicker)
 
   .use(vuetify) /*.use(showcase3)*/
   .use(URLMapper, {

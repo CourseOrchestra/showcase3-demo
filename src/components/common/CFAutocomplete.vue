@@ -5,6 +5,7 @@ import CFieldCol from "@/components/common/CFieldCol.vue";
 
 const props = defineProps({
   modelValue: {
+    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
     type: Object as PropType<any>,
     default: null,
   },
@@ -82,6 +83,7 @@ const emit = defineEmits([
 //     // emit("update:modelId", value);
 //   },
 // });
+/* eslint-disable-next-line  @typescript-eslint/no-unused-vars */
 const localModelValue = computed({
   get() {
     return props.modelValue;
@@ -90,15 +92,12 @@ const localModelValue = computed({
     emit("update:modelValue", value);
   },
 });
-
 </script>
 
 <template>
   <c-field-col v-bind="$attrs">
     <c-autocomplete
-      :readonly="
-        readonly || props.viewmode
-      "
+      :readonly="readonly || props.viewmode"
       :clearable="!readonly"
       :disabled="disabled"
       :record-set="recordSet"

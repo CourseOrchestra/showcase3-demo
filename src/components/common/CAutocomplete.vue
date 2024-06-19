@@ -7,6 +7,7 @@ import { computed, PropType, reactive } from "vue";
 
 const props = defineProps({
   modelValue: {
+    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
     type: Object as PropType<any>,
     required: false,
     default: null,
@@ -65,6 +66,7 @@ const props = defineProps({
   },
 });
 const emit = defineEmits(["update:modelValue"]);
+/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
 const localModel = computed<any>({
   get() {
     return props.displayName;
@@ -74,31 +76,40 @@ const localModel = computed<any>({
   },
 });
 
+/* eslint-disable-next-line  @typescript-eslint/no-explicit-any,  @typescript-eslint/no-unused-vars*/
 function search(event: any) {
   let searchString = event;
   if (!event) {
+    /* eslint-disable-next-line  @typescript-eslint/no-unused-vars */
     searchString = "";
   }
 }
 
-const items = reactive<Array<string>>(['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']);
+const items = reactive<Array<string>>([
+  "California",
+  "Colorado",
+  "Florida",
+  "Georgia",
+  "Texas",
+  "Wyoming",
+]);
 </script>
 
 <template>
   <v-autocomplete
-      :model-value="localModel"
-      :readonly="readonly || viewmode"
-      :disabled="disabled"
-      :hidden="hidden"
-      :label="label"
-      :return-object="true"
-      :clearable="clearable"
-      item-value="uid"
-      item-title="display_name"
-      :items="items"
-      variant="solo"
-      density="compact"
-      class="c-autocomplete"
+    :model-value="localModel"
+    :readonly="readonly || viewmode"
+    :disabled="disabled"
+    :hidden="hidden"
+    :label="label"
+    :return-object="true"
+    :clearable="clearable"
+    item-value="uid"
+    item-title="display_name"
+    :items="items"
+    variant="solo"
+    density="compact"
+    class="c-autocomplete"
   >
     <template v-if="$slots.append" #append>
       <div class="append-no-round"></div>
