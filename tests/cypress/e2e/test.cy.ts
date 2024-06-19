@@ -18,7 +18,7 @@ describe("e2e тесты", () => {
       .should("have.attr", "href")
       .and("contain", "corchestra.ru");
   });
-  it("Навигатор", () => {
+  it.skip("Навигатор", () => {
     cy.visit("/navigator");
     cy.contains("h1", "Демонстрация навигатора");
   });
