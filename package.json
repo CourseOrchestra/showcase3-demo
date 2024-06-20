@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.27.16",
+  "version": "1.27.17",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -14,7 +14,7 @@
     "dev": "vite --port 3000 --host localhost",
     "build": "run-p type-check \"build-only {@}\" --",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit",
+    "type-check": "vue-tsc --build --force",
     "preview": "vite preview --port 8080 --host localhost",
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
