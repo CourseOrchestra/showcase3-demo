@@ -1,7 +1,7 @@
 {
   "name": "showcase3-demo",
   "author": "CourseIT",
-  "version": "1.27.12",
+  "version": "1.27.14",
   "description": "showcase3-demo",
   "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
   "repository": {
@@ -12,7 +12,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 3000 --host localhost",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit",
     "preview": "vite preview --port 8080 --host localhost",
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
@@ -58,6 +60,7 @@
     "eslint-plugin-vue": "^9.26.0",
     "happy-dom": "^14.12.0",
     "lint-staged": "^15.2.7",
+    "npm-run-all2": "^6.2.0",
     "pinia-plugin-persistedstate": "^3.2.1",
     "prettier": "^3.3.2",
     "rollup-plugin-visualizer": "^5.12.0",
