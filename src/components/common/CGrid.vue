@@ -40,6 +40,7 @@
       :key="h.key"
     >
       <v-tooltip location="top">
+        <!-- eslint-disable-next-line  vue/no-template-shadow -->
         <template #activator="{ props }">
           <span
             v-bind="props"

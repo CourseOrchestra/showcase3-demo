@@ -1,6 +1,7 @@
 <template>
   <c-field-col v-bind="$attrs">
     <v-menu v-model="menuOpen" :close-on-content-click="false">
+      <!-- eslint-disable-next-line  vue/no-template-shadow -->
       <template v-if="!props.hidden" #activator="{ props }">
         <v-text-field
           v-maska:[mask]
