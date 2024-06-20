@@ -5,11 +5,14 @@ import vuetify from "vite-plugin-vuetify";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
 import { visualizer } from "rollup-plugin-visualizer";
 import { createHtmlPlugin } from "vite-plugin-html";
+import vueDevTools from "vite-plugin-vue-devtools";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   return {
     plugins: [
+      vueDevTools(),
+
       createHtmlPlugin({
         inject: {
           data: {
