@@ -1,8 +1,8 @@
-import GridPage from "@/components/GridPage.vue";
+import GridVuetifyPage from "@/components/GridVuetifyPage.vue";
 
 describe("GridPage.cy.ts", () => {
   it("Грид", () => {
-    cy.mount(GridPage);
-    cy.contains("h2", "http");
+    cy.mount(GridVuetifyPage);
+    cy.contains("Dessert");
   });
 });

@@ -110,10 +110,6 @@ const links = [
     text: "App.menu.group2",
     subLinks: [
       {
-        text: "App.menu.grid",
-        to: "/grid",
-      },
-      {
         text: "App.menu.gridvuetify",
         to: "/gridvuetify",
       },

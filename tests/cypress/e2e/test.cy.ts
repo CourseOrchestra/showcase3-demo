@@ -23,7 +23,7 @@ describe("e2e тесты", () => {
     cy.contains("h1", "Демонстрация навигатора");
   });
   it("Грид", () => {
-    cy.visit("/grid");
+    cy.visit("/gridvuetify");
   });
   it("Состояние в url", () => {
     cy.visit("/urlstate");
