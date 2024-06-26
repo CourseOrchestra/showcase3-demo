@@ -2,7 +2,6 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
-import { loadFonts } from "./plugins/webfontloader";
 //import showcase3 from "showcase3";
 // tag::pinia[]
 import { createPinia } from "pinia";
@@ -32,8 +31,6 @@ import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 
 import URLMapper from "showcase3/src/library/URLMapper";
-
-loadFonts();
 
 // tag::def_pinia[]
 const pinia = createPinia();
