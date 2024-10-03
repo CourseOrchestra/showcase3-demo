@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, defineProps, defineEmits, PropType } from "vue";
 import CFieldCol from "@/components/common/CFieldCol.vue";
-import { vMaska } from "maska";
+import { vMaska } from "maska/vue";
 import { SrokDTO } from "@/apidtos";
 import { dateToStr, strToDate } from "@/utils/common";
 

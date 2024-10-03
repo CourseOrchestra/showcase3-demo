@@ -36,7 +36,7 @@ eslint-disable-next-line
 <script setup lang="ts">
 import { ref, computed, watch, defineProps, defineEmits } from "vue";
 import CFieldCol from "@/components/common/CFieldCol.vue";
-import { vMaska } from "maska";
+import { vMaska } from "maska/vue";
 import { dateToStr, strToDate } from "@/utils/common";
 
 const props = defineProps({
